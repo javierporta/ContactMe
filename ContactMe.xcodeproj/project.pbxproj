@@ -14,6 +14,8 @@
 		2CAAF1BF2374613100B108BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1BE2374613100B108BE /* Assets.xcassets */; };
 		2CAAF1C22374613100B108BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1C02374613100B108BE /* LaunchScreen.storyboard */; };
 		2CAAF1CB23746C3200B108BE /* ColorsTheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */; };
+		5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */; };
+		5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		2CAAF1C12374613100B108BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CAAF1C32374613100B108BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorsTheme.xcassets; sourceTree = "<group>"; };
+		5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotYourPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				2CAAF1BE2374613100B108BE /* Assets.xcassets */,
 				2CAAF1C02374613100B108BE /* LaunchScreen.storyboard */,
 				2CAAF1C32374613100B108BE /* Info.plist */,
+				5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */,
+				5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */,
 			);
 			path = ContactMe;
 			sourceTree = "<group>";
@@ -151,8 +157,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CAAF1BA2374612F00B108BE /* ViewController.swift in Sources */,
+				5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */,
 				2CAAF1B62374612F00B108BE /* AppDelegate.swift in Sources */,
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
+				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
