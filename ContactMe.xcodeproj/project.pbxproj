@@ -14,6 +14,7 @@
 		2CAAF1BF2374613100B108BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1BE2374613100B108BE /* Assets.xcassets */; };
 		2CAAF1C22374613100B108BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1C02374613100B108BE /* LaunchScreen.storyboard */; };
 		2CAAF1CB23746C3200B108BE /* ColorsTheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */; };
+		5D540904237C40AA0020144D /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D540903237C40AA0020144D /* SpinnerView.swift */; };
 		5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */; };
 		5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */; };
 		5DA6482B2379ED7200FF23DD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA6482A2379ED7200FF23DD /* HomeViewController.swift */; };
@@ -30,6 +31,7 @@
 		2CAAF1C12374613100B108BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CAAF1C32374613100B108BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorsTheme.xcassets; sourceTree = "<group>"; };
+		5D540903237C40AA0020144D /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotYourPasswordViewController.swift; sourceTree = "<group>"; };
 		5DA6482A2379ED7200FF23DD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				2CAAF1C923746BEB00B108BE /* Assets */,
 				2CAAF1B52374612F00B108BE /* AppDelegate.swift */,
 				2CAAF1B72374612F00B108BE /* SceneDelegate.swift */,
+				5D540903237C40AA0020144D /* SpinnerView.swift */,
 				2CAAF1B92374612F00B108BE /* LoginViewController.swift */,
 				2CAAF1BB2374612F00B108BE /* Main.storyboard */,
 				2CAAF1BE2374613100B108BE /* Assets.xcassets */,
@@ -173,6 +176,7 @@
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
 				5DA6482B2379ED7200FF23DD /* HomeViewController.swift in Sources */,
+				5D540904237C40AA0020144D /* SpinnerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
