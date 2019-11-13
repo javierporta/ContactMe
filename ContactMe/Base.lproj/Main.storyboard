@@ -136,7 +136,7 @@
         <!--HomeViewController-->
         <scene sceneID="ee1-G7-Hr3">
             <objects>
-                <viewController storyboardIdentifier="homeViewController" title="This is the title" id="Gsd-nC-reR" userLabel="HomeViewController" customClass="HomeViewController" customModule="ContactMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeViewController" title="This is the title" modalPresentationStyle="fullScreen" id="Gsd-nC-reR" userLabel="HomeViewController" customClass="HomeViewController" customModule="ContactMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iI7-Dn-PpG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -236,7 +236,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Pra-fG-Cin">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2wW-Hu-zBh" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="2wW-Hu-zBh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WzP-h5-aRE">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
