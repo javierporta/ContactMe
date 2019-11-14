@@ -6,10 +6,7 @@
 //  Copyright © 2019 IPL-Master. All rights reserved.
 //
 
-import UIKit
-import KeychainAccess
-
-
+import UIKit 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,31 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-
-        // Let's initiliaze window
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
-        
-        let keychain = Keychain(service: "com.ipleiria.contactme")
-        
-        // Let's check if user availability
-        if keychain["userPassword"] != nil {
-            // Show home page
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeViewController = storyboard.instantiateViewController(withIdentifier: "homeViewController")
-            self.window?.rootViewController = homeViewController
-        } else {
-            // Show login page
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let loginViewController = storyboard.instantiateViewController(withIdentifier: "loginViewController")
-            self.window?.rootViewController = loginViewController
-        }
-        // Show the home page
-        
-        
-        
-        self.window?.makeKeyAndVisible()
         
         return true
     }
