@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C07D308237DA50800F4D829 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07D307237DA50800F4D829 /* Record.swift */; };
+		2C07D30A237DA53F00F4D829 /* SqliteDbStore+Crud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07D309237DA53F00F4D829 /* SqliteDbStore+Crud.swift */; };
+		2C07D30C237DA58300F4D829 /* SqliteDbStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07D30B237DA58300F4D829 /* SqliteDbStore.swift */; };
 		2CAAF1B62374612F00B108BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAF1B52374612F00B108BE /* AppDelegate.swift */; };
 		2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAF1B72374612F00B108BE /* SceneDelegate.swift */; };
 		2CAAF1BA2374612F00B108BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAF1B92374612F00B108BE /* LoginViewController.swift */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C07D307237DA50800F4D829 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		2C07D309237DA53F00F4D829 /* SqliteDbStore+Crud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SqliteDbStore+Crud.swift"; sourceTree = "<group>"; };
+		2C07D30B237DA58300F4D829 /* SqliteDbStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDbStore.swift; sourceTree = "<group>"; };
 		2CAAF1B22374612F00B108BE /* ContactMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAAF1B52374612F00B108BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CAAF1B72374612F00B108BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +59,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C07D305237DA4BC00F4D829 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C07D307237DA50800F4D829 /* Record.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C07D306237DA4EE00F4D829 /* Infraestructure */ = {
+			isa = PBXGroup;
+			children = (
+				2C07D309237DA53F00F4D829 /* SqliteDbStore+Crud.swift */,
+				2C07D30B237DA58300F4D829 /* SqliteDbStore.swift */,
+			);
+			path = Infraestructure;
+			sourceTree = "<group>";
+		};
 		2CAAF1A92374612F00B108BE = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +95,9 @@
 		2CAAF1B42374612F00B108BE /* ContactMe */ = {
 			isa = PBXGroup;
 			children = (
-				5D27F3F1237C65870001B99E /* CustomControls */,
+				2C07D306237DA4EE00F4D829 /* Infraestructure */,
+				2C07D305237DA4BC00F4D829 /* Model */,
+				5D27F3F1237C65870001B99E /* CutomControls */,
 				2CAAF1C923746BEB00B108BE /* Assets */,
 				2CAAF1B52374612F00B108BE /* AppDelegate.swift */,
 				2CAAF1B72374612F00B108BE /* SceneDelegate.swift */,
@@ -185,12 +210,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CAAF1BA2374612F00B108BE /* LoginViewController.swift in Sources */,
+				2C07D30C237DA58300F4D829 /* SqliteDbStore.swift in Sources */,
 				5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */,
 				5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */,
 				2CAAF1B62374612F00B108BE /* AppDelegate.swift in Sources */,
 				5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */,
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
+				5DA6482B2379ED7200FF23DD /* HomeViewController.swift in Sources */,
+				2C07D30A237DA53F00F4D829 /* SqliteDbStore+Crud.swift in Sources */,
+				2C07D308237DA50800F4D829 /* Record.swift in Sources */,
 				5D540904237C40AA0020144D /* SpinnerView.swift in Sources */,
 				5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */,
 			);
