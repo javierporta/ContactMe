@@ -17,8 +17,10 @@
 		5D540904237C40AA0020144D /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D540903237C40AA0020144D /* SpinnerView.swift */; };
 		5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */; };
 		5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */; };
-		5DA6482B2379ED7200FF23DD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA6482A2379ED7200FF23DD /* HomeViewController.swift */; };
 		5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* KeychainAccess */; };
+		5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */; };
+		5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCA237DC79600FB7423 /* Constants.swift */; };
+		5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +36,9 @@
 		5D540903237C40AA0020144D /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotYourPasswordViewController.swift; sourceTree = "<group>"; };
-		5DA6482A2379ED7200FF23DD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		5DAA7CCA237DC79600FB7423 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +72,7 @@
 		2CAAF1B42374612F00B108BE /* ContactMe */ = {
 			isa = PBXGroup;
 			children = (
-				5D27F3F1237C65870001B99E /* CutomControls */,
+				5D27F3F1237C65870001B99E /* CustomControls */,
 				2CAAF1C923746BEB00B108BE /* Assets */,
 				2CAAF1B52374612F00B108BE /* AppDelegate.swift */,
 				2CAAF1B72374612F00B108BE /* SceneDelegate.swift */,
@@ -76,10 +80,12 @@
 				2CAAF1BB2374612F00B108BE /* Main.storyboard */,
 				2CAAF1BE2374613100B108BE /* Assets.xcassets */,
 				2CAAF1C02374613100B108BE /* LaunchScreen.storyboard */,
+				5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */,
 				2CAAF1C32374613100B108BE /* Info.plist */,
 				5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */,
 				5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */,
-				5DA6482A2379ED7200FF23DD /* HomeViewController.swift */,
+				5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */,
+				5DAA7CCA237DC79600FB7423 /* Constants.swift */,
 			);
 			path = ContactMe;
 			sourceTree = "<group>";
@@ -92,12 +98,12 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		5D27F3F1237C65870001B99E /* CutomControls */ = {
+		5D27F3F1237C65870001B99E /* CustomControls */ = {
 			isa = PBXGroup;
 			children = (
 				5D540903237C40AA0020144D /* SpinnerView.swift */,
 			);
-			path = CutomControls;
+			path = CustomControls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,11 +186,13 @@
 			files = (
 				2CAAF1BA2374612F00B108BE /* LoginViewController.swift in Sources */,
 				5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */,
+				5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */,
 				2CAAF1B62374612F00B108BE /* AppDelegate.swift in Sources */,
+				5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */,
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
-				5DA6482B2379ED7200FF23DD /* HomeViewController.swift in Sources */,
 				5D540904237C40AA0020144D /* SpinnerView.swift in Sources */,
+				5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

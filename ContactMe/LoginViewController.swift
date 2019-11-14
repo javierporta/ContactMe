@@ -22,28 +22,40 @@ class LoginViewController: UIViewController {
     }
     
     //    MARK: Actions
+    
     @IBAction func touchUpLogIn(_ sender: Any) {
+        
+//        ToDo:  use sqlite here
         if ( emailTextField.text == "a" && passwordTextField.text == "a") {
             
-            let keychain = Keychain(service: "com.ipleiria.contactme")
+            let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
             do {
-                try keychain.set("a", key: "userPassword")
+                // ToDo: Save user json instead of "a"
+                try keychain.set("a", key: Constants.USER_PASSWORD_KEY)
             }
             catch let error {
                 print(error)
             }
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "homeViewController")
-            self.present(vc, animated: true, completion: nil)
+            navigateToMainTab()
             
         } else {
             
-            let alert = UIAlertController(title: "Alert", message: "Username or password are not correct", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            showWrongCredentialsAlert()
             
         }
+    }
+    
+    func navigateToMainTab(){
+        let storyboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.MAIN_TAB)
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    func showWrongCredentialsAlert() {
+        let alert = UIAlertController(title: "Alert", message: "Username or password are not correct", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     
