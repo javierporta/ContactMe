@@ -10,9 +10,18 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+//    MARK: Outlets
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextFIeld: UITextField!
+    @IBOutlet weak var repeatPasswordTextField: UITextField!
+    
+//    MARK:Actions
+    @IBAction func signUpButton(_ sender: Any) {
+        print("Sign Up pressed")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
