@@ -65,7 +65,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C07D305237DA4BC00F4D829 /* Model */ = {
+		2C07D305237DA4BC00F4D829 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				2C16BF6323857B34004577C8 /* Entity.swift */,
@@ -73,7 +73,7 @@
 				2C16BF6423857B34004577C8 /* User.swift */,
 				2C07D307237DA50800F4D829 /* Record.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2C07D306237DA4EE00F4D829 /* Infraestructure */ = {
@@ -104,20 +104,17 @@
 		2CAAF1B42374612F00B108BE /* ContactMe */ = {
 			isa = PBXGroup;
 			children = (
+				5D58E5882386D36100FA7407 /* View Controllers */,
 				2C07D306237DA4EE00F4D829 /* Infraestructure */,
-				2C07D305237DA4BC00F4D829 /* Model */,
-				5D27F3F1237C65870001B99E /* CustomControls */,
+				2C07D305237DA4BC00F4D829 /* Models */,
+				5D27F3F1237C65870001B99E /* Custom Controls */,
 				2CAAF1C923746BEB00B108BE /* Assets */,
 				2CAAF1B52374612F00B108BE /* AppDelegate.swift */,
 				2CAAF1B72374612F00B108BE /* SceneDelegate.swift */,
-				2CAAF1B92374612F00B108BE /* LoginViewController.swift */,
 				2CAAF1BB2374612F00B108BE /* Main.storyboard */,
 				2CAAF1BE2374613100B108BE /* Assets.xcassets */,
 				2CAAF1C02374613100B108BE /* LaunchScreen.storyboard */,
-				5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */,
 				2CAAF1C32374613100B108BE /* Info.plist */,
-				5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */,
-				5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */,
 				5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */,
 				5DAA7CCA237DC79600FB7423 /* Constants.swift */,
 			);
@@ -132,12 +129,23 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		5D27F3F1237C65870001B99E /* CustomControls */ = {
+		5D27F3F1237C65870001B99E /* Custom Controls */ = {
 			isa = PBXGroup;
 			children = (
 				5D540903237C40AA0020144D /* SpinnerView.swift */,
 			);
-			path = CustomControls;
+			path = "Custom Controls";
+			sourceTree = "<group>";
+		};
+		5D58E5882386D36100FA7407 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */,
+				5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */,
+				5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */,
+				2CAAF1B92374612F00B108BE /* LoginViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
