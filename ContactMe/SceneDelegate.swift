@@ -13,35 +13,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
+    
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        
-        if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-            window.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
-            
-            let mainStoryboard:UIStoryboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
-            
-            let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
-            
-            // Check if pwd is in keychain
-            if keychain[Constants.USER_PASSWORD_KEY] != nil {
-                // Show first item of tab bar
-                let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.MAIN_TAB) as! MainTabBarController
-                
-                // ToDo: Should we set the item of the tab to open by default?
-                window.rootViewController = tabBarController
-            } else {
-                // Show login page
-                let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.LOGIN)
-                window.rootViewController = loginViewController
-            }
-            
-            self.window = window
-            window.makeKeyAndVisible()
-        }
+        checkIfUserIsLoggedIn(scene)
         
         guard let _ = (scene as? UIWindowScene) else { return }
     }
@@ -72,6 +47,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+    
+    private func checkIfUserIsLoggedIn(_ scene: UIScene) {
+        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
+        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
+        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            window.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+            
+            let mainStoryboard:UIStoryboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
+            
+            let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
+            
+            // Check if pwd is in keychain
+            if keychain[Constants.USER_PASSWORD_KEY] != nil {
+                // Show first item of tab bar
+                let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.MAIN_TAB) as! MainTabBarController
+                
+                // ToDo: Should we set the item of the tab to open by default?
+                window.rootViewController = tabBarController
+            } else {
+                // Show login page
+                let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.LOGIN)
+                window.rootViewController = loginViewController
+            }
+            
+            self.window = window
+            window.makeKeyAndVisible()
+        }
     }
     
     
