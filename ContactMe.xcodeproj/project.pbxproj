@@ -13,6 +13,10 @@
 		2C16BF6523857B34004577C8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16BF6223857B34004577C8 /* Profile.swift */; };
 		2C16BF6623857B34004577C8 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16BF6323857B34004577C8 /* Entity.swift */; };
 		2C16BF6723857B34004577C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16BF6423857B34004577C8 /* User.swift */; };
+		2C192C232386F8C90049B43B /* SQLiteDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C192C222386F8C90049B43B /* SQLiteDataStore.swift */; };
+		2C192C31238702050049B43B /* DataHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C192C2F238702050049B43B /* DataHelperProtocol.swift */; };
+		2C192C32238702050049B43B /* UserDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C192C30238702050049B43B /* UserDataHelper.swift */; };
+		2C192C34238702170049B43B /* DataAccessError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C192C33238702170049B43B /* DataAccessError.swift */; };
 		2CAAF1B62374612F00B108BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAF1B52374612F00B108BE /* AppDelegate.swift */; };
 		2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAF1B72374612F00B108BE /* SceneDelegate.swift */; };
 		2CAAF1BA2374612F00B108BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAAF1B92374612F00B108BE /* LoginViewController.swift */; };
@@ -36,6 +40,10 @@
 		2C16BF6223857B34004577C8 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		2C16BF6323857B34004577C8 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		2C16BF6423857B34004577C8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2C192C222386F8C90049B43B /* SQLiteDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDataStore.swift; sourceTree = "<group>"; };
+		2C192C2F238702050049B43B /* DataHelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHelperProtocol.swift; sourceTree = "<group>"; };
+		2C192C30238702050049B43B /* UserDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataHelper.swift; sourceTree = "<group>"; };
+		2C192C33238702170049B43B /* DataAccessError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAccessError.swift; sourceTree = "<group>"; };
 		2CAAF1B22374612F00B108BE /* ContactMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAAF1B52374612F00B108BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CAAF1B72374612F00B108BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,10 +87,28 @@
 		2C07D306237DA4EE00F4D829 /* Infraestructure */ = {
 			isa = PBXGroup;
 			children = (
+				2C192C222386F8C90049B43B /* SQLiteDataStore.swift */,
 				2C07D309237DA53F00F4D829 /* SqliteDbStore+Crud.swift */,
 				2C07D30B237DA58300F4D829 /* SqliteDbStore.swift */,
 			);
 			path = Infraestructure;
+			sourceTree = "<group>";
+		};
+		2C192C2D238701AF0049B43B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2C192C33238702170049B43B /* DataAccessError.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2C192C2E238701BB0049B43B /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				2C192C2F238702050049B43B /* DataHelperProtocol.swift */,
+				2C192C30238702050049B43B /* UserDataHelper.swift */,
+			);
+			path = DataAccess;
 			sourceTree = "<group>";
 		};
 		2CAAF1A92374612F00B108BE = {
@@ -104,6 +130,8 @@
 		2CAAF1B42374612F00B108BE /* ContactMe */ = {
 			isa = PBXGroup;
 			children = (
+				2C192C2E238701BB0049B43B /* DataAccess */,
+				2C192C2D238701AF0049B43B /* Common */,
 				5D58E5882386D36100FA7407 /* View Controllers */,
 				2C07D306237DA4EE00F4D829 /* Infraestructure */,
 				2C07D305237DA4BC00F4D829 /* Models */,
@@ -235,9 +263,13 @@
 				2CAAF1B62374612F00B108BE /* AppDelegate.swift in Sources */,
 				5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */,
 				2C16BF6723857B34004577C8 /* User.swift in Sources */,
+				2C192C232386F8C90049B43B /* SQLiteDataStore.swift in Sources */,
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
 				2C07D30A237DA53F00F4D829 /* SqliteDbStore+Crud.swift in Sources */,
+				2C192C31238702050049B43B /* DataHelperProtocol.swift in Sources */,
+				2C192C34238702170049B43B /* DataAccessError.swift in Sources */,
+				2C192C32238702050049B43B /* UserDataHelper.swift in Sources */,
 				2C07D308237DA50800F4D829 /* Record.swift in Sources */,
 				5D540904237C40AA0020144D /* SpinnerView.swift in Sources */,
 				5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */,
