@@ -10,9 +10,9 @@ import Foundation
 
 class Entity {
     
-    var id: String
+    var id: Int
     
     init() {
-        self.id = NSUUID().uuidString
+        self.id = 0
     }
 }
