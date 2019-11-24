@@ -34,6 +34,7 @@
 		5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCA237DC79600FB7423 /* Constants.swift */; };
 		5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */; };
 		5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9544238AFFBE000D36FE /* Gender.swift */; };
+		5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9546238B0A5F000D36FE /* UIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		5DAA7CCA237DC79600FB7423 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		5DDA9544238AFFBE000D36FE /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		5DDA9546238B0A5F000D36FE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				5D9FE9D1238A0FC300452272 /* TextField.swift */,
+				5DDA9546238B0A5F000D36FE /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				2C192C34238702170049B43B /* DataAccessError.swift in Sources */,
 				2C192C32238702050049B43B /* UserDataHelper.swift in Sources */,
 				2C07D308237DA50800F4D829 /* Record.swift in Sources */,
+				5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */,
 				5D540904237C40AA0020144D /* SpinnerView.swift in Sources */,
 				5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */,
 				5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */,

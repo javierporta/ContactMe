@@ -8,14 +8,20 @@
 
 import UIKit
 
-class MyProfileViewController: UIViewController {
+class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Outlets
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var maleImage: UIImageView! 
-    @IBOutlet weak var femaleImage: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView! {
+        didSet{
+            profileImage.makeRounded()
+        }
+    }
+    
+    @IBOutlet weak var fullName: UILabel!
+    
     @IBOutlet weak var dobDatePicker: UIDatePicker!
     @IBOutlet weak var phoneTextField: UITextField! {
         didSet {
@@ -51,6 +57,7 @@ class MyProfileViewController: UIViewController {
             universityTextField.setIcon(#imageLiteral(resourceName: "icon-uni"))
         }
     }
+    @IBOutlet weak var interestsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,8 +83,7 @@ class MyProfileViewController: UIViewController {
             scrollToPosition(0)
         case 1: //Career
             // Get career label position
-            let positionToScroll = careerLabel.frame.origin.y
-            scrollToPosition(positionToScroll)
+            scrollToPosition(careerLabel.frame.origin.y)
         case 2:
             scrollToPosition(50)
         case 3:
@@ -91,15 +97,54 @@ class MyProfileViewController: UIViewController {
         setGenderSegmentedControlColor()
         
     }
+    
+    @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
+        // Hide the keyboard.
+        nameTextField.resignFirstResponder()
+        // UIImagePickerController is a view controller that lets a user
+        //        pick media from their photo library.
+        let imagePickerController = UIImagePickerController()
+        // Only allow photos to be picked, not taken.
+        imagePickerController.sourceType = .photoLibrary
+        // Make sure ViewController is notified when the user picks an
+        //        image.
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        // Dismiss the picker if the user canceled.
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey :
+        Any]) {
+        
+        // The info dictionary may contain multiple representations of the   image. You want to use the original.
+        guard let selectedImage =
+            info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+                fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        // Set photoImageView to display the selected image.
+        profileImage.image = selectedImage
+        
+        // Dismiss the picker.
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     private func scrollToPosition(_ positionY: CGFloat){
         scrollView.setContentOffset(CGPoint(x: 0, y: positionY), animated: true)
     }
     
     private func setGenderSegmentedControlColor(){
         switch genderSegmentedControl.selectedSegmentIndex {
-        
+            
         case Gender.male.rawValue:   genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemBlue], for: UIControl.State.selected)
-        
+            
         case Gender.female.rawValue:
             genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemPink], for: UIControl.State.selected)
         default:

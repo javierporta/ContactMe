@@ -140,13 +140,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="l2f-d7-Jmy">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="l2f-d7-Jmy">
                                 <rect key="frame" x="254" y="54.5" width="150" height="149"/>
                                 <color key="tintColor" name="Primary"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="l2f-d7-Jmy" secondAttribute="height" multiplier="1:1" id="Irw-pR-7Ij"/>
                                     <constraint firstAttribute="width" constant="150" id="ZYA-FZ-1Gv"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="eRw-QB-AM9" appends="YES" id="PMM-XW-UwO"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name Full Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIm-NE-YWW">
                                 <rect key="frame" x="10" y="154" width="195" height="26.5"/>
@@ -169,21 +173,27 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsZ-ps-6wd">
                                 <rect key="frame" x="10" y="255" width="394" height="558"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-YN-OqN">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="626.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-YN-OqN">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="726.5"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVl-Gm-2fe">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kYL-1O-Zeg" userLabel="NameTextField">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                                                <rect key="frame" x="0.0" y="32.5" width="394" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLa-Tr-0i7" userLabel="SurnameTextField">
-                                                <rect key="frame" x="0.0" y="44" width="394" height="34"/>
+                                                <rect key="frame" x="0.0" y="78.5" width="394" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ENa-4a-E7c">
-                                                <rect key="frame" x="0.0" y="88" width="394" height="34"/>
+                                                <rect key="frame" x="0.0" y="124.5" width="394" height="34"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fAk-TN-s8n" userLabel="PhoneTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="192" height="34"/>
@@ -204,13 +214,13 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs1-YV-MBf">
-                                                <rect key="frame" x="0.0" y="132" width="394" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="170.5" width="394" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4m-32-j57">
-                                                <rect key="frame" x="0.0" y="162.5" width="394" height="216"/>
+                                                <rect key="frame" x="0.0" y="203" width="394" height="216"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="-347154021.91438305">
                                                     <!--1990-01-01 00:19:38 +0000-->
                                                 </date>
@@ -219,41 +229,54 @@
                                                 </date>
                                             </datePicker>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lqU-Ra-2sP" userLabel="CareerSeparatorView">
-                                                <rect key="frame" x="0.0" y="388.5" width="394" height="1"/>
+                                                <rect key="frame" x="0.0" y="431" width="394" height="1"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="5eQ-vU-7dK"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Career" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n15-bd-AZF">
-                                                <rect key="frame" x="0.0" y="399.5" width="394" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="444" width="394" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What uni are you studying at?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="12E-uq-zRD">
-                                                <rect key="frame" x="0.0" y="430" width="394" height="34"/>
+                                                <rect key="frame" x="0.0" y="476.5" width="394" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey! People will have more changes to meet you if you entry your University" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYp-cD-jeS">
-                                                <rect key="frame" x="0.0" y="474" width="394" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="522.5" width="394" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's your current/last job?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bma-Ub-q7E">
-                                                <rect key="frame" x="0.0" y="504.5" width="394" height="34"/>
+                                                <rect key="frame" x="0.0" y="555" width="394" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What're you studying?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHS-1h-y1I">
-                                                <rect key="frame" x="0.0" y="548.5" width="394" height="34"/>
+                                                <rect key="frame" x="0.0" y="601" width="394" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hft-z0-PrH" userLabel="InterestsSeparatorView">
+                                                <rect key="frame" x="0.0" y="647" width="394" height="1"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="C3C-gH-c5T"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFz-dH-LP4">
+                                                <rect key="frame" x="0.0" y="660" width="394" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gUh-g7-ZI0" userLabel="Interests">
-                                                <rect key="frame" x="0.0" y="592.5" width="394" height="34"/>
+                                                <rect key="frame" x="0.0" y="692.5" width="394" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -294,16 +317,24 @@
                         <outlet property="careerLabel" destination="n15-bd-AZF" id="Sje-1q-EYJ"/>
                         <outlet property="careerTextField" destination="bHS-1h-y1I" id="vEf-3A-TP3"/>
                         <outlet property="dobDatePicker" destination="q4m-32-j57" id="4vo-7t-N2o"/>
+                        <outlet property="fullName" destination="aIm-NE-YWW" id="oza-Ee-xAz"/>
                         <outlet property="genderSegmentedControl" destination="Cr8-Mj-Vmb" id="e9X-eW-Vcd"/>
+                        <outlet property="interestsLabel" destination="YFz-dH-LP4" id="Rxw-Bd-R7z"/>
                         <outlet property="jobTextField" destination="bma-Ub-q7E" id="Pf1-h5-nfj"/>
                         <outlet property="nameTextField" destination="kYL-1O-Zeg" id="EWG-B2-C3J"/>
                         <outlet property="phoneTextField" destination="fAk-TN-s8n" id="FQT-YC-WQd"/>
+                        <outlet property="profileImage" destination="l2f-d7-Jmy" id="Hkb-UJ-zf3"/>
                         <outlet property="scrollView" destination="fsZ-ps-6wd" id="b4K-PC-Ttp"/>
                         <outlet property="surnameTextField" destination="JLa-Tr-0i7" id="zo7-1L-GUQ"/>
                         <outlet property="universityTextField" destination="12E-uq-zRD" id="PUq-qG-Xwf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvo-98-1ep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eRw-QB-AM9">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="2GJ-KL-fJK" id="MK2-c9-DLD"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-3620.289855072464" y="1208.7053571428571"/>
         </scene>
