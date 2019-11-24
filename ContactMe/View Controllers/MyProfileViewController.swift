@@ -20,7 +20,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
-    @IBOutlet weak var fullName: UILabel!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    
     
     @IBOutlet weak var dobDatePicker: UIDatePicker!
     @IBOutlet weak var phoneTextField: UITextField! {
@@ -110,6 +111,19 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         //        image.
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func nameTextFieldEditingDidEnd(_ sender: Any) {
+        setFullName()
+    }
+    
+    @IBAction func surnameTextFieldEditingDidEnd(_ sender: Any) {
+        setFullName()
+    }
+    
+    func setFullName(){
+        let fullName = "\(nameTextField.text ?? "") \(surnameTextField.text ?? "")"
+        fullNameLabel.text = fullName
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
