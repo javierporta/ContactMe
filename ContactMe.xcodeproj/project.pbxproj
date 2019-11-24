@@ -28,6 +28,7 @@
 		5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58E5892386D58600FA7407 /* MyProfileViewController.swift */; };
 		5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */; };
 		5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */; };
+		5D9FE9D2238A0FC300452272 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FE9D1238A0FC300452272 /* Extensions.swift */; };
 		5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* KeychainAccess */; };
 		5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */; };
 		5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCA237DC79600FB7423 /* Constants.swift */; };
@@ -58,6 +59,7 @@
 		5D58E5892386D58600FA7407 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotYourPasswordViewController.swift; sourceTree = "<group>"; };
+		5D9FE9D1238A0FC300452272 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5DAA7CCA237DC79600FB7423 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				5D540903237C40AA0020144D /* SpinnerView.swift */,
+				5D9FE9D1238A0FC300452272 /* Extensions.swift */,
 			);
 			path = "Custom Controls";
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
 				2C07D30A237DA53F00F4D829 /* SqliteDbStore+Crud.swift in Sources */,
+				5D9FE9D2238A0FC300452272 /* Extensions.swift in Sources */,
 				2C192C31238702050049B43B /* DataHelperProtocol.swift in Sources */,
 				2C192C34238702170049B43B /* DataAccessError.swift in Sources */,
 				2C192C32238702050049B43B /* UserDataHelper.swift in Sources */,
