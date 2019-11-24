@@ -97,8 +97,10 @@ class MyProfileViewController: UIViewController {
     
     private func setGenderSegmentedControlColor(){
         switch genderSegmentedControl.selectedSegmentIndex {
-        case 0:            genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemBlue], for: UIControl.State.selected)
-        case 1:
+        
+        case Gender.male.rawValue:   genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemBlue], for: UIControl.State.selected)
+        
+        case Gender.female.rawValue:
             genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemPink], for: UIControl.State.selected)
         default:
             break

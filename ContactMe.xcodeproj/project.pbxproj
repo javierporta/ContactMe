@@ -28,11 +28,12 @@
 		5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58E5892386D58600FA7407 /* MyProfileViewController.swift */; };
 		5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */; };
 		5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */; };
-		5D9FE9D2238A0FC300452272 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FE9D1238A0FC300452272 /* Extensions.swift */; };
+		5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FE9D1238A0FC300452272 /* TextField.swift */; };
 		5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* KeychainAccess */; };
 		5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */; };
 		5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCA237DC79600FB7423 /* Constants.swift */; };
 		5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */; };
+		5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9544238AFFBE000D36FE /* Gender.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,10 +60,11 @@
 		5D58E5892386D58600FA7407 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotYourPasswordViewController.swift; sourceTree = "<group>"; };
-		5D9FE9D1238A0FC300452272 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5D9FE9D1238A0FC300452272 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5DAA7CCA237DC79600FB7423 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		5DDA9544238AFFBE000D36FE /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,8 @@
 		2CAAF1B42374612F00B108BE /* ContactMe */ = {
 			isa = PBXGroup;
 			children = (
+				5DDA9543238AFF9F000D36FE /* Enumerables */,
+				5DDA9542238AFF6F000D36FE /* Extensions */,
 				2C192C2E238701BB0049B43B /* DataAccess */,
 				2C192C2D238701AF0049B43B /* Common */,
 				5D58E5882386D36100FA7407 /* View Controllers */,
@@ -165,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				5D540903237C40AA0020144D /* SpinnerView.swift */,
-				5D9FE9D1238A0FC300452272 /* Extensions.swift */,
 			);
 			path = "Custom Controls";
 			sourceTree = "<group>";
@@ -180,6 +183,22 @@
 				5D58E5892386D58600FA7407 /* MyProfileViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5DDA9542238AFF6F000D36FE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5D9FE9D1238A0FC300452272 /* TextField.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5DDA9543238AFF9F000D36FE /* Enumerables */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA9544238AFFBE000D36FE /* Gender.swift */,
+			);
+			path = Enumerables;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,8 +291,9 @@
 				2C192C232386F8C90049B43B /* SQLiteDataStore.swift in Sources */,
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
+				5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */,
 				2C07D30A237DA53F00F4D829 /* SqliteDbStore+Crud.swift in Sources */,
-				5D9FE9D2238A0FC300452272 /* Extensions.swift in Sources */,
+				5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */,
 				2C192C31238702050049B43B /* DataHelperProtocol.swift in Sources */,
 				2C192C34238702170049B43B /* DataAccessError.swift in Sources */,
 				2C192C32238702050049B43B /* UserDataHelper.swift in Sources */,
