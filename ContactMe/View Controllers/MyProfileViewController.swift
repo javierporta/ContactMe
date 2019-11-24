@@ -24,6 +24,11 @@ class MyProfileViewController: UIViewController {
         }
     }
     @IBOutlet weak var surnameTextField: UITextField!
+    @IBOutlet weak var genderSegmentedControl: UISegmentedControl!{
+        didSet {
+            setGenderSegmentedControlColor()
+        }
+    }
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var careerLabel: UILabel!
     @IBOutlet weak var jobTextField: UITextField! {
@@ -33,7 +38,7 @@ class MyProfileViewController: UIViewController {
         }
     }
     @IBOutlet weak var careerTextField: UITextField!
-    {
+        {
         didSet {
             careerTextField.tintColor = UIColor.lightGray
             careerTextField.setIcon(#imageLiteral(resourceName: "icon-studying"))
@@ -82,11 +87,25 @@ class MyProfileViewController: UIViewController {
         }
     }
     
-    private func scrollToPosition(_ positionY: CGFloat){
-        scrollView.setContentOffset(CGPoint(x: 0, y: positionY), animated: true)
-        
+    @IBAction func genderSegmentedControlValueChanged(_ sender: Any) {
+        setGenderSegmentedControlColor()
         
     }
+    private func scrollToPosition(_ positionY: CGFloat){
+        scrollView.setContentOffset(CGPoint(x: 0, y: positionY), animated: true)
+    }
+    
+    private func setGenderSegmentedControlColor(){
+        switch genderSegmentedControl.selectedSegmentIndex {
+        case 0:            genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemBlue], for: UIControl.State.selected)
+        case 1:
+            genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemPink], for: UIControl.State.selected)
+        default:
+            break
+        }
+        genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: UIControl.State.normal)
+    }
+    
     
     //TODO: Create a function to change active segmented controll when scrolling
     
