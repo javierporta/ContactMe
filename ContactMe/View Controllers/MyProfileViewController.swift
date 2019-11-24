@@ -14,7 +14,31 @@ class MyProfileViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var maleImage: UIImageView! 
+    @IBOutlet weak var femaleImage: UIImageView!
+    @IBOutlet weak var dobDatePicker: UIDatePicker!
+    @IBOutlet weak var phoneTextField: UITextField! {
+        didSet {
+            phoneTextField.tintColor = UIColor.lightGray
+            phoneTextField.setIcon(#imageLiteral(resourceName: "icons-phone"))
+        }
+    }
+    @IBOutlet weak var surnameTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var careerLabel: UILabel!
+    @IBOutlet weak var jobTextField: UITextField! {
+        didSet {
+            jobTextField.tintColor = UIColor.lightGray
+            jobTextField.setIcon(#imageLiteral(resourceName: "icon-job"))
+        }
+    }
+    @IBOutlet weak var careerTextField: UITextField!
+    {
+        didSet {
+            careerTextField.tintColor = UIColor.lightGray
+            careerTextField.setIcon(#imageLiteral(resourceName: "icon-studying"))
+        }
+    }
     
     @IBOutlet weak var universityTextField: UITextField! {
         didSet {
