@@ -63,6 +63,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        TODO:  Here we must get all user data from db and fill the controls
+        
         // Do any additional setup after loading the view.
     }
     
