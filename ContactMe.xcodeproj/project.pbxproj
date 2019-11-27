@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C07D308237DA50800F4D829 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07D307237DA50800F4D829 /* Record.swift */; };
-		2C07D30A237DA53F00F4D829 /* SqliteDbStore+Crud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07D309237DA53F00F4D829 /* SqliteDbStore+Crud.swift */; };
-		2C07D30C237DA58300F4D829 /* SqliteDbStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07D30B237DA58300F4D829 /* SqliteDbStore.swift */; };
 		2C16BF6523857B34004577C8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16BF6223857B34004577C8 /* Profile.swift */; };
 		2C16BF6623857B34004577C8 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16BF6323857B34004577C8 /* Entity.swift */; };
 		2C16BF6723857B34004577C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16BF6423857B34004577C8 /* User.swift */; };
@@ -35,12 +32,10 @@
 		5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */; };
 		5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9544238AFFBE000D36FE /* Gender.swift */; };
 		5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9546238B0A5F000D36FE /* UIImageView.swift */; };
+		B579433C238ACE9400F7B139 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B579433B238ACE9400F7B139 /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C07D307237DA50800F4D829 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		2C07D309237DA53F00F4D829 /* SqliteDbStore+Crud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SqliteDbStore+Crud.swift"; sourceTree = "<group>"; };
-		2C07D30B237DA58300F4D829 /* SqliteDbStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDbStore.swift; sourceTree = "<group>"; };
 		2C16BF6223857B34004577C8 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		2C16BF6323857B34004577C8 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		2C16BF6423857B34004577C8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -74,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B579433C238ACE9400F7B139 /* SQLite in Frameworks */,
 				5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,7 +83,6 @@
 				2C16BF6323857B34004577C8 /* Entity.swift */,
 				2C16BF6223857B34004577C8 /* Profile.swift */,
 				2C16BF6423857B34004577C8 /* User.swift */,
-				2C07D307237DA50800F4D829 /* Record.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -96,8 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				2C192C222386F8C90049B43B /* SQLiteDataStore.swift */,
-				2C07D309237DA53F00F4D829 /* SqliteDbStore+Crud.swift */,
-				2C07D30B237DA58300F4D829 /* SqliteDbStore.swift */,
 			);
 			path = Infraestructure;
 			sourceTree = "<group>";
@@ -222,6 +215,7 @@
 			name = ContactMe;
 			packageProductDependencies = (
 				5DA6482D237A0DB100FF23DD /* KeychainAccess */,
+				B579433B238ACE9400F7B139 /* SQLite */,
 			);
 			productName = ContactMe;
 			productReference = 2CAAF1B22374612F00B108BE /* ContactMe.app */;
@@ -253,6 +247,7 @@
 			mainGroup = 2CAAF1A92374612F00B108BE;
 			packageReferences = (
 				5DA6482C237A0DB000FF23DD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				B579433A238ACE9400F7B139 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = 2CAAF1B32374612F00B108BE /* Products */;
 			projectDirPath = "";
@@ -283,7 +278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CAAF1BA2374612F00B108BE /* LoginViewController.swift in Sources */,
-				2C07D30C237DA58300F4D829 /* SqliteDbStore.swift in Sources */,
 				2C16BF6623857B34004577C8 /* Entity.swift in Sources */,
 				5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */,
 				2C16BF6523857B34004577C8 /* Profile.swift in Sources */,
@@ -302,6 +296,10 @@
 				2C192C32238702050049B43B /* UserDataHelper.swift in Sources */,
 				2C07D308237DA50800F4D829 /* Record.swift in Sources */,
 				5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */,
+				5D9FE9D2238A0FC300452272 /* Extensions.swift in Sources */,
+				2C192C31238702050049B43B /* DataHelperProtocol.swift in Sources */,
+				2C192C34238702170049B43B /* DataAccessError.swift in Sources */,
+				2C192C32238702050049B43B /* UserDataHelper.swift in Sources */,
 				5D540904237C40AA0020144D /* SpinnerView.swift in Sources */,
 				5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */,
 				5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */,
@@ -510,6 +508,14 @@
 				minimumVersion = 4.1.0;
 			};
 		};
+		B579433A238ACE9400F7B139 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.12.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -517,6 +523,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5DA6482C237A0DB000FF23DD /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		B579433B238ACE9400F7B139 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B579433A238ACE9400F7B139 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -10,9 +10,5 @@ import Foundation
 
 class Entity {
     
-    var id: Int
-    
-    init() {
-        self.id = 0
-    }
+    var id: Int64 = 0
 }
