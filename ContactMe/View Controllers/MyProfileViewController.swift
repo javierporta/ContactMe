@@ -20,6 +20,9 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
+    @IBOutlet weak var personalStackView: UIStackView!
+    @IBOutlet weak var careerStackView: UIStackView!
+    @IBOutlet weak var interestsStackView: UIStackView!
     @IBOutlet weak var fullNameLabel: UILabel!
     
     
@@ -37,7 +40,6 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var careerLabel: UILabel!
     @IBOutlet weak var jobTextField: UITextField! {
         didSet {
             jobTextField.tintColor = UIColor.lightGray
@@ -63,6 +65,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        showPersonalTab()
 //        TODO:  Here we must get all user data from db and fill the controls
         
         // Do any additional setup after loading the view.
@@ -80,22 +83,26 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
      */
     
     //    MARK: Actions
-    @IBAction func changedSegmentedControl(_ sender: UISegmentedControl) {
+   
+    
+    @IBAction func tabsSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
-        case 0:
-            scrollToPosition(0)
-        case 1: //Career
-            // Get career label position
-            scrollToPosition(careerLabel.frame.origin.y)
-        case 2:
-            scrollToPosition(50)
-        case 3:
-            scrollToPosition(100)
+        case MyProfileTabs.personal.rawValue:
+            showPersonalTab()
+            
+           break
+        case MyProfileTabs.career.rawValue:
+            showCareerTab()
+            break
+        case MyProfileTabs.interests.rawValue:
+            showInterestsTabs()
+           break
+        case MyProfileTabs.freeTime.rawValue:
+            break
         default:
             break
         }
     }
-    
     @IBAction func genderSegmentedControlValueChanged(_ sender: Any) {
         setGenderSegmentedControlColor()
         
@@ -151,11 +158,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         dismiss(animated: true, completion: nil)
     }
     
-    
-    private func scrollToPosition(_ positionY: CGFloat){
-        scrollView.setContentOffset(CGPoint(x: 0, y: positionY), animated: true)
-    }
-    
+
     private func setGenderSegmentedControlColor(){
         switch genderSegmentedControl.selectedSegmentIndex {
             
@@ -169,8 +172,23 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: UIControl.State.normal)
     }
     
-    
-    //TODO: Create a function to change active segmented controll when scrolling
+     fileprivate func showPersonalTab() {
+           personalStackView.isHidden=false
+           careerStackView.isHidden=true
+           interestsStackView.isHidden=true
+       }
+       
+       fileprivate func showCareerTab() {
+           personalStackView.isHidden=true
+           careerStackView.isHidden=false
+           interestsStackView.isHidden=true
+       }
+       
+       fileprivate func showInterestsTabs() {
+           personalStackView.isHidden=true
+           careerStackView.isHidden=true
+           interestsStackView.isHidden=false
+       }
     
     
     
