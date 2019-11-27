@@ -10,16 +10,9 @@ import Foundation
 
 class User: Entity {
     
-    var username: String
-    var password: String
-    var profile: Profile
+    var username: String?
+    var password: String?
+    var profile: Profile?
     
-    init(username: String, password: String) {
-        self.username = username
-        self.password = password
-        self.profile = Profile(name: username)
-        
-        super.init()
-    }
 }
 

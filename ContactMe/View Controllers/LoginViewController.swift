@@ -20,13 +20,20 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let sqliteDbStore = SqliteDbStore()
-        let record = Record(name: "Ayush", employeeId: "ABC124", designation: "SDE")
-        sqliteDbStore.create(record: record)
-        //let r = try sqliteDbStore.read(employeeID: "ABC123")
-        record.designation = "SDE2"
-        sqliteDbStore.update(record: record)
-        sqliteDbStore.delete(employeeId: record.employeeId)
+        do {
+            
+            try UserDataHelper.createTable()
+            
+            let entity = User()
+            entity.username =  "rhdelgado"
+            entity.password = "1234"
+            
+            let userId = try UserDataHelper.insert(item: entity)
+            print(userId)
+            	
+        } catch _{
+            print("caca")
+        }
     }
     
     //    MARK: Actions
