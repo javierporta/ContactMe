@@ -1,0 +1,16 @@
+PODS:
+  - EGFormValidator (2.0.0)
+
+DEPENDENCIES:
+  - EGFormValidator
+
+SPEC REPOS:
+  trunk:
+    - EGFormValidator
+
+SPEC CHECKSUMS:
+  EGFormValidator: 075803c0227c2f17c7e87ba43311adbf9beae704
+
+PODFILE CHECKSUM: 3db2ea8f78823e75dc356e1cb645c7c669217b1a
+
+COCOAPODS: 1.8.4

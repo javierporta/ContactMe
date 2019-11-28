@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import EGFormValidator
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: ValidatorViewController {
 
 //    MARK: Outlets
     @IBOutlet weak var emailTextField: UITextField!

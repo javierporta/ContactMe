@@ -24,19 +24,20 @@
 		2CAAF1BF2374613100B108BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1BE2374613100B108BE /* Assets.xcassets */; };
 		2CAAF1C22374613100B108BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1C02374613100B108BE /* LaunchScreen.storyboard */; };
 		2CAAF1CB23746C3200B108BE /* ColorsTheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */; };
+		3AB7ADE4375FF40D3B153370 /* Pods_ContactMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532CE207A70FAD0D4751415C /* Pods_ContactMe.framework */; };
 		5D540904237C40AA0020144D /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D540903237C40AA0020144D /* SpinnerView.swift */; };
 		5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58E5892386D58600FA7407 /* MyProfileViewController.swift */; };
 		5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */; };
 		5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */; };
 		5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FE9D1238A0FC300452272 /* TextField.swift */; };
-		5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* KeychainAccess */; };
+		5DA6482E237A0DB100FF23DD /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* SwiftPackageProductDependency */; };
 		5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */; };
 		5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCA237DC79600FB7423 /* Constants.swift */; };
 		5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */; };
 		5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9544238AFFBE000D36FE /* Gender.swift */; };
 		5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9546238B0A5F000D36FE /* UIImageView.swift */; };
 		5DDA9549238EA5AE000D36FE /* MyProfileTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */; };
-		B5E0F6FA238EB34D00ACEDBA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B5E0F6F9238EB34D00ACEDBA /* SQLite */; };
+		B5E0F6FA238EB34D00ACEDBA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = B5E0F6F9238EB34D00ACEDBA /* SwiftPackageProductDependency */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,9 @@
 		2CAAF1C12374613100B108BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CAAF1C32374613100B108BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorsTheme.xcassets; sourceTree = "<group>"; };
+		4E5B98F85A56B1E6DAE1D417 /* Pods-ContactMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactMe.debug.xcconfig"; path = "Target Support Files/Pods-ContactMe/Pods-ContactMe.debug.xcconfig"; sourceTree = "<group>"; };
+		532CE207A70FAD0D4751415C /* Pods_ContactMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContactMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5838300AABF460F85A06D244 /* Pods-ContactMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactMe.release.xcconfig"; path = "Target Support Files/Pods-ContactMe/Pods-ContactMe.release.xcconfig"; sourceTree = "<group>"; };
 		5D540903237C40AA0020144D /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5D58E5892386D58600FA7407 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -77,14 +81,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5E0F6FA238EB34D00ACEDBA /* SQLite in Frameworks */,
-				5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */,
+				B5E0F6FA238EB34D00ACEDBA /* BuildFile in Frameworks */,
+				5DA6482E237A0DB100FF23DD /* BuildFile in Frameworks */,
+				3AB7ADE4375FF40D3B153370 /* Pods_ContactMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190635A2278C43CAC7A09F97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E5B98F85A56B1E6DAE1D417 /* Pods-ContactMe.debug.xcconfig */,
+				5838300AABF460F85A06D244 /* Pods-ContactMe.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		21A1E6FFC10D7211035B757E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				532CE207A70FAD0D4751415C /* Pods_ContactMe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2C07D305237DA4BC00F4D829 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +151,8 @@
 			children = (
 				2CAAF1B42374612F00B108BE /* ContactMe */,
 				2CAAF1B32374612F00B108BE /* Products */,
+				190635A2278C43CAC7A09F97 /* Pods */,
+				21A1E6FFC10D7211035B757E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,9 +241,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CAAF1C62374613100B108BE /* Build configuration list for PBXNativeTarget "ContactMe" */;
 			buildPhases = (
+				0272359EF4404538CF44B4EA /* [CP] Check Pods Manifest.lock */,
 				2CAAF1AE2374612F00B108BE /* Sources */,
 				2CAAF1AF2374612F00B108BE /* Frameworks */,
 				2CAAF1B02374612F00B108BE /* Resources */,
+				2A36B52BE7B9441438708518 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,8 +253,8 @@
 			);
 			name = ContactMe;
 			packageProductDependencies = (
-				5DA6482D237A0DB100FF23DD /* KeychainAccess */,
-				B5E0F6F9238EB34D00ACEDBA /* SQLite */,
+				5DA6482D237A0DB100FF23DD /* SwiftPackageProductDependency */,
+				B5E0F6F9238EB34D00ACEDBA /* SwiftPackageProductDependency */,
 			);
 			productName = ContactMe;
 			productReference = 2CAAF1B22374612F00B108BE /* ContactMe.app */;
@@ -258,8 +285,8 @@
 			);
 			mainGroup = 2CAAF1A92374612F00B108BE;
 			packageReferences = (
-				5DA6482C237A0DB000FF23DD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				B5E0F6F8238EB34D00ACEDBA /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+				5DA6482C237A0DB000FF23DD /* RemoteSwiftPackageReference */,
+				B5E0F6F8238EB34D00ACEDBA /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 2CAAF1B32374612F00B108BE /* Products */;
 			projectDirPath = "";
@@ -283,6 +310,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0272359EF4404538CF44B4EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ContactMe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A36B52BE7B9441438708518 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ContactMe/Pods-ContactMe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ContactMe/Pods-ContactMe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ContactMe/Pods-ContactMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2CAAF1AE2374612F00B108BE /* Sources */ = {
@@ -454,6 +523,7 @@
 		};
 		2CAAF1C72374613100B108BE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E5B98F85A56B1E6DAE1D417 /* Pods-ContactMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -471,6 +541,7 @@
 		};
 		2CAAF1C82374613100B108BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5838300AABF460F85A06D244 /* Pods-ContactMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -510,7 +581,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5DA6482C237A0DB000FF23DD /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+		5DA6482C237A0DB000FF23DD /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
 			requirement = {
@@ -518,7 +589,7 @@
 				minimumVersion = 4.1.0;
 			};
 		};
-		B5E0F6F8238EB34D00ACEDBA /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+		B5E0F6F8238EB34D00ACEDBA /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
 			requirement = {
@@ -529,14 +600,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5DA6482D237A0DB100FF23DD /* KeychainAccess */ = {
+		5DA6482D237A0DB100FF23DD /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5DA6482C237A0DB000FF23DD /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			package = 5DA6482C237A0DB000FF23DD /* RemoteSwiftPackageReference */;
 			productName = KeychainAccess;
 		};
-		B5E0F6F9238EB34D00ACEDBA /* SQLite */ = {
+		B5E0F6F9238EB34D00ACEDBA /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B5E0F6F8238EB34D00ACEDBA /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			package = B5E0F6F8238EB34D00ACEDBA /* RemoteSwiftPackageReference */;
 			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -12,7 +12,7 @@ class User: Entity {
     
     var username: String?
     var password: String?
-    var profile: Profile?
+    var profileId: Int64?
     
 }
 
