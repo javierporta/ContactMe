@@ -19,6 +19,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             profileImage.makeRounded()
         }
     }
+    @IBOutlet weak var interestsKsToken: KSTokenView!
+    
     
     @IBOutlet weak var personalStackView: UIStackView!
     @IBOutlet weak var careerStackView: UIStackView!
@@ -67,6 +69,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         showPersonalTab()
 //        TODO:  Here we must get all user data from db and fill the controls
+        
         
         // Do any additional setup after loading the view.
     }
