@@ -66,16 +66,39 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             universityTextField.setIcon(#imageLiteral(resourceName: "icon-uni"))
         }
     }
-    @IBOutlet weak var interestsLabel: UILabel!
+    
+    
+    @IBOutlet weak var mondayStartTimeTextField: UITextField!
+    @IBOutlet weak var mondayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var tuesdayStartTimeTextField: UITextField!
+    @IBOutlet weak var tuesdayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var wednesdayStartTimeTextField: UITextField!
+    @IBOutlet weak var wednesdayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var thursdayStartTimeTextField: UITextField!
+    @IBOutlet weak var thursdayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var fridayStartTimeTextField: UITextField!
+    @IBOutlet weak var fridayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var saturdayStartTimeTextField: UITextField!
+    @IBOutlet weak var saturdayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var sundayStartTimeTextField: UITextField!
+    @IBOutlet weak var sundayEndTimeTextField: UITextField!
+    
     
     //ToDo: Get from db
     let interests: Array<String> = ["Beer","Food","Sports","Programming","Music", "Technology"]
     
     //Uidate picker
     let datePicker = UIDatePicker()
+    let timePicker = UIDatePicker()
     
     fileprivate func prepareInterestTokenControl() {
-        interestsKsToken.delegate = self as? KSTokenViewDelegate
+        interestsKsToken.delegate = self as KSTokenViewDelegate
         interestsKsToken.promptText = "Top 5 interests: "
         interestsKsToken.placeholder = "Type to search"
         interestsKsToken.descriptionText = "Interests"
@@ -92,7 +115,6 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         /// Show all results without without typing anything
         interestsKsToken.minimumCharactersToSearch = 0
         
-        interestsKsToken.tokens()
     }
     
     override func viewDidLoad() {
@@ -104,7 +126,20 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         prepareDofDatePicker()
         
-        
+        prepareTimePickers(senderTextField: mondayStartTimeTextField, doneFunction: "mondayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: mondayEndTimeTextField, doneFunction: "mondayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: tuesdayStartTimeTextField, doneFunction: "tuesdayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: tuesdayEndTimeTextField, doneFunction: "tuesdayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: wednesdayStartTimeTextField, doneFunction: "wednesdayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: wednesdayEndTimeTextField, doneFunction: "wednesdayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: thursdayStartTimeTextField, doneFunction: "thursdayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: thursdayEndTimeTextField, doneFunction: "thursdayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: fridayStartTimeTextField, doneFunction: "fridayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: fridayEndTimeTextField, doneFunction: "fridayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: saturdayStartTimeTextField, doneFunction: "saturdayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: saturdayEndTimeTextField, doneFunction: "saturdayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: sundayStartTimeTextField, doneFunction: "sundayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: sundayEndTimeTextField, doneFunction: "sundayEndDoneTimePicker")
         
         //        TODO:  Here we must get all user data from db and fill the controls
         
@@ -153,6 +188,119 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         self.view.endEditing(true)
     }
     
+    func prepareTimePickers(senderTextField: UITextField, doneFunction: String){
+        //Formate Date
+        timePicker.datePickerMode = .time
+        
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: Selector((doneFunction)));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelTimePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        senderTextField.inputAccessoryView = toolbar
+        senderTextField.inputView = timePicker
+        
+    }
+    
+    @objc func mondayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        mondayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func mondayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        mondayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func tuesdayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        tuesdayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func tuesdayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        tuesdayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func wednesdayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        wednesdayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func wednesdayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        wednesdayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func thursdayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        thursdayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func thursdayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        thursdayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func fridayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        fridayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func fridayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        fridayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func saturdayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        saturdayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func saturdayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        saturdayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func sundayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        sundayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func sundayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        sundayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    
+    
+    @objc func cancelTimePicker(){
+        self.view.endEditing(true)
+    }
     /*
      // MARK: - Navigation
      
