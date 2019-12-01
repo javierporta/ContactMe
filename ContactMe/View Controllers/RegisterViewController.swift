@@ -13,17 +13,36 @@ class RegisterViewController: ValidatorViewController {
 
 //    MARK: Outlets
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var passwordTextFIeld: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        /*self.addValidatorEmail(toControl: self.emailTextField,
+        errorPlaceholder: self.emailErrorLabel,
+            errorMessage: "Email is invalid")*/
+        
+        self.addValidatorMinLength(toControl: self.emailTextField,
+        errorPlaceholder: self.emailErrorLabel,
+            errorMessage: "Enter at least %d characters",
+               minLength: 8)
+    }
     
 //    MARK:Actions
     @IBAction func signUpButton(_ sender: Any) {
         print("Sign Up pressed")
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+    @IBAction func emailEditingChanged(_ sender: Any) {
+        if self.validate(){
+            print("esta bien")
+        }else{
+             print("esta mal")
+        }
     }
     
 
