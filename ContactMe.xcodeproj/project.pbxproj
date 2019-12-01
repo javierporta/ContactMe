@@ -25,6 +25,7 @@
 		2CAAF1C22374613100B108BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1C02374613100B108BE /* LaunchScreen.storyboard */; };
 		2CAAF1CB23746C3200B108BE /* ColorsTheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */; };
 		3AB7ADE4375FF40D3B153370 /* Pods_ContactMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532CE207A70FAD0D4751415C /* Pods_ContactMe.framework */; };
+		5D3ED6B8239454F500C8894D /* QRShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ED6B7239454F500C8894D /* QRShowViewController.swift */; };
 		5D540904237C40AA0020144D /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D540903237C40AA0020144D /* SpinnerView.swift */; };
 		5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58E5892386D58600FA7407 /* MyProfileViewController.swift */; };
 		5D8F36BB2390274200F6B19F /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F36B72390274200F6B19F /* KSToken.swift */; };
@@ -68,6 +69,7 @@
 		4E5B98F85A56B1E6DAE1D417 /* Pods-ContactMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactMe.debug.xcconfig"; path = "Target Support Files/Pods-ContactMe/Pods-ContactMe.debug.xcconfig"; sourceTree = "<group>"; };
 		532CE207A70FAD0D4751415C /* Pods_ContactMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContactMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5838300AABF460F85A06D244 /* Pods-ContactMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactMe.release.xcconfig"; path = "Target Support Files/Pods-ContactMe/Pods-ContactMe.release.xcconfig"; sourceTree = "<group>"; };
+		5D3ED6B7239454F500C8894D /* QRShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRShowViewController.swift; sourceTree = "<group>"; };
 		5D540903237C40AA0020144D /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5D58E5892386D58600FA7407 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		5D8F36B72390274200F6B19F /* KSToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */,
 				2CAAF1B92374612F00B108BE /* LoginViewController.swift */,
 				5D58E5892386D58600FA7407 /* MyProfileViewController.swift */,
+				5D3ED6B7239454F500C8894D /* QRShowViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				5D8F36BC2390274200F6B19F /* KSTokenField.swift in Sources */,
 				5D8F36BD2390274200F6B19F /* KSUtils.swift in Sources */,
 				5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */,
+				5D3ED6B8239454F500C8894D /* QRShowViewController.swift in Sources */,
 				5D540904237C40AA0020144D /* SpinnerView.swift in Sources */,
 				5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */,
 				5DA3A119239451D200D33C06 /* RoundButton.swift in Sources */,
