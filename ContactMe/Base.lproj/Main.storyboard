@@ -542,8 +542,28 @@
                                     <action selector="touchUpLogoutButton:" destination="18r-Iu-xZL" eventType="touchUpInside" id="5ga-XM-gAm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dy9-MV-gDf" customClass="RoundButton" customModule="ContactMe" customModuleProvider="target">
+                                <rect key="frame" x="354" y="753" width="50" height="50"/>
+                                <color key="backgroundColor" name="Primary"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="MBG-6o-P8s"/>
+                                    <constraint firstAttribute="width" secondItem="dy9-MV-gDf" secondAttribute="height" multiplier="1:1" id="Ofh-Kp-FtV"/>
+                                </constraints>
+                                <color key="tintColor" name="Primary-Label"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="icon-qr-code"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9tz-5k-mXW" firstAttribute="trailing" secondItem="dy9-MV-gDf" secondAttribute="trailing" constant="10" id="fEw-bf-auH"/>
+                            <constraint firstItem="9tz-5k-mXW" firstAttribute="bottom" secondItem="dy9-MV-gDf" secondAttribute="bottom" constant="10" id="oqc-od-tLR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9tz-5k-mXW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="72C-rd-b11"/>
@@ -702,6 +722,7 @@
     <resources>
         <image name="icon-gender-female" width="50" height="50"/>
         <image name="icon-gender-male" width="50" height="50"/>
+        <image name="icon-qr-code" width="50" height="50"/>
         <image name="info.circle" catalog="system" width="64" height="60"/>
         <image name="logo_contact_me" width="452.5" height="221"/>
         <image name="person.circle.fill" catalog="system" width="64" height="60"/>
