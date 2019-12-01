@@ -25,19 +25,25 @@
 		2CAAF1C22374613100B108BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1C02374613100B108BE /* LaunchScreen.storyboard */; };
 		2CAAF1CB23746C3200B108BE /* ColorsTheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */; };
 		3AB7ADE4375FF40D3B153370 /* Pods_ContactMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532CE207A70FAD0D4751415C /* Pods_ContactMe.framework */; };
+		5D3ED6B8239454F500C8894D /* QRShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ED6B7239454F500C8894D /* QRShowViewController.swift */; };
 		5D540904237C40AA0020144D /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D540903237C40AA0020144D /* SpinnerView.swift */; };
 		5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58E5892386D58600FA7407 /* MyProfileViewController.swift */; };
+		5D8F36BB2390274200F6B19F /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F36B72390274200F6B19F /* KSToken.swift */; };
+		5D8F36BC2390274200F6B19F /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F36B82390274200F6B19F /* KSTokenField.swift */; };
+		5D8F36BD2390274200F6B19F /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F36B92390274200F6B19F /* KSUtils.swift */; };
+		5D8F36BE2390274200F6B19F /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F36BA2390274200F6B19F /* KSTokenView.swift */; };
 		5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */; };
 		5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */; };
 		5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FE9D1238A0FC300452272 /* TextField.swift */; };
-		5DA6482E237A0DB100FF23DD /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* SwiftPackageProductDependency */; };
+		5DA3A119239451D200D33C06 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3A118239451D200D33C06 /* RoundButton.swift */; };
+		5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* KeychainAccess */; };
 		5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */; };
 		5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCA237DC79600FB7423 /* Constants.swift */; };
 		5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */; };
 		5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9544238AFFBE000D36FE /* Gender.swift */; };
 		5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9546238B0A5F000D36FE /* UIImageView.swift */; };
 		5DDA9549238EA5AE000D36FE /* MyProfileTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */; };
-		B5E0F6FA238EB34D00ACEDBA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = B5E0F6F9238EB34D00ACEDBA /* SwiftPackageProductDependency */; };
+		B5E0F6FA238EB34D00ACEDBA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B5E0F6F9238EB34D00ACEDBA /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,11 +69,17 @@
 		4E5B98F85A56B1E6DAE1D417 /* Pods-ContactMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactMe.debug.xcconfig"; path = "Target Support Files/Pods-ContactMe/Pods-ContactMe.debug.xcconfig"; sourceTree = "<group>"; };
 		532CE207A70FAD0D4751415C /* Pods_ContactMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContactMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5838300AABF460F85A06D244 /* Pods-ContactMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactMe.release.xcconfig"; path = "Target Support Files/Pods-ContactMe/Pods-ContactMe.release.xcconfig"; sourceTree = "<group>"; };
+		5D3ED6B7239454F500C8894D /* QRShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRShowViewController.swift; sourceTree = "<group>"; };
 		5D540903237C40AA0020144D /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5D58E5892386D58600FA7407 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		5D8F36B72390274200F6B19F /* KSToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
+		5D8F36B82390274200F6B19F /* KSTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
+		5D8F36B92390274200F6B19F /* KSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
+		5D8F36BA2390274200F6B19F /* KSTokenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
 		5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotYourPasswordViewController.swift; sourceTree = "<group>"; };
 		5D9FE9D1238A0FC300452272 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		5DA3A118239451D200D33C06 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5DAA7CCA237DC79600FB7423 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -81,8 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5E0F6FA238EB34D00ACEDBA /* BuildFile in Frameworks */,
-				5DA6482E237A0DB100FF23DD /* BuildFile in Frameworks */,
+				B5E0F6FA238EB34D00ACEDBA /* SQLite in Frameworks */,
+				5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */,
 				3AB7ADE4375FF40D3B153370 /* Pods_ContactMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,7 +108,6 @@
 				4E5B98F85A56B1E6DAE1D417 /* Pods-ContactMe.debug.xcconfig */,
 				5838300AABF460F85A06D244 /* Pods-ContactMe.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -151,6 +162,7 @@
 			children = (
 				2CAAF1B42374612F00B108BE /* ContactMe */,
 				2CAAF1B32374612F00B108BE /* Products */,
+				5D8F36BF2390277200F6B19F /* KSToken */,
 				190635A2278C43CAC7A09F97 /* Pods */,
 				21A1E6FFC10D7211035B757E /* Frameworks */,
 			);
@@ -200,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				5D540903237C40AA0020144D /* SpinnerView.swift */,
+				5DA3A118239451D200D33C06 /* RoundButton.swift */,
 			);
 			path = "Custom Controls";
 			sourceTree = "<group>";
@@ -212,8 +225,20 @@
 				5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */,
 				2CAAF1B92374612F00B108BE /* LoginViewController.swift */,
 				5D58E5892386D58600FA7407 /* MyProfileViewController.swift */,
+				5D3ED6B7239454F500C8894D /* QRShowViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5D8F36BF2390277200F6B19F /* KSToken */ = {
+			isa = PBXGroup;
+			children = (
+				5D8F36B72390274200F6B19F /* KSToken.swift */,
+				5D8F36B82390274200F6B19F /* KSTokenField.swift */,
+				5D8F36BA2390274200F6B19F /* KSTokenView.swift */,
+				5D8F36B92390274200F6B19F /* KSUtils.swift */,
+			);
+			path = KSToken;
 			sourceTree = "<group>";
 		};
 		5DDA9542238AFF6F000D36FE /* Extensions */ = {
@@ -253,8 +278,8 @@
 			);
 			name = ContactMe;
 			packageProductDependencies = (
-				5DA6482D237A0DB100FF23DD /* SwiftPackageProductDependency */,
-				B5E0F6F9238EB34D00ACEDBA /* SwiftPackageProductDependency */,
+				5DA6482D237A0DB100FF23DD /* KeychainAccess */,
+				B5E0F6F9238EB34D00ACEDBA /* SQLite */,
 			);
 			productName = ContactMe;
 			productReference = 2CAAF1B22374612F00B108BE /* ContactMe.app */;
@@ -285,8 +310,8 @@
 			);
 			mainGroup = 2CAAF1A92374612F00B108BE;
 			packageReferences = (
-				5DA6482C237A0DB000FF23DD /* RemoteSwiftPackageReference */,
-				B5E0F6F8238EB34D00ACEDBA /* RemoteSwiftPackageReference */,
+				5DA6482C237A0DB000FF23DD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				B5E0F6F8238EB34D00ACEDBA /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = 2CAAF1B32374612F00B108BE /* Products */;
 			projectDirPath = "";
@@ -360,6 +385,7 @@
 			files = (
 				2CAAF1BA2374612F00B108BE /* LoginViewController.swift in Sources */,
 				2C07D30C237DA58300F4D829 /* SqliteDbStore.swift in Sources */,
+				5D8F36BB2390274200F6B19F /* KSToken.swift in Sources */,
 				2C16BF6623857B34004577C8 /* Entity.swift in Sources */,
 				5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */,
 				2C16BF6523857B34004577C8 /* Profile.swift in Sources */,
@@ -371,15 +397,20 @@
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
 				5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */,
+				5D8F36BE2390274200F6B19F /* KSTokenView.swift in Sources */,
 				2C07D30A237DA53F00F4D829 /* SqliteDbStore+Crud.swift in Sources */,
 				5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */,
 				2C192C31238702050049B43B /* DataHelperProtocol.swift in Sources */,
 				2C192C34238702170049B43B /* DataAccessError.swift in Sources */,
 				2C192C32238702050049B43B /* UserDataHelper.swift in Sources */,
 				2C07D308237DA50800F4D829 /* Record.swift in Sources */,
+				5D8F36BC2390274200F6B19F /* KSTokenField.swift in Sources */,
+				5D8F36BD2390274200F6B19F /* KSUtils.swift in Sources */,
 				5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */,
+				5D3ED6B8239454F500C8894D /* QRShowViewController.swift in Sources */,
 				5D540904237C40AA0020144D /* SpinnerView.swift in Sources */,
 				5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */,
+				5DA3A119239451D200D33C06 /* RoundButton.swift in Sources */,
 				5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */,
 				5DDA9549238EA5AE000D36FE /* MyProfileTabs.swift in Sources */,
 			);
@@ -581,7 +612,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5DA6482C237A0DB000FF23DD /* RemoteSwiftPackageReference */ = {
+		5DA6482C237A0DB000FF23DD /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
 			requirement = {
@@ -589,7 +620,7 @@
 				minimumVersion = 4.1.0;
 			};
 		};
-		B5E0F6F8238EB34D00ACEDBA /* RemoteSwiftPackageReference */ = {
+		B5E0F6F8238EB34D00ACEDBA /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
 			requirement = {
@@ -600,14 +631,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5DA6482D237A0DB100FF23DD /* SwiftPackageProductDependency */ = {
+		5DA6482D237A0DB100FF23DD /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5DA6482C237A0DB000FF23DD /* RemoteSwiftPackageReference */;
+			package = 5DA6482C237A0DB000FF23DD /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
-		B5E0F6F9238EB34D00ACEDBA /* SwiftPackageProductDependency */ = {
+		B5E0F6F9238EB34D00ACEDBA /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B5E0F6F8238EB34D00ACEDBA /* RemoteSwiftPackageReference */;
+			package = B5E0F6F8238EB34D00ACEDBA /* XCRemoteSwiftPackageReference "SQLite.swift" */;
 			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */

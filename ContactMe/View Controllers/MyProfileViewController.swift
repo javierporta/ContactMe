@@ -12,6 +12,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     // MARK: Outlets
     
+    
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var profileImage: UIImageView! {
@@ -19,12 +21,16 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             profileImage.makeRounded()
         }
     }
+    @IBOutlet weak var interestsKsToken: KSTokenView!
+    
+    @IBOutlet weak var freeTimeStackView: UIStackView!
     
     @IBOutlet weak var personalStackView: UIStackView!
     @IBOutlet weak var careerStackView: UIStackView!
     @IBOutlet weak var interestsStackView: UIStackView!
     @IBOutlet weak var fullNameLabel: UILabel!
     
+    @IBOutlet weak var dateOfBirthTextField: UITextField!
     
     @IBOutlet weak var dobDatePicker: UIDatePicker!
     @IBOutlet weak var phoneTextField: UITextField! {
@@ -60,18 +66,241 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             universityTextField.setIcon(#imageLiteral(resourceName: "icon-uni"))
         }
     }
-    @IBOutlet weak var interestsLabel: UILabel!
+    
+    
+    @IBOutlet weak var mondayStartTimeTextField: UITextField!
+    @IBOutlet weak var mondayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var tuesdayStartTimeTextField: UITextField!
+    @IBOutlet weak var tuesdayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var wednesdayStartTimeTextField: UITextField!
+    @IBOutlet weak var wednesdayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var thursdayStartTimeTextField: UITextField!
+    @IBOutlet weak var thursdayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var fridayStartTimeTextField: UITextField!
+    @IBOutlet weak var fridayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var saturdayStartTimeTextField: UITextField!
+    @IBOutlet weak var saturdayEndTimeTextField: UITextField!
+    
+    @IBOutlet weak var sundayStartTimeTextField: UITextField!
+    @IBOutlet weak var sundayEndTimeTextField: UITextField!
+    
+    
+    //ToDo: Get from db
+    let interests: Array<String> = ["Beer","Food","Sports","Programming","Music", "Technology"]
+    
+    //Uidate picker
+    let datePicker = UIDatePicker()
+    let timePicker = UIDatePicker()
+    
+    fileprivate func prepareInterestTokenControl() {
+        interestsKsToken.delegate = self as KSTokenViewDelegate
+        interestsKsToken.promptText = "Top 5 interests: "
+        interestsKsToken.placeholder = "Type to search"
+        interestsKsToken.descriptionText = "Interests"
+        interestsKsToken.maxTokenLimit = 5 /// default is -1 for unlimited number of tokens
+        interestsKsToken.style = .squared
+        interestsKsToken.minimumCharactersToSearch = 0 /// Show all results without without typing anything
+        interestsKsToken.maximumHeight = 100.0
+        interestsKsToken.returnKeyType(type: .done)
+        
+        /// An array of string values. Default values are "." and ",". Token is created with typed text, when user press any of the character mentioned in this Array
+        interestsKsToken.tokenizingCharacters = [","]
+        interestsKsToken.searchResultHeight = 100
+        
+        /// Show all results without without typing anything
+        interestsKsToken.minimumCharactersToSearch = 0
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         showPersonalTab()
-//        TODO:  Here we must get all user data from db and fill the controls
+        
+        prepareInterestTokenControl()
+        
+        prepareDofDatePicker()
+        
+        prepareTimePickers(senderTextField: mondayStartTimeTextField, doneFunction: "mondayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: mondayEndTimeTextField, doneFunction: "mondayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: tuesdayStartTimeTextField, doneFunction: "tuesdayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: tuesdayEndTimeTextField, doneFunction: "tuesdayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: wednesdayStartTimeTextField, doneFunction: "wednesdayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: wednesdayEndTimeTextField, doneFunction: "wednesdayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: thursdayStartTimeTextField, doneFunction: "thursdayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: thursdayEndTimeTextField, doneFunction: "thursdayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: fridayStartTimeTextField, doneFunction: "fridayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: fridayEndTimeTextField, doneFunction: "fridayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: saturdayStartTimeTextField, doneFunction: "saturdayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: saturdayEndTimeTextField, doneFunction: "saturdayEndDoneTimePicker")
+        prepareTimePickers(senderTextField: sundayStartTimeTextField, doneFunction: "sundayStartDoneTimePicker")
+        prepareTimePickers(senderTextField: sundayEndTimeTextField, doneFunction: "sundayEndDoneTimePicker")
+        
+        //        TODO:  Here we must get all user data from db and fill the controls
+        
         
         // Do any additional setup after loading the view.
     }
     
+    func prepareDofDatePicker(){
+        //set min and max dates: 13 to 100 years old
+        let currentDate = Date()
+        var dateComponents = DateComponents()
+        let calendar = Calendar.init(identifier: .gregorian)
+        dateComponents.year = -100
+        let minDate = calendar.date(byAdding: dateComponents, to: currentDate)
+        dateComponents.year = -13
+        let maxDate = calendar.date(byAdding: dateComponents, to: currentDate)
+        
+        //Formate Date
+        datePicker.datePickerMode = .date
+        datePicker.maximumDate=maxDate
+        datePicker.minimumDate=minDate
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        dateOfBirthTextField.inputAccessoryView = toolbar
+        dateOfBirthTextField.inputView = datePicker
+        
+    }
     
+    @objc func donedatePicker(){
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        dateOfBirthTextField.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
+    
+    func prepareTimePickers(senderTextField: UITextField, doneFunction: String){
+        //Formate Date
+        timePicker.datePickerMode = .time
+        
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: Selector((doneFunction)));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelTimePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        senderTextField.inputAccessoryView = toolbar
+        senderTextField.inputView = timePicker
+        
+    }
+    
+    @objc func mondayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        mondayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func mondayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        mondayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func tuesdayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        tuesdayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func tuesdayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        tuesdayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func wednesdayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        wednesdayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func wednesdayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        wednesdayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func thursdayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        thursdayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func thursdayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        thursdayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func fridayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        fridayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func fridayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        fridayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func saturdayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        saturdayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func saturdayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        saturdayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func sundayStartDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        sundayStartTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func sundayEndDoneTimePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        sundayEndTimeTextField.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    
+    
+    @objc func cancelTimePicker(){
+        self.view.endEditing(true)
+    }
     /*
      // MARK: - Navigation
      
@@ -83,21 +312,21 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
      */
     
     //    MARK: Actions
-   
+    
     
     @IBAction func tabsSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case MyProfileTabs.personal.rawValue:
             showPersonalTab()
-            
-           break
+            break
         case MyProfileTabs.career.rawValue:
             showCareerTab()
             break
         case MyProfileTabs.interests.rawValue:
-            showInterestsTabs()
-           break
+            showInterestsTab()
+            break
         case MyProfileTabs.freeTime.rawValue:
+            showFreeTimeTab()
             break
         default:
             break
@@ -158,7 +387,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         dismiss(animated: true, completion: nil)
     }
     
-
+    
     private func setGenderSegmentedControlColor(){
         switch genderSegmentedControl.selectedSegmentIndex {
             
@@ -172,25 +401,73 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         genderSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: UIControl.State.normal)
     }
     
-     fileprivate func showPersonalTab() {
-           personalStackView.isHidden=false
-           careerStackView.isHidden=true
-           interestsStackView.isHidden=true
-       }
-       
-       fileprivate func showCareerTab() {
-           personalStackView.isHidden=true
-           careerStackView.isHidden=false
-           interestsStackView.isHidden=true
-       }
-       
-       fileprivate func showInterestsTabs() {
-           personalStackView.isHidden=true
-           careerStackView.isHidden=true
-           interestsStackView.isHidden=false
-       }
+    fileprivate func showPersonalTab() {
+        personalStackView.isHidden=false
+        careerStackView.isHidden=true
+        interestsStackView.isHidden=true
+        freeTimeStackView.isHidden=true
+    }
+    
+    fileprivate func showCareerTab() {
+        personalStackView.isHidden=true
+        careerStackView.isHidden=false
+        interestsStackView.isHidden=true
+        freeTimeStackView.isHidden=true
+    }
+    
+    fileprivate func showInterestsTab() {
+        personalStackView.isHidden=true
+        careerStackView.isHidden=true
+        interestsStackView.isHidden=false
+        freeTimeStackView.isHidden=true
+    }
+    fileprivate func showFreeTimeTab() {
+        personalStackView.isHidden=true
+        careerStackView.isHidden=true
+        interestsStackView.isHidden=true
+        freeTimeStackView.isHidden=false
+    }
     
     
     
     
+}
+
+
+//ToDo: Create another file for this extension
+extension MyProfileViewController: KSTokenViewDelegate {
+    func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
+        if (string.isEmpty){
+            completion!(interests as Array<AnyObject>)
+            return
+        }
+        
+        var data: Array<String> = []
+        for value: String in interests {
+            if value.lowercased().range(of: string.lowercased()) != nil {
+                data.append(value)
+            }
+        }
+        completion!(data as Array<AnyObject>)
+    }
+    
+    func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String {
+        return object as! String
+    }
+    
+    func tokenView(_ tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
+        
+        // Restrict adding token based on token text
+        //            Allow only string in the intersts array list
+        if !interests.contains(token.title) {
+            return false
+        }
+        
+        // If user input something, it can be checked
+        //        print(tokenView.text)
+        
+        return true
+    }
+    //    IMPORTANT: To get all array of tokens!!!
+    //    interestsKsToken.tokens()
 }
