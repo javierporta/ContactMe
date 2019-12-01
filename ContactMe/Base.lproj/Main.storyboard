@@ -174,10 +174,10 @@
                                 <rect key="frame" x="10" y="255" width="394" height="558"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-YN-OqN">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="847.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="437"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="5E2-MD-IFs">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="386.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="172"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kYL-1O-Zeg" userLabel="NameTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
@@ -216,25 +216,15 @@
                                                             </segmentedControl>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs1-YV-MBf">
-                                                        <rect key="frame" x="0.0" y="138" width="394" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4m-32-j57">
-                                                        <rect key="frame" x="0.0" y="170.5" width="394" height="216"/>
-                                                        <date key="date" timeIntervalSinceReferenceDate="-347154021.91438305">
-                                                            <!--1990-01-01 00:19:38 +0000-->
-                                                        </date>
-                                                        <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
-                                                            <!--2037-12-31 11:00:00 +0000-->
-                                                        </date>
-                                                    </datePicker>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date Of Birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNB-JL-H5P">
+                                                        <rect key="frame" x="0.0" y="138" width="394" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="P4H-Xp-GwZ">
-                                                <rect key="frame" x="0.0" y="398.5" width="394" height="158.5"/>
+                                                <rect key="frame" x="0.0" y="184" width="394" height="158.5"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What uni are you studying at?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="12E-uq-zRD">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
@@ -259,27 +249,24 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Zcs-D0-hlw">
-                                                <rect key="frame" x="0.0" y="569" width="394" height="278.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Zcs-D0-hlw">
+                                                <rect key="frame" x="0.0" y="354.5" width="394" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFz-dH-LP4">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xaZ-8H-8A8" customClass="KSTokenView" customModule="ContactMe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="50"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HIe-hj-r6e" userLabel="Free Time Stack View">
+                                                <rect key="frame" x="0.0" y="416.5" width="394" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihv-NC-fqZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="20.5"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gUh-g7-ZI0" userLabel="Interests">
-                                                        <rect key="frame" x="0.0" y="32.5" width="394" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xaZ-8H-8A8" customClass="KSTokenView" customModule="ContactMe">
-                                                        <rect key="frame" x="0.0" y="78.5" width="394" height="200"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="200" id="0zs-CQ-8yq"/>
-                                                        </constraints>
-                                                    </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -318,11 +305,11 @@
                     <connections>
                         <outlet property="careerStackView" destination="P4H-Xp-GwZ" id="238-5Q-OCZ"/>
                         <outlet property="careerTextField" destination="bHS-1h-y1I" id="vEf-3A-TP3"/>
-                        <outlet property="dobDatePicker" destination="q4m-32-j57" id="4vo-7t-N2o"/>
+                        <outlet property="dateOfBirthTextField" destination="RNB-JL-H5P" id="gdF-Zg-tGN"/>
+                        <outlet property="freeTimeStackView" destination="HIe-hj-r6e" id="vnN-qt-L9X"/>
                         <outlet property="fullNameLabel" destination="aIm-NE-YWW" id="M9r-YX-7YZ"/>
                         <outlet property="genderSegmentedControl" destination="Cr8-Mj-Vmb" id="e9X-eW-Vcd"/>
                         <outlet property="interestsKsToken" destination="xaZ-8H-8A8" id="TPX-Cr-1Go"/>
-                        <outlet property="interestsLabel" destination="YFz-dH-LP4" id="Rxw-Bd-R7z"/>
                         <outlet property="interestsStackView" destination="Zcs-D0-hlw" id="fVu-tS-ktN"/>
                         <outlet property="jobTextField" destination="bma-Ub-q7E" id="Pf1-h5-nfj"/>
                         <outlet property="nameTextField" destination="kYL-1O-Zeg" id="EWG-B2-C3J"/>

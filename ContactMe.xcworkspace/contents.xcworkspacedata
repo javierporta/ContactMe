@@ -7,20 +7,4 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
-   <Group
-      location = "group:KSToken"
-      name = "KSToken">
-      <FileRef
-         location = "group:KSToken/KSToken.swift">
-      </FileRef>
-      <FileRef
-         location = "group:KSToken/KSTokenField.swift">
-      </FileRef>
-      <FileRef
-         location = "group:KSToken/KSTokenView.swift">
-      </FileRef>
-      <FileRef
-         location = "group:KSToken/KSUtils.swift">
-      </FileRef>
-   </Group>
 </Workspace>
