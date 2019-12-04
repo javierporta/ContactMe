@@ -9,19 +9,20 @@
 import UIKit
 
 class QRShowViewController: UIViewController {
-
+    
     //MARK: Outlets
     @IBOutlet weak var qrImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         addQrCodeToImage()
     }
-
     
-    func addQrCodeToImage(){
+    
+    func addQrCodeToImageFancy(){
+        //IMPORTANT: WITH THIS CODE READERS ARE NOT DETECTING QR CODE
         // Get define string to encode
         let myString = "https://pennlabs.org"
         // Get data from the string
@@ -30,6 +31,7 @@ class QRShowViewController: UIViewController {
         guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return }
         // Input the data
         qrFilter.setValue(data, forKey: "inputMessage")
+        qrFilter.setValue("Q", forKey: "inputCorrectionLevel")
         // Get the output image
         guard let qrImage = qrFilter.outputImage else { return }
         // Scale the image
@@ -51,15 +53,62 @@ class QRShowViewController: UIViewController {
         qrImageView.image = processedImage
     }
     
+    func addQrCodeToImage(){
+        
+        //        Get profile data
+        let myProfile = Profile(name: "Javier")
+        
+        myProfile.occupation = "Developer"
+        
+        // Encode
+        let jsonEncoder = JSONEncoder()
+        do {
+            let jsonData = try jsonEncoder.encode(myProfile)
+            let json = String(data: jsonData, encoding: String.Encoding.utf8)
+            
+            // Decode
+            //        let jsonDecoder = JSONDecoder()
+            //        let dog = try jsonDecoder.decode(Dog.self, from: jsonData)
+        
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+            // Get data from the string
+            let data = json?.data(using: String.Encoding.ascii)
+            // Get a QR CIFilter
+            guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return }
+            // Input the data
+            qrFilter.setValue(data, forKey: "inputMessage")
+            qrFilter.setValue("Q", forKey: "inputCorrectionLevel")
+            // Get the output image
+            guard let qrImage = qrFilter.outputImage else { return }
+            // Scale the image
+            let transform = CGAffineTransform(scaleX: 10, y: 10)
+            let scaledQrImage = qrImage.transformed(by: transform)
+            // Do some processing to get the UIImage
+            let context = CIContext()
+            guard let cgImage = context.createCGImage(scaledQrImage, from: scaledQrImage.extent) else { return }
+            let processedImage = UIImage(cgImage: cgImage)
+            
+            qrImageView.image = processedImage
+            //all fine with jsonData here
+        } catch {
+            //handle error
+            print(error)
+        }
+        
+        
+        
+        
     }
-    */
-
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

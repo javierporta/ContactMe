@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Profile: Entity {
+class Profile: Entity, Codable {
     
     var name: String
     var lastName: String?
