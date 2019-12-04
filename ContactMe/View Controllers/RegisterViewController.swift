@@ -8,6 +8,8 @@
 
 import UIKit
 import EGFormValidator
+import KeychainAccess
+
 
 class RegisterViewController: ValidatorViewController {
 
@@ -40,10 +42,15 @@ class RegisterViewController: ValidatorViewController {
         self.addValidatorMandatory(toControl: self.passwordTextField,                   errorPlaceholder: self.passwordErrorLabel,
             errorMessage: "This field is required")
         
+        
         self.addValidatorMinLength(toControl: self.repeatPasswordTextField,                 errorPlaceholder: self.repeatPasswordErrorLabel,
             errorMessage: "Enter at least %d characters", minLength: 8)
         self.addValidatorMandatory(toControl: self.repeatPasswordTextField,                   errorPlaceholder: self.repeatPasswordErrorLabel,
             errorMessage: "This field is required")
+        
+        self.addValidatorEqualTo(toControl: self.repeatPasswordTextField, errorPlaceholder: self.repeatPasswordErrorLabel, errorMessage: "Passwords don't match", compareWithControl: self.passwordTextField)
+        
+        
     }
     
 //    MARK:Actions
@@ -51,7 +58,16 @@ class RegisterViewController: ValidatorViewController {
         print("Sign Up pressed")
         
         if self.validate(){
-            print("esta bien")
+            
+            let entity = User()
+            entity.username = self.emailTextField.text
+            entity.password = self.passwordTextField.text
+            
+            let json = UserService.createUser(user: entity)
+            print(json)
+            
+            navigateToLogin()
+            
         }else{
              print("esta mal")
         }
@@ -66,14 +82,14 @@ class RegisterViewController: ValidatorViewController {
     @IBAction func repeatPasswordEditingChanged(_ sender: Any) {
         _ = self.validate()
     }
-    /*
+    
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func navigateToLogin(){
+        let storyboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.LOGIN)
+        self.present(viewController, animated: true, completion: nil)
     }
-    */
 
 }

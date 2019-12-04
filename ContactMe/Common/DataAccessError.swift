@@ -16,4 +16,6 @@ enum DataAccessError: Error {
     case Search_Error
     case Nil_In_Data
     
+    case Save_User_Data
+    
 }

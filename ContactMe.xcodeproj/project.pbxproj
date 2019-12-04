@@ -43,6 +43,7 @@
 		5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9544238AFFBE000D36FE /* Gender.swift */; };
 		5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9546238B0A5F000D36FE /* UIImageView.swift */; };
 		5DDA9549238EA5AE000D36FE /* MyProfileTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */; };
+		B53BEA802397DE60004142C6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BEA7F2397DE60004142C6 /* UserService.swift */; };
 		B5E0F6FA238EB34D00ACEDBA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B5E0F6F9238EB34D00ACEDBA /* SQLite */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		5DDA9544238AFFBE000D36FE /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		5DDA9546238B0A5F000D36FE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTabs.swift; sourceTree = "<group>"; };
+		B53BEA7F2397DE60004142C6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 		2CAAF1B42374612F00B108BE /* ContactMe */ = {
 			isa = PBXGroup;
 			children = (
+				B53BEA7C2397DDEE004142C6 /* Services */,
 				5DDA9543238AFF9F000D36FE /* Enumerables */,
 				5DDA9542238AFF6F000D36FE /* Extensions */,
 				2C192C2E238701BB0049B43B /* DataAccess */,
@@ -257,6 +260,14 @@
 				5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */,
 			);
 			path = Enumerables;
+			sourceTree = "<group>";
+		};
+		B53BEA7C2397DDEE004142C6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B53BEA7F2397DE60004142C6 /* UserService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +407,7 @@
 				2C192C232386F8C90049B43B /* SQLiteDataStore.swift in Sources */,
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
+				B53BEA802397DE60004142C6 /* UserService.swift in Sources */,
 				5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */,
 				5D8F36BE2390274200F6B19F /* KSTokenView.swift in Sources */,
 				2C07D30A237DA53F00F4D829 /* SqliteDbStore+Crud.swift in Sources */,

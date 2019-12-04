@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User: Entity {
+class User: Entity, Codable {
     
     var username: String?
     var password: String?

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Entity {
+class Entity{
     
     var id: Int64 = 0
 }

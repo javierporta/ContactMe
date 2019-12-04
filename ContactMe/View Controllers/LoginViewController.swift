@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        do {
+        /*do {
             
             try UserDataHelper.createTable()
             
@@ -30,33 +30,36 @@ class LoginViewController: UIViewController {
             
             let userId = try UserDataHelper.insert(item: entity)
             print(userId)
-            	
+            
         } catch _{
             print("caca")
-        }
+        }*/
     }
     
     //    MARK: Actions
     
     @IBAction func touchUpLogIn(_ sender: Any) {
         
-//        ToDo:  use sqlite here
-        if ( emailTextField.text == "a" && passwordTextField.text == "a") {
+        if let registerUser = UserService.getRegisterUser() {
             
-            let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
-            do {
-                // ToDo: Save user json instead of "a"
-                try keychain.set("a", key: Constants.USER_PASSWORD_KEY)
+            if ( emailTextField.text == registerUser.username && passwordTextField.text == registerUser.password) {
+                
+                let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
+                do {
+                    // ToDo: Save user json instead of "a"
+                    try keychain.set(registerUser.username!, key: Constants.USER_PASSWORD_KEY)
+                }
+                catch let error {
+                    print(error)
+                }
+                
+                navigateToMainTab()
+                
+            } else {
+                
+                showWrongCredentialsAlert()
+                
             }
-            catch let error {
-                print(error)
-            }
-            
-            navigateToMainTab()
-            
-        } else {
-            
-            showWrongCredentialsAlert()
             
         }
     }
@@ -69,6 +72,12 @@ class LoginViewController: UIViewController {
     
     func showWrongCredentialsAlert() {
         let alert = UIAlertController(title: "Alert", message: "Username or password are not correct", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showNotExistUserRegisterAlert() {
+        let alert = UIAlertController(title: "Alert", message: "There is not registers users", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
