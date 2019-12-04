@@ -13,9 +13,44 @@ class QRShowViewController: UIViewController {
     //MARK: Outlets
     @IBOutlet weak var qrImageView: UIImageView!
     
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var universityLabel: UILabel!
+    
+    @IBOutlet weak var careerLabel: UILabel!
+    
+    @IBOutlet weak var specialityJobLabel: UILabel!
+    
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    @IBOutlet weak var phoneLabel: UILabel!
+    let myProfile = Profile(name: "Javier")
+    
+    fileprivate func getMyProfileData() {
+        //  TODO:      Get my profile data
+        myProfile.occupation = "Developer"
+        myProfile.phone = "+9123456"
+        myProfile.lastName = "Porta"
+        myProfile.university = "IP Leiria"
+//        etc
+        
+        
+        
+    }
+    
+    fileprivate func setMyProfileControls(){
+        fullNameLabel.text = myProfile.fullName()
+        universityLabel.text=myProfile.university
+        careerLabel.text = "missing career field"
+        specialityJobLabel.text=myProfile.specialty
+        emailLabel.text = "missing email field"
+        phoneLabel.text = myProfile.phone
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getMyProfileData()
+        setMyProfileControls()
         
         addQrCodeToImage()
     }
@@ -54,11 +89,7 @@ class QRShowViewController: UIViewController {
     }
     
     func addQrCodeToImage(){
-        
-        //        Get profile data
-        let myProfile = Profile(name: "Javier")
-        
-        myProfile.occupation = "Developer"
+    
         
         // Encode
         let jsonEncoder = JSONEncoder()

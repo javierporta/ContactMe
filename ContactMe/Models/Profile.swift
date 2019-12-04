@@ -19,6 +19,10 @@ class Profile: Entity, Codable {
     var specialty: String?
     var occupation: String?
     
+    func fullName() -> String {
+        return "\(self.name) \(self.lastName ?? "")"
+    }
+    
     init(name: String) {
         self.name = name
         
