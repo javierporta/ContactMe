@@ -11,22 +11,26 @@ import KeychainAccess
 
 class DashboardViewController: UIViewController {
 
+//    MARK: Outlets
+    @IBOutlet weak var qrButton: UIButton!
     
-//    MARK: Actions
-    
-   
-    
-    @IBAction func touchUpLogoutButton(_ sender: Any) {
-        removeKeychainUserKey()
-        navigateToLogin()
-        
-    }
+
     
      override func viewDidLoad() {
            super.viewDidLoad()
 
            // Do any additional setup after loading the view.
        }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        qrButton.transform = CGAffineTransform(translationX: view.bounds.width, y: 0)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut],
+        animations: {[weak self] in
+            self?.qrButton.transform = CGAffineTransform.identity
+        }, completion: nil)
+    }
        
 
        /*
@@ -38,6 +42,13 @@ class DashboardViewController: UIViewController {
            // Pass the selected object to the new view controller.
        }
        */
+    
+    //    MARK: Actions
+     @IBAction func touchUpLogoutButton(_ sender: Any) {
+         removeKeychainUserKey()
+         navigateToLogin()
+         
+     }
     
     func removeKeychainUserKey() {
            //        Remove keychain key

@@ -19,6 +19,7 @@ class QRShowViewController: UIViewController {
         
         addQrCodeToImage()
     }
+
     
     func addQrCodeToImage(){
         // Get define string to encode
