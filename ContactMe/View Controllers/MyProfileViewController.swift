@@ -12,6 +12,7 @@ import GooglePlaces
 class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var placesClient: GMSPlacesClient!
+    var autocompleteSender="" // ToDo Serach a better way to do that
     
     // MARK: Outlets
     
@@ -89,6 +90,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var sundayStartTimeTextField: UITextField!
     @IBOutlet weak var sundayEndTimeTextField: UITextField!
     
+    @IBOutlet weak var placeFreeTimeTextField: UITextField!
     
     //ToDo: Get from db
     let interests: Array<String> = ["Beer","Food","Sports","Programming","Music", "Technology"]
@@ -334,12 +336,41 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         let filter = GMSAutocompleteFilter()
         filter.type = .establishment
         
+        autocompleteSender="university"
 
         autocompleteController.autocompleteFilter = filter
 
         // Display the autocomplete view controller.
         present(autocompleteController, animated: true, completion: nil)
     }
+    
+    @IBAction func placeFreeTimeTapped(_ sender: UITextField) {
+
+        placeFreeTimeTextField.resignFirstResponder()
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        
+        // Specify the place data types to return.
+        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
+          UInt(GMSPlaceField.placeID.rawValue) |
+          UInt(GMSPlaceField.coordinate.rawValue) |
+            UInt(GMSPlaceField.addressComponents.rawValue)
+            )!
+        autocompleteController.placeFields = fields
+
+        // Specify a filter.
+        let filter = GMSAutocompleteFilter()
+        filter.type = .establishment
+        
+        autocompleteSender="freetime"
+        
+        autocompleteController.autocompleteFilter = filter
+
+        // Display the autocomplete view controller.
+        present(autocompleteController, animated: true, completion: nil)
+    }
+   
+    
     @IBAction func tabsSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case MyProfileTabs.personal.rawValue:
@@ -506,8 +537,14 @@ extension MyProfileViewController: GMSAutocompleteViewControllerDelegate {
         print("Coordinate: \(String(describing: place.coordinate))")
         print("Address components: \(String(describing: place.addressComponents))")
         // Get the place name from 'GMSAutocompleteViewController'
+        
         // Then display the name in textField
+        //ToDO: How to work with both. Need to know the sender
+        if(autocompleteSender=="university"){
         universityTextField.text = place.name
+        }else if(autocompleteSender=="freetime"){
+        placeFreeTimeTextField.text = place.name
+        }
         // Dismiss the GMSAutocompleteViewController when something is selected
         dismiss(animated: true, completion: nil)
     }
