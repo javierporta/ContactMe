@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var placesClient: GMSPlacesClient!
+    
     // MARK: Outlets
-    
-    
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -32,7 +33,6 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var dateOfBirthTextField: UITextField!
     
-    @IBOutlet weak var dobDatePicker: UIDatePicker!
     @IBOutlet weak var phoneTextField: UITextField! {
         didSet {
             phoneTextField.tintColor = UIColor.lightGray
@@ -141,6 +141,9 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         prepareTimePickers(senderTextField: sundayStartTimeTextField, doneFunction: "sundayStartDoneTimePicker")
         prepareTimePickers(senderTextField: sundayEndTimeTextField, doneFunction: "sundayEndDoneTimePicker")
         
+        placesClient = GMSPlacesClient.shared()
+        
+    
         //        TODO:  Here we must get all user data from db and fill the controls
         
         
@@ -314,6 +317,29 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     //    MARK: Actions
     
     
+    @IBAction func universityTapped(_ sender: UITextField) {
+        universityTextField.resignFirstResponder()
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        
+        // Specify the place data types to return.
+        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
+          UInt(GMSPlaceField.placeID.rawValue) |
+          UInt(GMSPlaceField.coordinate.rawValue) |
+            UInt(GMSPlaceField.addressComponents.rawValue)
+            )!
+        autocompleteController.placeFields = fields
+
+        // Specify a filter.
+        let filter = GMSAutocompleteFilter()
+        filter.type = .establishment
+        
+
+        autocompleteController.autocompleteFilter = filter
+
+        // Display the autocomplete view controller.
+        present(autocompleteController, animated: true, completion: nil)
+    }
     @IBAction func tabsSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case MyProfileTabs.personal.rawValue:
@@ -470,4 +496,28 @@ extension MyProfileViewController: KSTokenViewDelegate {
     }
     //    IMPORTANT: To get all array of tokens!!!
     //    interestsKsToken.tokens()
+}
+
+extension MyProfileViewController: GMSAutocompleteViewControllerDelegate {
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(String(describing: place.name))")
+        print("Place ID: \(String(describing: place.placeID))")
+        print("Place attributions: \(String(describing: place.attributions))")
+        print("Coordinate: \(String(describing: place.coordinate))")
+        print("Address components: \(String(describing: place.addressComponents))")
+        // Get the place name from 'GMSAutocompleteViewController'
+        // Then display the name in textField
+        universityTextField.text = place.name
+        // Dismiss the GMSAutocompleteViewController when something is selected
+        dismiss(animated: true, completion: nil)
+    }
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // Handle the error
+        print("Error: ", error.localizedDescription)
+    }
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        // Dismiss when the user canceled the action
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

@@ -6,35 +6,78 @@
 	objectVersion = 52;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0C1885900810601510E0C632060FAF26 /* GooglePlaces */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2FC2AC47FDB0310285CE777F18CD1532 /* Build configuration list for PBXAggregateTarget "GooglePlaces" */;
+			buildPhases = (
+			);
+			dependencies = (
+				D42315111F400C0605ACCD6B5CAF2178 /* PBXTargetDependency */,
+			);
+			name = GooglePlaces;
+		};
+		E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = GoogleMaps;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		092971344AFB0A4B5D8B96B502C673EE /* ValidatorViewController+Minlength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684B9CD02E109B27C7637AB6AB61F96 /* ValidatorViewController+Minlength.swift */; };
+		092971344AFB0A4B5D8B96B502C673EE /* ValidatorViewController+Minlength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2995E1E8434BC190B2591D22F8FD0054 /* ValidatorViewController+Minlength.swift */; };
+		0FD95AD0652F11281EB875FF2F3011C7 /* Pods-ContactMe-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 05C940232188857A9FC1DC4E321DF3D0 /* Pods-ContactMe-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B2C75C68045D0CA82D520E74048BE73 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
-		2DDE45C52C0347369329381A09DB2E99 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		3D7CE5693FB0DD29CCEE165199DB7645 /* UITextView+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456B9DBBA5971F90C5CE1BC7521AC2B /* UITextView+Error.swift */; };
-		4572580F497504CCEE942DA6F9BA143F /* UILabel+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4027B6B81385539B1102654F330B5D /* UILabel+Error.swift */; };
-		4A62E1E28F6A9A38540D966C06A111D4 /* ValidatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38718C2BFAA0E6BC2861C7D2AFB97652 /* ValidatorViewController.swift */; };
-		5E01E2FC04238AD34ED40738C3F6E06D /* EGFormValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 16339B40D011A15321CEB9DCCB7523B6 /* EGFormValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E758B55CD4C83A4E21609645BF57BC9 /* ValidatorViewController+Mandatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E94C33310B6C84FF7FC5B2CBAB9EF /* ValidatorViewController+Mandatory.swift */; };
-		72AC7569B04C025835747E7B7B1AC2F8 /* EGFormValidator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F26C5C4FA9172BE0E28D031C612F3 /* EGFormValidator-dummy.m */; };
-		818E769B744A7C2A41C446590DDB45AC /* ValidatorViewController+EqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1BB8245CA5AF7075FDD97E4B3EC645 /* ValidatorViewController+EqualTo.swift */; };
-		96918518936EA95E05F0B491B98DBD97 /* Pods-ContactMe-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E1C5352DA24E4083F15909F9DE807A /* Pods-ContactMe-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		989BBFA8A1BD080AE189DB10404E01F5 /* ValidatorViewController+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65DF0CC06A4BAF6BCF5B73677D3A5A1 /* ValidatorViewController+Email.swift */; };
-		B1A8064396D7C4E8A7311BA7CD4D3040 /* ValidatorViewController+AlphaNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45B7534E907B51EC3B443F96B36DA76 /* ValidatorViewController+AlphaNumeric.swift */; };
-		B3065D5A1C13B865DC96E3F390F4C550 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF4EFF3B548C8A5B6D506FE586F5D4 /* Validator.swift */; };
-		B86B478A7B2B7862FB345ECB67432169 /* String+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35911BFC8368D662A5B52822DB59EDC4 /* String+Email.swift */; };
-		C88990B133746820705AA48C7CD0B477 /* UITextField+maxLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4DFA504BE75C9891FE34CF3777CF06 /* UITextField+maxLength.swift */; };
-		D05A01E751A1702CF6DEE40D065FBB09 /* ValidatorViewController+DigitsOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD169268ABEE8634C64DDF1E92E44C /* ValidatorViewController+DigitsOnly.swift */; };
-		D4BA91465E559C9425C0D444B669B648 /* Pods-ContactMe-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD29AA08AF42711E07E858FA930EADFB /* Pods-ContactMe-dummy.m */; };
-		D60B4CB39FFED167CC1689B7AD4080FB /* ValidatableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746ABC67B3A8DF233DEC20E3FEF05FDC /* ValidatableProtocol.swift */; };
+		3D7CE5693FB0DD29CCEE165199DB7645 /* UITextView+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE032835CF73E4F4534055A8D7776E5 /* UITextView+Error.swift */; };
+		4572580F497504CCEE942DA6F9BA143F /* UILabel+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EA3CBE8B72764EF0872B527E4D0594 /* UILabel+Error.swift */; };
+		4A62E1E28F6A9A38540D966C06A111D4 /* ValidatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A66C5C55AA6C1FAF6D745B3FF012DDC /* ValidatorViewController.swift */; };
+		5E01E2FC04238AD34ED40738C3F6E06D /* EGFormValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = BC189389D96BC9B1F707FB097845BFC4 /* EGFormValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E758B55CD4C83A4E21609645BF57BC9 /* ValidatorViewController+Mandatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D302F5EB7DC9E75389607243176254D /* ValidatorViewController+Mandatory.swift */; };
+		72AC7569B04C025835747E7B7B1AC2F8 /* EGFormValidator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 97259645D3D0F01FB5465D04FE1658ED /* EGFormValidator-dummy.m */; };
+		818E769B744A7C2A41C446590DDB45AC /* ValidatorViewController+EqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA678A92F1658C2C9C02854680DE67A1 /* ValidatorViewController+EqualTo.swift */; };
+		989BBFA8A1BD080AE189DB10404E01F5 /* ValidatorViewController+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC4CEDBC79D0046729CAC0CB5626A4 /* ValidatorViewController+Email.swift */; };
+		B1A8064396D7C4E8A7311BA7CD4D3040 /* ValidatorViewController+AlphaNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105CEF42B95C1915325C9AA9491DF3C /* ValidatorViewController+AlphaNumeric.swift */; };
+		B3065D5A1C13B865DC96E3F390F4C550 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4033FBE6D57FEDEEDB680F79F2706482 /* Validator.swift */; };
+		B86B478A7B2B7862FB345ECB67432169 /* String+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EBD361A8F246D6AA8BCB5983F699A8 /* String+Email.swift */; };
+		BDF38728B14FFA76953E60BFD9C8C45D /* Pods-ContactMe-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C47A0A1D8E689173276E8F5CC93BD05 /* Pods-ContactMe-dummy.m */; };
+		C88990B133746820705AA48C7CD0B477 /* UITextField+maxLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FF89566EDC54D8DD59B74C7B5A5BA3 /* UITextField+maxLength.swift */; };
+		D05A01E751A1702CF6DEE40D065FBB09 /* ValidatorViewController+DigitsOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A72393AACCF22415A7906E938C0CA7 /* ValidatorViewController+DigitsOnly.swift */; };
+		D60B4CB39FFED167CC1689B7AD4080FB /* ValidatableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB96F958F2DFD2814963ED714E84790 /* ValidatableProtocol.swift */; };
 		E404DC5121A4371DB61DDCAF50FA7AFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
-		EAE2F5A3F32FBCCDA53F66B882DFB5D0 /* ValidationErrorDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27B038B436ED66803174AFB4D0BEC83 /* ValidationErrorDisplayable.swift */; };
-		EB8784B6446592DC96DF3B43EABCBAFB /* UITextField+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77E8607E00A63640D42BFAFE4F1AFAA /* UITextField+Error.swift */; };
-		F2246C05FC5C0997369E68F0CA10EE83 /* EGFormValidator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E57D86D6C67E9CA7D92604F87B800B45 /* EGFormValidator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD5B6F135F367142E7C8576B3BC1431B /* ValidatorViewController+Regexp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1601864F1677ABCD41C051EAF2DBCB81 /* ValidatorViewController+Regexp.swift */; };
+		EAE2F5A3F32FBCCDA53F66B882DFB5D0 /* ValidationErrorDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B43C023D6DA5DCCDF9CA2CDCF1A7BE /* ValidationErrorDisplayable.swift */; };
+		EB8784B6446592DC96DF3B43EABCBAFB /* UITextField+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5566F2F316FEDAA0F010535DFDB062 /* UITextField+Error.swift */; };
+		F2246C05FC5C0997369E68F0CA10EE83 /* EGFormValidator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF77A7D8CFEF89CA213A0AAA461C37EE /* EGFormValidator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FCC12B95541EFA5D9BF9BB4893E576F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		FD5B6F135F367142E7C8576B3BC1431B /* ValidatorViewController+Regexp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5256C18833650302C2D7F9205FB758E /* ValidatorViewController+Regexp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F43D2B55346F162C98FDBD06B78DEE2E /* PBXContainerItemProxy */ = {
+		58413B07C2AD8C553D798C44C5712DA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C1885900810601510E0C632060FAF26;
+			remoteInfo = GooglePlaces;
+		};
+		6EB1C2DD30E6564FC3135C9E8002D8F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
+			remoteInfo = GoogleMaps;
+		};
+		71A7B5D5A70AC3D36F3F697223657454 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
+			remoteInfo = GoogleMaps;
+		};
+		F93C3839430315C79C8E0D5DFAC63EF2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -44,43 +87,52 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1601864F1677ABCD41C051EAF2DBCB81 /* ValidatorViewController+Regexp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+Regexp.swift"; path = "Classes/ValidatorViewController+Regexp.swift"; sourceTree = "<group>"; };
-		16339B40D011A15321CEB9DCCB7523B6 /* EGFormValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EGFormValidator.h; path = Classes/EGFormValidator.h; sourceTree = "<group>"; };
-		1845C36AB80238283E5C925916256A09 /* Pods-ContactMe-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ContactMe-frameworks.sh"; sourceTree = "<group>"; };
+		05C940232188857A9FC1DC4E321DF3D0 /* Pods-ContactMe-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ContactMe-umbrella.h"; sourceTree = "<group>"; };
+		072898CD49CAF68A44C07650E441D080 /* GoogleMaps.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.xcconfig; sourceTree = "<group>"; };
+		0B7599DABF56A0908E1BA3F8C5499010 /* EGFormValidator-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EGFormValidator-prefix.pch"; sourceTree = "<group>"; };
+		101890236BA1FD4AD3393773DA269B20 /* EGFormValidator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = EGFormValidator.modulemap; sourceTree = "<group>"; };
+		11CB47594DDC38EAA5B422CBC9E79456 /* Pods-ContactMe-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ContactMe-Info.plist"; sourceTree = "<group>"; };
+		1A66C5C55AA6C1FAF6D745B3FF012DDC /* ValidatorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidatorViewController.swift; path = Classes/ValidatorViewController.swift; sourceTree = "<group>"; };
+		1AB96F958F2DFD2814963ED714E84790 /* ValidatableProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidatableProtocol.swift; path = Classes/ValidatableProtocol.swift; sourceTree = "<group>"; };
+		1C47A0A1D8E689173276E8F5CC93BD05 /* Pods-ContactMe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ContactMe-dummy.m"; sourceTree = "<group>"; };
+		2995E1E8434BC190B2591D22F8FD0054 /* ValidatorViewController+Minlength.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+Minlength.swift"; path = "Classes/ValidatorViewController+Minlength.swift"; sourceTree = "<group>"; };
+		2DEC4CEDBC79D0046729CAC0CB5626A4 /* ValidatorViewController+Email.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+Email.swift"; path = "Classes/ValidatorViewController+Email.swift"; sourceTree = "<group>"; };
 		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		35911BFC8368D662A5B52822DB59EDC4 /* String+Email.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Email.swift"; path = "Classes/String+Email.swift"; sourceTree = "<group>"; };
-		38718C2BFAA0E6BC2861C7D2AFB97652 /* ValidatorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidatorViewController.swift; path = Classes/ValidatorViewController.swift; sourceTree = "<group>"; };
-		41DF4EFF3B548C8A5B6D506FE586F5D4 /* Validator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = Classes/Validator.swift; sourceTree = "<group>"; };
+		3B7DE208CEC442592CBB1CF7ED11BBBB /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		4033FBE6D57FEDEEDB680F79F2706482 /* Validator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validator.swift; path = Classes/Validator.swift; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		48E1C5352DA24E4083F15909F9DE807A /* Pods-ContactMe-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ContactMe-umbrella.h"; sourceTree = "<group>"; };
-		4F4027B6B81385539B1102654F330B5D /* UILabel+Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILabel+Error.swift"; path = "Classes/UILabel+Error.swift"; sourceTree = "<group>"; };
-		746ABC67B3A8DF233DEC20E3FEF05FDC /* ValidatableProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidatableProtocol.swift; path = Classes/ValidatableProtocol.swift; sourceTree = "<group>"; };
-		8684B9CD02E109B27C7637AB6AB61F96 /* ValidatorViewController+Minlength.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+Minlength.swift"; path = "Classes/ValidatorViewController+Minlength.swift"; sourceTree = "<group>"; };
-		8B4DFA504BE75C9891FE34CF3777CF06 /* UITextField+maxLength.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+maxLength.swift"; path = "Classes/UITextField+maxLength.swift"; sourceTree = "<group>"; };
-		8CCFA2A20D6BAD065243CA35A1D144E6 /* Pods-ContactMe-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ContactMe-acknowledgements.markdown"; sourceTree = "<group>"; };
-		90EC39BFC04F1273D8C1614B299BE7E4 /* EGFormValidator-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "EGFormValidator-Info.plist"; sourceTree = "<group>"; };
+		4D302F5EB7DC9E75389607243176254D /* ValidatorViewController+Mandatory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+Mandatory.swift"; path = "Classes/ValidatorViewController+Mandatory.swift"; sourceTree = "<group>"; };
+		53C79B6E537917A8EC40AD8E6C8F9DC0 /* Pods-ContactMe-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ContactMe-acknowledgements.markdown"; sourceTree = "<group>"; };
+		62E021DEFBCA130F4511A9FD3BB6B0A7 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		64EBD361A8F246D6AA8BCB5983F699A8 /* String+Email.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Email.swift"; path = "Classes/String+Email.swift"; sourceTree = "<group>"; };
+		68BD667D676764A8203E8E8CC3ECB1B6 /* Pods-ContactMe-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ContactMe-acknowledgements.plist"; sourceTree = "<group>"; };
+		69179C36485CAB768CE4D1538050C314 /* Pods-ContactMe-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ContactMe-resources.sh"; sourceTree = "<group>"; };
+		6E9D5999468621B46C98A99AA7E53032 /* Pods-ContactMe.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ContactMe.modulemap"; sourceTree = "<group>"; };
+		6EE032835CF73E4F4534055A8D7776E5 /* UITextView+Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextView+Error.swift"; path = "Classes/UITextView+Error.swift"; sourceTree = "<group>"; };
+		702982BF1BC0A48BAF349C1152AAD074 /* GooglePlaces.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GooglePlaces.xcconfig; sourceTree = "<group>"; };
+		77B43C023D6DA5DCCDF9CA2CDCF1A7BE /* ValidationErrorDisplayable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidationErrorDisplayable.swift; path = Classes/ValidationErrorDisplayable.swift; sourceTree = "<group>"; };
+		78B7D9299A533326087FDC61CF6C727B /* Pods-ContactMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ContactMe.debug.xcconfig"; sourceTree = "<group>"; };
+		8205A635003685E1FB4A98A35716590C /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		97259645D3D0F01FB5465D04FE1658ED /* EGFormValidator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EGFormValidator-dummy.m"; sourceTree = "<group>"; };
 		9D1F2FEBF8D534747669186921CC36C7 /* EGFormValidator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EGFormValidator.framework; path = EGFormValidator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AD29AA08AF42711E07E858FA930EADFB /* Pods-ContactMe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ContactMe-dummy.m"; sourceTree = "<group>"; };
-		BF87372E604F11A90CE979821E41415E /* EGFormValidator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EGFormValidator.xcconfig; sourceTree = "<group>"; };
-		C0BF64FBDAD6A221EA192610AC235FB0 /* Pods-ContactMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ContactMe.release.xcconfig"; sourceTree = "<group>"; };
-		C27B038B436ED66803174AFB4D0BEC83 /* ValidationErrorDisplayable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValidationErrorDisplayable.swift; path = Classes/ValidationErrorDisplayable.swift; sourceTree = "<group>"; };
+		A105CEF42B95C1915325C9AA9491DF3C /* ValidatorViewController+AlphaNumeric.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+AlphaNumeric.swift"; path = "Classes/ValidatorViewController+AlphaNumeric.swift"; sourceTree = "<group>"; };
+		A1167F8526CD46A2ECDB06EC93612D78 /* EGFormValidator-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "EGFormValidator-Info.plist"; sourceTree = "<group>"; };
+		A4EA3CBE8B72764EF0872B527E4D0594 /* UILabel+Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILabel+Error.swift"; path = "Classes/UILabel+Error.swift"; sourceTree = "<group>"; };
+		A67B5A1DE05034AFBDECB7BCF05D3006 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		B1FF89566EDC54D8DD59B74C7B5A5BA3 /* UITextField+maxLength.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+maxLength.swift"; path = "Classes/UITextField+maxLength.swift"; sourceTree = "<group>"; };
+		BC189389D96BC9B1F707FB097845BFC4 /* EGFormValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EGFormValidator.h; path = Classes/EGFormValidator.h; sourceTree = "<group>"; };
+		BE5566F2F316FEDAA0F010535DFDB062 /* UITextField+Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+Error.swift"; path = "Classes/UITextField+Error.swift"; sourceTree = "<group>"; };
+		C2B076621EE5717D4010B8602CB4A98D /* Pods-ContactMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ContactMe.release.xcconfig"; sourceTree = "<group>"; };
 		C336F1BC63A8DB30EBBB90E0B0CDC2E9 /* Pods_ContactMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ContactMe.framework; path = "Pods-ContactMe.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C45B7534E907B51EC3B443F96B36DA76 /* ValidatorViewController+AlphaNumeric.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+AlphaNumeric.swift"; path = "Classes/ValidatorViewController+AlphaNumeric.swift"; sourceTree = "<group>"; };
-		CE992FB345D15D19795D3B8604141361 /* Pods-ContactMe-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ContactMe-acknowledgements.plist"; sourceTree = "<group>"; };
-		D3F890348E4E19232D3804A718EEC285 /* Pods-ContactMe-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ContactMe-Info.plist"; sourceTree = "<group>"; };
-		D456B9DBBA5971F90C5CE1BC7521AC2B /* UITextView+Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextView+Error.swift"; path = "Classes/UITextView+Error.swift"; sourceTree = "<group>"; };
-		D68FC0540CAE129E9640E6F40418C913 /* EGFormValidator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = EGFormValidator.modulemap; sourceTree = "<group>"; };
-		DAD4C2C881CBE14DFB31C8EF6A0EB066 /* Pods-ContactMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ContactMe.debug.xcconfig"; sourceTree = "<group>"; };
-		DB1F26C5C4FA9172BE0E28D031C612F3 /* EGFormValidator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EGFormValidator-dummy.m"; sourceTree = "<group>"; };
-		DB7E94C33310B6C84FF7FC5B2CBAB9EF /* ValidatorViewController+Mandatory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+Mandatory.swift"; path = "Classes/ValidatorViewController+Mandatory.swift"; sourceTree = "<group>"; };
-		DF1BB8245CA5AF7075FDD97E4B3EC645 /* ValidatorViewController+EqualTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+EqualTo.swift"; path = "Classes/ValidatorViewController+EqualTo.swift"; sourceTree = "<group>"; };
-		E1AB1F7501E4C753E5CBF2D94A6267B2 /* Pods-ContactMe.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ContactMe.modulemap"; sourceTree = "<group>"; };
-		E4F039AE3DDBA670B1B9886F9FA1F352 /* EGFormValidator-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EGFormValidator-prefix.pch"; sourceTree = "<group>"; };
-		E57D86D6C67E9CA7D92604F87B800B45 /* EGFormValidator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EGFormValidator-umbrella.h"; sourceTree = "<group>"; };
-		E65DF0CC06A4BAF6BCF5B73677D3A5A1 /* ValidatorViewController+Email.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+Email.swift"; path = "Classes/ValidatorViewController+Email.swift"; sourceTree = "<group>"; };
-		ECBD169268ABEE8634C64DDF1E92E44C /* ValidatorViewController+DigitsOnly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+DigitsOnly.swift"; path = "Classes/ValidatorViewController+DigitsOnly.swift"; sourceTree = "<group>"; };
-		F77E8607E00A63640D42BFAFE4F1AFAA /* UITextField+Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+Error.swift"; path = "Classes/UITextField+Error.swift"; sourceTree = "<group>"; };
+		C91B0BEE40CA94D5348B99BD8A94DE4A /* Pods-ContactMe-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ContactMe-frameworks.sh"; sourceTree = "<group>"; };
+		C922643E8DCAE2AEAEA19ED5D4EEE599 /* EGFormValidator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EGFormValidator.xcconfig; sourceTree = "<group>"; };
+		DA678A92F1658C2C9C02854680DE67A1 /* ValidatorViewController+EqualTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+EqualTo.swift"; path = "Classes/ValidatorViewController+EqualTo.swift"; sourceTree = "<group>"; };
+		DF305CD42F9D1784037F3F7207AA5409 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		E2A72393AACCF22415A7906E938C0CA7 /* ValidatorViewController+DigitsOnly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+DigitsOnly.swift"; path = "Classes/ValidatorViewController+DigitsOnly.swift"; sourceTree = "<group>"; };
+		F5256C18833650302C2D7F9205FB758E /* ValidatorViewController+Regexp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ValidatorViewController+Regexp.swift"; path = "Classes/ValidatorViewController+Regexp.swift"; sourceTree = "<group>"; };
+		FD7908482F2545457C9FB63642EBA64B /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		FF77A7D8CFEF89CA213A0AAA461C37EE /* EGFormValidator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EGFormValidator-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,17 +145,63 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91BBAF8A32EEBF7A01A0A339A6211AAF /* Frameworks */ = {
+		E8447A04FFC94B13501D78D61A542334 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DDE45C52C0347369329381A09DB2E99 /* Foundation.framework in Frameworks */,
+				FCC12B95541EFA5D9BF9BB4893E576F5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		001705AD5CABB178710F2D283DB2C362 /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				315B0BB19EFCE49784030DC534F4A5FD /* Frameworks */,
+				3FF4286AEBF209DE87E53FBC8B1F2A7B /* Resources */,
+				0AF43D4799F750B16716A1BEF8CA53A1 /* Support Files */,
+			);
+			name = GooglePlaces;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		004F348CA3FF2D6A049396E1609B9B0B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E681928A58522E3740317975F7C356BB /* EGFormValidator */,
+				46A110C106740DA0B13A19DF27C3883D /* GoogleMaps */,
+				001705AD5CABB178710F2D283DB2C362 /* GooglePlaces */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		0AF43D4799F750B16716A1BEF8CA53A1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				702982BF1BC0A48BAF349C1152AAD074 /* GooglePlaces.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GooglePlaces";
+			sourceTree = "<group>";
+		};
+		0BF748924FE2FE2FD6F0710D1DEC1A6F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0C4D791E6319D17E66BCF26A7C3481E6 /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		0C4D791E6319D17E66BCF26A7C3481E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B7DE208CEC442592CBB1CF7ED11BBBB /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,43 +210,65 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6EDFEDE3FC44D5F33E7243ABEA9ABC2A /* Pods-ContactMe */ = {
+		315B0BB19EFCE49784030DC534F4A5FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E1AB1F7501E4C753E5CBF2D94A6267B2 /* Pods-ContactMe.modulemap */,
-				8CCFA2A20D6BAD065243CA35A1D144E6 /* Pods-ContactMe-acknowledgements.markdown */,
-				CE992FB345D15D19795D3B8604141361 /* Pods-ContactMe-acknowledgements.plist */,
-				AD29AA08AF42711E07E858FA930EADFB /* Pods-ContactMe-dummy.m */,
-				1845C36AB80238283E5C925916256A09 /* Pods-ContactMe-frameworks.sh */,
-				D3F890348E4E19232D3804A718EEC285 /* Pods-ContactMe-Info.plist */,
-				48E1C5352DA24E4083F15909F9DE807A /* Pods-ContactMe-umbrella.h */,
-				DAD4C2C881CBE14DFB31C8EF6A0EB066 /* Pods-ContactMe.debug.xcconfig */,
-				C0BF64FBDAD6A221EA192610AC235FB0 /* Pods-ContactMe.release.xcconfig */,
+				8205A635003685E1FB4A98A35716590C /* GooglePlaces.framework */,
 			);
-			name = "Pods-ContactMe";
-			path = "Target Support Files/Pods-ContactMe";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		74060EA1D20C1B736FADAE380D73801E /* Support Files */ = {
+		3F421522A3E993F238889C0E6CA8F166 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D68FC0540CAE129E9640E6F40418C913 /* EGFormValidator.modulemap */,
-				BF87372E604F11A90CE979821E41415E /* EGFormValidator.xcconfig */,
-				DB1F26C5C4FA9172BE0E28D031C612F3 /* EGFormValidator-dummy.m */,
-				90EC39BFC04F1273D8C1614B299BE7E4 /* EGFormValidator-Info.plist */,
-				E4F039AE3DDBA670B1B9886F9FA1F352 /* EGFormValidator-prefix.pch */,
-				E57D86D6C67E9CA7D92604F87B800B45 /* EGFormValidator-umbrella.h */,
+				FF4F31DF7B0074C9D2869C83AB7FD4AB /* Pods-ContactMe */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/EGFormValidator";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		9FD19D66018E153B18F6A5CBDCEA48EB /* Pods */ = {
+		3FF4286AEBF209DE87E53FBC8B1F2A7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D95F1E663EEC78B86DCF84623839A0F7 /* EGFormValidator */,
+				DF305CD42F9D1784037F3F7207AA5409 /* GooglePlaces.bundle */,
 			);
-			name = Pods;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		46A110C106740DA0B13A19DF27C3883D /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				0BF748924FE2FE2FD6F0710D1DEC1A6F /* Base */,
+				A3516DDF5F6171DB6869423338551FAB /* Maps */,
+				DD14ACA970C5CA83B81825BC69AF4E2A /* Support Files */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		472F3495CA632C6DB2E5FA3712F75997 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD7908482F2545457C9FB63642EBA64B /* GoogleMaps.framework */,
+				A67B5A1DE05034AFBDECB7BCF05D3006 /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3516DDF5F6171DB6869423338551FAB /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				472F3495CA632C6DB2E5FA3712F75997 /* Frameworks */,
+				AF4FE7D3CE79BC43FBD6FC0765070514 /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		AF4FE7D3CE79BC43FBD6FC0765070514 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				62E021DEFBCA130F4511A9FD3BB6B0A7 /* GoogleMaps.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		B1C1688A9A309C1A893AE2AF392CE4BA /* Products */ = {
@@ -165,36 +285,19 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				9FD19D66018E153B18F6A5CBDCEA48EB /* Pods */,
+				004F348CA3FF2D6A049396E1609B9B0B /* Pods */,
 				B1C1688A9A309C1A893AE2AF392CE4BA /* Products */,
-				ED0E98200C257E46563D4CF190A96C2E /* Targets Support Files */,
+				3F421522A3E993F238889C0E6CA8F166 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D95F1E663EEC78B86DCF84623839A0F7 /* EGFormValidator */ = {
+		DD14ACA970C5CA83B81825BC69AF4E2A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				16339B40D011A15321CEB9DCCB7523B6 /* EGFormValidator.h */,
-				35911BFC8368D662A5B52822DB59EDC4 /* String+Email.swift */,
-				4F4027B6B81385539B1102654F330B5D /* UILabel+Error.swift */,
-				F77E8607E00A63640D42BFAFE4F1AFAA /* UITextField+Error.swift */,
-				8B4DFA504BE75C9891FE34CF3777CF06 /* UITextField+maxLength.swift */,
-				D456B9DBBA5971F90C5CE1BC7521AC2B /* UITextView+Error.swift */,
-				746ABC67B3A8DF233DEC20E3FEF05FDC /* ValidatableProtocol.swift */,
-				C27B038B436ED66803174AFB4D0BEC83 /* ValidationErrorDisplayable.swift */,
-				41DF4EFF3B548C8A5B6D506FE586F5D4 /* Validator.swift */,
-				38718C2BFAA0E6BC2861C7D2AFB97652 /* ValidatorViewController.swift */,
-				C45B7534E907B51EC3B443F96B36DA76 /* ValidatorViewController+AlphaNumeric.swift */,
-				ECBD169268ABEE8634C64DDF1E92E44C /* ValidatorViewController+DigitsOnly.swift */,
-				E65DF0CC06A4BAF6BCF5B73677D3A5A1 /* ValidatorViewController+Email.swift */,
-				DF1BB8245CA5AF7075FDD97E4B3EC645 /* ValidatorViewController+EqualTo.swift */,
-				DB7E94C33310B6C84FF7FC5B2CBAB9EF /* ValidatorViewController+Mandatory.swift */,
-				8684B9CD02E109B27C7637AB6AB61F96 /* ValidatorViewController+Minlength.swift */,
-				1601864F1677ABCD41C051EAF2DBCB81 /* ValidatorViewController+Regexp.swift */,
-				74060EA1D20C1B736FADAE380D73801E /* Support Files */,
+				072898CD49CAF68A44C07650E441D080 /* GoogleMaps.xcconfig */,
 			);
-			name = EGFormValidator;
-			path = EGFormValidator;
+			name = "Support Files";
+			path = "../Target Support Files/GoogleMaps";
 			sourceTree = "<group>";
 		};
 		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
@@ -206,22 +309,72 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		ED0E98200C257E46563D4CF190A96C2E /* Targets Support Files */ = {
+		E681928A58522E3740317975F7C356BB /* EGFormValidator */ = {
 			isa = PBXGroup;
 			children = (
-				6EDFEDE3FC44D5F33E7243ABEA9ABC2A /* Pods-ContactMe */,
+				BC189389D96BC9B1F707FB097845BFC4 /* EGFormValidator.h */,
+				64EBD361A8F246D6AA8BCB5983F699A8 /* String+Email.swift */,
+				A4EA3CBE8B72764EF0872B527E4D0594 /* UILabel+Error.swift */,
+				BE5566F2F316FEDAA0F010535DFDB062 /* UITextField+Error.swift */,
+				B1FF89566EDC54D8DD59B74C7B5A5BA3 /* UITextField+maxLength.swift */,
+				6EE032835CF73E4F4534055A8D7776E5 /* UITextView+Error.swift */,
+				1AB96F958F2DFD2814963ED714E84790 /* ValidatableProtocol.swift */,
+				77B43C023D6DA5DCCDF9CA2CDCF1A7BE /* ValidationErrorDisplayable.swift */,
+				4033FBE6D57FEDEEDB680F79F2706482 /* Validator.swift */,
+				1A66C5C55AA6C1FAF6D745B3FF012DDC /* ValidatorViewController.swift */,
+				A105CEF42B95C1915325C9AA9491DF3C /* ValidatorViewController+AlphaNumeric.swift */,
+				E2A72393AACCF22415A7906E938C0CA7 /* ValidatorViewController+DigitsOnly.swift */,
+				2DEC4CEDBC79D0046729CAC0CB5626A4 /* ValidatorViewController+Email.swift */,
+				DA678A92F1658C2C9C02854680DE67A1 /* ValidatorViewController+EqualTo.swift */,
+				4D302F5EB7DC9E75389607243176254D /* ValidatorViewController+Mandatory.swift */,
+				2995E1E8434BC190B2591D22F8FD0054 /* ValidatorViewController+Minlength.swift */,
+				F5256C18833650302C2D7F9205FB758E /* ValidatorViewController+Regexp.swift */,
+				F614123254911945CD4FDB03727BF9CA /* Support Files */,
 			);
-			name = "Targets Support Files";
+			name = EGFormValidator;
+			path = EGFormValidator;
+			sourceTree = "<group>";
+		};
+		F614123254911945CD4FDB03727BF9CA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				101890236BA1FD4AD3393773DA269B20 /* EGFormValidator.modulemap */,
+				C922643E8DCAE2AEAEA19ED5D4EEE599 /* EGFormValidator.xcconfig */,
+				97259645D3D0F01FB5465D04FE1658ED /* EGFormValidator-dummy.m */,
+				A1167F8526CD46A2ECDB06EC93612D78 /* EGFormValidator-Info.plist */,
+				0B7599DABF56A0908E1BA3F8C5499010 /* EGFormValidator-prefix.pch */,
+				FF77A7D8CFEF89CA213A0AAA461C37EE /* EGFormValidator-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/EGFormValidator";
+			sourceTree = "<group>";
+		};
+		FF4F31DF7B0074C9D2869C83AB7FD4AB /* Pods-ContactMe */ = {
+			isa = PBXGroup;
+			children = (
+				6E9D5999468621B46C98A99AA7E53032 /* Pods-ContactMe.modulemap */,
+				53C79B6E537917A8EC40AD8E6C8F9DC0 /* Pods-ContactMe-acknowledgements.markdown */,
+				68BD667D676764A8203E8E8CC3ECB1B6 /* Pods-ContactMe-acknowledgements.plist */,
+				1C47A0A1D8E689173276E8F5CC93BD05 /* Pods-ContactMe-dummy.m */,
+				C91B0BEE40CA94D5348B99BD8A94DE4A /* Pods-ContactMe-frameworks.sh */,
+				11CB47594DDC38EAA5B422CBC9E79456 /* Pods-ContactMe-Info.plist */,
+				69179C36485CAB768CE4D1538050C314 /* Pods-ContactMe-resources.sh */,
+				05C940232188857A9FC1DC4E321DF3D0 /* Pods-ContactMe-umbrella.h */,
+				78B7D9299A533326087FDC61CF6C727B /* Pods-ContactMe.debug.xcconfig */,
+				C2B076621EE5717D4010B8602CB4A98D /* Pods-ContactMe.release.xcconfig */,
+			);
+			name = "Pods-ContactMe";
+			path = "Target Support Files/Pods-ContactMe";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		842E10EE90C4B719978E7449A8818D9A /* Headers */ = {
+		08A5E7801381CAF96418D9198DD2D794 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96918518936EA95E05F0B491B98DBD97 /* Pods-ContactMe-umbrella.h in Headers */,
+				0FD95AD0652F11281EB875FF2F3011C7 /* Pods-ContactMe-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,17 +392,19 @@
 /* Begin PBXNativeTarget section */
 		A083A14138EB2278007DC25C1018EC74 /* Pods-ContactMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9ECF8D014F2D8058811F874EFBB57F2C /* Build configuration list for PBXNativeTarget "Pods-ContactMe" */;
+			buildConfigurationList = 519CEB20C67E9CC3371DED9C33637258 /* Build configuration list for PBXNativeTarget "Pods-ContactMe" */;
 			buildPhases = (
-				842E10EE90C4B719978E7449A8818D9A /* Headers */,
-				F13125D52C09A900879D8CA77CBDC8F4 /* Sources */,
-				91BBAF8A32EEBF7A01A0A339A6211AAF /* Frameworks */,
-				CF2A2D23173E01F2A674CF62006411C9 /* Resources */,
+				08A5E7801381CAF96418D9198DD2D794 /* Headers */,
+				C1A21E2E50B5EA5C846C56B9409FAAF3 /* Sources */,
+				E8447A04FFC94B13501D78D61A542334 /* Frameworks */,
+				B36F1F172AF60D0A28FFB4496F056051 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2C59572DF6AFAE0F7ECB95B46DA492B5 /* PBXTargetDependency */,
+				19D8B119E88132774D15232575782A32 /* PBXTargetDependency */,
+				4ED349DB7C2AAB4839A7890556727846 /* PBXTargetDependency */,
+				E911EC6598ADA48EBE3A26FA14EB404F /* PBXTargetDependency */,
 			);
 			name = "Pods-ContactMe";
 			productName = "Pods-ContactMe";
@@ -297,6 +452,8 @@
 			projectRoot = "";
 			targets = (
 				DA208A70DB400CF82167995790090AD3 /* EGFormValidator */,
+				E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */,
+				0C1885900810601510E0C632060FAF26 /* GooglePlaces */,
 				A083A14138EB2278007DC25C1018EC74 /* Pods-ContactMe */,
 			);
 		};
@@ -310,7 +467,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF2A2D23173E01F2A674CF62006411C9 /* Resources */ = {
+		B36F1F172AF60D0A28FFB4496F056051 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -344,22 +501,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F13125D52C09A900879D8CA77CBDC8F4 /* Sources */ = {
+		C1A21E2E50B5EA5C846C56B9409FAAF3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4BA91465E559C9425C0D444B669B648 /* Pods-ContactMe-dummy.m in Sources */,
+				BDF38728B14FFA76953E60BFD9C8C45D /* Pods-ContactMe-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2C59572DF6AFAE0F7ECB95B46DA492B5 /* PBXTargetDependency */ = {
+		19D8B119E88132774D15232575782A32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EGFormValidator;
 			target = DA208A70DB400CF82167995790090AD3 /* EGFormValidator */;
-			targetProxy = F43D2B55346F162C98FDBD06B78DEE2E /* PBXContainerItemProxy */;
+			targetProxy = F93C3839430315C79C8E0D5DFAC63EF2 /* PBXContainerItemProxy */;
+		};
+		4ED349DB7C2AAB4839A7890556727846 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMaps;
+			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
+			targetProxy = 71A7B5D5A70AC3D36F3F697223657454 /* PBXContainerItemProxy */;
+		};
+		D42315111F400C0605ACCD6B5CAF2178 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMaps;
+			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
+			targetProxy = 6EB1C2DD30E6564FC3135C9E8002D8F7 /* PBXContainerItemProxy */;
+		};
+		E911EC6598ADA48EBE3A26FA14EB404F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GooglePlaces;
+			target = 0C1885900810601510E0C632060FAF26 /* GooglePlaces */;
+			targetProxy = 58413B07C2AD8C553D798C44C5712DA7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -424,9 +599,116 @@
 			};
 			name = Release;
 		};
-		1B0C36B52970F6188410BF24BAB26B53 /* Debug */ = {
+		4AA46832D8A16AA4E4811383B204D2A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAD4C2C881CBE14DFB31C8EF6A0EB066 /* Pods-ContactMe.debug.xcconfig */;
+			baseConfigurationReference = 072898CD49CAF68A44C07650E441D080 /* GoogleMaps.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		744E4F44390DDFFBD6EDFAEFE3633881 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2B076621EE5717D4010B8602CB4A98D /* Pods-ContactMe.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ContactMe/Pods-ContactMe-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ContactMe/Pods-ContactMe.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		758DD000E3768E3605D6C94A25B1A60A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C922643E8DCAE2AEAEA19ED5D4EEE599 /* EGFormValidator.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/EGFormValidator/EGFormValidator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/EGFormValidator/EGFormValidator-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/EGFormValidator/EGFormValidator.modulemap";
+				PRODUCT_MODULE_NAME = EGFormValidator;
+				PRODUCT_NAME = EGFormValidator;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		907050E8ED96EF2CF04EC3D293E73BD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 702982BF1BC0A48BAF349C1152AAD074 /* GooglePlaces.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C54DB0772DB3408DA6967AA266512B32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78B7D9299A533326087FDC61CF6C727B /* Pods-ContactMe.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -462,78 +744,37 @@
 			};
 			name = Debug;
 		};
-		758DD000E3768E3605D6C94A25B1A60A /* Release */ = {
+		C7565AEA7FCD8F66CAF546DC5AF1404F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF87372E604F11A90CE979821E41415E /* EGFormValidator.xcconfig */;
+			baseConfigurationReference = 072898CD49CAF68A44C07650E441D080 /* GoogleMaps.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/EGFormValidator/EGFormValidator-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/EGFormValidator/EGFormValidator-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/EGFormValidator/EGFormValidator.modulemap";
-				PRODUCT_MODULE_NAME = EGFormValidator;
-				PRODUCT_NAME = EGFormValidator;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		849B0E717F3FDE97D39C7E5D9924A06A /* Release */ = {
+		DC85D7712D8EE6E340F053BC38E1FB63 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0BF64FBDAD6A221EA192610AC235FB0 /* Pods-ContactMe.release.xcconfig */;
+			baseConfigurationReference = 702982BF1BC0A48BAF349C1152AAD074 /* GooglePlaces.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ContactMe/Pods-ContactMe-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ContactMe/Pods-ContactMe.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -603,7 +844,7 @@
 		};
 		FEFF66FA25F9B0141998D1D8774490BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF87372E604F11A90CE979821E41415E /* EGFormValidator.xcconfig */;
+			baseConfigurationReference = C922643E8DCAE2AEAEA19ED5D4EEE599 /* EGFormValidator.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -639,6 +880,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2FC2AC47FDB0310285CE777F18CD1532 /* Build configuration list for PBXAggregateTarget "GooglePlaces" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				907050E8ED96EF2CF04EC3D293E73BD9 /* Debug */,
+				DC85D7712D8EE6E340F053BC38E1FB63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AA46832D8A16AA4E4811383B204D2A4 /* Debug */,
+				C7565AEA7FCD8F66CAF546DC5AF1404F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -648,11 +907,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9ECF8D014F2D8058811F874EFBB57F2C /* Build configuration list for PBXNativeTarget "Pods-ContactMe" */ = {
+		519CEB20C67E9CC3371DED9C33637258 /* Build configuration list for PBXNativeTarget "Pods-ContactMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1B0C36B52970F6188410BF24BAB26B53 /* Debug */,
-				849B0E717F3FDE97D39C7E5D9924A06A /* Release */,
+				C54DB0772DB3408DA6967AA266512B32 /* Debug */,
+				744E4F44390DDFFBD6EDFAEFE3633881 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

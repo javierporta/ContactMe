@@ -230,6 +230,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="universityTapped:" destination="2GJ-KL-fJK" eventType="editingDidBegin" id="E7S-SB-rRO"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey! People will have more changes to meet you if you entry your University" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYp-cD-jeS">
                                                         <rect key="frame" x="0.0" y="46" width="394" height="20.5"/>
@@ -877,7 +880,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aT0-YT-VIc"/>
         <segue reference="7DD-iz-YFs"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,4 +7,7 @@ target 'ContactMe' do
 
   # Pods for ContactMe
    pod 'EGFormValidator'
+   pod 'GooglePlaces'
+   pod 'GoogleMaps'
+
 end

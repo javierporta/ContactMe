@@ -6,7 +6,9 @@
 //  Copyright © 2019 IPL-Master. All rights reserved.
 //
 
-import UIKit 
+import UIKit
+import GooglePlaces
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyD1dWnnUugFZuqhfLYSR5FOm18bB6A0GgY")
         
         return true
     }
