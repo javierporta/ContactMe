@@ -16,13 +16,13 @@ class ProfileDataHelper: DataHelperProtocol {
     static let table = Table(TABLE_NAME)
     static let dbId = Expression<Int64>("id")
     static let dbName = Expression<String>("name")
-    static let dbLastName = Expression<String>("lastname")
-    static let dbPhone = Expression<String>("phone")
-    static let dbAge = Expression<Int>("age")
-    static let dbGender = Expression<String>("gender")
-    static let dbUniversity = Expression<String>("university")
-    static let dbSpecialty = Expression<String>("specialty")
-    static let dbOccupation = Expression<String>("occupation")
+    static let dbLastName = Expression<String?>("lastname")
+    static let dbPhone = Expression<String?>("phone")
+    static let dbAge = Expression<Int?>("age")
+    static let dbGender = Expression<String?>("gender")
+    static let dbUniversity = Expression<String?>("university")
+    static let dbSpecialty = Expression<String?>("specialty")
+    static let dbOccupation = Expression<String?>("occupation")
     
     
     typealias T = Profile

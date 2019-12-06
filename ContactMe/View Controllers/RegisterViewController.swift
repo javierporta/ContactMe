@@ -74,7 +74,7 @@ class RegisterViewController: ValidatorViewController {
             navigateToLogin()
             
         }else{
-            print("esta mal")
+            showInvalidDataAlert()
         }
     }
     
@@ -88,6 +88,11 @@ class RegisterViewController: ValidatorViewController {
         _ = self.validate()
     }
     
+    func showInvalidDataAlert() {
+        let alert = UIAlertController(title: "Alert", message: "Incorrect data, check the form data.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     // MARK: - Navigation
     
