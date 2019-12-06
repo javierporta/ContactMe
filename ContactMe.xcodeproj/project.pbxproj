@@ -45,6 +45,8 @@
 		5DDA9549238EA5AE000D36FE /* MyProfileTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */; };
 		B53BEA802397DE60004142C6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BEA7F2397DE60004142C6 /* UserService.swift */; };
 		B5E0F6FA238EB34D00ACEDBA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = B5E0F6F9238EB34D00ACEDBA /* SwiftPackageProductDependency */; };
+		B53C22B623993FA200D75B20 /* ProfileDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53C22B523993FA200D75B20 /* ProfileDataHelper.swift */; };
+		B5E0F6FA238EB34D00ACEDBA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B5E0F6F9238EB34D00ACEDBA /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,7 @@
 		5DDA9546238B0A5F000D36FE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTabs.swift; sourceTree = "<group>"; };
 		B53BEA7F2397DE60004142C6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		B53C22B523993FA200D75B20 /* ProfileDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 			children = (
 				2C192C2F238702050049B43B /* DataHelperProtocol.swift */,
 				2C192C30238702050049B43B /* UserDataHelper.swift */,
+				B53C22B523993FA200D75B20 /* ProfileDataHelper.swift */,
 			);
 			path = DataAccess;
 			sourceTree = "<group>";
@@ -441,6 +445,7 @@
 				5D540904237C40AA0020144D /* SpinnerView.swift in Sources */,
 				5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */,
 				5DA3A119239451D200D33C06 /* RoundButton.swift in Sources */,
+				B53C22B623993FA200D75B20 /* ProfileDataHelper.swift in Sources */,
 				5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */,
 				5DDA9549238EA5AE000D36FE /* MyProfileTabs.swift in Sources */,
 			);

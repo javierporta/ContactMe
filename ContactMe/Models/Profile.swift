@@ -23,8 +23,16 @@ class Profile: Entity, Codable {
         return "\(self.name) \(self.lastName ?? "")"
     }
     
+    
     init(name: String) {
         self.name = name
+        self.lastName = ""
+        self.phone = ""
+        self.age = 0
+        self.gender = ""
+        self.university = ""
+        self.specialty = ""
+        self.occupation = ""
         
         super.init()
     }

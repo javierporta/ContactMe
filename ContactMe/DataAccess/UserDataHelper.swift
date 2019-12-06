@@ -11,7 +11,7 @@ import SQLite
 
 class UserDataHelper: DataHelperProtocol {    
    
-     static let TABLE_NAME = "Teams"
+     static let TABLE_NAME = "Users"
     
      static let table = Table(TABLE_NAME)
      static let dbId = Expression<Int64>("id")

@@ -20,27 +20,20 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        /*do {
+        do {
             
-            try UserDataHelper.createTable()
-            
-            let entity = User()
-            entity.username =  "rhdelgado"
-            entity.password = "1234"
-            
-            let userId = try UserDataHelper.insert(item: entity)
-            print(userId)
+            try ProfileDataHelper.createTable()
             
         } catch _{
             print("caca")
-        }*/
+        }
     }
     
     //    MARK: Actions
     
     @IBAction func touchUpLogIn(_ sender: Any) {
         
-        if let registerUser = UserService.getRegisterUser() {
+        if let registerUser = UserService.getRegisterUserByUserName(username: emailTextField.text!) {
             
             if ( emailTextField.text == registerUser.username && passwordTextField.text == registerUser.password) {
                 
@@ -56,11 +49,12 @@ class LoginViewController: UIViewController {
                 navigateToMainTab()
                 
             } else {
-                
                 showWrongCredentialsAlert()
-                
             }
             
+        }else
+        {
+            showWrongCredentialsAlert()
         }
     }
     

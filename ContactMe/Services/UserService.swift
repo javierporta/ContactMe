@@ -15,25 +15,31 @@ class UserService {
     
     
     static func createUser(user: User)->String{
-        var userJson = ""
+        var userArrayJson = ""
         do {
-            let userData = try! JSONEncoder().encode(user)
-            userJson = String(data: userData, encoding: .utf8)!
-            try self.keychain.set(userJson, key: Constants.USER_DATA_KEY)
+            
+            var array = self.getAllUsers()
+            array.append(user)
+            
+            let userArrayData = try! JSONEncoder().encode(array)
+            userArrayJson = String(data: userArrayData, encoding: .utf8)!
+            try self.keychain.set(userArrayJson, key: Constants.USER_DATA_KEY)
         }
         catch let error {
             print(error)
         }
-        return userJson
+        return userArrayJson
     }
     
-    static func getRegisterUser()-> User?{
+    static func getRegisterUserByUserName(username: String)-> User?{
         if self.keychain[Constants.USER_DATA_KEY] != nil {
             do{
-                let userJson = try self.keychain.get(Constants.USER_DATA_KEY)
+                let userArrayJson = try self.keychain.get(Constants.USER_DATA_KEY)
                 
-                if let dataJson = userJson?.data(using: .utf8) {
-                    let user = try JSONDecoder().decode(User.self, from:dataJson)
+                if let dataJson = userArrayJson?.data(using: .utf8) {
+                    let userArray = try JSONDecoder().decode([User].self, from:dataJson)
+                    
+                    let user = userArray.filter{ $0.username == username}.first
                     
                     return user
                 }
@@ -43,6 +49,25 @@ class UserService {
             }
         }
         return nil
+    }
+    
+    static func getAllUsers()-> [User]{
+        
+        var userArray = [User]()
+        
+        if self.keychain[Constants.USER_DATA_KEY] != nil {
+            do{
+                let userArrayJson = try self.keychain.get(Constants.USER_DATA_KEY)
+                
+                if let dataJson = userArrayJson?.data(using: .utf8) {
+                    userArray = try JSONDecoder().decode([User].self, from:dataJson)
+                }
+            }
+            catch let error{
+                print (error)
+            }
+        }
+        return userArray
     }
     
 }
