@@ -1,0 +1,29 @@
+PODS:
+  - EGFormValidator (2.0.0)
+  - GoogleMaps (3.6.0):
+    - GoogleMaps/Maps (= 3.6.0)
+  - GoogleMaps/Base (3.6.0)
+  - GoogleMaps/Maps (3.6.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.6.0):
+    - GoogleMaps/Base (= 3.6.0)
+
+DEPENDENCIES:
+  - EGFormValidator
+  - GoogleMaps
+  - GooglePlaces
+
+SPEC REPOS:
+  trunk:
+    - EGFormValidator
+    - GoogleMaps
+    - GooglePlaces
+
+SPEC CHECKSUMS:
+  EGFormValidator: 075803c0227c2f17c7e87ba43311adbf9beae704
+  GoogleMaps: 82f8fe307193bb4de6ef6bf9e88f1d624b718f9d
+  GooglePlaces: 1b9d29cf3e164903d873600f511f42acdfe85294
+
+PODFILE CHECKSUM: c05563ed38c00546e28f35b5f8506f3568ccbd64
+
+COCOAPODS: 1.8.4
