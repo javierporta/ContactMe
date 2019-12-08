@@ -22,28 +22,32 @@ class QRShowViewController: UIViewController {
     
     @IBOutlet weak var emailLabel: UILabel!
     
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
     @IBOutlet weak var phoneLabel: UILabel!
-    let myProfile = Profile(name: "Javier")
+    
+    
+    var currentUserProfile = Profile(name: "Name Lastname")
+    
+    @IBOutlet weak var dataStackView: UIStackView!
     
     fileprivate func getMyProfileData() {
-        //  TODO:      Get my profile data
-        myProfile.occupation = "Developer"
-        myProfile.phone = "+9123456"
-        myProfile.lastName = "Porta"
-        myProfile.university = "IP Leiria"
-//        etc
-        
-        
+        //        1 Get current user id
+        //        2 Get profile with that user id
+        if let currentUserProfile = try? ProfileDataHelper.find(idobj: 1){
+            self.currentUserProfile = currentUserProfile
+            
+        }
         
     }
     
     fileprivate func setMyProfileControls(){
-        fullNameLabel.text = myProfile.fullName()
-        universityLabel.text=myProfile.university
+        fullNameLabel.text = currentUserProfile.fullName()
+        universityLabel.text=currentUserProfile.university
         careerLabel.text = "missing career field"
-        specialityJobLabel.text=myProfile.specialty
+        specialityJobLabel.text=currentUserProfile.specialty
         emailLabel.text = "missing email field"
-        phoneLabel.text = myProfile.phone
+        phoneLabel.text = currentUserProfile.phone
     }
     
     override func viewDidLoad() {
@@ -53,6 +57,7 @@ class QRShowViewController: UIViewController {
         setMyProfileControls()
         
         addQrCodeToImage()
+        hideOrShowItems()
     }
     
     
@@ -89,19 +94,19 @@ class QRShowViewController: UIViewController {
     }
     
     func addQrCodeToImage(){
-    
+        
         
         // Encode
         let jsonEncoder = JSONEncoder()
         do {
-            let jsonData = try jsonEncoder.encode(myProfile)
+            let jsonData = try jsonEncoder.encode(currentUserProfile)
             let json = String(data: jsonData, encoding: String.Encoding.utf8)
             
             // Decode
             //        let jsonDecoder = JSONDecoder()
             //        let dog = try jsonDecoder.decode(Dog.self, from: jsonData)
-        
-
+            
+            
             // Get data from the string
             let data = json?.data(using: String.Encoding.ascii)
             // Get a QR CIFilter
@@ -130,6 +135,36 @@ class QRShowViewController: UIViewController {
         
         
     }
+    
+    func showAllItems(){
+        dataStackView.isHidden = false
+        avatarImageView.isHidden = false
+        self.view.layoutIfNeeded()
+    }
+    
+    func hideSomeItems(){
+        dataStackView.isHidden = true
+        avatarImageView.isHidden = true
+        
+        self.view.layoutIfNeeded()
+    }
+    
+    func hideOrShowItems(){
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            hideSomeItems()
+        } else {
+            print("Portrait")
+            showAllItems()
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        hideOrShowItems()
+    }
+    
+    
+    
     
     
     /*
