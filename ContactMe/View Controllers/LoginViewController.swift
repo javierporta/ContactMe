@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround()
         
         do {
             
@@ -77,5 +78,16 @@ class LoginViewController: UIViewController {
     }
     
     
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:   #selector(UIInputViewController.dismissKeyboard))
+      tap.cancelsTouchesInView = false
+      view.addGestureRecognizer(tap)
+    }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
 }
 

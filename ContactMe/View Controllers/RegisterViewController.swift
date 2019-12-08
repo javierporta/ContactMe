@@ -29,6 +29,9 @@ class RegisterViewController: ValidatorViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.hideKeyboardWhenTappedAround()
+
+        
         self.addValidatorEmail(toControl: self.emailTextField,
                                errorPlaceholder: self.emailErrorLabel,
                                errorMessage: "Email is invalid")
@@ -100,6 +103,19 @@ class RegisterViewController: ValidatorViewController {
         let storyboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.LOGIN)
         self.present(viewController, animated: true, completion: nil)
+    }
+    
+
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:   #selector(UIInputViewController.dismissKeyboard))
+      tap.cancelsTouchesInView = false
+      view.addGestureRecognizer(tap)
+    }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
 }
