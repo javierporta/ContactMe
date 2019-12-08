@@ -534,11 +534,31 @@
         <!--CameraQR Scanner View Controller-->
         <scene sceneID="aNp-s6-KxL">
             <objects>
-                <viewController id="yqy-ty-WkJ" customClass="CameraQRScannerViewController" customModule="ContactMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="yqy-ty-WkJ" customClass="CameraQRScannerViewController" customModule="ContactMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x0a-rm-SW1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning QR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woC-GR-NJe">
+                                <rect key="frame" x="128.5" y="64" width="157" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" name="Primary-Label"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OZ-pa-XOj">
+                                <rect key="frame" x="20" y="6" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="18r-Iu-xZL" kind="show" id="60s-gd-d6w"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="woC-GR-NJe" firstAttribute="top" secondItem="3ac-z7-x6X" secondAttribute="top" constant="20" id="sYe-oS-4xa"/>
+                            <constraint firstItem="woC-GR-NJe" firstAttribute="centerX" secondItem="3ac-z7-x6X" secondAttribute="centerX" id="ygw-ZZ-WdO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3ac-z7-x6X"/>
                     </view>
                     <navigationItem key="navigationItem" id="cID-Vv-okI"/>
@@ -571,7 +591,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dy9-MV-gDf" customClass="RoundButton" customModule="ContactMe" customModuleProvider="target">
-                                <rect key="frame" x="354" y="753" width="50" height="50"/>
+                                <rect key="frame" x="354" y="802" width="50" height="50"/>
                                 <color key="backgroundColor" name="Primary"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="MBG-6o-P8s"/>
@@ -590,7 +610,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sn-I3-CCd" customClass="RoundButton" customModule="ContactMe" customModuleProvider="target">
-                                <rect key="frame" x="296" y="753" width="50" height="50"/>
+                                <rect key="frame" x="296" y="802" width="50" height="50"/>
                                 <color key="backgroundColor" name="Secondary"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1Sn-I3-CCd" secondAttribute="height" multiplier="1:1" id="gtd-uo-E7d"/>
@@ -605,7 +625,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="yqy-ty-WkJ" kind="show" id="NWZ-LM-4vR"/>
+                                    <segue destination="yqy-ty-WkJ" kind="showDetail" id="NWZ-LM-4vR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -620,6 +640,7 @@
                         <viewLayoutGuide key="safeArea" id="9tz-5k-mXW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="72C-rd-b11"/>
+                    <navigationItem key="navigationItem" id="AVe-ax-GqU"/>
                     <connections>
                         <outlet property="cameraQrScannerButton" destination="1Sn-I3-CCd" id="G3B-fM-Uom"/>
                         <outlet property="qrButton" destination="dy9-MV-gDf" id="Pqm-wQ-WcF"/>
@@ -1007,6 +1028,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="60s-gd-d6w"/>
         <segue reference="7DD-iz-YFs"/>
     </inferredMetricsTieBreakers>
 </document>
