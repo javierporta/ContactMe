@@ -9,6 +9,7 @@
 import UIKit
 import KeychainAccess
 
+@available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
