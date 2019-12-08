@@ -116,6 +116,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         /// Show all results without without typing anything
         interestsKsToken.minimumCharactersToSearch = 0
+    
         
     }
     

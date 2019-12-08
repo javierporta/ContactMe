@@ -531,6 +531,22 @@
             </objects>
             <point key="canvasLocation" x="-3620.289855072464" y="1208.7053571428571"/>
         </scene>
+        <!--CameraQR Scanner View Controller-->
+        <scene sceneID="aNp-s6-KxL">
+            <objects>
+                <viewController id="yqy-ty-WkJ" customClass="CameraQRScannerViewController" customModule="ContactMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x0a-rm-SW1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3ac-z7-x6X"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cID-Vv-okI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3jf-Nv-Cw6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2675" y="1064"/>
+        </scene>
         <!--DashboardViewController-->
         <scene sceneID="rTg-nI-6Gm">
             <objects>
@@ -573,16 +589,39 @@
                                     <segue destination="Kaj-nD-2jJ" kind="show" id="Kqu-7U-ox7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sn-I3-CCd" customClass="RoundButton" customModule="ContactMe" customModuleProvider="target">
+                                <rect key="frame" x="296" y="753" width="50" height="50"/>
+                                <color key="backgroundColor" name="Secondary"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Sn-I3-CCd" secondAttribute="height" multiplier="1:1" id="gtd-uo-E7d"/>
+                                    <constraint firstAttribute="width" constant="50" id="lRe-q2-cVp"/>
+                                </constraints>
+                                <color key="tintColor" name="Primary-Label"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="icon-camera"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="yqy-ty-WkJ" kind="show" id="NWZ-LM-4vR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="1Sn-I3-CCd" firstAttribute="centerY" secondItem="dy9-MV-gDf" secondAttribute="centerY" id="FBb-KW-Vvz"/>
                             <constraint firstItem="9tz-5k-mXW" firstAttribute="trailing" secondItem="dy9-MV-gDf" secondAttribute="trailing" constant="10" id="fEw-bf-auH"/>
+                            <constraint firstItem="1Sn-I3-CCd" firstAttribute="width" secondItem="1Sn-I3-CCd" secondAttribute="height" multiplier="1:1" id="hwe-ZL-Fmc"/>
                             <constraint firstItem="9tz-5k-mXW" firstAttribute="bottom" secondItem="dy9-MV-gDf" secondAttribute="bottom" constant="10" id="oqc-od-tLR"/>
+                            <constraint firstItem="dy9-MV-gDf" firstAttribute="leading" secondItem="1Sn-I3-CCd" secondAttribute="trailing" constant="8" id="vaK-Kb-zJk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9tz-5k-mXW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="72C-rd-b11"/>
                     <connections>
+                        <outlet property="cameraQrScannerButton" destination="1Sn-I3-CCd" id="G3B-fM-Uom"/>
                         <outlet property="qrButton" destination="dy9-MV-gDf" id="Pqm-wQ-WcF"/>
                     </connections>
                 </viewController>
@@ -757,7 +796,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLo-wi-eEk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2697.1014492753625" y="559.82142857142856"/>
+            <point key="canvasLocation" x="-2675" y="396"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="BhJ-Yk-iEq">
@@ -938,6 +977,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-camera" width="50" height="50"/>
         <image name="icon-email" width="50" height="50"/>
         <image name="icon-gender-female" width="50" height="50"/>
         <image name="icon-gender-male" width="50" height="50"/>

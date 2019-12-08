@@ -36,7 +36,8 @@
 		5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */; };
 		5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FE9D1238A0FC300452272 /* TextField.swift */; };
 		5DA3A119239451D200D33C06 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3A118239451D200D33C06 /* RoundButton.swift */; };
-		5DA6482E237A0DB100FF23DD /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* SwiftPackageProductDependency */; };
+		5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* KeychainAccess */; };
+		5DA94644239D62D100508470 /* CameraQRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA94643239D62D100508470 /* CameraQRScannerViewController.swift */; };
 		5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */; };
 		5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCA237DC79600FB7423 /* Constants.swift */; };
 		5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */; };
@@ -44,7 +45,6 @@
 		5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9546238B0A5F000D36FE /* UIImageView.swift */; };
 		5DDA9549238EA5AE000D36FE /* MyProfileTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */; };
 		B53BEA802397DE60004142C6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BEA7F2397DE60004142C6 /* UserService.swift */; };
-		B5E0F6FA238EB34D00ACEDBA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = B5E0F6F9238EB34D00ACEDBA /* SwiftPackageProductDependency */; };
 		B53C22B623993FA200D75B20 /* ProfileDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53C22B523993FA200D75B20 /* ProfileDataHelper.swift */; };
 		B5E0F6FA238EB34D00ACEDBA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B5E0F6F9238EB34D00ACEDBA /* SQLite */; };
 /* End PBXBuildFile section */
@@ -83,6 +83,7 @@
 		5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotYourPasswordViewController.swift; sourceTree = "<group>"; };
 		5D9FE9D1238A0FC300452272 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		5DA3A118239451D200D33C06 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		5DA94643239D62D100508470 /* CameraQRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraQRScannerViewController.swift; sourceTree = "<group>"; };
 		5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5DAA7CCA237DC79600FB7423 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -98,8 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5E0F6FA238EB34D00ACEDBA /* BuildFile in Frameworks */,
-				5DA6482E237A0DB100FF23DD /* BuildFile in Frameworks */,
+				B5E0F6FA238EB34D00ACEDBA /* SQLite in Frameworks */,
+				5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */,
 				3AB7ADE4375FF40D3B153370 /* Pods_ContactMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +234,7 @@
 				2CAAF1B92374612F00B108BE /* LoginViewController.swift */,
 				5D58E5892386D58600FA7407 /* MyProfileViewController.swift */,
 				5D3ED6B7239454F500C8894D /* QRShowViewController.swift */,
+				5DA94643239D62D100508470 /* CameraQRScannerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -294,8 +296,8 @@
 			);
 			name = ContactMe;
 			packageProductDependencies = (
-				5DA6482D237A0DB100FF23DD /* SwiftPackageProductDependency */,
-				B5E0F6F9238EB34D00ACEDBA /* SwiftPackageProductDependency */,
+				5DA6482D237A0DB100FF23DD /* KeychainAccess */,
+				B5E0F6F9238EB34D00ACEDBA /* SQLite */,
 			);
 			productName = ContactMe;
 			productReference = 2CAAF1B22374612F00B108BE /* ContactMe.app */;
@@ -326,8 +328,8 @@
 			);
 			mainGroup = 2CAAF1A92374612F00B108BE;
 			packageReferences = (
-				5DA6482C237A0DB000FF23DD /* RemoteSwiftPackageReference */,
-				B5E0F6F8238EB34D00ACEDBA /* RemoteSwiftPackageReference */,
+				5DA6482C237A0DB000FF23DD /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				B5E0F6F8238EB34D00ACEDBA /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = 2CAAF1B32374612F00B108BE /* Products */;
 			projectDirPath = "";
@@ -431,6 +433,7 @@
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
 				B53BEA802397DE60004142C6 /* UserService.swift in Sources */,
 				5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */,
+				5DA94644239D62D100508470 /* CameraQRScannerViewController.swift in Sources */,
 				5D8F36BE2390274200F6B19F /* KSTokenView.swift in Sources */,
 				2C07D30A237DA53F00F4D829 /* SqliteDbStore+Crud.swift in Sources */,
 				5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */,
@@ -647,7 +650,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5DA6482C237A0DB000FF23DD /* RemoteSwiftPackageReference */ = {
+		5DA6482C237A0DB000FF23DD /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
 			requirement = {
@@ -655,7 +658,7 @@
 				minimumVersion = 4.1.0;
 			};
 		};
-		B5E0F6F8238EB34D00ACEDBA /* RemoteSwiftPackageReference */ = {
+		B5E0F6F8238EB34D00ACEDBA /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
 			requirement = {
@@ -666,14 +669,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5DA6482D237A0DB100FF23DD /* SwiftPackageProductDependency */ = {
+		5DA6482D237A0DB100FF23DD /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5DA6482C237A0DB000FF23DD /* RemoteSwiftPackageReference */;
+			package = 5DA6482C237A0DB000FF23DD /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
-		B5E0F6F9238EB34D00ACEDBA /* SwiftPackageProductDependency */ = {
+		B5E0F6F9238EB34D00ACEDBA /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B5E0F6F8238EB34D00ACEDBA /* RemoteSwiftPackageReference */;
+			package = B5E0F6F8238EB34D00ACEDBA /* XCRemoteSwiftPackageReference "SQLite.swift" */;
 			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -14,7 +14,8 @@ class DashboardViewController: UIViewController {
 //    MARK: Outlets
     @IBOutlet weak var qrButton: UIButton!
     
-
+    @IBOutlet weak var cameraQrScannerButton: RoundButton!
+    
     
      override func viewDidLoad() {
            super.viewDidLoad()
@@ -24,11 +25,17 @@ class DashboardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         qrButton.transform = CGAffineTransform(translationX: view.bounds.width, y: 0)
+        cameraQrScannerButton.transform = CGAffineTransform(translationX: view.bounds.width, y: 0)
     }
     override func viewDidAppear(_ animated: Bool) {
         UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut],
         animations: {[weak self] in
             self?.qrButton.transform = CGAffineTransform.identity
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut],
+        animations: {[weak self] in
+            self?.cameraQrScannerButton.transform = CGAffineTransform.identity
         }, completion: nil)
     }
        
