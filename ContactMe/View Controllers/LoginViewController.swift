@@ -21,16 +21,9 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAround()
         
-        do {
-            
-            //let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
-            //try keychain.removeAll()
-            
-            try ProfileDataHelper.createTable()
-            
-        } catch _{
-            print("caca")
-        }
+        //ToDo: quitar, esto e spara ver todos los usuarios registrados
+        UserService.getAllUsers()
+        
     }
     
     //    MARK: Actions

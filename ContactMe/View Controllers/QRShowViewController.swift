@@ -27,7 +27,7 @@ class QRShowViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     
     
-    var currentUserProfile = Profile(name: "Name Lastname")
+    var currentUserProfile = Profile()
     
     @IBOutlet weak var dataStackView: UIStackView!
     
@@ -43,9 +43,9 @@ class QRShowViewController: UIViewController {
     
     fileprivate func setMyProfileControls(){
         fullNameLabel.text = currentUserProfile.fullName()
-        universityLabel.text=currentUserProfile.university
+        //universityLabel.text=currentUserProfile.university
         careerLabel.text = "missing career field"
-        specialityJobLabel.text=currentUserProfile.specialty
+        //specialityJobLabel.text=currentUserProfile.specialty
         emailLabel.text = "missing email field"
         phoneLabel.text = currentUserProfile.phone
     }

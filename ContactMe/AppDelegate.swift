@@ -8,6 +8,7 @@
 
 import UIKit
 import GooglePlaces
+import KeychainAccess
 
 
 @UIApplicationMain
@@ -19,6 +20,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         GMSPlacesClient.provideAPIKey("AIzaSyD1dWnnUugFZuqhfLYSR5FOm18bB6A0GgY")
+        
+        do {
+            
+            try ProfileDataHelper.createTable()
+                        
+           /* let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
+            try keychain.removeAll()
+            
+            guard var profiles = try ProfileDataHelper.findAll() else {
+                throw DataAccessError.Datastore_Connection_Error
+            }
+            for profile in profiles{
+                try ProfileDataHelper.delete(item: profile)
+            }*/
+            
+        } catch _{
+            print("caca")
+        }
         
         return true
     }

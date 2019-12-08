@@ -65,6 +65,11 @@ class UserService {
                 
                 if let dataJson = userArrayJson?.data(using: .utf8) {
                     userArray = try JSONDecoder().decode([User].self, from:dataJson)
+                    
+                    //ToDo: quitar despues
+                    let userArrayData = try! JSONEncoder().encode(userArray)
+                    let userArrayJson = String(data: userArrayData, encoding: .utf8)!
+                    print(userArrayJson)
                 }
             }
             catch let error{
