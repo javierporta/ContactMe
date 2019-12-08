@@ -39,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("caca")
         }
         
+        checkIfUserIsLoggedIn()
+
+        
         return true
     }
     
@@ -59,6 +62,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    private func checkIfUserIsLoggedIn() {
+        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
+        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
+        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
     
+            window?.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+            
+            let mainStoryboard:UIStoryboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
+            
+            let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
+            
+            // Check if pwd is in keychain
+            if keychain[Constants.USER_PASSWORD_KEY] != nil {
+                // Show first item of tab bar
+                let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.MAIN_TAB) as! MainTabBarController
+                
+                // ToDo: Should we set the item of the tab to open by default?
+                window?.rootViewController = tabBarController
+            } else {
+                // Show login page
+                let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.LOGIN)
+                window?.rootViewController = loginViewController
+            }
+            
+            window?.makeKeyAndVisible()
+        
+    }
 }
 
