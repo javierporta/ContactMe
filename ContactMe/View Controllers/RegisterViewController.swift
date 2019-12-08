@@ -66,15 +66,21 @@ class RegisterViewController: ValidatorViewController {
             entity.username = self.emailTextField.text
             entity.password = self.passwordTextField.text
             
-            let profile = Profile(name: entity.username! )           
-            let profileId = try! ProfileDataHelper.insert(item: profile)
-            
-            entity.profileId = profileId
-            
-            let json = UserService.createUser(user: entity)
-            print(json)
-            
-            navigateToLogin()
+            if UserService.getRegisterUserByUserName(username: entity.username!) == nil{
+                
+                let profile = Profile()
+                let profileId = try! ProfileDataHelper.insert(item: profile)
+                
+                entity.profileId = profileId
+                
+                let json = UserService.createUser(user: entity)
+                print(json)
+                
+                navigateToLogin()
+            }
+            else{
+                showUserAlreadyExistAlert()
+            }
             
         }else{
             showInvalidDataAlert()
@@ -93,6 +99,12 @@ class RegisterViewController: ValidatorViewController {
     
     func showInvalidDataAlert() {
         let alert = UIAlertController(title: "Alert", message: "Incorrect data, check the form data.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showUserAlreadyExistAlert() {
+        let alert = UIAlertController(title: "Alert", message: "Incorrect data, username already exist!.", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

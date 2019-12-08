@@ -23,6 +23,9 @@ class LoginViewController: UIViewController {
         
         do {
             
+            //let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
+            //try keychain.removeAll()
+            
             try ProfileDataHelper.createTable()
             
         } catch _{
@@ -34,18 +37,11 @@ class LoginViewController: UIViewController {
     
     @IBAction func touchUpLogIn(_ sender: Any) {
         
-        if let registerUser = UserService.getRegisterUserByUserName(username: emailTextField.text!) {
+        if let userlogin = UserService.getRegisterUserByUserName(username: emailTextField.text!) {
             
-            if ( emailTextField.text == registerUser.username && passwordTextField.text == registerUser.password) {
+            if ( emailTextField.text == userlogin.username && passwordTextField.text == userlogin.password) {
                 
-                let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
-                do {
-                    // ToDo: Save user json instead of "a"
-                    try keychain.set(registerUser.username!, key: Constants.USER_PASSWORD_KEY)
-                }
-                catch let error {
-                    print(error)
-                }
+                _ = UserService.saveUserSession(user: userlogin)
                 
                 navigateToMainTab()
                 

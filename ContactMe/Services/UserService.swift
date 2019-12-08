@@ -18,6 +18,10 @@ class UserService {
         var userArrayJson = ""
         do {
             
+            if (self.getRegisterUserByUserName(username: user.username!) != nil){
+                throw DataAccessError.User_Exist
+            }
+            
             var array = self.getAllUsers()
             array.append(user)
             
@@ -69,5 +73,65 @@ class UserService {
         }
         return userArray
     }
+    
+    static func saveUserSession(user: User) -> Bool{
+        
+        if self.keychain[Constants.USER_DATA_KEY] != nil {
+            
+            do {
+                
+                let userData = try! JSONEncoder().encode(user)
+                let userJson = String(data: userData, encoding: .utf8)!
+                
+                try self.keychain.set(userJson, key: Constants.CURRENT_USER_KEY)
+                
+                return true
+            }
+            catch let error {
+                print(error)
+            }
+            
+        }
+        
+        return false
+    }
+    
+    static func deleteUserSession() -> Bool?{
+        
+        if self.keychain[Constants.USER_DATA_KEY] != nil {
+            
+            do {
+                try self.keychain.remove(Constants.CURRENT_USER_KEY)
+                
+                return true
+            }
+            catch let error {
+                print(error)
+            }
+            
+        }
+        
+        return false
+    }
+    
+    static func getCurrentUserSession()-> User?{
+        if self.keychain[Constants.USER_DATA_KEY] != nil {
+            do{
+                let userJson = try self.keychain.get(Constants.CURRENT_USER_KEY)
+                
+                if let dataJson = userJson?.data(using: .utf8) {
+                    let currentUser = try JSONDecoder().decode(User.self, from:dataJson)
+                    
+                    return currentUser
+                }
+            }
+            catch let error{
+                print (error)
+            }
+        }
+        return nil
+    }
+    
+    
     
 }

@@ -7,34 +7,43 @@
 //
 
 import Foundation
+import GooglePlaces
 
 class Profile: Entity, Codable {
     
-    var name: String
+    var name: String?
     var lastName: String?
     var phone: String?
-    var age: Int?
+    var dateOfBirth: String?
     var gender: String?
-    var university: String?
-    var specialty: String?
-    var occupation: String?
+    var carieer: String?
+    var job: String?
+    var insterest: String?
+    var avatar: String?
+    var mondayFreeStartTime: String?
+    var mondayFreeEndTime: String?
+    var tuesdayFreeStartTime: String?
+    var tuesdayFreeEndTime: String?
+    var wednesdayFreeStartTime: String?
+    var wednesdayFreeEndTime: String?
+    var thursdayFreeStartTime: String?
+    var thursdayFreeEndTime: String?
+    var fridayFreeStartTime: String?
+    var fridayFreeEndTime: String?
+    var saturdayFreeStartTime: String?
+    var saturdayFreeEndTime: String?
+    var sundayFreeStartTime: String?
+    var sundayFreeEndTime: String?
+    //var university: GMSPlace?
+    //var freeTimePlace: GMSPlace?
     
     func fullName() -> String {
-        return "\(self.name) \(self.lastName ?? "")"
+        return "\(self.name ?? "") \(self.lastName ?? "")"
     }
     
-    
-    init(name: String) {
-        self.name = name
-        self.lastName = ""
-        self.phone = ""
-        self.age = 0
-        self.gender = ""
-        self.university = ""
-        self.specialty = ""
-        self.occupation = ""
-        
+    override init() {
         super.init()
     }
+    
     
 }

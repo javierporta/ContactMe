@@ -15,14 +15,30 @@ class ProfileDataHelper: DataHelperProtocol {
     
     static let table = Table(TABLE_NAME)
     static let dbId = Expression<Int64>("id")
-    static let dbName = Expression<String>("name")
+    static let dbName = Expression<String?>("name")
     static let dbLastName = Expression<String?>("lastname")
     static let dbPhone = Expression<String?>("phone")
-    static let dbAge = Expression<Int?>("age")
+    static let dbDateOfBirth = Expression<String?>("dateofbirth")
     static let dbGender = Expression<String?>("gender")
-    static let dbUniversity = Expression<String?>("university")
-    static let dbSpecialty = Expression<String?>("specialty")
-    static let dbOccupation = Expression<String?>("occupation")
+    static let dbCarieer = Expression<String?>("carieer")
+    static let dbJob = Expression<String?>("job")
+    static let dbInsterest = Expression<String?>("insterest")
+    static let dbAvatar = Expression<String?>("avatar")
+    static let dbMondayFreeStartTime = Expression<String?>("mondayFreeStartTime")
+    static let dbMondayFreeEndTime = Expression<String?>("mondayFreeEndTime")
+    static let dbTuesdayFreeStartTime = Expression<String?>("tuesdayFreeStartTime")
+    static let dbTuesdayFreeEndTime = Expression<String?>("tuesdayFreeEndTime")
+    static let dbWednesdayFreeStartTime = Expression<String?>("wednesdayFreeStartTime")
+    static let dbWednesdayFreeEndTime = Expression<String?>("wednesdayFreeEndTime")
+    static let dbThursdayFreeStartTime = Expression<String?>("thursdayFreeStartTime")
+    static let dbThursdayFreeEndTime = Expression<String?>("thursdayFreeEndTime")
+    static let dbFridayFreeStartTime = Expression<String?>("fridayFreeStartTime")
+    static let dbFridayFreeEndTime = Expression<String?>("fridayFreeEndTime")
+    static let dbSaturdayFreeStartTime = Expression<String?>("saturdayFreeStartTime")
+    static let dbSaturdayFreeEndTime = Expression<String?>("saturdayFreeEndTime")
+    static let dbSundayFreeStartTime = Expression<String?>("sundayFreeStartTime")
+    static let dbSundayFreeEndTime = Expression<String?>("sundayFreeEndTime")
+    
     
     
     typealias T = Profile
@@ -37,11 +53,27 @@ class ProfileDataHelper: DataHelperProtocol {
                 t.column(dbName)
                 t.column(dbLastName)
                 t.column(dbPhone)
-                t.column(dbAge)
+                t.column(dbDateOfBirth)
                 t.column(dbGender)
-                t.column(dbUniversity)
-                t.column(dbSpecialty)
-                t.column(dbOccupation)
+                t.column(dbCarieer)
+                t.column(dbJob)
+                t.column(dbInsterest)
+                t.column(dbAvatar)
+                t.column(dbMondayFreeStartTime)
+                t.column(dbMondayFreeEndTime)
+                t.column(dbTuesdayFreeStartTime)
+                t.column(dbTuesdayFreeEndTime)
+                t.column(dbWednesdayFreeStartTime)
+                t.column(dbWednesdayFreeEndTime)
+                t.column(dbThursdayFreeStartTime)
+                t.column(dbThursdayFreeEndTime)
+                t.column(dbFridayFreeStartTime)
+                t.column(dbFridayFreeEndTime)
+                t.column(dbSaturdayFreeStartTime)
+                t.column(dbSaturdayFreeEndTime)
+                t.column(dbSundayFreeStartTime)
+                t.column(dbSundayFreeEndTime)
+                
             })
             
         } catch _ {
@@ -55,7 +87,7 @@ class ProfileDataHelper: DataHelperProtocol {
             throw DataAccessError.Datastore_Connection_Error
         }
         if (item.name != "") {
-            let insert = table.insert(dbName <- item.name, dbLastName <- item.lastName!, dbPhone <- item.phone!, dbAge <- item.age!, dbGender <- item.gender!, dbUniversity <- item.university!, dbSpecialty <- item.specialty!, dbOccupation <- item.occupation!)
+            let insert = table.insert(dbName <- item.name?.datatypeValue, dbLastName <- item.lastName?.datatypeValue,dbPhone <- item.phone?.datatypeValue, dbDateOfBirth <- item.dateOfBirth?.datatypeValue, dbGender <- item.gender?.datatypeValue, dbCarieer <- item.carieer?.datatypeValue,dbJob <- item.job?.datatypeValue, dbInsterest <- item.insterest?.datatypeValue, dbAvatar <- item.avatar?.datatypeValue, dbMondayFreeStartTime <- item.mondayFreeStartTime?.datatypeValue, dbMondayFreeEndTime <- item.mondayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbTuesdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbWednesdayFreeStartTime <- item.wednesdayFreeStartTime?.datatypeValue, dbWednesdayFreeEndTime <- item.wednesdayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbThursdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbFridayFreeStartTime <- item.fridayFreeStartTime?.datatypeValue, dbFridayFreeEndTime <- item.fridayFreeEndTime?.datatypeValue, dbSaturdayFreeStartTime <- item.saturdayFreeStartTime?.datatypeValue, dbSaturdayFreeEndTime <- item.saturdayFreeEndTime?.datatypeValue, dbSundayFreeStartTime <- item.sundayFreeStartTime?.datatypeValue, dbSundayFreeEndTime <- item.sundayFreeEndTime?.datatypeValue)
             do {
                 let rowId = try DB.run(insert)
                 guard rowId > 0 else {
@@ -93,15 +125,31 @@ class ProfileDataHelper: DataHelperProtocol {
         let items = try DB.prepare(query)
         for item in  items {
             
-            let entity = T(name: item[dbName])
+            let entity = T()
             entity.id = item[dbId]
-            entity.lastName = item[dbLastName]
+            entity.name = item[dbName]
+            entity.lastName = item[dbLastName]            
             entity.phone = item[dbPhone]
-            entity.age = item[dbAge]
+            entity.dateOfBirth = item[dbDateOfBirth]
             entity.gender = item[dbGender]
-            entity.university = item[dbUniversity]
-            entity.specialty = item[dbSpecialty]
-            entity.occupation = item[dbOccupation]
+            entity.carieer = item[dbCarieer]
+            entity.job = item[dbJob]
+            entity.insterest = item[dbInsterest]
+            entity.avatar = item[dbAvatar]
+            entity.mondayFreeStartTime = item[dbMondayFreeStartTime]
+            entity.mondayFreeEndTime = item[dbMondayFreeEndTime]
+            entity.tuesdayFreeStartTime = item[dbTuesdayFreeStartTime]
+            entity.tuesdayFreeEndTime = item[dbTuesdayFreeEndTime]
+            entity.wednesdayFreeStartTime = item[dbWednesdayFreeStartTime]
+            entity.wednesdayFreeEndTime = item[dbWednesdayFreeEndTime]
+            entity.thursdayFreeStartTime = item[dbThursdayFreeStartTime]
+            entity.thursdayFreeEndTime = item[dbThursdayFreeEndTime]
+            entity.fridayFreeStartTime = item[dbFridayFreeStartTime]
+            entity.fridayFreeEndTime = item[dbFridayFreeEndTime]
+            entity.saturdayFreeStartTime = item[dbSaturdayFreeStartTime]
+            entity.saturdayFreeEndTime = item[dbSundayFreeEndTime]
+            entity.sundayFreeStartTime = item[dbSundayFreeStartTime]
+            entity.sundayFreeEndTime = item[dbSundayFreeEndTime]
             
             return entity
         }
@@ -117,15 +165,31 @@ class ProfileDataHelper: DataHelperProtocol {
         let items = try DB.prepare(table)
         for item in items {
             
-            let entity = T(name: item[dbName])
+            let entity = T()
             entity.id = item[dbId]
+            entity.name = item[dbName]
             entity.lastName = item[dbLastName]
             entity.phone = item[dbPhone]
-            entity.age = item[dbAge]
+            entity.dateOfBirth = item[dbDateOfBirth]
             entity.gender = item[dbGender]
-            entity.university = item[dbUniversity]
-            entity.specialty = item[dbSpecialty]
-            entity.occupation = item[dbOccupation]
+            entity.carieer = item[dbCarieer]
+            entity.job = item[dbJob]
+            entity.insterest = item[dbInsterest]
+            entity.avatar = item[dbAvatar]
+            entity.mondayFreeStartTime = item[dbMondayFreeStartTime]
+            entity.mondayFreeEndTime = item[dbMondayFreeEndTime]
+            entity.tuesdayFreeStartTime = item[dbTuesdayFreeStartTime]
+            entity.tuesdayFreeEndTime = item[dbTuesdayFreeEndTime]
+            entity.wednesdayFreeStartTime = item[dbWednesdayFreeStartTime]
+            entity.wednesdayFreeEndTime = item[dbWednesdayFreeEndTime]
+            entity.thursdayFreeStartTime = item[dbThursdayFreeStartTime]
+            entity.thursdayFreeEndTime = item[dbThursdayFreeEndTime]
+            entity.fridayFreeStartTime = item[dbFridayFreeStartTime]
+            entity.fridayFreeEndTime = item[dbFridayFreeEndTime]
+            entity.saturdayFreeStartTime = item[dbSaturdayFreeStartTime]
+            entity.saturdayFreeEndTime = item[dbSundayFreeEndTime]
+            entity.sundayFreeStartTime = item[dbSundayFreeStartTime]
+            entity.sundayFreeEndTime = item[dbSundayFreeEndTime]
             
             retArray.append(entity)
         }

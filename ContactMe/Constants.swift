@@ -13,6 +13,7 @@ struct Constants {
     static let KEYCHAIN_SERVICE = "com.ipleiria.contactme"
     static let USER_PASSWORD_KEY = "userPassword"
     static let USER_DATA_KEY = "userDataJson"
+    static let CURRENT_USER_KEY = "currentUserJson"
     
     struct Identifiers {
         

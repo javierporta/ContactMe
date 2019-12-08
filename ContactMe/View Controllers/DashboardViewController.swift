@@ -58,10 +58,9 @@ class DashboardViewController: UIViewController {
      }
     
     func removeKeychainUserKey() {
-           //        Remove keychain key
-           let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
+        
            do {
-               try keychain.remove(Constants.USER_PASSWORD_KEY)
+            UserService.deleteUserSession()
            }
            catch let error {
                print(error)

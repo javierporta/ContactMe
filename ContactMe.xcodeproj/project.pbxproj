@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C07D308237DA50800F4D829 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07D307237DA50800F4D829 /* Record.swift */; };
-		2C07D30A237DA53F00F4D829 /* SqliteDbStore+Crud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07D309237DA53F00F4D829 /* SqliteDbStore+Crud.swift */; };
-		2C07D30C237DA58300F4D829 /* SqliteDbStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07D30B237DA58300F4D829 /* SqliteDbStore.swift */; };
 		2C16BF6523857B34004577C8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16BF6223857B34004577C8 /* Profile.swift */; };
 		2C16BF6623857B34004577C8 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16BF6323857B34004577C8 /* Entity.swift */; };
 		2C16BF6723857B34004577C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16BF6423857B34004577C8 /* User.swift */; };
@@ -50,9 +47,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C07D307237DA50800F4D829 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		2C07D309237DA53F00F4D829 /* SqliteDbStore+Crud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SqliteDbStore+Crud.swift"; sourceTree = "<group>"; };
-		2C07D30B237DA58300F4D829 /* SqliteDbStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqliteDbStore.swift; sourceTree = "<group>"; };
 		2C16BF6223857B34004577C8 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		2C16BF6323857B34004577C8 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		2C16BF6423857B34004577C8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -131,7 +125,6 @@
 				2C16BF6323857B34004577C8 /* Entity.swift */,
 				2C16BF6223857B34004577C8 /* Profile.swift */,
 				2C16BF6423857B34004577C8 /* User.swift */,
-				2C07D307237DA50800F4D829 /* Record.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,8 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				2C192C222386F8C90049B43B /* SQLiteDataStore.swift */,
-				2C07D309237DA53F00F4D829 /* SqliteDbStore+Crud.swift */,
-				2C07D30B237DA58300F4D829 /* SqliteDbStore.swift */,
 			);
 			path = Infraestructure;
 			sourceTree = "<group>";
@@ -419,7 +410,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CAAF1BA2374612F00B108BE /* LoginViewController.swift in Sources */,
-				2C07D30C237DA58300F4D829 /* SqliteDbStore.swift in Sources */,
 				5D8F36BB2390274200F6B19F /* KSToken.swift in Sources */,
 				2C16BF6623857B34004577C8 /* Entity.swift in Sources */,
 				5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */,
@@ -435,12 +425,10 @@
 				5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */,
 				5DA94644239D62D100508470 /* CameraQRScannerViewController.swift in Sources */,
 				5D8F36BE2390274200F6B19F /* KSTokenView.swift in Sources */,
-				2C07D30A237DA53F00F4D829 /* SqliteDbStore+Crud.swift in Sources */,
 				5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */,
 				2C192C31238702050049B43B /* DataHelperProtocol.swift in Sources */,
 				2C192C34238702170049B43B /* DataAccessError.swift in Sources */,
 				2C192C32238702050049B43B /* UserDataHelper.swift in Sources */,
-				2C07D308237DA50800F4D829 /* Record.swift in Sources */,
 				5D8F36BC2390274200F6B19F /* KSTokenField.swift in Sources */,
 				5D8F36BD2390274200F6B19F /* KSUtils.swift in Sources */,
 				5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */,
