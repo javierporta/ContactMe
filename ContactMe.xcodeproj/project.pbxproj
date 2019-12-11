@@ -34,6 +34,8 @@
 		5DA3A119239451D200D33C06 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3A118239451D200D33C06 /* RoundButton.swift */; };
 		5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* KeychainAccess */; };
 		5DA94644239D62D100508470 /* CameraQRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA94643239D62D100508470 /* CameraQRScannerViewController.swift */; };
+		5DA9464623A15EB200508470 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA9464523A15EB200508470 /* String.swift */; };
+		5DA9464823A1667000508470 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA9464723A1667000508470 /* UIImage.swift */; };
 		5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */; };
 		5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCA237DC79600FB7423 /* Constants.swift */; };
 		5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */; };
@@ -76,6 +78,8 @@
 		5D9FE9D1238A0FC300452272 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		5DA3A118239451D200D33C06 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		5DA94643239D62D100508470 /* CameraQRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraQRScannerViewController.swift; sourceTree = "<group>"; };
+		5DA9464523A15EB200508470 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		5DA9464723A1667000508470 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5DAA7CCA237DC79600FB7423 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 			children = (
 				5D9FE9D1238A0FC300452272 /* TextField.swift */,
 				5DDA9546238B0A5F000D36FE /* UIImageView.swift */,
+				5DA9464523A15EB200508470 /* String.swift */,
+				5DA9464723A1667000508470 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -418,6 +424,8 @@
 				2C192C232386F8C90049B43B /* SQLiteDataStore.swift in Sources */,
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
+				5DA9464623A15EB200508470 /* String.swift in Sources */,
+				5DA9464823A1667000508470 /* UIImage.swift in Sources */,
 				B53BEA802397DE60004142C6 /* UserService.swift in Sources */,
 				5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */,
 				5DA94644239D62D100508470 /* CameraQRScannerViewController.swift in Sources */,

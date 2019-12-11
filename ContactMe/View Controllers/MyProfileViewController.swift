@@ -118,8 +118,12 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         /// Show all results without without typing anything
         interestsKsToken.minimumCharactersToSearch = 0
-    
         
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        saveMyProfileAsync()
     }
     
     override func viewDidLoad() {
@@ -148,16 +152,141 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         placesClient = GMSPlacesClient.shared()
         
-    
+        
         //        TODO:  Here we must get all user data from db and fill the controls
         
-       if let currentUserProfile = try? ProfileDataHelper.find(idobj: 1){
+        if let currentUserProfile = try? ProfileDataHelper.find(idobj: 1){
             self.myProfile = currentUserProfile
-            
+            setMyProfileValues()
         }
         
         // Do any additional setup after loading the view.
     }
+    
+    func setMyProfileValues(){
+        //Header
+        fullNameLabel.text = myProfile.fullName()
+        if (myProfile.avatar != nil){
+            profileImage.image = myProfile.avatar?.toImage()
+        }
+        //        Personal
+        nameTextField.text = myProfile.name
+        surnameTextField.text = myProfile.lastName
+        
+        phoneTextField.text = myProfile.phone
+        
+        if(myProfile.gender == "F"){
+            genderSegmentedControl.selectedSegmentIndex = Gender.female.rawValue
+        }
+        else {
+            genderSegmentedControl.selectedSegmentIndex = Gender.male.rawValue
+        }
+        setGenderSegmentedControlColor()
+        
+        dateOfBirthTextField.text = myProfile.dateOfBirth
+        
+        //        Career
+        //ToDo
+        //universityTextField.text = myProfile.
+        jobTextField.text = myProfile.job
+        careerTextField.text = myProfile.carieer
+        
+        
+        //        Interests
+      
+//        Todo Change interest to be array of string
+        
+      
+        //        Free Time
+        //ToDo
+//        placeFreeTimeTextField.text = myProfile.
+        
+        mondayStartTimeTextField.text = myProfile.mondayFreeStartTime
+        mondayEndTimeTextField.text = myProfile.mondayFreeEndTime
+        
+        tuesdayStartTimeTextField.text = myProfile.tuesdayFreeStartTime
+        tuesdayEndTimeTextField.text = myProfile.tuesdayFreeEndTime
+        
+        wednesdayStartTimeTextField.text = myProfile.wednesdayFreeStartTime
+        wednesdayEndTimeTextField.text = myProfile.wednesdayFreeEndTime
+        
+        thursdayStartTimeTextField.text = myProfile.thursdayFreeStartTime
+        thursdayEndTimeTextField.text = myProfile.thursdayFreeEndTime
+        
+        fridayStartTimeTextField.text = myProfile.fridayFreeStartTime
+        fridayEndTimeTextField.text = myProfile.fridayFreeEndTime
+        
+        saturdayStartTimeTextField.text = myProfile.saturdayFreeStartTime
+        saturdayEndTimeTextField.text = myProfile.saturdayFreeEndTime
+        
+        sundayStartTimeTextField.text = myProfile.sundayFreeStartTime
+        sundayEndTimeTextField.text = myProfile.sundayFreeEndTime
+        
+    }
+    
+    func saveMyProfileAsync(){
+        DispatchQueue.global(qos: .utility).async {
+            self.saveMyProfile()
+        }
+    }
+    
+    func saveMyProfile() {
+            
+    //Header
+            
+            myProfile.avatar = profileImage.image?.toString()
+            
+            //        Personal
+            myProfile.name = nameTextField.text
+            myProfile.lastName = surnameTextField.text
+            
+            myProfile.phone = phoneTextField.text
+        
+            myProfile.gender = genderSegmentedControl.selectedSegmentIndex == Gender.male.rawValue ? "M" : "F"
+        
+            myProfile.dateOfBirth = dateOfBirthTextField.text
+            
+            //        Career
+            //ToDo
+            //universityTextField.text = myProfile.
+            myProfile.job = jobTextField.text
+            myProfile.carieer = careerTextField.text
+            
+            
+            //        Interests
+          
+    //        Todo Change interest to be array of string
+            
+          
+            //        Free Time
+            //ToDo
+    //        placeFreeTimeTextField.text = myProfile.
+            
+            myProfile.mondayFreeStartTime = mondayStartTimeTextField.text
+            myProfile.mondayFreeEndTime = mondayEndTimeTextField.text
+            
+            myProfile.tuesdayFreeStartTime = tuesdayStartTimeTextField.text
+            myProfile.tuesdayFreeEndTime = tuesdayEndTimeTextField.text
+            
+            myProfile.wednesdayFreeStartTime = wednesdayStartTimeTextField.text
+            myProfile.wednesdayFreeEndTime = wednesdayEndTimeTextField.text
+            
+            myProfile.thursdayFreeStartTime = thursdayStartTimeTextField.text
+            myProfile.thursdayFreeEndTime = thursdayEndTimeTextField.text
+            
+            myProfile.fridayFreeStartTime = fridayStartTimeTextField.text
+            myProfile.fridayFreeEndTime = fridayEndTimeTextField.text
+            
+            myProfile.saturdayFreeStartTime = saturdayStartTimeTextField.text
+            myProfile.saturdayFreeEndTime = saturdayEndTimeTextField.text
+            
+            myProfile.sundayFreeStartTime = sundayStartTimeTextField.text
+            myProfile.sundayFreeEndTime = sundayEndTimeTextField.text
+            
+            let _ = try? ProfileDataHelper.update(item: myProfile)
+            
+            print("profile saved")
+        }
     
     func prepareDofDatePicker(){
         //set min and max dates: 13 to 100 years old
@@ -336,38 +465,38 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         // Specify the place data types to return.
         let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-          UInt(GMSPlaceField.placeID.rawValue) |
-          UInt(GMSPlaceField.coordinate.rawValue) |
+            UInt(GMSPlaceField.placeID.rawValue) |
+            UInt(GMSPlaceField.coordinate.rawValue) |
             UInt(GMSPlaceField.addressComponents.rawValue)
             )!
         autocompleteController.placeFields = fields
-
+        
         // Specify a filter.
         let filter = GMSAutocompleteFilter()
         filter.type = .establishment
         
         autocompleteSender="university"
-
+        
         autocompleteController.autocompleteFilter = filter
-
+        
         // Display the autocomplete view controller.
         present(autocompleteController, animated: true, completion: nil)
     }
     
     @IBAction func placeFreeTimeTapped(_ sender: UITextField) {
-
+        
         placeFreeTimeTextField.resignFirstResponder()
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
         
         // Specify the place data types to return.
         let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-          UInt(GMSPlaceField.placeID.rawValue) |
-          UInt(GMSPlaceField.coordinate.rawValue) |
+            UInt(GMSPlaceField.placeID.rawValue) |
+            UInt(GMSPlaceField.coordinate.rawValue) |
             UInt(GMSPlaceField.addressComponents.rawValue)
             )!
         autocompleteController.placeFields = fields
-
+        
         // Specify a filter.
         let filter = GMSAutocompleteFilter()
         filter.type = .establishment
@@ -375,11 +504,11 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         autocompleteSender="freetime"
         
         autocompleteController.autocompleteFilter = filter
-
+        
         // Display the autocomplete view controller.
         present(autocompleteController, animated: true, completion: nil)
     }
-   
+    
     
     @IBAction func tabsSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -398,6 +527,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         default:
             break
         }
+        
+        saveMyProfileAsync()
     }
     @IBAction func genderSegmentedControlValueChanged(_ sender: Any) {
         setGenderSegmentedControlColor()
@@ -551,9 +682,9 @@ extension MyProfileViewController: GMSAutocompleteViewControllerDelegate {
         // Then display the name in textField
         //ToDO: How to work with both. Need to know the sender
         if(autocompleteSender=="university"){
-        universityTextField.text = place.name
+            universityTextField.text = place.name
         }else if(autocompleteSender=="freetime"){
-        placeFreeTimeTextField.text = place.name
+            placeFreeTimeTextField.text = place.name
         }
         // Dismiss the GMSAutocompleteViewController when something is selected
         dismiss(animated: true, completion: nil)
@@ -567,13 +698,6 @@ extension MyProfileViewController: GMSAutocompleteViewControllerDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    func saveMyProfile() {
-        
-        myProfile.name=nameTextField.text
-        
-        let _ = try? ProfileDataHelper.update(item: myProfile)
-        
-        print("profile saved")
-    }
+    
     
 }
