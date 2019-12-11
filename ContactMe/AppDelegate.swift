@@ -24,23 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             
             try ProfileDataHelper.createTable()
-                        
-           /* let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
-            try keychain.removeAll()
             
-            guard var profiles = try ProfileDataHelper.findAll() else {
-                throw DataAccessError.Datastore_Connection_Error
-            }
-            for profile in profiles{
-                try ProfileDataHelper.delete(item: profile)
-            }*/
+            /* let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
+             try keychain.removeAll()
+             
+             guard var profiles = try ProfileDataHelper.findAll() else {
+             throw DataAccessError.Datastore_Connection_Error
+             }
+             for profile in profiles{
+             try ProfileDataHelper.delete(item: profile)
+             }*/
             
         } catch _{
             print("caca")
         }
         
         checkIfUserIsLoggedIn()
-
+        
         
         return true
     }
@@ -67,27 +67,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-    
-            window?.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+        
+        window?.backgroundColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+        
+        let mainStoryboard:UIStoryboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
+        
+        let currentUser = UserService.getCurrentUserSession()
+        
+        // Check if pwd is in keychain
+        if currentUser != nil {
+            // Show first item of tab bar
+            let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.MAIN_TAB) as! MainTabBarController
             
-            let mainStoryboard:UIStoryboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
-            
-            let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
-            
-            // Check if pwd is in keychain
-            if keychain[Constants.USER_PASSWORD_KEY] != nil {
-                // Show first item of tab bar
-                let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.MAIN_TAB) as! MainTabBarController
-                
-                // ToDo: Should we set the item of the tab to open by default?
-                window?.rootViewController = tabBarController
-            } else {
-                // Show login page
-                let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.LOGIN)
-                window?.rootViewController = loginViewController
-            }
-            
-            window?.makeKeyAndVisible()
+            // ToDo: Should we set the item of the tab to open by default?
+            window?.rootViewController = tabBarController
+        } else {
+            // Show login page
+            let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.LOGIN)
+            window?.rootViewController = loginViewController
+        }
+        
+        window?.makeKeyAndVisible()
         
     }
 }
