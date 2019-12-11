@@ -61,10 +61,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let mainStoryboard:UIStoryboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
             
-            let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
+            let currentUser = UserService.getCurrentUserSession()
             
             // Check if pwd is in keychain
-            if keychain[Constants.USER_PASSWORD_KEY] != nil {
+            if currentUser != nil {
                 // Show first item of tab bar
                 let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.MAIN_TAB) as! MainTabBarController
                 
