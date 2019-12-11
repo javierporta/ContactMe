@@ -21,7 +21,22 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-                
+    
+        do{
+            /*var profile = try ProfileDataHelper.find(idobj: 1)
+            
+            var array = ["ddd","fff"]
+            profile?.insterestArray = array
+            
+            try! ProfileDataHelper.update(item: profile!)
+            
+             profile = try ProfileDataHelper.find(idobj: 1)
+            
+            print(profile?.insterestArray)*/
+        }catch {
+            
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,13 +75,7 @@ class DashboardViewController: UIViewController {
     
     func removeKeychainUserKey() {
         
-        do {
-            UserService.deleteUserSession()
-        }
-        catch let error {
-            print(error)
-            showErrorAlert()
-        }
+        _ = UserService.deleteUserSession()
     }
     
     func navigateToLogin(){

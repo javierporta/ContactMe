@@ -36,9 +36,21 @@ class Profile: Entity, Codable {
     var sundayFreeEndTime: String?
     var connectionId: Int64?
     var connections: [Profile]?
+    var universityName: String?
+    var universityLongitude: Double?
+    var universityLatitude: Double?
+    var freeTimePlaceName: String?
+    var freeTimeLongitude: Double?
+    var freeTimeLatitude: Double?
     
-    //var university: GMSPlace?
-    //var freeTimePlace: GMSPlace?
+    var insterestArray:Array<String>?{
+        get{
+            return self.insterest?.components(separatedBy: ",")
+        }
+        set{
+            self.insterest = newValue?.joined(separator: ",")
+        }
+    }
     
     func fullName() -> String {
         return "\(self.name ?? "") \(self.lastName ?? "")"
