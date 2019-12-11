@@ -38,6 +38,7 @@ class ProfileDataHelper: DataHelperProtocol {
     static let dbSaturdayFreeEndTime = Expression<String?>("saturdayFreeEndTime")
     static let dbSundayFreeStartTime = Expression<String?>("sundayFreeStartTime")
     static let dbSundayFreeEndTime = Expression<String?>("sundayFreeEndTime")
+    static let dbConnectionId = Expression<Int64>("connectionId")
     
     
     
@@ -73,6 +74,7 @@ class ProfileDataHelper: DataHelperProtocol {
                 t.column(dbSaturdayFreeEndTime)
                 t.column(dbSundayFreeStartTime)
                 t.column(dbSundayFreeEndTime)
+                t.foreignKey(dbConnectionId, references: table, dbId, delete: .setNull)
                 
             })
             
@@ -87,9 +89,32 @@ class ProfileDataHelper: DataHelperProtocol {
             throw DataAccessError.Datastore_Connection_Error
         }
         if (item.name != "") {
-            let insert = table.insert(dbName <- item.name?.datatypeValue, dbLastName <- item.lastName?.datatypeValue,dbPhone <- item.phone?.datatypeValue, dbDateOfBirth <- item.dateOfBirth?.datatypeValue, dbGender <- item.gender?.datatypeValue, dbCarieer <- item.carieer?.datatypeValue,dbJob <- item.job?.datatypeValue, dbInsterest <- item.insterest?.datatypeValue, dbAvatar <- item.avatar?.datatypeValue, dbMondayFreeStartTime <- item.mondayFreeStartTime?.datatypeValue, dbMondayFreeEndTime <- item.mondayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbTuesdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbWednesdayFreeStartTime <- item.wednesdayFreeStartTime?.datatypeValue, dbWednesdayFreeEndTime <- item.wednesdayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbThursdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbFridayFreeStartTime <- item.fridayFreeStartTime?.datatypeValue, dbFridayFreeEndTime <- item.fridayFreeEndTime?.datatypeValue, dbSaturdayFreeStartTime <- item.saturdayFreeStartTime?.datatypeValue, dbSaturdayFreeEndTime <- item.saturdayFreeEndTime?.datatypeValue, dbSundayFreeStartTime <- item.sundayFreeStartTime?.datatypeValue, dbSundayFreeEndTime <- item.sundayFreeEndTime?.datatypeValue)
+            let insert = table.insert(dbName <- item.name?.datatypeValue, dbLastName <- item.lastName?.datatypeValue,dbPhone <- item.phone?.datatypeValue, dbDateOfBirth <- item.dateOfBirth?.datatypeValue, dbGender <- item.gender?.datatypeValue, dbCarieer <- item.carieer?.datatypeValue,dbJob <- item.job?.datatypeValue, dbInsterest <- item.insterest?.datatypeValue, dbAvatar <- item.avatar?.datatypeValue, dbMondayFreeStartTime <- item.mondayFreeStartTime?.datatypeValue, dbMondayFreeEndTime <- item.mondayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbTuesdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbWednesdayFreeStartTime <- item.wednesdayFreeStartTime?.datatypeValue, dbWednesdayFreeEndTime <- item.wednesdayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbThursdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbFridayFreeStartTime <- item.fridayFreeStartTime?.datatypeValue, dbFridayFreeEndTime <- item.fridayFreeEndTime?.datatypeValue, dbSaturdayFreeStartTime <- item.saturdayFreeStartTime?.datatypeValue, dbSaturdayFreeEndTime <- item.saturdayFreeEndTime?.datatypeValue, dbSundayFreeStartTime <- item.sundayFreeStartTime?.datatypeValue, dbSundayFreeEndTime <- item.sundayFreeEndTime?.datatypeValue, dbConnectionId <- item.connectionId)
             do {
                 let rowId = try DB.run(insert)
+                guard rowId > 0 else {
+                    throw DataAccessError.Insert_Error
+                }
+                return rowId
+            } catch _ {
+                throw DataAccessError.Insert_Error
+            }
+        }
+        throw DataAccessError.Nil_In_Data
+        
+    }
+    
+    static func update(item: T) throws -> Int {
+        guard let DB = SQLiteDataStore.sharedInstance.BBDB else {
+            throw DataAccessError.Datastore_Connection_Error
+        }
+        if (item.id != 0) {
+            
+            let entity = table.filter(dbId == item.id)
+            
+            let update = entity.update(dbName <- item.name?.datatypeValue, dbLastName <- item.lastName?.datatypeValue,dbPhone <- item.phone?.datatypeValue, dbDateOfBirth <- item.dateOfBirth?.datatypeValue, dbGender <- item.gender?.datatypeValue, dbCarieer <- item.carieer?.datatypeValue,dbJob <- item.job?.datatypeValue, dbInsterest <- item.insterest?.datatypeValue, dbAvatar <- item.avatar?.datatypeValue, dbMondayFreeStartTime <- item.mondayFreeStartTime?.datatypeValue, dbMondayFreeEndTime <- item.mondayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbTuesdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbWednesdayFreeStartTime <- item.wednesdayFreeStartTime?.datatypeValue, dbWednesdayFreeEndTime <- item.wednesdayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbThursdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbFridayFreeStartTime <- item.fridayFreeStartTime?.datatypeValue, dbFridayFreeEndTime <- item.fridayFreeEndTime?.datatypeValue, dbSaturdayFreeStartTime <- item.saturdayFreeStartTime?.datatypeValue, dbSaturdayFreeEndTime <- item.saturdayFreeEndTime?.datatypeValue, dbSundayFreeStartTime <- item.sundayFreeStartTime?.datatypeValue, dbSundayFreeEndTime <- item.sundayFreeEndTime?.datatypeValue, dbConnectionId <- item.connectionId)
+            do {
+                let rowId = try DB.run(update)
                 guard rowId > 0 else {
                     throw DataAccessError.Insert_Error
                 }
@@ -150,6 +175,7 @@ class ProfileDataHelper: DataHelperProtocol {
             entity.saturdayFreeEndTime = item[dbSundayFreeEndTime]
             entity.sundayFreeStartTime = item[dbSundayFreeStartTime]
             entity.sundayFreeEndTime = item[dbSundayFreeEndTime]
+            entity.connectionId = item[dbConnectionId]
             
             return entity
         }
@@ -190,6 +216,7 @@ class ProfileDataHelper: DataHelperProtocol {
             entity.saturdayFreeEndTime = item[dbSundayFreeEndTime]
             entity.sundayFreeStartTime = item[dbSundayFreeStartTime]
             entity.sundayFreeEndTime = item[dbSundayFreeEndTime]
+            entity.connectionId = item[dbConnectionId]
             
             retArray.append(entity)
         }
