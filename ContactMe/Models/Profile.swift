@@ -34,7 +34,7 @@ class Profile: Entity, Codable {
     var saturdayFreeEndTime: String?
     var sundayFreeStartTime: String?
     var sundayFreeEndTime: String?
-    var connectionId: Int64 = 0
+    var connectionId: Int64?
     var connections: [Profile]?
     
     //var university: GMSPlace?
