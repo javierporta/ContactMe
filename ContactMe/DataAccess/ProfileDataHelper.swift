@@ -174,11 +174,54 @@ class ProfileDataHelper: DataHelperProtocol {
             entity.sundayFreeStartTime = item[dbSundayFreeStartTime]
             entity.sundayFreeEndTime = item[dbSundayFreeEndTime]
             entity.connectionId = item[dbConnectionId]
+            entity.connections = try findConectionsByProfileid(idobj: entity.id)
             
             return entity
         }
         
         return nil
+    }
+    
+    static func findConectionsByProfileid(idobj: Int64) throws -> [T] {
+        guard let DB = SQLiteDataStore.sharedInstance.BBDB else {
+            throw DataAccessError.Datastore_Connection_Error
+        }
+        let query = table.filter(dbConnectionId == idobj)
+        let items = try DB.prepare(query)
+        var connections = [Profile]()
+        for item in  items {
+            
+            let entity = T()
+            entity.id = item[dbId]
+            entity.name = item[dbName]
+            entity.lastName = item[dbLastName]
+            entity.phone = item[dbPhone]
+            entity.dateOfBirth = item[dbDateOfBirth]
+            entity.gender = item[dbGender]
+            entity.carieer = item[dbCarieer]
+            entity.job = item[dbJob]
+            entity.insterest = item[dbInsterest]
+            entity.avatar = item[dbAvatar]
+            entity.mondayFreeStartTime = item[dbMondayFreeStartTime]
+            entity.mondayFreeEndTime = item[dbMondayFreeEndTime]
+            entity.tuesdayFreeStartTime = item[dbTuesdayFreeStartTime]
+            entity.tuesdayFreeEndTime = item[dbTuesdayFreeEndTime]
+            entity.wednesdayFreeStartTime = item[dbWednesdayFreeStartTime]
+            entity.wednesdayFreeEndTime = item[dbWednesdayFreeEndTime]
+            entity.thursdayFreeStartTime = item[dbThursdayFreeStartTime]
+            entity.thursdayFreeEndTime = item[dbThursdayFreeEndTime]
+            entity.fridayFreeStartTime = item[dbFridayFreeStartTime]
+            entity.fridayFreeEndTime = item[dbFridayFreeEndTime]
+            entity.saturdayFreeStartTime = item[dbSaturdayFreeStartTime]
+            entity.saturdayFreeEndTime = item[dbSundayFreeEndTime]
+            entity.sundayFreeStartTime = item[dbSundayFreeStartTime]
+            entity.sundayFreeEndTime = item[dbSundayFreeEndTime]
+            entity.connectionId = item[dbConnectionId]
+            
+            connections.append(entity)
+        }
+        
+        return connections
     }
     
     static func findAll() throws -> [T]? {
