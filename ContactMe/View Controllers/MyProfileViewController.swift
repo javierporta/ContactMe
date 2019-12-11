@@ -99,6 +99,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     let datePicker = UIDatePicker()
     let timePicker = UIDatePicker()
     
+    var myProfile = Profile()
+    
     fileprivate func prepareInterestTokenControl() {
         interestsKsToken.delegate = self as KSTokenViewDelegate
         interestsKsToken.promptText = "Top 5 interests: "
@@ -149,6 +151,10 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
         //        TODO:  Here we must get all user data from db and fill the controls
         
+       if let currentUserProfile = try? ProfileDataHelper.find(idobj: 1){
+            self.myProfile = currentUserProfile
+            
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -319,6 +325,9 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     //    MARK: Actions
     
+    @IBAction func saveTouchUp(_ sender: Any) {
+        saveMyProfile()
+    }
     
     @IBAction func universityTapped(_ sender: UITextField) {
         universityTextField.resignFirstResponder()
@@ -556,6 +565,15 @@ extension MyProfileViewController: GMSAutocompleteViewControllerDelegate {
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         // Dismiss when the user canceled the action
         dismiss(animated: true, completion: nil)
+    }
+    
+    func saveMyProfile() {
+        
+        myProfile.name=nameTextField.text
+        
+        let _ = try? ProfileDataHelper.update(item: myProfile)
+        
+        print("profile saved")
     }
     
 }

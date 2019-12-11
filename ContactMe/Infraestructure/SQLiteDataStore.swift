@@ -29,12 +29,5 @@ class SQLiteDataStore {
             BBDB = nil
         }
     }
-   
-    func createTables() throws{
-        do {
-           try UserDataHelper.createTable()
-        } catch {
-            throw DataAccessError.Datastore_Connection_Error
-        }
-    }
+
 }

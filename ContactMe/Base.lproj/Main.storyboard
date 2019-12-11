@@ -171,6 +171,13 @@
                                     <action selector="tabsSegmentedControlValueChanged:" destination="2GJ-KL-fJK" eventType="valueChanged" id="LHE-6n-Vzc"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARg-mA-yFh">
+                                <rect key="frame" x="10" y="174.5" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveTouchUp:" destination="2GJ-KL-fJK" eventType="touchUpInside" id="9dF-i3-bJJ"/>
+                                </connections>
+                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsZ-ps-6wd">
                                 <rect key="frame" x="10" y="255" width="394" height="558"/>
                                 <subviews>
@@ -477,10 +484,12 @@
                             <constraint firstItem="aIm-NE-YWW" firstAttribute="top" secondItem="62m-Du-afc" secondAttribute="bottom" constant="8" id="4se-9M-ELs"/>
                             <constraint firstItem="62m-Du-afc" firstAttribute="leading" secondItem="EQt-9v-zjI" secondAttribute="leading" constant="10" id="63k-0s-gpt"/>
                             <constraint firstItem="SNe-uE-L9C" firstAttribute="leading" secondItem="EQt-9v-zjI" secondAttribute="leading" constant="10" id="6eh-zv-ABV"/>
+                            <constraint firstItem="ARg-mA-yFh" firstAttribute="firstBaseline" secondItem="aIm-NE-YWW" secondAttribute="baseline" constant="20" symbolType="layoutAnchor" id="7DK-L4-lSb"/>
                             <constraint firstItem="62m-Du-afc" firstAttribute="centerY" secondItem="l2f-d7-Jmy" secondAttribute="centerY" id="LI2-gx-I2F"/>
                             <constraint firstItem="fsZ-ps-6wd" firstAttribute="top" secondItem="SNe-uE-L9C" secondAttribute="bottom" constant="10" id="NU2-Kc-zUB"/>
                             <constraint firstItem="EQt-9v-zjI" firstAttribute="trailing" secondItem="fsZ-ps-6wd" secondAttribute="trailing" constant="10" id="S9t-Eh-Lef"/>
                             <constraint firstItem="fsZ-ps-6wd" firstAttribute="leading" secondItem="EQt-9v-zjI" secondAttribute="leading" constant="10" id="T6a-i0-k7r"/>
+                            <constraint firstItem="ARg-mA-yFh" firstAttribute="leading" secondItem="EQt-9v-zjI" secondAttribute="leading" constant="10" id="UZl-bT-C9b"/>
                             <constraint firstItem="aIm-NE-YWW" firstAttribute="leading" secondItem="62m-Du-afc" secondAttribute="leading" id="WVl-4R-13R"/>
                             <constraint firstItem="EQt-9v-zjI" firstAttribute="trailing" secondItem="l2f-d7-Jmy" secondAttribute="trailing" constant="10" id="acZ-qk-jI7"/>
                             <constraint firstItem="fsZ-ps-6wd" firstAttribute="bottom" secondItem="EQt-9v-zjI" secondAttribute="bottom" id="mx4-nU-Q90"/>
