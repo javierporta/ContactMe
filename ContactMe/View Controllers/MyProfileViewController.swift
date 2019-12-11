@@ -454,10 +454,6 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     //    MARK: Actions
     
-    @IBAction func saveTouchUp(_ sender: Any) {
-        saveMyProfile()
-    }
-    
     @IBAction func universityTapped(_ sender: UITextField) {
         universityTextField.resignFirstResponder()
         let autocompleteController = GMSAutocompleteViewController()
