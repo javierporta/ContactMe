@@ -103,7 +103,7 @@ class UserService {
     
     static func deleteUserSession() -> Bool?{
         
-        if self.keychain[Constants.USER_DATA_KEY] != nil {
+        if self.keychain[Constants.CURRENT_USER_KEY] != nil {
             
             do {
                 try self.keychain.remove(Constants.CURRENT_USER_KEY)
@@ -120,7 +120,7 @@ class UserService {
     }
     
     static func getCurrentUserSession()-> User?{
-        if self.keychain[Constants.USER_DATA_KEY] != nil {
+        if self.keychain[Constants.CURRENT_USER_KEY] != nil {
             do{
                 let userJson = try self.keychain.get(Constants.CURRENT_USER_KEY)
                 
