@@ -21,33 +21,43 @@ class QRShowViewController: UIViewController {
     @IBOutlet weak var specialityJobLabel: UILabel!
     
     @IBOutlet weak var emailLabel: UILabel!
-    
-    @IBOutlet weak var avatarImageView: UIImageView!
-    
+        
     @IBOutlet weak var phoneLabel: UILabel!
     
+    @IBOutlet weak var avatarImageView: UIImageView! {
+        didSet{
+            avatarImageView.makeRounded()
+        }
+    }
     
     var currentUserProfile = Profile()
+     var currentUser = User()
     
     @IBOutlet weak var dataStackView: UIStackView!
     
     fileprivate func getMyProfileData() {
         //        1 Get current user id
         //        2 Get profile with that user id
-        if let currentUserProfile = try? ProfileDataHelper.find(idobj: 1){
-            self.currentUserProfile = currentUserProfile
-            
+
+        if let currentUser = UserService.getCurrentUserSession() {
+            self.currentUser = currentUser
+            if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
+                self.currentUserProfile = currentUserProfile
+            }
         }
+        
         
     }
     
     fileprivate func setMyProfileControls(){
+        avatarImageView.image = currentUserProfile.avatar?.toImage()
         fullNameLabel.text = currentUserProfile.fullName()
-        //universityLabel.text=currentUserProfile.university
-        careerLabel.text = "missing career field"
-        //specialityJobLabel.text=currentUserProfile.specialty
-        emailLabel.text = "missing email field"
+        universityLabel.text=currentUserProfile.universityName
+        careerLabel.text = currentUserProfile.carieer
+        specialityJobLabel.text=currentUserProfile.job
+        emailLabel.text = currentUser.username //ToDO: Email must be in my profile to be shared
         phoneLabel.text = currentUserProfile.phone
+        
     }
     
     override func viewDidLoad() {

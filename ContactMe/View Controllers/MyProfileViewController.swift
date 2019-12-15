@@ -146,11 +146,11 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         placesClient = GMSPlacesClient.shared()
         
         
-        //        TODO:  Here we must get all user data from db and fill the controls
-        
-        if let currentUserProfile = try? ProfileDataHelper.find(idobj: 1){
-            self.myProfile = currentUserProfile
-            setMyProfileValues()
+        if let currentUser = UserService.getCurrentUserSession() {
+            if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
+                self.myProfile = currentUserProfile
+                setMyProfileValues()
+            }
         }
         
         // Do any additional setup after loading the view.
@@ -194,7 +194,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
                 let token: KSToken = KSToken(title: interest)
                 interestsKsToken.addToken(token)
             }
-        
+            
         }
         
         
@@ -225,15 +225,11 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     
-    func saveMyProfileAsync(){
-        DispatchQueue.global(qos: .utility).async {
-            self.saveMyProfile()
-        }
-    }
     
     func saveMyProfile() {
         
         //Header
+        
         
         myProfile.avatar = profileImage.image?.toString()
         
@@ -248,7 +244,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         myProfile.dateOfBirth = dateOfBirthTextField.text
         
         //        Career
-      
+        
         universityTextField.text = myProfile.universityName
         myProfile.job = jobTextField.text
         myProfile.carieer = careerTextField.text
@@ -261,10 +257,10 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         }
         
         //        Free Time
-
+        
         
         myProfile.freeTimePlaceName = placeFreeTimeTextField.text
-            
+        
         myProfile.mondayFreeStartTime = mondayStartTimeTextField.text
         myProfile.mondayFreeEndTime = mondayEndTimeTextField.text
         
@@ -286,9 +282,12 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         myProfile.sundayFreeStartTime = sundayStartTimeTextField.text
         myProfile.sundayFreeEndTime = sundayEndTimeTextField.text
         
-        let _ = try? ProfileDataHelper.update(item: myProfile)
-        
-        print("profile saved")
+        DispatchQueue.global(qos: .utility).async {
+            let _ = try? ProfileDataHelper.update(item: self.myProfile)
+            
+            print("profile saved")
+        }
+      
     }
     
     func prepareDofDatePicker(){
@@ -678,7 +677,7 @@ extension MyProfileViewController: GMSAutocompleteViewControllerDelegate {
         print("Address components: \(String(describing: place.addressComponents))")
         // Get the place name from 'GMSAutocompleteViewController'
         
-       
+        
         
         // Then display the name in textField
         //ToDO: How to work with both. Need to know the sender
@@ -697,7 +696,7 @@ extension MyProfileViewController: GMSAutocompleteViewControllerDelegate {
             myProfile.freeTimeLatitude = place.coordinate.latitude
             myProfile.freeTimeLongitude = place.coordinate.longitude
         }
- 
+        
         // Dismiss the GMSAutocompleteViewController when something is selected
         dismiss(animated: true, completion: nil)
     }
