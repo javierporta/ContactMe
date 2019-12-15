@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             try ProfileDataHelper.createTable()
             
-            /* let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
+             /*let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
              try keychain.removeAll()
              
              guard var profiles = try ProfileDataHelper.findAll() else {
