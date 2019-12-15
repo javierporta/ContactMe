@@ -116,7 +116,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        saveMyProfileAsync()
+        saveMyProfile()
     }
     
     override func viewDidLoad() {
@@ -189,8 +189,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         
         
-        if let interestsArray = myProfile.insterest?.components(separatedBy: ",") {
-            for interest in interestsArray {
+        if myProfile.insterestArray != nil && myProfile.insterestArray!.count > 0 {
+            for interest in myProfile.insterestArray!  {
                 let token: KSToken = KSToken(title: interest)
                 interestsKsToken.addToken(token)
             }
@@ -248,8 +248,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         myProfile.dateOfBirth = dateOfBirthTextField.text
         
         //        Career
-        //ToDo
-        //universityTextField.text = myProfile.
+      
+        universityTextField.text = myProfile.universityName
         myProfile.job = jobTextField.text
         myProfile.carieer = careerTextField.text
         
@@ -257,17 +257,14 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         //        Interests
         
         if let tokens = interestsKsToken.tokens(){
-            
-            let titles=tokens.map({$0.title})
-            let tokenTitlesAsString=titles.joined(separator: ",")
-            
-            myProfile.insterest = tokenTitlesAsString
+            myProfile.insterestArray = tokens.map({$0.title})
         }
         
         //        Free Time
-        //ToDo
-        //        placeFreeTimeTextField.text = myProfile.
+
         
+        myProfile.freeTimePlaceName = placeFreeTimeTextField.text
+            
         myProfile.mondayFreeStartTime = mondayStartTimeTextField.text
         myProfile.mondayFreeEndTime = mondayEndTimeTextField.text
         
@@ -530,7 +527,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             break
         }
         
-        saveMyProfileAsync()
+        saveMyProfile()
     }
     @IBAction func genderSegmentedControlValueChanged(_ sender: Any) {
         setGenderSegmentedControlColor()
@@ -681,13 +678,26 @@ extension MyProfileViewController: GMSAutocompleteViewControllerDelegate {
         print("Address components: \(String(describing: place.addressComponents))")
         // Get the place name from 'GMSAutocompleteViewController'
         
+       
+        
         // Then display the name in textField
         //ToDO: How to work with both. Need to know the sender
         if(autocompleteSender=="university"){
             universityTextField.text = place.name
+            
+            myProfile.universityName = place.name
+            myProfile.universityLatitude = place.coordinate.latitude
+            myProfile.universityLongitude = place.coordinate.longitude
+            
+            
         }else if(autocompleteSender=="freetime"){
             placeFreeTimeTextField.text = place.name
+            
+            myProfile.freeTimePlaceName = place.name
+            myProfile.freeTimeLatitude = place.coordinate.latitude
+            myProfile.freeTimeLongitude = place.coordinate.longitude
         }
+ 
         // Dismiss the GMSAutocompleteViewController when something is selected
         dismiss(animated: true, completion: nil)
     }
