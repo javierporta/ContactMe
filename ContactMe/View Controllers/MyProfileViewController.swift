@@ -92,8 +92,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBOutlet weak var placeFreeTimeTextField: UITextField!
     
-    //ToDo: Get from db
-    let interests: Array<String> = ["Beer","Food","Sports","Programming","Music", "Technology"]
+    let interests: Array<String> = ["Beer","Food","Sports","Programming","Music", "Technology","Football","Padel","Kayaking","Traveling","Crafts","Painting","Philosophy","Economy","Politics","Netflix","Ted Talks","Recycling", "Healthcare","Design","Runnning"].sorted()
     
     //Uidate picker
     let datePicker = UIDatePicker()
@@ -109,17 +108,11 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         interestsKsToken.maxTokenLimit = 5 /// default is -1 for unlimited number of tokens
         interestsKsToken.style = .squared
         interestsKsToken.minimumCharactersToSearch = 0 /// Show all results without without typing anything
-        interestsKsToken.maximumHeight = 100.0
+        interestsKsToken.searchResultHeight = self.view.frame.size.height - 400 //todo: get real value of header
         interestsKsToken.returnKeyType(type: .done)
         
         /// An array of string values. Default values are "." and ",". Token is created with typed text, when user press any of the character mentioned in this Array
         interestsKsToken.tokenizingCharacters = [","]
-        interestsKsToken.searchResultHeight = 100
-        
-        /// Show all results without without typing anything
-        interestsKsToken.minimumCharactersToSearch = 0
-        
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -193,13 +186,21 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         
         //        Interests
-      
-//        Todo Change interest to be array of string
         
-      
+        
+        
+        if let interestsArray = myProfile.insterest?.components(separatedBy: ",") {
+            for interest in interestsArray {
+                let token: KSToken = KSToken(title: interest)
+                interestsKsToken.addToken(token)
+            }
+        
+        }
+        
+        
         //        Free Time
         //ToDo
-//        placeFreeTimeTextField.text = myProfile.
+        //        placeFreeTimeTextField.text = myProfile.
         
         mondayStartTimeTextField.text = myProfile.mondayFreeStartTime
         mondayEndTimeTextField.text = myProfile.mondayFreeEndTime
@@ -231,62 +232,67 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func saveMyProfile() {
-            
-    //Header
-            
-            myProfile.avatar = profileImage.image?.toString()
-            
-            //        Personal
-            myProfile.name = nameTextField.text
-            myProfile.lastName = surnameTextField.text
-            
-            myProfile.phone = phoneTextField.text
         
-            myProfile.gender = genderSegmentedControl.selectedSegmentIndex == Gender.male.rawValue ? "M" : "F"
+        //Header
         
-            myProfile.dateOfBirth = dateOfBirthTextField.text
+        myProfile.avatar = profileImage.image?.toString()
+        
+        //        Personal
+        myProfile.name = nameTextField.text
+        myProfile.lastName = surnameTextField.text
+        
+        myProfile.phone = phoneTextField.text
+        
+        myProfile.gender = genderSegmentedControl.selectedSegmentIndex == Gender.male.rawValue ? "M" : "F"
+        
+        myProfile.dateOfBirth = dateOfBirthTextField.text
+        
+        //        Career
+        //ToDo
+        //universityTextField.text = myProfile.
+        myProfile.job = jobTextField.text
+        myProfile.carieer = careerTextField.text
+        
+        
+        //        Interests
+        
+        if let tokens = interestsKsToken.tokens(){
             
-            //        Career
-            //ToDo
-            //universityTextField.text = myProfile.
-            myProfile.job = jobTextField.text
-            myProfile.carieer = careerTextField.text
+            let titles=tokens.map({$0.title})
+            let tokenTitlesAsString=titles.joined(separator: ",")
             
-            
-            //        Interests
-          
-    //        Todo Change interest to be array of string
-            
-          
-            //        Free Time
-            //ToDo
-    //        placeFreeTimeTextField.text = myProfile.
-            
-            myProfile.mondayFreeStartTime = mondayStartTimeTextField.text
-            myProfile.mondayFreeEndTime = mondayEndTimeTextField.text
-            
-            myProfile.tuesdayFreeStartTime = tuesdayStartTimeTextField.text
-            myProfile.tuesdayFreeEndTime = tuesdayEndTimeTextField.text
-            
-            myProfile.wednesdayFreeStartTime = wednesdayStartTimeTextField.text
-            myProfile.wednesdayFreeEndTime = wednesdayEndTimeTextField.text
-            
-            myProfile.thursdayFreeStartTime = thursdayStartTimeTextField.text
-            myProfile.thursdayFreeEndTime = thursdayEndTimeTextField.text
-            
-            myProfile.fridayFreeStartTime = fridayStartTimeTextField.text
-            myProfile.fridayFreeEndTime = fridayEndTimeTextField.text
-            
-            myProfile.saturdayFreeStartTime = saturdayStartTimeTextField.text
-            myProfile.saturdayFreeEndTime = saturdayEndTimeTextField.text
-            
-            myProfile.sundayFreeStartTime = sundayStartTimeTextField.text
-            myProfile.sundayFreeEndTime = sundayEndTimeTextField.text
-            
-            let _ = try? ProfileDataHelper.update(item: myProfile)
-            
-            print("profile saved")
+            myProfile.insterest = tokenTitlesAsString
         }
+        
+        //        Free Time
+        //ToDo
+        //        placeFreeTimeTextField.text = myProfile.
+        
+        myProfile.mondayFreeStartTime = mondayStartTimeTextField.text
+        myProfile.mondayFreeEndTime = mondayEndTimeTextField.text
+        
+        myProfile.tuesdayFreeStartTime = tuesdayStartTimeTextField.text
+        myProfile.tuesdayFreeEndTime = tuesdayEndTimeTextField.text
+        
+        myProfile.wednesdayFreeStartTime = wednesdayStartTimeTextField.text
+        myProfile.wednesdayFreeEndTime = wednesdayEndTimeTextField.text
+        
+        myProfile.thursdayFreeStartTime = thursdayStartTimeTextField.text
+        myProfile.thursdayFreeEndTime = thursdayEndTimeTextField.text
+        
+        myProfile.fridayFreeStartTime = fridayStartTimeTextField.text
+        myProfile.fridayFreeEndTime = fridayEndTimeTextField.text
+        
+        myProfile.saturdayFreeStartTime = saturdayStartTimeTextField.text
+        myProfile.saturdayFreeEndTime = saturdayEndTimeTextField.text
+        
+        myProfile.sundayFreeStartTime = sundayStartTimeTextField.text
+        myProfile.sundayFreeEndTime = sundayEndTimeTextField.text
+        
+        let _ = try? ProfileDataHelper.update(item: myProfile)
+        
+        print("profile saved")
+    }
     
     func prepareDofDatePicker(){
         //set min and max dates: 13 to 100 years old
