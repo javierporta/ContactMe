@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class ResponseImage: Codable{
+    
+    var data: DataImage?
+    var success: Bool?
+    var status: Int64?
+    
+    
+}

@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+
+class DataImage: Codable{
+   
+    var id: String?
+    var link: String?
+    
+}
