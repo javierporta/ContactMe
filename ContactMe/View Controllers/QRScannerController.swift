@@ -136,6 +136,16 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             
             print("Name : \(connectionProfile.name ?? "")")
             
+            //            generate success haptics
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
+            
+            // create a sound ID, in this case its the tweet sound.
+            let systemSoundID: SystemSoundID = 1016
+            // to play sound
+//            AudioServicesPlaySystemSound (systemSoundID)
+            
+            
             let alertPrompt = UIAlertController(title: "Adding a new connection", message: "You're about to add \(connectionProfile.name ?? "") as a contact", preferredStyle: .actionSheet)
             
             let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertAction.Style.default, handler: { (action) -> Void in
@@ -153,6 +163,12 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         }
         catch {
             print(error)
+
+            let alertPrompt = UIAlertController(title: "Something went wrong", message: "We cannot read this qr code. Make sure you are scanning a ContactMe generated qr code.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Got it!", style: UIAlertAction.Style.default, handler: nil)
+            alertPrompt.addAction(okAction)
+
+            present(alertPrompt, animated: true, completion: nil)
         }
         
         
@@ -161,20 +177,52 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
     
     private func addConnection(_ connectionProfile: Profile){
         print("Adding connection \(connectionProfile.name ?? "")")
+        // Get current profile id
+        let currentProfileId = UserService.getCurrentUserSession()?.profileId
+        
+//        Check if connection is already by email
+        if let connectionList = try? ProfileDataHelper.findConectionsByProfileid(idobj: currentProfileId!) {
+            for connection in connectionList {
+                //ToDo:add email
+//                if connection.email == connectionProfile.email
+                
+            }
+        }
+        
         
         // Get metadata
         // 1. Get datetime
         let currentDateTime = Date()
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        let currentDateTimeAsString = df.string(from: currentDateTime)
+        
         // 2. Get gps location
         let connectionLocation = currentLocation
+        
+        
+        
         //Add metadata
+        connectionProfile.connectionDateTime = currentDateTimeAsString
+        connectionProfile.connectionLocationLatitude = connectionLocation.latitude
+        connectionProfile.connectionLocationLongitude = connectionLocation.longitude
+        connectionProfile.connectionLocationName = "Get name of the place"
         
-        //Save connection
+        //Add references
+        connectionProfile.connectionId = currentProfileId
+        //Add connection
+        do {
+            _ = try ProfileDataHelper.insert(item: connectionProfile)
+               
+
+            
+            //            todo: show success and Navigate to connection list
+
+        }  catch {
+            //                todo show error
+            print(error)
+        }
         
-        //Show success
-        
-        
-        //Navigate to connection list
         
     }
 
