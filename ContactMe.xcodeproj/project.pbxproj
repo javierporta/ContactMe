@@ -22,6 +22,7 @@
 		2CAAF1CB23746C3200B108BE /* ColorsTheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */; };
 		3AB7ADE4375FF40D3B153370 /* Pods_ContactMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532CE207A70FAD0D4751415C /* Pods_ContactMe.framework */; };
 		5D3ED6B8239454F500C8894D /* QRShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3ED6B7239454F500C8894D /* QRShowViewController.swift */; };
+		5D3F17F823AA61AF0094594B /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3F17F723AA61AE0094594B /* QRScannerController.swift */; };
 		5D540904237C40AA0020144D /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D540903237C40AA0020144D /* SpinnerView.swift */; };
 		5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58E5892386D58600FA7407 /* MyProfileViewController.swift */; };
 		5D8F36BB2390274200F6B19F /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F36B72390274200F6B19F /* KSToken.swift */; };
@@ -33,7 +34,6 @@
 		5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FE9D1238A0FC300452272 /* TextField.swift */; };
 		5DA3A119239451D200D33C06 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3A118239451D200D33C06 /* RoundButton.swift */; };
 		5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* KeychainAccess */; };
-		5DA94644239D62D100508470 /* CameraQRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA94643239D62D100508470 /* CameraQRScannerViewController.swift */; };
 		5DA9464623A15EB200508470 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA9464523A15EB200508470 /* String.swift */; };
 		5DA9464823A1667000508470 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA9464723A1667000508470 /* UIImage.swift */; };
 		5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */; };
@@ -67,6 +67,7 @@
 		532CE207A70FAD0D4751415C /* Pods_ContactMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContactMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5838300AABF460F85A06D244 /* Pods-ContactMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactMe.release.xcconfig"; path = "Target Support Files/Pods-ContactMe/Pods-ContactMe.release.xcconfig"; sourceTree = "<group>"; };
 		5D3ED6B7239454F500C8894D /* QRShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRShowViewController.swift; sourceTree = "<group>"; };
+		5D3F17F723AA61AE0094594B /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 		5D540903237C40AA0020144D /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5D58E5892386D58600FA7407 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		5D8F36B72390274200F6B19F /* KSToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotYourPasswordViewController.swift; sourceTree = "<group>"; };
 		5D9FE9D1238A0FC300452272 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		5DA3A118239451D200D33C06 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		5DA94643239D62D100508470 /* CameraQRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraQRScannerViewController.swift; sourceTree = "<group>"; };
 		5DA9464523A15EB200508470 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5DA9464723A1667000508470 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 				2CAAF1B92374612F00B108BE /* LoginViewController.swift */,
 				5D58E5892386D58600FA7407 /* MyProfileViewController.swift */,
 				5D3ED6B7239454F500C8894D /* QRShowViewController.swift */,
-				5DA94643239D62D100508470 /* CameraQRScannerViewController.swift */,
+				5D3F17F723AA61AE0094594B /* QRScannerController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -417,6 +417,7 @@
 				2C16BF6623857B34004577C8 /* Entity.swift in Sources */,
 				5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */,
 				2C16BF6523857B34004577C8 /* Profile.swift in Sources */,
+				5D3F17F823AA61AF0094594B /* QRScannerController.swift in Sources */,
 				5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */,
 				2CAAF1B62374612F00B108BE /* AppDelegate.swift in Sources */,
 				5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */,
@@ -428,7 +429,6 @@
 				5DA9464823A1667000508470 /* UIImage.swift in Sources */,
 				B53BEA802397DE60004142C6 /* UserService.swift in Sources */,
 				5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */,
-				5DA94644239D62D100508470 /* CameraQRScannerViewController.swift in Sources */,
 				5D8F36BE2390274200F6B19F /* KSTokenView.swift in Sources */,
 				5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */,
 				2C192C31238702050049B43B /* DataHelperProtocol.swift in Sources */,

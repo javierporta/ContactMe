@@ -43,6 +43,11 @@ class Profile: Entity, Codable {
     var freeTimeLongitude: Double?
     var freeTimeLatitude: Double?
     
+    var connectionDateTime: String?
+    var connectionLocationName: String?
+    var connectionLocationLatitude: Double?
+    var connectionLocationLongitude: Double?
+    
     var insterestArray:Array<String>?{
         get{
             return self.insterest?.components(separatedBy: ",")
