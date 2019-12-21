@@ -55,7 +55,7 @@ class QRShowViewController: UIViewController {
         universityLabel.text=currentUserProfile.universityName
         careerLabel.text = currentUserProfile.carieer
         specialityJobLabel.text=currentUserProfile.job
-        emailLabel.text = currentUser.username //ToDO: Email must be in my profile to be shared
+        emailLabel.text = currentUserProfile.email
         phoneLabel.text = currentUserProfile.phone
         
     }

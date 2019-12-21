@@ -11,18 +11,18 @@ import AVFoundation
 import CoreLocation
 
 class QRScannerController: UIViewController, CLLocationManagerDelegate {
-
+    
     @IBOutlet var messageLabel:UILabel!
     @IBOutlet var topbar: UIView!
     
     let locationManager = CLLocationManager()
     var currentLocation = CLLocationCoordinate2D()
-
+    
     var captureSession = AVCaptureSession()
     
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
-
+    
     private let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
                                       AVMetadataObject.ObjectType.code39,
                                       AVMetadataObject.ObjectType.code39Mod43,
@@ -36,17 +36,17 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
                                       AVMetadataObject.ObjectType.dataMatrix,
                                       AVMetadataObject.ObjectType.interleaved2of5,
                                       AVMetadataObject.ObjectType.qr]
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
-
+        
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
-
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -73,7 +73,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             // Set delegate and use the default dispatch queue to execute the call back
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
-//            captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
+            //            captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
             
         } catch {
             // If any error occurs, simply print it out and don't continue any more.
@@ -104,14 +104,14 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             view.bringSubviewToFront(qrCodeFrameView)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Helper methods
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
@@ -126,7 +126,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             return
         }
         
-//        Try to decode
+        //        Try to decode
         do {
             // Decode data to object
             
@@ -143,14 +143,14 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             // create a sound ID, in this case its the tweet sound.
             let systemSoundID: SystemSoundID = 1016
             // to play sound
-//            AudioServicesPlaySystemSound (systemSoundID)
+            //            AudioServicesPlaySystemSound (systemSoundID)
             
             
             let alertPrompt = UIAlertController(title: "Adding a new connection", message: "You're about to add \(connectionProfile.name ?? "") as a contact", preferredStyle: .actionSheet)
             
             let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertAction.Style.default, handler: { (action) -> Void in
                 
-                self.addConnection(connectionProfile)
+                self.prepareForAddOrUpdateConnection(connectionProfile)
             })
             
             let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
@@ -159,15 +159,15 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             alertPrompt.addAction(cancelAction)
             
             present(alertPrompt, animated: true, completion: nil)
-          
+            
         }
         catch {
             print(error)
-
-            let alertPrompt = UIAlertController(title: "Something went wrong", message: "We cannot read this qr code. Make sure you are scanning a ContactMe generated qr code.", preferredStyle: .alert)
+            
+            let alertPrompt = UIAlertController(title: "Something went wrong", message: "We cannot read this QR code. Make sure you are scanning a ContactMe generated QR code.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Got it!", style: UIAlertAction.Style.default, handler: nil)
             alertPrompt.addAction(okAction)
-
+            
             present(alertPrompt, animated: true, completion: nil)
         }
         
@@ -175,21 +175,38 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
     }
     
     
-    private func addConnection(_ connectionProfile: Profile){
-        print("Adding connection \(connectionProfile.name ?? "")")
-        // Get current profile id
-        let currentProfileId = UserService.getCurrentUserSession()?.profileId
+    fileprivate func updateProfileConnection(_ scannedConnectionProfile: Profile, _
+        connection: ProfileDataHelper.T) {
+        //Means user is already in list. Then update connection!
         
-//        Check if connection is already by email
-        if let connectionList = try? ProfileDataHelper.findConectionsByProfileid(idobj: currentProfileId!) {
-            for connection in connectionList {
-                //ToDo:add email
-//                if connection.email == connectionProfile.email
-                
-            }
+        // Set id to update the correct connection in local database
+        scannedConnectionProfile.id = connection.id
+        //Update connection data
+        
+        DispatchQueue.global(qos: .utility).async {
+            _ = try? ProfileDataHelper.update(item: scannedConnectionProfile)
         }
+        //Show  message
+        let alertPrompt = UIAlertController(title: "Contact Updated", message: "Contacted has been updated successfully. Would you like to see his new info?", preferredStyle: .alert)
+        
+        let navigateAction = UIAlertAction(title: "Sure!", style: UIAlertAction.Style.default, handler: { (action) -> Void in
+            
+            self.navigateToConnectionDetail()
+        })
+        
+        let cancelAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil)
+        
+        alertPrompt.addAction(navigateAction)
+        alertPrompt.addAction(cancelAction)
+        
+        present(alertPrompt, animated: true, completion: nil)
+        
+        //ToDo: ask if user want to go see the connection
         
         
+    }
+    
+    fileprivate func addProfileConnection(_ scannedConnectionProfile: Profile, _ currentProfileId: Int64?) {
         // Get metadata
         // 1. Get datetime
         let currentDateTime = Date()
@@ -200,68 +217,85 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         // 2. Get gps location
         let connectionLocation = currentLocation
         
-        
-        
         //Add metadata
-        connectionProfile.connectionDateTime = currentDateTimeAsString
-        connectionProfile.connectionLocationLatitude = connectionLocation.latitude
-        connectionProfile.connectionLocationLongitude = connectionLocation.longitude
-        connectionProfile.connectionLocationName = "Get name of the place"
+        scannedConnectionProfile.connectionDateTime = currentDateTimeAsString
+        scannedConnectionProfile.connectionLocationLatitude = connectionLocation.latitude
+        scannedConnectionProfile.connectionLocationLongitude = connectionLocation.longitude
+        scannedConnectionProfile.connectionLocationName = "Get name of the place" //ToDo: geocoding
         
-        //Add references
-        connectionProfile.connectionId = currentProfileId
+        //Add reference (FK)
+        scannedConnectionProfile.connectionId = currentProfileId
         //Add connection
-        do {
-            _ = try ProfileDataHelper.insert(item: connectionProfile)
-               
-
+        
+        DispatchQueue.global(qos: .utility).async {
+            _ = try? ProfileDataHelper.insert(item: scannedConnectionProfile)
+        }
+        
+        navigateToConnectionDetail()
+    }
+    
+    private func navigateToConnectionDetail () {
+        //ToDo: NOT IMPLEMENTED
+    }
+    
+    private func prepareForAddOrUpdateConnection(_ scannedConnectionProfile: Profile){
+        print("Adding or updating connection \(scannedConnectionProfile.name ?? "")")
+        // Get current profile id
+        let currentProfileId = UserService.getCurrentUserSession()?.profileId
+        
+        //        Check if connection's email already exists
+        if let connectionList = try? ProfileDataHelper.findConectionsByProfileid(idobj: currentProfileId!) {
+            for connection in connectionList {
+                // Is there smth like LINQ here to avoid this loop?
+                if connection.email == scannedConnectionProfile.email {
+                    updateProfileConnection(scannedConnectionProfile, connection)
+                    //after update there is no need to keep going with loop and function
+                    return
+                }
+                
+            }
+        }
+        
+        addProfileConnection(scannedConnectionProfile, currentProfileId)
+        
+    }
+    
+    
+    private func updatePreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
+        layer.videoOrientation = orientation
+        videoPreviewLayer?.frame = self.view.bounds
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if let connection =  self.videoPreviewLayer?.connection  {
+            let currentDevice: UIDevice = UIDevice.current
+            let orientation: UIDeviceOrientation = currentDevice.orientation
+            let previewLayerConnection : AVCaptureConnection = connection
             
-            //            todo: show success and Navigate to connection list
-
-        }  catch {
-            //                todo show error
-            print(error)
+            if previewLayerConnection.isVideoOrientationSupported {
+                switch (orientation) {
+                case .portrait:
+                    updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
+                    break
+                case .landscapeRight:
+                    updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeLeft)
+                    break
+                case .landscapeLeft:
+                    updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeRight)
+                    break
+                case .portraitUpsideDown:
+                    updatePreviewLayer(layer: previewLayerConnection, orientation: .portraitUpsideDown)
+                    break
+                default:
+                    updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
+                    break
+                }
+            }
         }
-        
-        
     }
-
     
-  private func updatePreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
-    layer.videoOrientation = orientation
-    videoPreviewLayer?.frame = self.view.bounds
-  }
-  
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    
-    if let connection =  self.videoPreviewLayer?.connection  {
-      let currentDevice: UIDevice = UIDevice.current
-      let orientation: UIDeviceOrientation = currentDevice.orientation
-      let previewLayerConnection : AVCaptureConnection = connection
-      
-      if previewLayerConnection.isVideoOrientationSupported {
-        switch (orientation) {
-        case .portrait:
-          updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
-          break
-        case .landscapeRight:
-          updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeLeft)
-          break
-        case .landscapeLeft:
-          updatePreviewLayer(layer: previewLayerConnection, orientation: .landscapeRight)
-          break
-        case .portraitUpsideDown:
-          updatePreviewLayer(layer: previewLayerConnection, orientation: .portraitUpsideDown)
-          break
-        default:
-          updatePreviewLayer(layer: previewLayerConnection, orientation: .portrait)
-          break
-        }
-      }
-    }
-  }
-
 }
 
 extension QRScannerController: AVCaptureMetadataOutputObjectsDelegate {

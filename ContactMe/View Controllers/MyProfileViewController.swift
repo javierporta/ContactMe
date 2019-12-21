@@ -9,7 +9,7 @@
 import UIKit
 import GooglePlaces
 
-class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate {
     
     var placesClient: GMSPlacesClient!
     var autocompleteSender="" // ToDo Serach a better way to do that
