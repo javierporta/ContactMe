@@ -96,4 +96,11 @@ class DashboardViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+//    ToDO: Remove later only to test conneciton detail scene
+    @IBAction func navigateToConnectionDetail(_ sender: Any){
+        let storyboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.CONNECTION_DETAIL)
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
 }

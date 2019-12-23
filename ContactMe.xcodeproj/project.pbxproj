@@ -39,6 +39,7 @@
 		5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */; };
 		5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCA237DC79600FB7423 /* Constants.swift */; };
 		5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */; };
+		5DD9A32E23B0DD5E009B2DEE /* ConnectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD9A32D23B0DD5E009B2DEE /* ConnectionDetailViewController.swift */; };
 		5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9544238AFFBE000D36FE /* Gender.swift */; };
 		5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9546238B0A5F000D36FE /* UIImageView.swift */; };
 		5DDA9549238EA5AE000D36FE /* MyProfileTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */; };
@@ -83,6 +84,7 @@
 		5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5DAA7CCA237DC79600FB7423 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		5DD9A32D23B0DD5E009B2DEE /* ConnectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDetailViewController.swift; sourceTree = "<group>"; };
 		5DDA9544238AFFBE000D36FE /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		5DDA9546238B0A5F000D36FE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTabs.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				5D58E5892386D58600FA7407 /* MyProfileViewController.swift */,
 				5D3ED6B7239454F500C8894D /* QRShowViewController.swift */,
 				5D3F17F723AA61AE0094594B /* QRScannerController.swift */,
+				5DD9A32D23B0DD5E009B2DEE /* ConnectionDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				5DA9464823A1667000508470 /* UIImage.swift in Sources */,
 				B53BEA802397DE60004142C6 /* UserService.swift in Sources */,
 				5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */,
+				5DD9A32E23B0DD5E009B2DEE /* ConnectionDetailViewController.swift in Sources */,
 				5D8F36BE2390274200F6B19F /* KSTokenView.swift in Sources */,
 				5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */,
 				2C192C31238702050049B43B /* DataHelperProtocol.swift in Sources */,
