@@ -25,7 +25,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
         }
 
-        cell!.textLabel?.text   = interests[indexPath.row]
+        cell!.textLabel?.text = interests[indexPath.row]
         return cell!
         if (1==1) {
             cell?.accessoryType = .checkmark
@@ -37,6 +37,19 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         return cell!
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+            cell.accessoryType = .none
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+            cell.accessoryType = .checkmark
+
+        }
+    }
+
     
     var placesClient: GMSPlacesClient!
     var autocompleteSender="" // ToDo Serach a better way to do that
