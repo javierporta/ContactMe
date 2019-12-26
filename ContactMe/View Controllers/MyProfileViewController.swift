@@ -26,10 +26,10 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         }
 
         cell!.textLabel?.text = interests[indexPath.row]
-        return cell!
-        if (1==1) {
+        
+        if (myProfile.insterestArray!.contains(cell!.textLabel!.text!)) {
             cell?.accessoryType = .checkmark
-            tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableView.ScrollPosition.bottom)
+//            tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableView.ScrollPosition.bottom)
         } else {
             cell?.accessoryType = .none
         }
@@ -39,7 +39,22 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
-            cell.accessoryType = .none
+            if (cell.accessoryType == .none){
+                //add it
+                myProfile.insterestArray?.insert(cell.textLabel!.text!,at: myProfile.insterestArray!.count)
+                cell.accessoryType = .checkmark
+            } else if (cell.accessoryType == .checkmark){
+                //remove it
+                myProfile.insterestArray?.removeAll(where: {_ in (myProfile.insterestArray?.contains(cell.textLabel!.text!))!})
+                cell.accessoryType = .none
+            }
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            
+           
+            
+            print("checked ones")
+            print(myProfile.insterestArray)
         }
     }
     
@@ -217,9 +232,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         
         //        Interests
-        
-    
-        
+        //they are set in table view controll
         
         //        Free Time
         //ToDo
