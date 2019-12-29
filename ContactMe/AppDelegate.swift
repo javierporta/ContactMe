@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              }*/
             
         } catch _{
-            print("caca")
+            print("can't create table")
         }
         
         checkIfUserIsLoggedIn()

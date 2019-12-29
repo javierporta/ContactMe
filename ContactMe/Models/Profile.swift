@@ -13,6 +13,7 @@ class Profile: Entity, Codable {
     
     var name: String?
     var lastName: String?
+    var email: String?
     var phone: String?
     var dateOfBirth: String?
     var gender: String?

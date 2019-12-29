@@ -21,5 +21,6 @@ struct Constants {
         
         static let MAIN_TAB = "MainTabBarController"
         static let LOGIN = "LoginViewController"
+        static let CONNECTION_DETAIL = "ConnectionDetailViewController"
     }
 }

@@ -9,7 +9,62 @@
 import UIKit
 import GooglePlaces
 
-class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate,  UITableViewDataSource {
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return interests.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "interestCellData", for: indexPath) as UITableViewCell?
+        
+        if cell == nil {
+
+            cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
+        }
+
+        cell!.textLabel?.text = interests[indexPath.row]
+        
+        if (myProfile.insterestArray!.contains(cell!.textLabel!.text!)) {
+            cell?.accessoryType = .checkmark
+//            tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableView.ScrollPosition.bottom)
+        } else {
+            cell?.accessoryType = .none
+        }
+
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+            if (cell.accessoryType == .none){
+                //add it
+                myProfile.insterestArray?.insert(cell.textLabel!.text!,at: myProfile.insterestArray!.count)
+                cell.accessoryType = .checkmark
+            } else if (cell.accessoryType == .checkmark){
+                //remove it
+                myProfile.insterestArray?.removeAll(where: {_ in (myProfile.insterestArray?.contains(cell.textLabel!.text!))!})
+                cell.accessoryType = .none
+            }
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            
+           
+            
+            print("checked ones")
+            print(myProfile.insterestArray)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+            cell.accessoryType = .checkmark
+
+        }
+    }
+
     
     var placesClient: GMSPlacesClient!
     var autocompleteSender="" // ToDo Serach a better way to do that
@@ -23,7 +78,6 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             profileImage.makeRounded()
         }
     }
-    @IBOutlet weak var interestsKsToken: KSTokenView!
     
     @IBOutlet weak var freeTimeStackView: UIStackView!
     
@@ -69,6 +123,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     
+    @IBOutlet weak var interestsTableView: UITableView!
     @IBOutlet weak var mondayStartTimeTextField: UITextField!
     @IBOutlet weak var mondayEndTimeTextField: UITextField!
     
@@ -100,21 +155,6 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     var myProfile = Profile()
     
-    fileprivate func prepareInterestTokenControl() {
-        interestsKsToken.delegate = self as KSTokenViewDelegate
-        interestsKsToken.promptText = "Top 5 interests: "
-        interestsKsToken.placeholder = "Type to search"
-        interestsKsToken.descriptionText = "Interests"
-        interestsKsToken.maxTokenLimit = 5 /// default is -1 for unlimited number of tokens
-        interestsKsToken.style = .squared
-        interestsKsToken.minimumCharactersToSearch = 0 /// Show all results without without typing anything
-        interestsKsToken.searchResultHeight = self.view.frame.size.height - 400 //todo: get real value of header
-        interestsKsToken.returnKeyType(type: .done)
-        
-        /// An array of string values. Default values are "." and ",". Token is created with typed text, when user press any of the character mentioned in this Array
-        interestsKsToken.tokenizingCharacters = [","]
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         saveMyProfile()
     }
@@ -123,8 +163,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         
         showPersonalTab()
-        
-        prepareInterestTokenControl()
+            
+        setupTableView()
         
         prepareDofDatePicker()
         
@@ -156,6 +196,12 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         // Do any additional setup after loading the view.
     }
     
+    private func setupTableView(){
+        interestsTableView.delegate = self
+        interestsTableView.dataSource = self
+    }
+
+    
     func setMyProfileValues(){
         //Header
         fullNameLabel.text = myProfile.fullName()
@@ -186,17 +232,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         
         //        Interests
-        
-        
-        
-        if myProfile.insterestArray != nil && myProfile.insterestArray!.count > 0 {
-            for interest in myProfile.insterestArray!  {
-                let token: KSToken = KSToken(title: interest)
-                interestsKsToken.addToken(token)
-            }
-            
-        }
-        
+        //they are set in table view controll
         
         //        Free Time
         //ToDo
@@ -252,9 +288,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         //        Interests
         
-        if let tokens = interestsKsToken.tokens(){
-            myProfile.insterestArray = tokens.map({$0.title})
-        }
+   
         
         //        Free Time
         
@@ -627,45 +661,6 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     
-}
-
-
-//ToDo: Create another file for this extension
-extension MyProfileViewController: KSTokenViewDelegate {
-    func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
-        if (string.isEmpty){
-            completion!(interests as Array<AnyObject>)
-            return
-        }
-        
-        var data: Array<String> = []
-        for value: String in interests {
-            if value.lowercased().range(of: string.lowercased()) != nil {
-                data.append(value)
-            }
-        }
-        completion!(data as Array<AnyObject>)
-    }
-    
-    func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String {
-        return object as! String
-    }
-    
-    func tokenView(_ tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
-        
-        // Restrict adding token based on token text
-        //            Allow only string in the intersts array list
-        if !interests.contains(token.title) {
-            return false
-        }
-        
-        // If user input something, it can be checked
-        //        print(tokenView.text)
-        
-        return true
-    }
-    //    IMPORTANT: To get all array of tokens!!!
-    //    interestsKsToken.tokens()
 }
 
 extension MyProfileViewController: GMSAutocompleteViewControllerDelegate {

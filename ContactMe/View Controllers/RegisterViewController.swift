@@ -69,6 +69,10 @@ class RegisterViewController: ValidatorViewController {
             if UserService.getRegisterUserByUserName(username: entity.username!) == nil{
                 
                 let profile = Profile()
+                
+                //set email as username default
+                profile.email = entity.username
+                
                 let profileId = try! ProfileDataHelper.insert(item: profile)
                 
                 entity.profileId = profileId
