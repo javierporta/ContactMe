@@ -10,6 +10,43 @@ import UIKit
 
 class ConnectionDetailViewController: UIViewController {
 
+    
+    //MARK: Outlets
+    
+    @IBOutlet weak var avatarImageView: UIImageView!
+  
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var studiesLabel: UILabel!
+    
+    @IBOutlet weak var currentStatusLabel: UILabel!
+    
+    @IBOutlet weak var fullnameLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    
+    @IBOutlet weak var universityLabel: UILabel!
+    
+    @IBOutlet weak var studyingLabel: UILabel!
+    
+    @IBOutlet weak var jobLabel: UILabel!
+    
+    @IBOutlet weak var interestsListLabel: UILabel!
+    
+    @IBOutlet weak var mondayFreeSchedule: UILabel!
+    
+    @IBOutlet weak var tuesdayFreeSchedule: UILabel!
+    @IBOutlet weak var wednesdayFreeSchedule: UILabel!
+    
+    @IBOutlet weak var thursdayFreeSchedule: UILabel!
+    
+    @IBOutlet weak var fridayFreeSchedule: UILabel!
+    
+    @IBOutlet weak var saturdayFreeSchedule: UILabel!
+    
+    @IBOutlet weak var sundayFreeSchedule: UILabel!
+    @IBOutlet weak var meetingLocation: UILabel!
+    
+    @IBOutlet weak var meetingDateTime: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
