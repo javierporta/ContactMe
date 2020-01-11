@@ -27,7 +27,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
 
         cell!.textLabel?.text = interests[indexPath.row]
         
-        if (myProfile.insterestArray!.contains(cell!.textLabel!.text!)) {
+        if (myProfile.insterestArray != nil && myProfile.insterestArray!.contains(cell!.textLabel!.text!)) {
             cell?.accessoryType = .checkmark
 //            tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableView.ScrollPosition.bottom)
         } else {
