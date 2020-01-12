@@ -200,7 +200,6 @@ class ProfileDataHelper: DataHelperProtocol {
             entity.sundayFreeStartTime = item[dbSundayFreeStartTime]
             entity.sundayFreeEndTime = item[dbSundayFreeEndTime]
             entity.connectionId = item[dbConnectionId]
-            entity.connections = try findConectionsByProfileid(idobj: entity.id)
             entity.universityName = item[dbUniversityName]
             entity.universityLatitude = item[dbUniversityLatitude]
             entity.universityLongitude = item[dbUniversityLongitude]
@@ -308,7 +307,6 @@ class ProfileDataHelper: DataHelperProtocol {
             entity.sundayFreeStartTime = item[dbSundayFreeStartTime]
             entity.sundayFreeEndTime = item[dbSundayFreeEndTime]
             entity.connectionId = item[dbConnectionId]
-            entity.connections = try findConectionsByProfileid(idobj: entity.id)
             entity.universityName = item[dbUniversityName]
             entity.universityLatitude = item[dbUniversityLatitude]
             entity.universityLongitude = item[dbUniversityLongitude]

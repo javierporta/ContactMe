@@ -36,7 +36,6 @@ class Profile: Entity, Codable {
     var sundayFreeStartTime: String?
     var sundayFreeEndTime: String?
     var connectionId: Int64?
-    var connections: [Profile]?
     var universityName: String?
     var universityLongitude: Double?
     var universityLatitude: Double?
@@ -63,7 +62,6 @@ class Profile: Entity, Codable {
     }
     
     override init() {
-        self.connections  = [Profile]()
         super.init()
     }
     

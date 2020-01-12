@@ -37,10 +37,17 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
                                       AVMetadataObject.ObjectType.interleaved2of5,
                                       AVMetadataObject.ObjectType.qr]
     
+    var currentProfileId : Int64 = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        currentProfileId = UserService.getCurrentUserSession()?.profileId ?? 0
         
+        if(currentProfileId == 0){
+            print("Error! ProfileId = 0")
+        }
+
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
         
@@ -164,7 +171,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         catch {
             print(error)
             
-            let alertPrompt = UIAlertController(title: "Something went wrong", message: "We cannot read this QR code. Make sure you are scanning a ContactMe generated QR code.", preferredStyle: .alert)
+            let alertPrompt = UIAlertController(title: "Oops!", message: "We cannot read this QR code. Looks like it's not a valid contact. Make sure you are scanning a ContactMe generated QR code.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Got it!", style: UIAlertAction.Style.default, handler: nil)
             alertPrompt.addAction(okAction)
             
@@ -179,8 +186,22 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         connection: ProfileDataHelper.T) {
         //Means user is already in list. Then update connection!
         
+        // Get metadata
+        // 1. Get datetime
+        let currentDateTime = Date()
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        let currentDateTimeAsString = df.string(from: currentDateTime)
+        
+        // 2. Get gps location
+        let connectionLocation = currentLocation
+        
         // Set id to update the correct connection in local database
-        scannedConnectionProfile.id = connection.id
+        //scannedConnectionProfile.id = connection.id //TODO REVIEW THIS
+        scannedConnectionProfile.connectionDateTime = currentDateTimeAsString
+        scannedConnectionProfile.connectionLocationLatitude = connectionLocation.latitude
+        scannedConnectionProfile.connectionLocationLongitude = connectionLocation.longitude
+        scannedConnectionProfile.connectionLocationName = "Get name of the place" //ToDo:
         //Update connection data
         
         DispatchQueue.global(qos: .utility).async {
@@ -206,7 +227,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    fileprivate func addProfileConnection(_ scannedConnectionProfile: Profile, _ currentProfileId: Int64?) {
+    fileprivate func addProfileConnection(_ scannedConnectionProfile: Profile) {
         // Get metadata
         // 1. Get datetime
         let currentDateTime = Date()
@@ -240,11 +261,9 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
     
     private func prepareForAddOrUpdateConnection(_ scannedConnectionProfile: Profile){
         print("Adding or updating connection \(scannedConnectionProfile.name ?? "")")
-        // Get current profile id
-        let currentProfileId = UserService.getCurrentUserSession()?.profileId
         
         //        Check if connection's email already exists
-        if let connectionList = try? ProfileDataHelper.findConectionsByProfileid(idobj: currentProfileId!) {
+        if let connectionList = try? ProfileDataHelper.findConectionsByProfileid(idobj: currentProfileId) {
             for connection in connectionList {
                 // Is there smth like LINQ here to avoid this loop?
                 if connection.email == scannedConnectionProfile.email {
@@ -256,7 +275,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             }
         }
         
-        addProfileConnection(scannedConnectionProfile, currentProfileId)
+        addProfileConnection(scannedConnectionProfile)
         
     }
     
