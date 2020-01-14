@@ -78,8 +78,8 @@ class ConnectionDetailViewController: UIViewController {
         jobLabel.text = connectionProfile.job
         interestsListLabel.text = connectionProfile.insterest
         
-        currentStatusLabel.text = "Busy" //Or Free TODO
-        if(currentStatusLabel.text == "Busy"){
+        currentStatusLabel.text = "Busy Now" //Or Free TODO
+        if(currentStatusLabel.text == "Busy Now"){
              currentStatusLabel.textColor = UIColor.red
 
         }else{
