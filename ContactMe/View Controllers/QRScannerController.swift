@@ -183,7 +183,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
     
     
     fileprivate func updateProfileConnection(_ scannedConnectionProfile: Profile, _
-        connection: ProfileDataHelper.T) {
+        localConnectionFound: ProfileDataHelper.T) {
         //Means user is already in list. Then update connection!
         
         // Get metadata
@@ -197,12 +197,15 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         let connectionLocation = currentLocation
         
         // Set id to update the correct connection in local database
-        //scannedConnectionProfile.id = connection.id //TODO REVIEW THIS
+        scannedConnectionProfile.id = localConnectionFound.id
         scannedConnectionProfile.connectionDateTime = currentDateTimeAsString
         scannedConnectionProfile.connectionLocationLatitude = connectionLocation.latitude
         scannedConnectionProfile.connectionLocationLongitude = connectionLocation.longitude
         scannedConnectionProfile.connectionLocationName = "Get name of the place" //ToDo:
         //Update connection data
+        
+        //Add reference (FK)
+        scannedConnectionProfile.connectionId = currentProfileId
         
         DispatchQueue.global(qos: .utility).async {
             _ = try? ProfileDataHelper.update(item: scannedConnectionProfile)

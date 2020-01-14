@@ -17,6 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     
+    fileprivate func deleteDatabase() {
+        var path = "ContactMeDb.sqlite"
+        
+        if let dirs: [NSString] =          NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true) as [NSString] {
+            
+            let dir = dirs[0]
+            print(dir)
+            path = dir.appendingPathComponent("ContactMeDb.sqlite");
+            
+            let fm = FileManager.default
+            do {
+                let vFileURL = NSURL(fileURLWithPath: path)
+                try fm.removeItem(at: vFileURL as URL)
+                print("Database Deleted!")
+            } catch {
+                print("Error on Delete Database!!!")
+            }
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         GMSPlacesClient.provideAPIKey("AIzaSyD1dWnnUugFZuqhfLYSR5FOm18bB6A0GgY")
@@ -28,12 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              /*let keychain = Keychain(service: Constants.KEYCHAIN_SERVICE)
              try keychain.removeAll()
              
-             guard var profiles = try ProfileDataHelper.findAll() else {
-             throw DataAccessError.Datastore_Connection_Error
-             }
-             for profile in profiles{
-             try ProfileDataHelper.delete(item: profile)
+             deleteDatabase()
              }*/
+            
+            
             
         } catch _{
             print("can't create table")
@@ -79,7 +97,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Show first item of tab bar
             let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: Constants.Identifiers.MAIN_TAB) as! MainTabBarController
             
-            // ToDo: Should we set the item of the tab to open by default?
             window?.rootViewController = tabBarController
         } else {
             // Show login page
