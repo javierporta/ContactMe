@@ -190,7 +190,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         // 1. Get datetime
         let currentDateTime = Date()
         let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let currentDateTimeAsString = df.string(from: currentDateTime)
         
         // 2. Get gps location
@@ -242,7 +242,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         // 1. Get datetime
         let currentDateTime = Date()
         let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let currentDateTimeAsString = df.string(from: currentDateTime)
         
         // 2. Get gps location
