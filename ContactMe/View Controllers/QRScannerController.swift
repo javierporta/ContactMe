@@ -37,9 +37,16 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
                                       AVMetadataObject.ObjectType.interleaved2of5,
                                       AVMetadataObject.ObjectType.qr]
     
+    var currentProfileId : Int64 = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        currentProfileId = UserService.getCurrentUserSession()?.profileId ?? 0
+        
+        if(currentProfileId == 0){
+            print("Error! ProfileId = 0")
+        }
         
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
@@ -164,7 +171,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         catch {
             print(error)
             
-            let alertPrompt = UIAlertController(title: "Something went wrong", message: "We cannot read this QR code. Make sure you are scanning a ContactMe generated QR code.", preferredStyle: .alert)
+            let alertPrompt = UIAlertController(title: "Oops!", message: "We cannot read this QR code. Looks like it's not a valid contact. Make sure you are scanning a ContactMe generated QR code.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Got it!", style: UIAlertAction.Style.default, handler: nil)
             alertPrompt.addAction(okAction)
             
@@ -176,42 +183,66 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
     
     
     fileprivate func updateProfileConnection(_ scannedConnectionProfile: Profile, _
-        connection: ProfileDataHelper.T) {
+        localConnectionFound: ProfileDataHelper.T) {
         //Means user is already in list. Then update connection!
         
-        // Set id to update the correct connection in local database
-        scannedConnectionProfile.id = connection.id
-        //Update connection data
-        
-        DispatchQueue.global(qos: .utility).async {
-            _ = try? ProfileDataHelper.update(item: scannedConnectionProfile)
-        }
-        //Show  message
-        let alertPrompt = UIAlertController(title: "Contact Updated", message: "Contacted has been updated successfully. Would you like to see his new info?", preferredStyle: .alert)
-        
-        let navigateAction = UIAlertAction(title: "Sure!", style: UIAlertAction.Style.default, handler: { (action) -> Void in
-            
-            self.navigateToConnectionDetail()
-        })
-        
-        let cancelAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil)
-        
-        alertPrompt.addAction(navigateAction)
-        alertPrompt.addAction(cancelAction)
-        
-        present(alertPrompt, animated: true, completion: nil)
-        
-        //ToDo: ask if user want to go see the connection
-        
-        
-    }
-    
-    fileprivate func addProfileConnection(_ scannedConnectionProfile: Profile, _ currentProfileId: Int64?) {
         // Get metadata
         // 1. Get datetime
         let currentDateTime = Date()
         let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let currentDateTimeAsString = df.string(from: currentDateTime)
+        
+        // 2. Get gps location
+        let connectionLocation = currentLocation
+        
+        
+        // Set id to update the correct connection in local database
+        scannedConnectionProfile.id = localConnectionFound.id
+        scannedConnectionProfile.connectionDateTime = currentDateTimeAsString
+        scannedConnectionProfile.connectionLocationLatitude = connectionLocation.latitude
+        scannedConnectionProfile.connectionLocationLongitude = connectionLocation.longitude
+        
+        //Add reference (FK)
+        scannedConnectionProfile.connectionId = currentProfileId
+        
+        // Geocoding current location
+        lookUpCurrentLocation { (placeMark: CLPlacemark?) in
+            //In case it fails we show coordinates
+            print("Meeting location: " + (placeMark?.name ?? "Not found"))
+            
+            scannedConnectionProfile.connectionLocationName = placeMark?.name ?? "\(connectionLocation.latitude) \(connectionLocation.longitude)"
+            
+            DispatchQueue.global(qos: .utility).async {
+                _ = try? ProfileDataHelper.update(item: scannedConnectionProfile)
+            }
+            //Show  message
+            let alertPrompt = UIAlertController(title: "Contact Updated", message: "Contacted has been updated successfully. Would you like to see his new info?", preferredStyle: .alert)
+            
+            let navigateAction = UIAlertAction(title: "Sure!", style: UIAlertAction.Style.default, handler: { (action) -> Void in
+                
+                self.navigateToConnectionDetail()
+            })
+            
+            let cancelAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil)
+            
+            alertPrompt.addAction(navigateAction)
+            alertPrompt.addAction(cancelAction)
+            
+            self.present(alertPrompt, animated: true, completion: nil)
+            
+            //ToDo: ask if user want to go see the connection
+        }
+        
+        
+    }
+    
+    fileprivate func addProfileConnection(_ scannedConnectionProfile: Profile) {
+        // Get metadata
+        // 1. Get datetime
+        let currentDateTime = Date()
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let currentDateTimeAsString = df.string(from: currentDateTime)
         
         // 2. Get gps location
@@ -221,17 +252,49 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         scannedConnectionProfile.connectionDateTime = currentDateTimeAsString
         scannedConnectionProfile.connectionLocationLatitude = connectionLocation.latitude
         scannedConnectionProfile.connectionLocationLongitude = connectionLocation.longitude
-        scannedConnectionProfile.connectionLocationName = "Get name of the place" //ToDo: geocoding
         
         //Add reference (FK)
         scannedConnectionProfile.connectionId = currentProfileId
-        //Add connection
         
-        DispatchQueue.global(qos: .utility).async {
-            _ = try? ProfileDataHelper.insert(item: scannedConnectionProfile)
+        // Geocoding current location
+        lookUpCurrentLocation { (placeMark: CLPlacemark?) in
+            //In case it fails we show coordinates
+            print("Meeting location: " + (placeMark?.name ?? "Not found"))
+            scannedConnectionProfile.connectionLocationName = placeMark?.name ?? "\(connectionLocation.latitude) \(connectionLocation.longitude)"
+            
+            //Add connection
+            DispatchQueue.global(qos: .utility).async {
+                _ = try? ProfileDataHelper.insert(item: scannedConnectionProfile)
+            }
+            
+            self.navigateToConnectionDetail()
         }
         
-        navigateToConnectionDetail()
+    }
+    
+    func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?)
+        -> Void ) {
+        // Use the last reported location.
+        if let lastLocation = self.locationManager.location {
+            let geocoder = CLGeocoder()
+            
+            // Look up the location and pass it to the completion handler
+            geocoder.reverseGeocodeLocation(lastLocation,
+                                            completionHandler: { (placemarks, error) in
+                                                if error == nil {
+                                                    let firstLocation = placemarks?[0]
+                                                    completionHandler(firstLocation)
+                                                }
+                                                else {
+                                                    // An error occurred during geocoding.
+                                                    completionHandler(nil)
+                                                }
+            })
+        }
+        else {
+            // No location was available.
+            completionHandler(nil)
+        }
     }
     
     private func navigateToConnectionDetail () {
@@ -240,11 +303,9 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
     
     private func prepareForAddOrUpdateConnection(_ scannedConnectionProfile: Profile){
         print("Adding or updating connection \(scannedConnectionProfile.name ?? "")")
-        // Get current profile id
-        let currentProfileId = UserService.getCurrentUserSession()?.profileId
         
         //        Check if connection's email already exists
-        if let connectionList = try? ProfileDataHelper.findConectionsByProfileid(idobj: currentProfileId!) {
+        if let connectionList = try? ProfileDataHelper.findConectionsByProfileid(idobj: currentProfileId) {
             for connection in connectionList {
                 // Is there smth like LINQ here to avoid this loop?
                 if connection.email == scannedConnectionProfile.email {
@@ -256,7 +317,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             }
         }
         
-        addProfileConnection(scannedConnectionProfile, currentProfileId)
+        addProfileConnection(scannedConnectionProfile)
         
     }
     

@@ -27,7 +27,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
 
         cell!.textLabel?.text = interests[indexPath.row]
         
-        if (myProfile.insterestArray!.contains(cell!.textLabel!.text!)) {
+        if (myProfile.insterestArray != nil && myProfile.insterestArray!.contains(cell!.textLabel!.text!)) {
             cell?.accessoryType = .checkmark
 //            tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableView.ScrollPosition.bottom)
         } else {
@@ -45,14 +45,11 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
                 cell.accessoryType = .checkmark
             } else if (cell.accessoryType == .checkmark){
                 //remove it
-                myProfile.insterestArray?.removeAll(where: {_ in (myProfile.insterestArray?.contains(cell.textLabel!.text!))!})
+                myProfile.insterestArray?.removeAll { $0 == cell.textLabel!.text! }
                 cell.accessoryType = .none
             }
             tableView.deselectRow(at: indexPath, animated: true)
-            
-            
-           
-            
+                
             print("checked ones")
             print(myProfile.insterestArray)
         }
@@ -61,7 +58,6 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
             cell.accessoryType = .checkmark
-
         }
     }
 
@@ -189,6 +185,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         if let currentUser = UserService.getCurrentUserSession() {
             if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
                 self.myProfile = currentUserProfile
+                            
                 setMyProfileValues()
             }
         }
@@ -287,7 +284,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         
         //        Interests
-        
+        //they are saved in table view
    
         
         //        Free Time

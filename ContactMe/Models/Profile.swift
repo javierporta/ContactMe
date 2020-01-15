@@ -36,7 +36,6 @@ class Profile: Entity, Codable {
     var sundayFreeStartTime: String?
     var sundayFreeEndTime: String?
     var connectionId: Int64?
-    var connections: [Profile]?
     var universityName: String?
     var universityLongitude: Double?
     var universityLatitude: Double?
@@ -49,12 +48,17 @@ class Profile: Entity, Codable {
     var connectionLocationLatitude: Double?
     var connectionLocationLongitude: Double?
     
-    var insterestArray:Array<String>?{
+    var insterestArray:Array<String>?
+    {
         get{
-            return self.insterest?.components(separatedBy: ",")
+            if (self.insterest == nil || self.insterest == " - " || self.insterest == "") {
+                return Array<String>()
+            }else{
+               return self.insterest?.components(separatedBy: " - ")
+            }
         }
         set{
-            self.insterest = newValue?.joined(separator: ",")
+            self.insterest = newValue?.joined(separator: " - ")
         }
     }
     
@@ -63,7 +67,6 @@ class Profile: Entity, Codable {
     }
     
     override init() {
-        self.connections  = [Profile]()
         super.init()
     }
     
