@@ -41,6 +41,8 @@
 		5DDA9549238EA5AE000D36FE /* MyProfileTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */; };
 		B53BEA802397DE60004142C6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BEA7F2397DE60004142C6 /* UserService.swift */; };
 		B53C22B623993FA200D75B20 /* ProfileDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53C22B523993FA200D75B20 /* ProfileDataHelper.swift */; };
+		B5BBE89B23AD433300AE5003 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BBE89A23AD433200AE5003 /* ContactListViewController.swift */; };
+		B5BBE89D23AD442D00AE5003 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BBE89C23AD442D00AE5003 /* ContactTableViewCell.swift */; };
 		B5E0F6FA238EB34D00ACEDBA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B5E0F6F9238EB34D00ACEDBA /* SQLite */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTabs.swift; sourceTree = "<group>"; };
 		B53BEA7F2397DE60004142C6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		B53C22B523993FA200D75B20 /* ProfileDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataHelper.swift; sourceTree = "<group>"; };
+		B5BBE89A23AD433200AE5003 /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		B5BBE89C23AD442D00AE5003 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,7 @@
 			children = (
 				5D540903237C40AA0020144D /* SpinnerView.swift */,
 				5DA3A118239451D200D33C06 /* RoundButton.swift */,
+				B5BBE89C23AD442D00AE5003 /* ContactTableViewCell.swift */,
 			);
 			path = "Custom Controls";
 			sourceTree = "<group>";
@@ -220,7 +225,11 @@
 				5D58E5892386D58600FA7407 /* MyProfileViewController.swift */,
 				5D3ED6B7239454F500C8894D /* QRShowViewController.swift */,
 				5D3F17F723AA61AE0094594B /* QRScannerController.swift */,
+
 				5DD9A32D23B0DD5E009B2DEE /* ConnectionDetailViewController.swift */,
+
+				B5BBE89A23AD433200AE5003 /* ContactListViewController.swift */,
+
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -292,6 +301,7 @@
 				TargetAttributes = {
 					2CAAF1B12374612F00B108BE = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -396,6 +406,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CAAF1BA2374612F00B108BE /* LoginViewController.swift in Sources */,
+				B5BBE89B23AD433300AE5003 /* ContactListViewController.swift in Sources */,
+				5D8F36BB2390274200F6B19F /* KSToken.swift in Sources */,
 				2C16BF6623857B34004577C8 /* Entity.swift in Sources */,
 				5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */,
 				2C16BF6523857B34004577C8 /* Profile.swift in Sources */,
@@ -415,6 +427,9 @@
 				5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */,
 				2C192C31238702050049B43B /* DataHelperProtocol.swift in Sources */,
 				2C192C34238702170049B43B /* DataAccessError.swift in Sources */,
+				5D8F36BC2390274200F6B19F /* KSTokenField.swift in Sources */,
+				5D8F36BD2390274200F6B19F /* KSUtils.swift in Sources */,
+				B5BBE89D23AD442D00AE5003 /* ContactTableViewCell.swift in Sources */,
 				5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */,
 				5D3ED6B8239454F500C8894D /* QRShowViewController.swift in Sources */,
 				5D540904237C40AA0020144D /* SpinnerView.swift in Sources */,
