@@ -15,21 +15,10 @@ class ContactListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         
-        let profile1 = Profile()
-        profile1.name = "contecto 1"
-        profile1.lastName = "apellido"
-        profile1.carieer = "Medicina"
-        profile1.insterest = "sport"
-                
-        let profile2 = Profile()
-        profile2.name = "contecto 2"
-        profile2.lastName = "apellido"
-        profile2.carieer = "Medicina"
-        profile2.insterest = "sport"
-        
-        self.contactList += [profile1, profile2]
+        if let currentUser = UserService.getCurrentUserSession() {
+            self.contactList = try! ProfileDataHelper.findConectionsByProfileid(idobj: currentUser.profileId!)
+        }
     }
     
 
@@ -67,6 +56,15 @@ class ContactListViewController: UITableViewController {
         cell.interestLabel.text = contact.insterest
         
         return cell
+    }
+    
+    override func  tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
+        let profile = self.contactList[indexPath.row]
+        let viewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.CONNECTION_DETAIL) as! ConnectionDetailViewController
+        viewController.profileId = profile.connectionId!
+        self.present(viewController, animated: true, completion: nil)
     }
 
 }

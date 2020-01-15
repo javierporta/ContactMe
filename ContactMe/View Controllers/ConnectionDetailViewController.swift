@@ -48,13 +48,15 @@ class ConnectionDetailViewController: UIViewController {
     
     @IBOutlet weak var meetingDateTime: UILabel!
     
+    var profileId: Int64 = 0
+    
     var connectionProfile = Profile()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //ToDo: Pass Id as parameter
-        getConnectionProfile(profileId: 2)
+        getConnectionProfile(profileId: self.profileId)
         setProfileOutlets()
     }
     
@@ -132,7 +134,7 @@ class ConnectionDetailViewController: UIViewController {
         meetingLocation.text = connectionProfile.connectionLocationName
         
         // ask for the full relative date
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13.0, *), connectionProfile.connectionDateTime != nil {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let connectionDateTime = dateFormatter.date(from: connectionProfile.connectionDateTime ?? "")!
