@@ -12,18 +12,19 @@ class ConnectionDetailViewController: UIViewController {
 
     
     //MARK: Outlets
+    @IBOutlet weak var genderUIImage: UIImageView!
     
     @IBOutlet weak var avatarImageView: UIImageView!
   
-    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var emailTextView: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var currentStatusLabel: UILabel!
     
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var fullnameLabel: UILabel!
-    @IBOutlet weak var phoneNumberLabel: UILabel!
     
+    @IBOutlet weak var phoneNumberTextView: UITextView!
     @IBOutlet weak var universityLabel: UILabel!
     
     @IBOutlet weak var studyingLabel: UILabel!
@@ -56,6 +57,8 @@ class ConnectionDetailViewController: UIViewController {
         //ToDo: Pass Id as parameter
         getConnectionProfile(profileId: 2)
         setProfileOutlets()
+        
+        
     }
     
     func getConnectionProfile(profileId: Int64) {
@@ -66,13 +69,26 @@ class ConnectionDetailViewController: UIViewController {
     
     func setProfileOutlets(){
         avatarImageView.image = connectionProfile.avatar?.toImage()
+        
+        if (connectionProfile.gender == "F"){
+            genderUIImage.image = UIImage(named: "icon-gender-female")
+        }else{
+            genderUIImage.image = UIImage(named: "icon-gender-male")
+        }
+        
         nameLabel.text = connectionProfile.name
-        emailLabel.text = connectionProfile.email
+        
+        emailTextView.text = connectionProfile.email
+        emailTextView.centerVertically()
+        
         if(!(connectionProfile.dateOfBirth ?? "").isEmpty){
             ageLabel.text = calculateAge()
         }
         fullnameLabel.text = connectionProfile.fullName()
-        phoneNumberLabel.text = connectionProfile.phone
+        
+        phoneNumberTextView.text = connectionProfile.phone
+        phoneNumberTextView.centerVertically()
+        
         universityLabel.text = connectionProfile.universityName
         studyingLabel.text = connectionProfile.carieer
         jobLabel.text = connectionProfile.job

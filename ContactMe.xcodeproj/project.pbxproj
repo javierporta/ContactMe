@@ -39,6 +39,7 @@
 		5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9544238AFFBE000D36FE /* Gender.swift */; };
 		5DDA9547238B0A5F000D36FE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9546238B0A5F000D36FE /* UIImageView.swift */; };
 		5DDA9549238EA5AE000D36FE /* MyProfileTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */; };
+		5DDCEEA723CF66000079CCC4 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCEEA623CF66000079CCC4 /* UITextView.swift */; };
 		B53BEA802397DE60004142C6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BEA7F2397DE60004142C6 /* UserService.swift */; };
 		B53C22B623993FA200D75B20 /* ProfileDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53C22B523993FA200D75B20 /* ProfileDataHelper.swift */; };
 		B5E0F6FA238EB34D00ACEDBA /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B5E0F6F9238EB34D00ACEDBA /* SQLite */; };
@@ -80,6 +81,7 @@
 		5DDA9544238AFFBE000D36FE /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		5DDA9546238B0A5F000D36FE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		5DDA9548238EA5AE000D36FE /* MyProfileTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTabs.swift; sourceTree = "<group>"; };
+		5DDCEEA623CF66000079CCC4 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		B53BEA7F2397DE60004142C6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		B53C22B523993FA200D75B20 /* ProfileDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,6 +234,7 @@
 				5DDA9546238B0A5F000D36FE /* UIImageView.swift */,
 				5DA9464523A15EB200508470 /* String.swift */,
 				5DA9464723A1667000508470 /* UIImage.swift */,
+				5DDCEEA623CF66000079CCC4 /* UITextView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				5D3F17F823AA61AF0094594B /* QRScannerController.swift in Sources */,
 				5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */,
 				2CAAF1B62374612F00B108BE /* AppDelegate.swift in Sources */,
+				5DDCEEA723CF66000079CCC4 /* UITextView.swift in Sources */,
 				5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */,
 				2C16BF6723857B34004577C8 /* User.swift in Sources */,
 				2C192C232386F8C90049B43B /* SQLiteDataStore.swift in Sources */,

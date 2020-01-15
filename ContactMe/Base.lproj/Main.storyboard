@@ -901,12 +901,14 @@
                                                                     <constraint firstAttribute="height" constant="30" id="Thx-g2-2B1"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fri-ec-hnf">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="user@email.com" translatesAutoresizingMaskIntoConstraints="NO" id="s5t-Yo-DjL">
                                                                 <rect key="frame" x="35" y="0.0" width="359" height="30"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="textColor" name="Secondary-Label"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                            </textView>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Hex-Ag-efr">
@@ -920,14 +922,16 @@
                                                                     <constraint firstAttribute="width" constant="30" id="ywk-qw-m3Y"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1Q-na-IFp">
-                                                                <rect key="frame" x="35" y="0.0" width="41.666666666666657" height="30"/>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="98765435" translatesAutoresizingMaskIntoConstraints="NO" id="hki-ve-3mn">
+                                                                <rect key="frame" x="35" y="0.0" width="319.33333333333331" height="30"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <color key="textColor" name="Secondary-Label"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                                                            </textView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsB-rS-sPs">
-                                                                <rect key="frame" x="81.666666666666657" y="0.0" width="312.33333333333337" height="30"/>
+                                                                <rect key="frame" x="359.33333333333331" y="0.0" width="34.666666666666686" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1004,7 +1008,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Bh-qV-g8S">
                                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="20.333333333333332"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -1021,7 +1025,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free Time Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3j8-tG-NmC">
                                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="20.333333333333332"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -1151,7 +1155,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About last meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHe-7p-eGs">
                                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="20.333333333333332"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -1230,16 +1234,17 @@
                         <outlet property="ageLabel" destination="DsB-rS-sPs" id="52R-YG-3uM"/>
                         <outlet property="avatarImageView" destination="G4O-Ht-b4Z" id="OjL-aI-hf0"/>
                         <outlet property="currentStatusLabel" destination="8gT-Ww-MbA" id="9Bd-KR-HQD"/>
-                        <outlet property="emailLabel" destination="fri-ec-hnf" id="dnD-U9-uRf"/>
+                        <outlet property="emailTextView" destination="s5t-Yo-DjL" id="dpA-Mx-qZJ"/>
                         <outlet property="fridayFreeSchedule" destination="Mqv-Qj-rsl" id="Mvd-5h-pAC"/>
                         <outlet property="fullnameLabel" destination="JnT-Dd-ubp" id="Iwm-qM-YxY"/>
+                        <outlet property="genderUIImage" destination="HcH-g4-abg" id="Hdw-eJ-T9M"/>
                         <outlet property="interestsListLabel" destination="7ak-gd-xXb" id="qZw-TH-PAz"/>
                         <outlet property="jobLabel" destination="EBA-Iz-Kwb" id="RgT-fG-IjQ"/>
                         <outlet property="meetingDateTime" destination="DO5-VY-Vnf" id="JBA-fD-d7k"/>
                         <outlet property="meetingLocation" destination="wr4-5F-EKl" id="5J3-8P-nn5"/>
                         <outlet property="mondayFreeSchedule" destination="xzS-W5-kCK" id="v79-Gi-Dkx"/>
                         <outlet property="nameLabel" destination="Biv-Bb-dEq" id="2AA-th-YsI"/>
-                        <outlet property="phoneNumberLabel" destination="k1Q-na-IFp" id="crN-bj-TZD"/>
+                        <outlet property="phoneNumberTextView" destination="hki-ve-3mn" id="S4y-TP-eep"/>
                         <outlet property="saturdayFreeSchedule" destination="lEI-bc-XGx" id="g9h-WF-GP6"/>
                         <outlet property="studyingLabel" destination="Lpi-6O-s6o" id="PyW-8F-Ozr"/>
                         <outlet property="sundayFreeSchedule" destination="JRH-Zo-IIZ" id="ax5-RA-oZX"/>
