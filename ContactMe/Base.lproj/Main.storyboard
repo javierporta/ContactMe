@@ -1256,7 +1256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBe-6R-BJL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-659.4202898550725" y="448.66071428571428"/>
+            <point key="canvasLocation" x="-2617" y="1943"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="BhJ-Yk-iEq">
@@ -1279,27 +1279,22 @@
             </objects>
             <point key="canvasLocation" x="-5212" y="910"/>
         </scene>
-        <!--Item-->
+        <!--Contact List-->
         <scene sceneID="EcV-gG-KcW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Isb-at-0EX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="fBT-6I-CmU" customClass="ContactListViewController" customModule="ContactMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="59z-zY-z3n">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="59z-zY-z3n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactTableViewCell" rowHeight="90" id="DKw-uO-Gwl" customClass="ContactTableViewCell" customModule="ContactMe" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ContactTableViewCell" rowHeight="90" id="DKw-uO-Gwl" customClass="ContactTableViewCell" customModule="ContactMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DKw-uO-Gwl" id="s2m-6Y-fFu">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="JUE-kk-Wa0">
-                                            <rect key="frame" x="0.0" y="-5" width="107" height="95"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Master in Computer Engineering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ay-n0-NxI">
                                             <rect key="frame" x="115" y="64" width="299" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1321,6 +1316,10 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="JUE-kk-Wa0">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1336,10 +1335,11 @@
                             <outlet property="delegate" destination="fBT-6I-CmU" id="R1y-4R-Sba"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="ERG-PJ-g5w"/>
+                    <tabBarItem key="tabBarItem" title="Contact List" image="person.3" catalog="system" id="ERG-PJ-g5w"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Isb-at-0EX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4841" y="1604"/>
+            <point key="canvasLocation" x="-3620.289855072464" y="1942.6339285714284"/>
         </scene>
         <!--RegisterViewController-->
         <scene sceneID="jX3-6K-rwo">
@@ -1595,11 +1595,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9y-dw-tcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cXq-6I-3R9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1765" y="1088"/>
+            <point key="canvasLocation" x="-1765" y="1121"/>
         </scene>
     </scenes>
     <resources>
         <image name="clear" catalog="system" width="64" height="56"/>
+        <image name="defaultPhoto" width="1080" height="1080"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="icon-camera" width="50" height="50"/>
         <image name="icon-email" width="50" height="50"/>
@@ -1615,6 +1616,7 @@
         <image name="info.circle" catalog="system" width="64" height="60"/>
         <image name="logo_contact_me" width="452.5" height="221"/>
         <image name="person" catalog="system" width="64" height="58"/>
+        <image name="person.3" catalog="system" width="72" height="35"/>
         <image name="person.circle.fill" catalog="system" width="64" height="60"/>
         <image name="person.crop.circle.fill" catalog="system" width="64" height="60"/>
         <namedColor name="Error-Label">
