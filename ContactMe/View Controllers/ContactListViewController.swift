@@ -63,7 +63,7 @@ class ContactListViewController: UITableViewController {
         let storyboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
         let profile = self.contactList[indexPath.row]
         let viewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.CONNECTION_DETAIL) as! ConnectionDetailViewController
-        viewController.profileId = profile.connectionId!
+        viewController.profileId = profile.id
         self.present(viewController, animated: true, completion: nil)
     }
 
