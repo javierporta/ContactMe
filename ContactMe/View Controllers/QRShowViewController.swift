@@ -158,7 +158,8 @@ class QRShowViewController: UIViewController {
     }
     
     func hideOrShowItems(){
-        if UIDevice.current.orientation.isLandscape {
+        print("current screen height size \(UIScreen.main.bounds.height)")
+        if UIDevice.current.orientation.isLandscape || UIScreen.main.bounds.height < 700 {
             print("Landscape")
             hideSomeItems()
         } else {
