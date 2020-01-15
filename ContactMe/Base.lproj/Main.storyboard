@@ -579,7 +579,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dy9-MV-gDf" customClass="RoundButton" customModule="ContactMe" customModuleProvider="target">
-                                <rect key="frame" x="354" y="753" width="50" height="50"/>
+                                <rect key="frame" x="314" y="748" width="50" height="50"/>
                                 <color key="backgroundColor" name="Primary"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="MBG-6o-P8s"/>
@@ -598,7 +598,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sn-I3-CCd" customClass="RoundButton" customModule="ContactMe" customModuleProvider="target">
-                                <rect key="frame" x="296" y="753" width="50" height="50"/>
+                                <rect key="frame" x="256" y="748" width="50" height="50"/>
                                 <color key="backgroundColor" name="Secondary"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1Sn-I3-CCd" secondAttribute="height" multiplier="1:1" id="gtd-uo-E7d"/>
@@ -616,21 +616,13 @@
                                     <segue destination="Gc3-1z-ARP" kind="presentation" id="N1l-Ix-lu4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRq-95-rTl">
-                                <rect key="frame" x="156" y="188" width="153" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Connection Detail test"/>
-                                <connections>
-                                    <action selector="navigateToConnectionDetail:" destination="18r-Iu-xZL" eventType="touchUpInside" id="R47-1u-Cce"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="1Sn-I3-CCd" firstAttribute="centerY" secondItem="dy9-MV-gDf" secondAttribute="centerY" id="FBb-KW-Vvz"/>
-                            <constraint firstItem="9tz-5k-mXW" firstAttribute="trailing" secondItem="dy9-MV-gDf" secondAttribute="trailing" constant="10" id="fEw-bf-auH"/>
+                            <constraint firstItem="9tz-5k-mXW" firstAttribute="trailing" secondItem="dy9-MV-gDf" secondAttribute="trailing" constant="50" id="fEw-bf-auH"/>
                             <constraint firstItem="1Sn-I3-CCd" firstAttribute="width" secondItem="1Sn-I3-CCd" secondAttribute="height" multiplier="1:1" id="hwe-ZL-Fmc"/>
-                            <constraint firstItem="9tz-5k-mXW" firstAttribute="bottom" secondItem="dy9-MV-gDf" secondAttribute="bottom" constant="10" id="oqc-od-tLR"/>
+                            <constraint firstItem="9tz-5k-mXW" firstAttribute="bottom" secondItem="dy9-MV-gDf" secondAttribute="bottom" constant="15" id="oqc-od-tLR"/>
                             <constraint firstItem="dy9-MV-gDf" firstAttribute="leading" secondItem="1Sn-I3-CCd" secondAttribute="trailing" constant="8" id="vaK-Kb-zJk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9tz-5k-mXW"/>
