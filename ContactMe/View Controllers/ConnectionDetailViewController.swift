@@ -9,13 +9,13 @@
 import UIKit
 
 class ConnectionDetailViewController: UIViewController {
-
+    
     
     //MARK: Outlets
     @IBOutlet weak var genderUIImage: UIImageView!
     
     @IBOutlet weak var avatarImageView: UIImageView!
-  
+    
     @IBOutlet weak var emailTextView: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -53,13 +53,81 @@ class ConnectionDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //ToDo: Pass Id as parameter
         getConnectionProfile(profileId: 2)
         setProfileOutlets()
         
         
+        
     }
+    
+    func isUserFreeAtCurrentTime() -> Bool {
+        
+        //get current day
+        let calendar = Calendar.current
+        let currentDate = Date()
+        let dayOfWeek = calendar.component(.weekday, from: currentDate)
+        
+        
+        switch dayOfWeek {
+        case 1: //sunday
+            return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
+        case 2: //monday
+            return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
+        case 3: //tuesday
+            return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
+        case 4: //wednesday
+            return isFreeOnXDay(startTime: connectionProfile.wednesdayFreeStartTime ?? "", endTime: connectionProfile.wednesdayFreeEndTime ?? "")
+        case 5: //thursday
+            return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
+        case 6: //friday
+            return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
+        case 7: //saturday
+            return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
+        default:
+            return false
+        }
+        
+        
+    }
+    
+    func isFreeOnXDay(startTime: String, endTime: String) -> Bool {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        
+        //This is following the format HH:mm
+        guard let startHour = Int(String(startTime[startTime.startIndex]) + String(startTime[startTime.index(startTime.startIndex, offsetBy: 1)])) else { return false }
+        
+        guard let startMinute = Int(String(startTime[startTime.index(startTime.startIndex, offsetBy: 3)]) + String(startTime[startTime.index(startTime.startIndex, offsetBy: 4)])) else { return false }
+        
+        guard let endHour = Int(String(endTime[endTime.startIndex]) + String(endTime[endTime.index(endTime.startIndex, offsetBy: 1)])) else { return false }
+        
+        guard let endMinute = Int(String(startTime[endTime.index(endTime.startIndex, offsetBy: 3)]) + String(endTime[endTime.index(endTime.startIndex, offsetBy: 4)])) else { return false }
+        
+        
+        let startCalendar = calendar.date(
+            bySettingHour: startHour,
+            minute: startMinute,
+            second: 0,
+            of: currentDate)!
+        
+        let endCalendar = calendar.date(
+            bySettingHour: endHour,
+            minute: endMinute,
+            second: 0,
+            of: currentDate)!
+        
+        
+        if currentDate >= startCalendar &&
+            currentDate <= endCalendar
+        {
+            return true
+        }
+        
+        return false
+    }
+    
     
     func getConnectionProfile(profileId: Int64) {
         if let currentProfile = try? ProfileDataHelper.find(idobj: profileId){
@@ -94,53 +162,61 @@ class ConnectionDetailViewController: UIViewController {
         jobLabel.text = connectionProfile.job
         interestsListLabel.text = connectionProfile.insterest
         
-        currentStatusLabel.text = "Busy Now" //Or Free TODO
-        if(currentStatusLabel.text == "Busy Now"){
-             currentStatusLabel.textColor = UIColor.red
-
+        if(isUserFreeAtCurrentTime()){
+            currentStatusLabel.text = "Free Now"
+            currentStatusLabel.textColor = UIColor.systemGreen
+            
         }else{
-            currentStatusLabel.textColor = UIColor.green
-
+            currentStatusLabel.text = "Busy Now"
+            currentStatusLabel.textColor = UIColor.systemRed
+            
         }
         
         if(!(connectionProfile.mondayFreeStartTime ?? "").isEmpty && !(connectionProfile.mondayFreeEndTime ?? "").isEmpty ){
             mondayFreeSchedule.text = "From: \(connectionProfile.mondayFreeStartTime ?? "") To: \(connectionProfile.mondayFreeEndTime ?? "")"
+            mondayFreeSchedule.textColor = UIColor.systemGreen
         }else{
             mondayFreeSchedule.text = "Busy"
         }
         
         if(!(connectionProfile.tuesdayFreeStartTime ?? "").isEmpty && !(connectionProfile.tuesdayFreeEndTime ?? "").isEmpty ){
             tuesdayFreeSchedule.text = "From: \(connectionProfile.tuesdayFreeStartTime ?? "") To: \(connectionProfile.tuesdayFreeEndTime ?? "")"
+            tuesdayFreeSchedule.textColor = UIColor.systemGreen
         }else{
             tuesdayFreeSchedule.text = "Busy"
         }
         
         if(!(connectionProfile.wednesdayFreeStartTime ?? "").isEmpty && !(connectionProfile.wednesdayFreeEndTime ?? "").isEmpty ){
             wednesdayFreeSchedule.text = "From: \(connectionProfile.wednesdayFreeStartTime ?? "") To: \(connectionProfile.wednesdayFreeEndTime ?? "")"
+            wednesdayFreeSchedule.textColor = UIColor.systemGreen
         }else{
             wednesdayFreeSchedule.text = "Busy"
         }
         
         if(!(connectionProfile.thursdayFreeStartTime ?? "").isEmpty && !(connectionProfile.thursdayFreeEndTime ?? "").isEmpty ){
             thursdayFreeSchedule.text = "From: \(connectionProfile.thursdayFreeStartTime ?? "") To: \(connectionProfile.thursdayFreeEndTime ?? "")"
+            thursdayFreeSchedule.textColor = UIColor.systemGreen
         }else{
             thursdayFreeSchedule.text = "Busy"
         }
         
         if(!(connectionProfile.fridayFreeStartTime ?? "").isEmpty && !(connectionProfile.fridayFreeEndTime ?? "").isEmpty ){
             fridayFreeSchedule.text = "From: \(connectionProfile.fridayFreeStartTime ?? "") To: \(connectionProfile.fridayFreeEndTime ?? "")"
+            fridayFreeSchedule.textColor = UIColor.systemGreen
         }else{
             fridayFreeSchedule.text = "Busy"
         }
         
         if(!(connectionProfile.saturdayFreeStartTime ?? "").isEmpty && !(connectionProfile.saturdayFreeEndTime ?? "").isEmpty ){
             saturdayFreeSchedule.text = "From: \(connectionProfile.saturdayFreeStartTime ?? "") To: \(connectionProfile.saturdayFreeEndTime ?? "")"
+            saturdayFreeSchedule.textColor = UIColor.systemGreen
         }else{
             saturdayFreeSchedule.text = "Busy"
         }
         
         if(!(connectionProfile.sundayFreeStartTime ?? "").isEmpty && !(connectionProfile.sundayFreeEndTime ?? "").isEmpty ){
             sundayFreeSchedule.text = "From: \(connectionProfile.sundayFreeStartTime ?? "") To: \(connectionProfile.sundayFreeEndTime ?? "")"
+            sundayFreeSchedule.textColor = UIColor.systemGreen
         }else{
             sundayFreeSchedule.text = "Busy"
         }
@@ -160,7 +236,7 @@ class ConnectionDetailViewController: UIViewController {
             // Fallback on earlier versions
             meetingDateTime.text = connectionProfile.connectionDateTime
         }
-            
+        
     }
     
     private func calculateAge() -> String {
@@ -169,20 +245,20 @@ class ConnectionDetailViewController: UIViewController {
         dateFormatter.dateFormat = "dd-MM-yyyy"
         let dateOfBirth = dateFormatter.date(from: connectionProfile.dateOfBirth ?? "")!
         let calendar = Calendar.current
-
+        
         let ageComponents = calendar.dateComponents([.year], from: dateOfBirth, to: now)
-
+        
         let age = ageComponents.year
         return "\(String(age ?? 0)) years old"
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
