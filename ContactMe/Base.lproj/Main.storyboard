@@ -73,7 +73,7 @@
                                     <constraint firstAttribute="width" constant="100" id="Zz2-Pk-K5R"/>
                                 </constraints>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" name="Secondary-Label"/>
+                                    <color key="titleColor" name="Primary-Label"/>
                                 </state>
                                 <connections>
                                     <segue destination="m3I-Ah-E4n" kind="show" id="aT0-YT-VIc"/>
@@ -779,7 +779,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zCA-5I-mhP">
                                         <rect key="frame" x="20" y="320.33333333333331" width="334" height="199.99999999999994"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="Tnj-qs-Wwb"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="Tnj-qs-Wwb"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -1357,6 +1357,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="tintColor" name="Secondary-Label"/>
                                 <state key="normal" title="Sign Up">
+                                    <color key="titleColor" name="Primary-Label"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
                                 <connections>
@@ -1547,7 +1548,7 @@
             <color red="1" green="0.15299999713897705" blue="0.037000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Primary">
-            <color red="0.16547576983458143" green="0.68425092678049038" blue="0.92849022150039673" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.16470588235294117" green="0.68235294117647061" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Primary-Label">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
