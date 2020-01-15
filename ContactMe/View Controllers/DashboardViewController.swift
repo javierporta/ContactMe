@@ -34,6 +34,7 @@ class DashboardViewController: UIViewController {
             
             print(profile?.insterestArray)*/
         }catch {
+            print("dd")
             
         }
         
