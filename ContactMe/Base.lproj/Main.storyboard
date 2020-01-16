@@ -594,7 +594,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Kaj-nD-2jJ" kind="show" id="Kqu-7U-ox7"/>
+                                    <action selector="touchUpQRShowView:" destination="18r-Iu-xZL" eventType="touchUpInside" id="MPJ-0O-e5q"/>
+                                    <segue destination="Kaj-nD-2jJ" kind="show" identifier="goToQRCardSegue" id="Kqu-7U-ox7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sn-I3-CCd" customClass="RoundButton" customModule="ContactMe" customModuleProvider="target">
