@@ -14,7 +14,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var messageLabel:UILabel!
     @IBOutlet var topbar: UIView!
-
+    
     
     let locationManager = CLLocationManager()
     var currentLocation = CLLocationCoordinate2D()
@@ -128,8 +128,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         manager.stopUpdatingLocation()
     }
     
-    func launchApp(decodedURL: String) {
-        
+    func processQR(decodedURL: String) {
         if presentedViewController != nil {
             return
         }
@@ -158,10 +157,14 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             
             let confirmAction = UIAlertAction(title: "Confirm", style: UIAlertAction.Style.default, handler: { (action) -> Void in
                 
+                self.captureSession.stopRunning()
                 self.prepareForAddOrUpdateConnection(connectionProfile)
+                
             })
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {(action) -> Void in
+                
+            })
             
             alertPrompt.addAction(confirmAction)
             alertPrompt.addAction(cancelAction)
@@ -214,25 +217,22 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             
             scannedConnectionProfile.connectionLocationName = placeMark?.name ?? "\(connectionLocation.latitude) \(connectionLocation.longitude)"
             
-            DispatchQueue.global(qos: .utility).async {
+            DispatchQueue.global(qos: .utility).sync {
                 _ = try? ProfileDataHelper.update(item: scannedConnectionProfile)
             }
             //Show  message
-            let alertPrompt = UIAlertController(title: "Contact Updated", message: "Contacted has been updated successfully. Would you like to see his new info?", preferredStyle: .alert)
+            let alertPrompt = UIAlertController(title: "Contact Updated", message: "Let's check the new info!", preferredStyle: .alert)
             
             let navigateAction = UIAlertAction(title: "Sure!", style: UIAlertAction.Style.default, handler: { (action) -> Void in
                 
-                self.navigateToConnectionDetail()
+                self.navigateToConnectionDetail(scannedConnectionProfile.id)
+                self.captureSession.startRunning()
             })
             
-            let cancelAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil)
-            
             alertPrompt.addAction(navigateAction)
-            alertPrompt.addAction(cancelAction)
             
             self.present(alertPrompt, animated: true, completion: nil)
             
-            //ToDo: ask if user want to go see the connection
         }
         
         
@@ -266,9 +266,20 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             //Add connection
             DispatchQueue.global(qos: .utility).async {
                 _ = try? ProfileDataHelper.insert(item: scannedConnectionProfile)
+                
             }
             
-            self.navigateToConnectionDetail()
+            //Show  message
+            let alertPrompt = UIAlertController(title: "Contact Added", message: "You can see your new connection on Contacts List tab", preferredStyle: .alert)
+            
+            let navigateAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { (action) -> Void in
+                
+                self.captureSession.startRunning()
+            })
+            
+            alertPrompt.addAction(navigateAction)
+            
+            self.present(alertPrompt, animated: true, completion: nil)
         }
         
     }
@@ -298,8 +309,11 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    private func navigateToConnectionDetail () {
-        //ToDo: NOT IMPLEMENTED
+    private func navigateToConnectionDetail (_ profileId: Int64) {
+        let storyboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.CONNECTION_DETAIL) as! ConnectionDetailViewController
+        viewController.profileId = profileId
+        self.present(viewController, animated: true, completion: nil)
     }
     
     private func prepareForAddOrUpdateConnection(_ scannedConnectionProfile: Profile){
@@ -379,8 +393,8 @@ extension QRScannerController: AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                launchApp(decodedURL: metadataObj.stringValue!)
-                messageLabel.text = metadataObj.stringValue
+                processQR(decodedURL: metadataObj.stringValue!)
+                // messageLabel.text = metadataObj.stringValue
             }
         }
     }
