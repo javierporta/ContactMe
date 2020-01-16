@@ -40,11 +40,30 @@ class DashboardViewController: UIViewController {
         
     }
     
+    fileprivate func isProfileShareable() {
+        //Ask if it profile is shareable
+        if let currentUser = UserService.getCurrentUserSession() {
+            if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
+                let myProfile = currentUserProfile
+                
+                if((myProfile.name ?? "").isEmpty || (myProfile.lastName ?? "").isEmpty ){
+                    self.qrButton.backgroundColor = UIColor.darkGray
+                }else{
+                    self.qrButton.backgroundColor = UIColor(named: "Primary")
+                }
+                
+            }
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         qrButton.transform = CGAffineTransform(translationX: view.bounds.width, y: 0)
         cameraQrScannerButton.transform = CGAffineTransform(translationX: view.bounds.width, y: 0)
+                
     }
     override func viewDidAppear(_ animated: Bool) {
+         isProfileShareable()
+
         UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut],
                        animations: {[weak self] in
                         self?.qrButton.transform = CGAffineTransform.identity
@@ -97,11 +116,5 @@ class DashboardViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-//    ToDO: Remove later only to test conneciton detail scene
-    @IBAction func navigateToConnectionDetail(_ sender: Any){
-        let storyboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.CONNECTION_DETAIL)
-        self.present(viewController, animated: true, completion: nil)
-    }
     
 }

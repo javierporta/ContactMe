@@ -313,7 +313,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         myProfile.sundayFreeStartTime = sundayStartTimeTextField.text
         myProfile.sundayFreeEndTime = sundayEndTimeTextField.text
         
-        DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.global(qos: .utility).sync {
             let _ = try? ProfileDataHelper.update(item: self.myProfile)
             
             print("profile saved")

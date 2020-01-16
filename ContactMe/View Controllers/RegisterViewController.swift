@@ -80,7 +80,17 @@ class RegisterViewController: ValidatorViewController {
                 let json = UserService.createUser(user: entity)
                 print(json)
                 
-                navigateToLogin()
+                // create the alert
+                let alert = UIAlertController(title: "User created!", message: "Your account is ready to login", preferredStyle: UIAlertController.Style.alert)
+
+                // add an action (button)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {(action) -> Void in
+                    self.navigateToLogin()
+                }))
+
+                // show the alert
+                self.present(alert, animated: true, completion: nil)
+                
             }
             else{
                 showUserAlreadyExistAlert()
