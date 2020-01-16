@@ -95,6 +95,10 @@ class ConnectionDetailViewController: UIViewController {
     }
     
     func isFreeOnXDay(startTime: String, endTime: String) -> Bool {
+        if (startTime.isEmpty || endTime.isEmpty){
+            return false
+        }
+        
         let calendar = Calendar.current
         let currentDate = Date()
         
