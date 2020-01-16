@@ -33,6 +33,8 @@ class ConnectionDetailViewController: UIViewController {
     
     @IBOutlet weak var interestsListLabel: UILabel!
     
+    @IBOutlet weak var freeTimePlaceNameLabel: UILabel!
+    
     @IBOutlet weak var mondayFreeSchedule: UILabel!
     
     @IBOutlet weak var tuesdayFreeSchedule: UILabel!
@@ -56,12 +58,8 @@ class ConnectionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //ToDo: Pass Id as parameter
         getConnectionProfile(profileId: self.profileId)
         setProfileOutlets()
-        
-        
-        
     }
     
     func isUserFreeAtCurrentTime() -> Bool {
@@ -177,6 +175,8 @@ class ConnectionDetailViewController: UIViewController {
             currentStatusLabel.textColor = UIColor.systemRed
             
         }
+        
+        freeTimePlaceNameLabel.text = connectionProfile.freeTimePlaceName
         
         if(!(connectionProfile.mondayFreeStartTime ?? "").isEmpty && !(connectionProfile.mondayFreeEndTime ?? "").isEmpty ){
             mondayFreeSchedule.text = "From: \(connectionProfile.mondayFreeStartTime ?? "") To: \(connectionProfile.mondayFreeEndTime ?? "")"
