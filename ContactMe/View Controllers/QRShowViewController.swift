@@ -21,7 +21,7 @@ class QRShowViewController: UIViewController {
     @IBOutlet weak var specialityJobLabel: UILabel!
     
     @IBOutlet weak var emailLabel: UILabel!
-        
+    
     @IBOutlet weak var phoneLabel: UILabel!
     
     @IBOutlet weak var avatarImageView: UIImageView! {
@@ -31,18 +31,20 @@ class QRShowViewController: UIViewController {
     }
     
     var currentUserProfile = Profile()
-     var currentUser = User()
+    var currentUser = User()
     
     @IBOutlet weak var dataStackView: UIStackView!
     
     fileprivate func getMyProfileData() {
         //        1 Get current user id
         //        2 Get profile with that user id
-
+        
         if let currentUser = UserService.getCurrentUserSession() {
             self.currentUser = currentUser
             if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
                 self.currentUserProfile = currentUserProfile
+                
+                setMyProfileControls()
             }
         }
         
@@ -63,8 +65,11 @@ class QRShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         getMyProfileData()
-        setMyProfileControls()
         
         addQrCodeToImage()
         hideOrShowItems()
@@ -109,7 +114,7 @@ class QRShowViewController: UIViewController {
         // Encode
         let jsonEncoder = JSONEncoder()
         do {
-          
+            
             
             currentUserProfile.avatar = nil
             let jsonData = try jsonEncoder.encode(currentUserProfile)

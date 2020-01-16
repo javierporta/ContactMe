@@ -14,6 +14,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet var messageLabel:UILabel!
     @IBOutlet var topbar: UIView!
+
     
     let locationManager = CLLocationManager()
     var currentLocation = CLLocationCoordinate2D()
