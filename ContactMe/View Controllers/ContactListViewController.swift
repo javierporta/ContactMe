@@ -8,18 +8,89 @@
 
 import UIKit
 
-class ContactListViewController: UITableViewController {
+class ContactListViewController: UITableViewController, UISearchResultsUpdating {
+       
 
     var contactList = [Profile]()
+    var filteredContactList = [Profile]()
+    var resultSearchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         if let currentUser = UserService.getCurrentUserSession() {
             self.contactList = try! ProfileDataHelper.findConectionsByProfileid(idobj: currentUser.profileId!)
         }
+        
+        resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+            
+            tableView.tableHeaderView = controller.searchBar
+            
+            return controller
+        })()
+        
+        tableView.reloadData()
+        
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filteredContactList.removeAll(keepingCapacity: false)
+        
+        let value = searchController.searchBar.text!
+        filteredContactList = contactList.filter{ ($0.name != nil && ($0.name?.lowercased().contains(value.lowercased()))!) || ($0.lastName != nil && ($0.lastName?.lowercased().contains(value.lowercased()))!)  || ($0.carieer != nil && ($0.carieer?.lowercased().contains(value.lowercased()))!) 
+            || ($0.email != nil && ($0.email?.lowercased().contains(value.lowercased()))!)  || ($0.insterest != nil && ($0.insterest?.lowercased().contains(value.lowercased()))!) }
+        
+        self.tableView.reloadData()
+    }
+    
+
+     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(resultSearchController.isActive){
+            return filteredContactList.count
+        }
+        return contactList.count
+    }
+     
+     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         
+         // Table view cells are reused and should be dequeued using a cell identifier.
+         let cellIdentifier = "ContactTableViewCell"
+         guard let cell = tableView.dequeueReusableCell(withIdentifier:
+             cellIdentifier, for: indexPath) as? ContactTableViewCell else {
+                 fatalError("The dequeued cell is not an instance of ContactTableViewCell`.")
+         }
+         
+         // Fetches the appropriate contact for the data source layout.
+         var contact = contactList[indexPath.row]
+        
+         if(resultSearchController.isActive){
+            contact = self.filteredContactList[indexPath.row]
+         }
+        
+         cell.contactNameLabel.text = contact.fullName()
+         cell.carieerLabel.text = contact.carieer
+         cell.interestLabel.text = contact.insterest
+         
+         return cell
+     }
+     
+     override func  tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         
+         let storyboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
+         let profile = self.contactList[indexPath.row]
+         let viewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.CONNECTION_DETAIL) as! ConnectionDetailViewController
+         viewController.profileId = profile.id
+         self.present(viewController, animated: true, completion: nil)
+     }
     
 
     /*
@@ -31,40 +102,5 @@ class ContactListViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-       return 1
-   }
-   
-   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return contactList.count
-   }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "ContactTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier:
-            cellIdentifier, for: indexPath) as? ContactTableViewCell else {
-                fatalError("The dequeued cell is not an instance of ContactTableViewCell`.")
-        }
-        
-        // Fetches the appropriate contact for the data source layout.
-        let contact = contactList[indexPath.row]
-        cell.contactNameLabel.text = contact.fullName()
-        cell.carieerLabel.text = contact.carieer
-        cell.interestLabel.text = contact.insterest
-        
-        return cell
-    }
-    
-    override func  tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let storyboard = UIStoryboard(name: Constants.Identifiers.STORYBOARD, bundle: nil)
-        let profile = self.contactList[indexPath.row]
-        let viewController = storyboard.instantiateViewController(withIdentifier: Constants.Identifiers.CONNECTION_DETAIL) as! ConnectionDetailViewController
-        viewController.profileId = profile.id
-        self.present(viewController, animated: true, completion: nil)
-    }
 
 }
