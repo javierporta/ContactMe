@@ -34,6 +34,7 @@ class ConnectionDetailViewController: UIViewController {
     
     @IBOutlet weak var interestsListLabel: UILabel!
     
+    @IBOutlet weak var interestsStackView: UIStackView!
     
     @IBOutlet weak var mondayFreeSchedule: UILabel!
     
@@ -53,15 +54,28 @@ class ConnectionDetailViewController: UIViewController {
     
     @IBOutlet weak var freeTimePlaceMap: MKMapView!
     
+    @IBOutlet weak var interestsView: UIView!
     var profileId: Int64 = 0
     
     var connectionProfile = Profile()
+    var myProfile = Profile()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getConnectionProfile(profileId: self.profileId)
+        
+        getMyProfile()
+        
         setProfileOutlets()
+    }
+    
+    func getMyProfile(){
+        if let currentUser = UserService.getCurrentUserSession() {
+            if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
+                self.myProfile = currentUserProfile
+            }
+        }
     }
     
     func isUserFreeAtCurrentTime() -> Bool {
@@ -166,7 +180,9 @@ class ConnectionDetailViewController: UIViewController {
         universityLabel.text = connectionProfile.universityName
         studyingLabel.text = connectionProfile.carieer
         jobLabel.text = connectionProfile.job
-        interestsListLabel.text = connectionProfile.insterest
+        //interestsListLabel.text = connectionProfile.insterest
+        
+        showInterests()
         
         if(isUserFreeAtCurrentTime()){
             currentStatusLabel.text = "Free Now"
@@ -245,6 +261,32 @@ class ConnectionDetailViewController: UIViewController {
         
         setMap()
         
+    }
+    
+    private func showInterests(){
+        //get matches interests
+        
+        if let interests = connectionProfile.insterestArray {
+            for interest in interests {
+                addInterestLabel(labelText: interest)
+            }
+        }
+    }
+    
+    private func addInterestLabel(labelText: String){
+        var interestIsMatching=false
+        if (myProfile.insterestArray?.contains(labelText) == true){
+            interestIsMatching=true
+        }
+        
+        
+        let label = UILabel(frame: .zero)
+        label.text = labelText
+        label.sizeToFit()
+        if(interestIsMatching){
+            label.textColor=UIColor(named: "Secondary")
+        }
+        interestsStackView.addArrangedSubview(label)
     }
     
     private func setMap(){
