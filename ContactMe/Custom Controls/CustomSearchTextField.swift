@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import OSLog
 
 class CustomSearchTextField: UITextField{
     
@@ -194,16 +195,36 @@ extension CustomSearchTextField: UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Early testing methods
     func addData(){
-        let a = Job()
-        a.jobName = "Paris"
-        let b = Job()
-        b.jobName = "Porto"
-        let c = Job()
-        c.jobName = "Pavard"
                 
-        dataList.append(a)
-        dataList.append(b)
-        dataList.append(c)
+        guard let url = URL(string: "https://www.mocky.io/v2/5e2226412f0000eecf77daa0") else {
+            os_log("Invalid URL.", log: OSLog.default, type: .error)
+            return
+            
+        }
+        
+        URLSession(configuration: .default).dataTask(with: url) {
+            (data, response, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                
+            } else if
+                let data = data,
+                let response = response as? HTTPURLResponse,
+                response.statusCode == 200 {
+                do {
+                    
+                    let jobsList: JobsResponse = try JSONDecoder().decode(JobsResponse.self, from: data)
+                    for job in jobsList.jobs {
+                        DispatchQueue.main.async {
+                            self.dataList.append(job)
+                        }
+                    }
+                } catch let parseError as NSError {
+                    print(parseError.localizedDescription)
+                }
+            }
+            
+        }.resume()
     }
     
 }
