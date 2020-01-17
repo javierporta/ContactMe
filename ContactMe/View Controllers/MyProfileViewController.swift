@@ -182,6 +182,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         placesClient = GMSPlacesClient.shared()
         
+        self.setUIImageView()
         
         if let currentUser = UserService.getCurrentUserSession() {
             if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
@@ -263,9 +264,6 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     func saveMyProfile() {
         
         //Header
-        
-        
-        myProfile.avatar = profileImage.image?.toString()
         
         //        Personal
         myProfile.name = nameTextField.text
@@ -609,21 +607,10 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
                 fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-        
-        // Set photoImageView to display the selected image.
-        profileImage.image = selectedImage
-        
-        //upload(imagen: selectedImage)
-        
+                        
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
-        
-        
-        let imageStr = selectedImage.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
-        
-        let encodedImageString = imageStr.replacingOccurrences(of: "+", with: "%2B")
-        
-       
+
         
         if let imgUrl = info[UIImagePickerController.InfoKey.referenceURL] as? URL{
 
@@ -643,101 +630,60 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     
-    
-    func upload(imagen: UIImage) {
-
-        let filename = "avatar.png"
-
-        // generate boundary string using a unique per-app string
-        let boundary = UUID().uuidString
-
-        let fieldName = "reqtype"
-        let fieldValue = "fileupload"
-
-        let fieldName2 = "userhash"
-        let fieldValue2 = "caa3dce4fcb36cfdf9258ad9c"
-
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-
-        // Set the URLRequest to POST and to the specified URL
-        var urlRequest = URLRequest(url: URL(string: "https://api.imgur.com/3/image")!)
-        urlRequest.addValue("Client-ID 5eacf8a89b470a5", forHTTPHeaderField: "Authorization")
-        urlRequest.addValue("multipart/form-data; boundary=--------------------------194090329161778115285109", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpMethod = "POST"
-
-        var data = Data()
-
-        // Add the image data to the raw http request data
-        data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
-        data.append("Content-Disposition: form-data; name=\"fileToUpload\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
-        data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
-        let dd = imagen.pngData()!
-        data.append(dd)
-
-        // End the raw http request data, note that there is 2 extra dash ("-") at the end, this is to indicate the end of the data
-        // According to the HTTP 1.1 specification https://tools.ietf.org/html/rfc7230
-        data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
-
-        // Send a POST request to the URL, with the data we created earlier
-        session.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
-            
-            if(error != nil){
-                print("\(error!.localizedDescription)")
-            }
-            
-            guard let responseData = responseData else {
-                print("no response data")
-                return
-            }
-            
-            if let responseString = String(data: responseData, encoding: .utf8) {
-                print("uploaded to: \(responseString)")
-            }
-        }).resume()
-    }
-    
     func postRequest(image: String, imagenObj: UIImage){
         
-        var semaphore = DispatchSemaphore (value: 0)
+        let semaphore = DispatchSemaphore (value: 0)
         
-        //let img = imagenObj.compressTo(1)!
         let imageStr = imagenObj.jpegData(compressionQuality: 1)?.base64EncodedString()
-
+        
         var request = URLRequest(url: URL(string: "https://api.imgur.com/3/image")!,timeoutInterval: Double.infinity)
-
         request.addValue("Client-ID 5eacf8a89b470a5", forHTTPHeaderField: "Authorization")
-
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 
         request.httpMethod = "POST"
-
         request.httpBody = "image=\(imageStr!.replacingOccurrences(of: "+", with: "%2B"))".data(using: .utf8)
 
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                print(String(describing: error))
+                return
+            }
+            let responseJson = String(data: data, encoding: .utf8)!
+            print(responseJson)
+            let responseObj = try! JSONDecoder().decode(ImgurResponse.self, from:data)
 
-          guard let data = data else {
-
-            print(String(describing: error))
-
-            return
-
-          }
-
-          print(String(data: data, encoding: .utf8)!)
-
-          semaphore.signal()
-
+            if (responseObj.success == true){
+                
+                DispatchQueue.main.async {
+                  self.myProfile.avatar = responseObj.data!.link
+                  self.saveMyProfile()
+                }
+                
+                // Set photoImageView to display the selected image.
+                self.setUIImageView()
+               
+            }else{
+                
+            }
+            
+            semaphore.signal()
         }
 
-         
-
         task.resume()
-
         semaphore.wait()
     }
+    
+    private func setUIImageView(){
+        
+        DispatchQueue.main.async {
+            let img = self.myProfile.avatar ?? "https://i.imgur.com/l9NqEqC.jpg"
+            let url = URL(string: img)!
+            let data = try! Data(contentsOf: url)
+            self.profileImage.image = UIImage(data: data)
+        }
+    }
+
     
     private func setGenderSegmentedControlColor(){
         switch genderSegmentedControl.selectedSegmentIndex {
