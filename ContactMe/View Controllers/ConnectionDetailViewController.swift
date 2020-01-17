@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class ConnectionDetailViewController: UIViewController {
     
@@ -33,7 +34,6 @@ class ConnectionDetailViewController: UIViewController {
     
     @IBOutlet weak var interestsListLabel: UILabel!
     
-    @IBOutlet weak var freeTimePlaceNameLabel: UILabel!
     
     @IBOutlet weak var mondayFreeSchedule: UILabel!
     
@@ -50,6 +50,8 @@ class ConnectionDetailViewController: UIViewController {
     @IBOutlet weak var meetingLocation: UILabel!
     
     @IBOutlet weak var meetingDateTime: UILabel!
+    
+    @IBOutlet weak var freeTimePlaceMap: MKMapView!
     
     var profileId: Int64 = 0
     
@@ -175,9 +177,7 @@ class ConnectionDetailViewController: UIViewController {
             currentStatusLabel.textColor = UIColor.systemRed
             
         }
-        
-        freeTimePlaceNameLabel.text = connectionProfile.freeTimePlaceName
-        
+                
         if(!(connectionProfile.mondayFreeStartTime ?? "").isEmpty && !(connectionProfile.mondayFreeEndTime ?? "").isEmpty ){
             mondayFreeSchedule.text = "From: \(connectionProfile.mondayFreeStartTime ?? "") To: \(connectionProfile.mondayFreeEndTime ?? "")"
             mondayFreeSchedule.textColor = UIColor.systemGreen
@@ -243,6 +243,36 @@ class ConnectionDetailViewController: UIViewController {
             meetingDateTime.text = connectionProfile.connectionDateTime
         }
         
+        setMap()
+        
+    }
+    
+    private func setMap(){
+        
+        if let latitude=connectionProfile.freeTimeLatitude,
+            let longitude=connectionProfile.freeTimeLongitude {
+            
+            let initialLocation = CLLocation(latitude: latitude, longitude: longitude)
+            let regionRadius: CLLocationDistance = 1500
+            
+            let coordinateRegion = MKCoordinateRegion(center: initialLocation.coordinate,
+                                                      latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+            freeTimePlaceMap.setRegion(coordinateRegion, animated: true)
+            
+            
+            let freeTimePLaceAnnotation = MKPointAnnotation()
+            freeTimePLaceAnnotation.title = connectionProfile.freeTimePlaceName
+            freeTimePLaceAnnotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            
+            freeTimePlaceMap.addAnnotation(freeTimePLaceAnnotation)
+            
+            
+        }
+        
+        
+        
+        
+        
     }
     
     private func calculateAge() -> String {
@@ -268,3 +298,8 @@ class ConnectionDetailViewController: UIViewController {
      */
     
 }
+
+
+
+
+
