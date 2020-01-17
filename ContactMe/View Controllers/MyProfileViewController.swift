@@ -182,7 +182,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         placesClient = GMSPlacesClient.shared()
         
-        self.setUIImageView()
+         
         
         if let currentUser = UserService.getCurrentUserSession() {
             if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
@@ -204,9 +204,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     func setMyProfileValues(){
         //Header
         fullNameLabel.text = myProfile.fullName()
-        if (myProfile.avatar != nil){
-            profileImage.image = myProfile.avatar?.toImage()
-        }
+        
+        profileImage.setUIImageView(imgUrl: self.myProfile.avatar)
         //        Personal
         nameTextField.text = myProfile.name
         surnameTextField.text = myProfile.lastName
@@ -656,13 +655,10 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             if (responseObj.success == true){
                 
                 DispatchQueue.main.async {
-                  self.myProfile.avatar = responseObj.data!.link
-                  self.saveMyProfile()
-                }
-                
-                // Set photoImageView to display the selected image.
-                self.setUIImageView()
-               
+                    self.myProfile.avatar = responseObj.data!.link
+                    self.saveMyProfile()
+                    self.profileImage.setUIImageView(imgUrl: self.myProfile.avatar)
+                }               
             }else{
                 
             }
@@ -672,16 +668,6 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
 
         task.resume()
         semaphore.wait()
-    }
-    
-    private func setUIImageView(){
-        
-        DispatchQueue.main.async {
-            let img = self.myProfile.avatar ?? "https://i.imgur.com/l9NqEqC.jpg"
-            let url = URL(string: img)!
-            let data = try! Data(contentsOf: url)
-            self.profileImage.image = UIImage(data: data)
-        }
     }
 
     

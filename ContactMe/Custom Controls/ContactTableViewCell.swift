@@ -22,6 +22,7 @@ class ContactTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        avatarImage.makeRounded()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

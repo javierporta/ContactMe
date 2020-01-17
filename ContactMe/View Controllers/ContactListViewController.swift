@@ -79,10 +79,12 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
          cell.contactNameLabel.text = contact.fullName()
          cell.carieerLabel.text = contact.carieer
          cell.interestLabel.text = contact.insterest
+         cell.avatarImage.setUIImageView(imgUrl: contact.avatar)
          
          return cell
      }
      
+    
   
     // MARK: - Navigation
 
@@ -102,6 +104,7 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
             contact = filteredContactList[indexPath.row]
         }
         detailViewController.profileId = contact.id
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 
