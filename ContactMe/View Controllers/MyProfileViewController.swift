@@ -8,6 +8,7 @@
 
 import UIKit
 import GooglePlaces
+import Photos
 
 class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate,  UITableViewDataSource {
     
@@ -597,6 +598,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         dismiss(animated: true, completion: nil)
     }
     
+    
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey :
         Any]) {
@@ -610,10 +613,131 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         // Set photoImageView to display the selected image.
         profileImage.image = selectedImage
         
+        //upload(imagen: selectedImage)
+        
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
+        
+        
+        let imageStr = selectedImage.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
+        
+        let encodedImageString = imageStr.replacingOccurrences(of: "+", with: "%2B")
+        
+       
+        
+        if let imgUrl = info[UIImagePickerController.InfoKey.referenceURL] as? URL{
+
+            let imgName = imgUrl.lastPathComponent
+            let documentDirectory = NSTemporaryDirectory()
+            let localPath = documentDirectory.appending(imgName)
+
+            let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+            let data = image.jpegData(compressionQuality: 0.3)! as NSData
+            data.write(toFile: localPath, atomically: true)
+            let photoURL = URL.init(fileURLWithPath: localPath)
+            
+            let pathString = photoURL.path // String
+            postRequest(image: pathString, imagenObj: selectedImage)
+        }
+        
+        
     }
     
+    
+    func upload(imagen: UIImage) {
+
+        let filename = "avatar.png"
+
+        // generate boundary string using a unique per-app string
+        let boundary = UUID().uuidString
+
+        let fieldName = "reqtype"
+        let fieldValue = "fileupload"
+
+        let fieldName2 = "userhash"
+        let fieldValue2 = "caa3dce4fcb36cfdf9258ad9c"
+
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+
+        // Set the URLRequest to POST and to the specified URL
+        var urlRequest = URLRequest(url: URL(string: "https://api.imgur.com/3/image")!)
+        urlRequest.addValue("Client-ID 5eacf8a89b470a5", forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("multipart/form-data; boundary=--------------------------194090329161778115285109", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpMethod = "POST"
+
+        var data = Data()
+
+        // Add the image data to the raw http request data
+        data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+        data.append("Content-Disposition: form-data; name=\"fileToUpload\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
+        data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
+        let dd = imagen.pngData()!
+        data.append(dd)
+
+        // End the raw http request data, note that there is 2 extra dash ("-") at the end, this is to indicate the end of the data
+        // According to the HTTP 1.1 specification https://tools.ietf.org/html/rfc7230
+        data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+
+        // Send a POST request to the URL, with the data we created earlier
+        session.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
+            
+            if(error != nil){
+                print("\(error!.localizedDescription)")
+            }
+            
+            guard let responseData = responseData else {
+                print("no response data")
+                return
+            }
+            
+            if let responseString = String(data: responseData, encoding: .utf8) {
+                print("uploaded to: \(responseString)")
+            }
+        }).resume()
+    }
+    
+    func postRequest(image: String, imagenObj: UIImage){
+        
+        var semaphore = DispatchSemaphore (value: 0)
+        
+        //let img = imagenObj.compressTo(1)!
+        let imageStr = imagenObj.jpegData(compressionQuality: 1)?.base64EncodedString()
+
+        var request = URLRequest(url: URL(string: "https://api.imgur.com/3/image")!,timeoutInterval: Double.infinity)
+
+        request.addValue("Client-ID 5eacf8a89b470a5", forHTTPHeaderField: "Authorization")
+
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+
+        request.httpMethod = "POST"
+
+        request.httpBody = "image=\(imageStr!.replacingOccurrences(of: "+", with: "%2B"))".data(using: .utf8)
+
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+
+          guard let data = data else {
+
+            print(String(describing: error))
+
+            return
+
+          }
+
+          print(String(data: data, encoding: .utf8)!)
+
+          semaphore.signal()
+
+        }
+
+         
+
+        task.resume()
+
+        semaphore.wait()
+    }
     
     private func setGenderSegmentedControlColor(){
         switch genderSegmentedControl.selectedSegmentIndex {
@@ -703,4 +827,34 @@ extension MyProfileViewController: GMSAutocompleteViewControllerDelegate {
     
     
     
+}
+
+
+extension UIImage {
+    
+    
+    // MARK: - UIImage+Resize
+    func compressTo(_ expectedSizeInMb:Int) -> UIImage? {
+        let sizeInBytes = expectedSizeInMb * 1024 * 1024
+        var needCompress:Bool = true
+        var imgData:Data?
+        var compressingValue:CGFloat = 1.0
+        while (needCompress && compressingValue > 0.0) {
+            if let data:Data = self.jpegData(compressionQuality: compressingValue) {
+            if data.count < sizeInBytes {
+                needCompress = false
+                imgData = data
+            } else {
+                compressingValue -= 0.1
+            }
+        }
+    }
+
+    if let data = imgData {
+        if (data.count < sizeInBytes) {
+            return UIImage(data: data)
+        }
+    }
+        return nil
+    }
 }
