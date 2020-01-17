@@ -599,7 +599,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sn-I3-CCd" customClass="RoundButton" customModule="ContactMe" customModuleProvider="target">
-                                <rect key="frame" x="266" y="748" width="50" height="50"/>
+                                <rect key="frame" x="254" y="748" width="50" height="50"/>
                                 <color key="backgroundColor" name="Secondary"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1Sn-I3-CCd" secondAttribute="height" multiplier="1:1" id="gtd-uo-E7d"/>
@@ -624,7 +624,7 @@
                             <constraint firstItem="9tz-5k-mXW" firstAttribute="trailing" secondItem="dy9-MV-gDf" secondAttribute="trailing" constant="40" id="fEw-bf-auH"/>
                             <constraint firstItem="1Sn-I3-CCd" firstAttribute="width" secondItem="1Sn-I3-CCd" secondAttribute="height" multiplier="1:1" id="hwe-ZL-Fmc"/>
                             <constraint firstItem="9tz-5k-mXW" firstAttribute="bottom" secondItem="dy9-MV-gDf" secondAttribute="bottom" constant="15" id="oqc-od-tLR"/>
-                            <constraint firstItem="dy9-MV-gDf" firstAttribute="leading" secondItem="1Sn-I3-CCd" secondAttribute="trailing" constant="8" id="vaK-Kb-zJk"/>
+                            <constraint firstItem="dy9-MV-gDf" firstAttribute="leading" secondItem="1Sn-I3-CCd" secondAttribute="trailing" constant="20" id="vaK-Kb-zJk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9tz-5k-mXW"/>
                     </view>
