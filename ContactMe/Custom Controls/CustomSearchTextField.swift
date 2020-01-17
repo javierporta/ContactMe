@@ -77,11 +77,9 @@ class CustomSearchTextField: UITextField{
         
         resultsList = []
         
-        for i in 0 ..< dataList.count {
-            
-            let item = dataList[i].jobName
-            resultsList.append(item)
-            
+        if dataList.contains(where: ({ $0.jobName.lowercased().starts(with: self.text!.lowercased()) }))
+        {
+            resultsList = dataList.filter{ $0.jobName.lowercased().starts(with: self.text!.lowercased()) }.map({ $0.jobName })
         }
         
         tableView?.reloadData()
