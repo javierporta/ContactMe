@@ -702,8 +702,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         var semaphore = DispatchSemaphore (value: 0)
         
-        let img = imagenObj.compressTo(1)!
-        let imageStr = img.jpegData(compressionQuality: 1)?.base64EncodedString()
+        //let img = imagenObj.compressTo(1)!
+        let imageStr = imagenObj.jpegData(compressionQuality: 1)?.base64EncodedString()
 
         var request = URLRequest(url: URL(string: "https://api.imgur.com/3/image")!,timeoutInterval: Double.infinity)
 
@@ -713,10 +713,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
 
         request.httpMethod = "POST"
 
-        request.httpBody = ("image="+imageStr!).data(using: .utf8)
+        request.httpBody = "image=\(imageStr!.replacingOccurrences(of: "+", with: "%2B"))".data(using: .utf8)
 
-         
-        print(request.url)
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
 
