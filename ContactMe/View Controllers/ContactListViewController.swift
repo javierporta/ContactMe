@@ -90,7 +90,7 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          
         guard
-            segue.identifier == "showDetails",
+            segue.identifier == Constants.Identifiers.SHOW_DETAILS_SEGUE,
             let indexPath = tableView.indexPathForSelectedRow,
             let detailViewController = segue.destination as? ConnectionDetailViewController
             else {

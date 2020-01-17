@@ -823,11 +823,11 @@
             <objects>
                 <viewController storyboardIdentifier="ConnectionDetailViewController" id="3bF-j1-dDy" userLabel="ConnectionDetailViewController" customClass="ConnectionDetailViewController" customModule="ContactMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pA3-ZL-nb1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DW-BM-5AA">
-                                <rect key="frame" x="10" y="54" width="394" height="798"/>
+                                <rect key="frame" x="10" y="10" width="394" height="788"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lQN-4t-oVr">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="768.66666666666663"/>
@@ -1340,6 +1340,7 @@
                                     <outlet property="carieerLabel" destination="SNX-PU-1mi" id="C9Q-6x-fwx"/>
                                     <outlet property="contactNameLabel" destination="eJ0-EJ-hec" id="SMH-bF-why"/>
                                     <outlet property="interestLabel" destination="5Ay-n0-NxI" id="7gG-vh-FbE"/>
+                                    <segue destination="3bF-j1-dDy" kind="showDetail" identifier="showDetails" id="dLn-F4-lWT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

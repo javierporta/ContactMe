@@ -25,5 +25,8 @@ struct Constants {
         static let CONNECTION_DETAIL = "ConnectionDetailViewController"
         
         static let QR_VIEW_SEGUE = "goToQRCardSegue"
+        static let SHOW_DETAILS_SEGUE = "showDetails"
+
+        
     }
 }
