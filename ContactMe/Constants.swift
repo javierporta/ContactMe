@@ -21,6 +21,12 @@ struct Constants {
         
         static let MAIN_TAB = "MainTabBarController"
         static let LOGIN = "LoginViewController"
+        static let CONNECTIONS_LIST = "ContactListViewController"
         static let CONNECTION_DETAIL = "ConnectionDetailViewController"
+        
+        static let QR_VIEW_SEGUE = "goToQRCardSegue"
+        static let SHOW_DETAILS_SEGUE = "showDetails"
+
+        
     }
 }

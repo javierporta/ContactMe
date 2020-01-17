@@ -74,17 +74,17 @@ class ConnectionDetailViewController: UIViewController {
         case 1: //sunday
             return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
         case 2: //monday
-            return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
+            return isFreeOnXDay(startTime: connectionProfile.mondayFreeStartTime ?? "", endTime: connectionProfile.mondayFreeEndTime ?? "")
         case 3: //tuesday
-            return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
+            return isFreeOnXDay(startTime: connectionProfile.tuesdayFreeStartTime ?? "", endTime: connectionProfile.tuesdayFreeEndTime ?? "")
         case 4: //wednesday
             return isFreeOnXDay(startTime: connectionProfile.wednesdayFreeStartTime ?? "", endTime: connectionProfile.wednesdayFreeEndTime ?? "")
         case 5: //thursday
-            return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
+            return isFreeOnXDay(startTime: connectionProfile.thursdayFreeStartTime ?? "", endTime: connectionProfile.thursdayFreeEndTime ?? "")
         case 6: //friday
-            return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
+            return isFreeOnXDay(startTime: connectionProfile.fridayFreeStartTime ?? "", endTime: connectionProfile.fridayFreeEndTime ?? "")
         case 7: //saturday
-            return isFreeOnXDay(startTime: connectionProfile.sundayFreeStartTime ?? "", endTime: connectionProfile.sundayFreeEndTime ?? "")
+            return isFreeOnXDay(startTime: connectionProfile.saturdayFreeStartTime ?? "", endTime: connectionProfile.saturdayFreeEndTime ?? "")
         default:
             return false
         }

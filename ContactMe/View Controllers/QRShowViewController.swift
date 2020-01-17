@@ -75,6 +75,14 @@ class QRShowViewController: UIViewController {
         hideOrShowItems()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //duplicated to update values if needed
+        getMyProfileData()
+        
+        addQrCodeToImage()
+        hideOrShowItems()
+    }
+    
     
     func addQrCodeToImageFancy(){
         //IMPORTANT: WITH THIS CODE READERS ARE NOT DETECTING QR CODE
