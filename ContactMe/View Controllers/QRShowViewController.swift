@@ -123,8 +123,6 @@ class QRShowViewController: UIViewController {
         let jsonEncoder = JSONEncoder()
         do {
             
-            
-            currentUserProfile.avatar = nil
             let jsonData = try jsonEncoder.encode(currentUserProfile)
             let json = String(data: jsonData, encoding: String.Encoding.utf8)
             
