@@ -207,6 +207,9 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
         scannedConnectionProfile.connectionLocationLatitude = connectionLocation.latitude
         scannedConnectionProfile.connectionLocationLongitude = connectionLocation.longitude
         
+        //do not update count of views when updating
+        scannedConnectionProfile.visit = localConnectionFound.visit
+        
         //Add reference (FK)
         scannedConnectionProfile.connectionId = currentProfileId
         
