@@ -22,7 +22,12 @@ extension UIImageView {
     func setUIImageView(imgUrl: String!){
         
         let url = URL(string: imgUrl ?? "https://i.imgur.com/l9NqEqC.jpg")
-        let data = try! Data(contentsOf: url!)
-        self.image = UIImage(data: data)!
+        if let data = try? Data(contentsOf: url!) {
+            self.image = UIImage(data: data)!
+
+        }else{
+            self.image = UIImage()
+        }
+    
     }
 }
