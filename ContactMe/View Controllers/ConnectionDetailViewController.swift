@@ -72,6 +72,7 @@ class ConnectionDetailViewController: UIViewController {
         if let currentUser = UserService.getCurrentUserSession() {
             if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
                 self.myProfile = currentUserProfile
+               
             }
         }
     }
@@ -150,6 +151,9 @@ class ConnectionDetailViewController: UIViewController {
     func getConnectionProfile(profileId: Int64) {
         if let currentProfile = try? ProfileDataHelper.find(idobj: profileId){
             connectionProfile = currentProfile
+            
+            connectionProfile.visit+=1
+            try! ProfileDataHelper.update(item: connectionProfile)
         }
     }
     
