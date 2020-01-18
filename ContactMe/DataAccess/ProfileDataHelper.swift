@@ -51,6 +51,7 @@ class ProfileDataHelper: DataHelperProtocol {
     static let dbConnectionLocationLatitude = Expression<Double?>("connectionLocationLatitude")
     static let dbConnectionLocationLongitude = Expression<Double?>("connectionLocationLongitude")
     static let dbConnectionLocationName = Expression<String?>("connectionLocationName")
+    static let dbVisit = Expression<Int64>("visit")
     
     
     
@@ -99,6 +100,7 @@ class ProfileDataHelper: DataHelperProtocol {
                 t.column(dbConnectionLocationName)
                 t.column(dbConnectionLocationLatitude)
                 t.column(dbConnectionLocationLongitude)
+                t.column(dbVisit)
                 t.foreignKey(dbConnectionId, references: table, dbId, delete: .setNull)
                 
             })
@@ -114,7 +116,7 @@ class ProfileDataHelper: DataHelperProtocol {
             throw DataAccessError.Datastore_Connection_Error
         }
         if (item.name != "") {
-            let insert = table.insert(dbName <- item.name?.datatypeValue, dbLastName <- item.lastName?.datatypeValue, dbEmail <- item.email?.datatypeValue, dbPhone <- item.phone?.datatypeValue, dbDateOfBirth <- item.dateOfBirth?.datatypeValue, dbGender <- item.gender?.datatypeValue, dbCarieer <- item.carieer?.datatypeValue,dbJob <- item.job?.datatypeValue, dbInsterest <- item.insterest?.datatypeValue, dbAvatar <- item.avatar?.datatypeValue, dbMondayFreeStartTime <- item.mondayFreeStartTime?.datatypeValue, dbMondayFreeEndTime <- item.mondayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbTuesdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbWednesdayFreeStartTime <- item.wednesdayFreeStartTime?.datatypeValue, dbWednesdayFreeEndTime <- item.wednesdayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbThursdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbFridayFreeStartTime <- item.fridayFreeStartTime?.datatypeValue, dbFridayFreeEndTime <- item.fridayFreeEndTime?.datatypeValue, dbSaturdayFreeStartTime <- item.saturdayFreeStartTime?.datatypeValue, dbSaturdayFreeEndTime <- item.saturdayFreeEndTime?.datatypeValue, dbSundayFreeStartTime <- item.sundayFreeStartTime?.datatypeValue, dbSundayFreeEndTime <- item.sundayFreeEndTime?.datatypeValue, dbConnectionId <- item.connectionId?.datatypeValue , dbUniversityName <- item.universityName?.datatypeValue, dbUniversityLatitude <- item.universityLatitude?.datatypeValue, dbUniversityLongitude <- item.universityLongitude?.datatypeValue, dbFreeTimePlaceName <- item.freeTimePlaceName?.datatypeValue, dbFreeTimeLatitude <- item.freeTimeLatitude?.datatypeValue, dbFreeTimeLongitude <- item.freeTimeLongitude?.datatypeValue, dbConnectionDateTime <- item.connectionDateTime?.datatypeValue, dbConnectionLocationName <- item.connectionLocationName?.datatypeValue, dbConnectionLocationLatitude <- item.connectionLocationLatitude?.datatypeValue, dbConnectionLocationLongitude <- item.connectionLocationLongitude?.datatypeValue
+            let insert = table.insert(dbName <- item.name?.datatypeValue, dbLastName <- item.lastName?.datatypeValue, dbEmail <- item.email?.datatypeValue, dbPhone <- item.phone?.datatypeValue, dbDateOfBirth <- item.dateOfBirth?.datatypeValue, dbGender <- item.gender?.datatypeValue, dbCarieer <- item.carieer?.datatypeValue,dbJob <- item.job?.datatypeValue, dbInsterest <- item.insterest?.datatypeValue, dbAvatar <- item.avatar?.datatypeValue, dbMondayFreeStartTime <- item.mondayFreeStartTime?.datatypeValue, dbMondayFreeEndTime <- item.mondayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbTuesdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbWednesdayFreeStartTime <- item.wednesdayFreeStartTime?.datatypeValue, dbWednesdayFreeEndTime <- item.wednesdayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbThursdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbFridayFreeStartTime <- item.fridayFreeStartTime?.datatypeValue, dbFridayFreeEndTime <- item.fridayFreeEndTime?.datatypeValue, dbSaturdayFreeStartTime <- item.saturdayFreeStartTime?.datatypeValue, dbSaturdayFreeEndTime <- item.saturdayFreeEndTime?.datatypeValue, dbSundayFreeStartTime <- item.sundayFreeStartTime?.datatypeValue, dbSundayFreeEndTime <- item.sundayFreeEndTime?.datatypeValue, dbConnectionId <- item.connectionId?.datatypeValue , dbUniversityName <- item.universityName?.datatypeValue, dbUniversityLatitude <- item.universityLatitude?.datatypeValue, dbUniversityLongitude <- item.universityLongitude?.datatypeValue, dbFreeTimePlaceName <- item.freeTimePlaceName?.datatypeValue, dbFreeTimeLatitude <- item.freeTimeLatitude?.datatypeValue, dbFreeTimeLongitude <- item.freeTimeLongitude?.datatypeValue, dbConnectionDateTime <- item.connectionDateTime?.datatypeValue, dbConnectionLocationName <- item.connectionLocationName?.datatypeValue, dbConnectionLocationLatitude <- item.connectionLocationLatitude?.datatypeValue, dbConnectionLocationLongitude <- item.connectionLocationLongitude?.datatypeValue, dbVisit <- item.visit.datatypeValue
             )
             
             let rowId = try DB.run(insert)
@@ -135,7 +137,7 @@ class ProfileDataHelper: DataHelperProtocol {
             
             let entity = table.filter(dbId == item.id)
             
-            let update = entity.update(dbName <- item.name?.datatypeValue, dbLastName <- item.lastName?.datatypeValue,dbEmail <- item.email?.datatypeValue, dbPhone <- item.phone?.datatypeValue, dbDateOfBirth <- item.dateOfBirth?.datatypeValue, dbGender <- item.gender?.datatypeValue, dbCarieer <- item.carieer?.datatypeValue,dbJob <- item.job?.datatypeValue, dbInsterest <- item.insterest?.datatypeValue, dbAvatar <- item.avatar?.datatypeValue, dbMondayFreeStartTime <- item.mondayFreeStartTime?.datatypeValue, dbMondayFreeEndTime <- item.mondayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbTuesdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbWednesdayFreeStartTime <- item.wednesdayFreeStartTime?.datatypeValue, dbWednesdayFreeEndTime <- item.wednesdayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbThursdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbFridayFreeStartTime <- item.fridayFreeStartTime?.datatypeValue, dbFridayFreeEndTime <- item.fridayFreeEndTime?.datatypeValue, dbSaturdayFreeStartTime <- item.saturdayFreeStartTime?.datatypeValue, dbSaturdayFreeEndTime <- item.saturdayFreeEndTime?.datatypeValue, dbSundayFreeStartTime <- item.sundayFreeStartTime?.datatypeValue, dbSundayFreeEndTime <- item.sundayFreeEndTime?.datatypeValue, dbConnectionId <- item.connectionId?.datatypeValue, dbUniversityName <- item.universityName?.datatypeValue, dbUniversityLatitude <- item.universityLatitude?.datatypeValue, dbUniversityLongitude <- item.universityLongitude?.datatypeValue, dbFreeTimePlaceName <- item.freeTimePlaceName?.datatypeValue, dbFreeTimeLatitude <- item.freeTimeLatitude?.datatypeValue, dbFreeTimeLongitude <- item.freeTimeLongitude?.datatypeValue, dbConnectionDateTime <- item.connectionDateTime?.datatypeValue, dbConnectionLocationName <- item.connectionLocationName?.datatypeValue, dbConnectionLocationLatitude <- item.connectionLocationLatitude?.datatypeValue, dbConnectionLocationLongitude <- item.connectionLocationLongitude?.datatypeValue
+            let update = entity.update(dbName <- item.name?.datatypeValue, dbLastName <- item.lastName?.datatypeValue,dbEmail <- item.email?.datatypeValue, dbPhone <- item.phone?.datatypeValue, dbDateOfBirth <- item.dateOfBirth?.datatypeValue, dbGender <- item.gender?.datatypeValue, dbCarieer <- item.carieer?.datatypeValue,dbJob <- item.job?.datatypeValue, dbInsterest <- item.insterest?.datatypeValue, dbAvatar <- item.avatar?.datatypeValue, dbMondayFreeStartTime <- item.mondayFreeStartTime?.datatypeValue, dbMondayFreeEndTime <- item.mondayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbTuesdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbWednesdayFreeStartTime <- item.wednesdayFreeStartTime?.datatypeValue, dbWednesdayFreeEndTime <- item.wednesdayFreeEndTime?.datatypeValue, dbTuesdayFreeStartTime <- item.tuesdayFreeStartTime?.datatypeValue, dbThursdayFreeEndTime <- item.tuesdayFreeEndTime?.datatypeValue, dbFridayFreeStartTime <- item.fridayFreeStartTime?.datatypeValue, dbFridayFreeEndTime <- item.fridayFreeEndTime?.datatypeValue, dbSaturdayFreeStartTime <- item.saturdayFreeStartTime?.datatypeValue, dbSaturdayFreeEndTime <- item.saturdayFreeEndTime?.datatypeValue, dbSundayFreeStartTime <- item.sundayFreeStartTime?.datatypeValue, dbSundayFreeEndTime <- item.sundayFreeEndTime?.datatypeValue, dbConnectionId <- item.connectionId?.datatypeValue, dbUniversityName <- item.universityName?.datatypeValue, dbUniversityLatitude <- item.universityLatitude?.datatypeValue, dbUniversityLongitude <- item.universityLongitude?.datatypeValue, dbFreeTimePlaceName <- item.freeTimePlaceName?.datatypeValue, dbFreeTimeLatitude <- item.freeTimeLatitude?.datatypeValue, dbFreeTimeLongitude <- item.freeTimeLongitude?.datatypeValue, dbConnectionDateTime <- item.connectionDateTime?.datatypeValue, dbConnectionLocationName <- item.connectionLocationName?.datatypeValue, dbConnectionLocationLatitude <- item.connectionLocationLatitude?.datatypeValue, dbConnectionLocationLongitude <- item.connectionLocationLongitude?.datatypeValue, dbVisit <- item.visit.datatypeValue
 )
             do {
                 let rowId = try DB.run(update)
@@ -212,6 +214,7 @@ class ProfileDataHelper: DataHelperProtocol {
             entity.connectionLocationName = item[dbConnectionLocationName]
             entity.connectionLocationLongitude = item[dbConnectionLocationLongitude]
             entity.connectionLocationLatitude = item[dbConnectionLocationLatitude]
+            entity.visit = item[dbVisit]
             
             return entity
         }
@@ -266,6 +269,7 @@ class ProfileDataHelper: DataHelperProtocol {
             entity.connectionLocationName = item[dbConnectionLocationName]
             entity.connectionLocationLongitude = item[dbConnectionLocationLongitude]
             entity.connectionLocationLatitude = item[dbConnectionLocationLatitude]
+            entity.visit = item[dbVisit]
             
             connections.append(entity)
         }
@@ -319,6 +323,7 @@ class ProfileDataHelper: DataHelperProtocol {
             entity.connectionLocationName = item[dbConnectionLocationName]
             entity.connectionLocationLongitude = item[dbConnectionLocationLongitude]
             entity.connectionLocationLatitude = item[dbConnectionLocationLatitude]
+            entity.visit = item[dbVisit]
             
             retArray.append(entity)
         }

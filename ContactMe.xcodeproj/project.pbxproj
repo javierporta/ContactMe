@@ -20,6 +20,7 @@
 		2CAAF1BF2374613100B108BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1BE2374613100B108BE /* Assets.xcassets */; };
 		2CAAF1C22374613100B108BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1C02374613100B108BE /* LaunchScreen.storyboard */; };
 		2CAAF1CB23746C3200B108BE /* ColorsTheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */; };
+		2CCF972823D35AB200F33CC5 /* ContactCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCF972723D35AB200F33CC5 /* ContactCollectionViewCell.swift */; };
 		2CEC262023D2147600341026 /* ImgurResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC261F23D2147600341026 /* ImgurResponse.swift */; };
 		2CEC262223D2148B00341026 /* Imgur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC262123D2148B00341026 /* Imgur.swift */; };
 		2CEC262423D23C4C00341026 /* CustomSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC262323D23C4C00341026 /* CustomSearchTextField.swift */; };
@@ -36,8 +37,6 @@
 		5D9FE9D2238A0FC300452272 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FE9D1238A0FC300452272 /* UITextField.swift */; };
 		5DA3A119239451D200D33C06 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3A118239451D200D33C06 /* RoundButton.swift */; };
 		5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* KeychainAccess */; };
-		5DA9464623A15EB200508470 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA9464523A15EB200508470 /* String.swift */; };
-		5DA9464823A1667000508470 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA9464723A1667000508470 /* UIImage.swift */; };
 		5DAA7CC9237DC5E300FB7423 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */; };
 		5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCA237DC79600FB7423 /* Constants.swift */; };
 		5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */; };
@@ -69,6 +68,7 @@
 		2CAAF1C12374613100B108BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CAAF1C32374613100B108BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorsTheme.xcassets; sourceTree = "<group>"; };
+		2CCF972723D35AB200F33CC5 /* ContactCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CEC261F23D2147600341026 /* ImgurResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgurResponse.swift; sourceTree = "<group>"; };
 		2CEC262123D2148B00341026 /* Imgur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Imgur.swift; sourceTree = "<group>"; };
 		2CEC262323D23C4C00341026 /* CustomSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchTextField.swift; sourceTree = "<group>"; };
@@ -86,8 +86,6 @@
 		5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotYourPasswordViewController.swift; sourceTree = "<group>"; };
 		5D9FE9D1238A0FC300452272 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		5DA3A118239451D200D33C06 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		5DA9464523A15EB200508470 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		5DA9464723A1667000508470 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5DAA7CCA237DC79600FB7423 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +228,7 @@
 				5DA3A118239451D200D33C06 /* RoundButton.swift */,
 				B5BBE89C23AD442D00AE5003 /* ContactTableViewCell.swift */,
 				2CEC262323D23C4C00341026 /* CustomSearchTextField.swift */,
+				2CCF972723D35AB200F33CC5 /* ContactCollectionViewCell.swift */,
 			);
 			path = "Custom Controls";
 			sourceTree = "<group>";
@@ -255,8 +254,6 @@
 			children = (
 				5D9FE9D1238A0FC300452272 /* UITextField.swift */,
 				5DDA9546238B0A5F000D36FE /* UIImageView.swift */,
-				5DA9464523A15EB200508470 /* String.swift */,
-				5DA9464723A1667000508470 /* UIImage.swift */,
 				5DDCEEA623CF66000079CCC4 /* UITextView.swift */,
 				5D5DC69D23D3285A001CCE39 /* UIViewController.swift */,
 			);
@@ -439,8 +436,6 @@
 				5D5DC69E23D3285A001CCE39 /* UIViewController.swift in Sources */,
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
-				5DA9464623A15EB200508470 /* String.swift in Sources */,
-				5DA9464823A1667000508470 /* UIImage.swift in Sources */,
 				B53BEA802397DE60004142C6 /* UserService.swift in Sources */,
 				5DDA9545238AFFBE000D36FE /* Gender.swift in Sources */,
 				2CEC262623D23CCF00341026 /* Job.swift in Sources */,
@@ -460,6 +455,7 @@
 				5DAA7CCB237DC79600FB7423 /* Constants.swift in Sources */,
 				2CEC262A23D2607100341026 /* JobsResponse.swift in Sources */,
 				5DDA9549238EA5AE000D36FE /* MyProfileTabs.swift in Sources */,
+				2CCF972823D35AB200F33CC5 /* ContactCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

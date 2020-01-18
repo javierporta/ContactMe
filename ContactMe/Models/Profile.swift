@@ -47,6 +47,7 @@ class Profile: Entity, Codable {
     var connectionLocationName: String?
     var connectionLocationLatitude: Double?
     var connectionLocationLongitude: Double?
+    var visit: Int64 = 0
     
     var insterestArray:Array<String>?
     {
