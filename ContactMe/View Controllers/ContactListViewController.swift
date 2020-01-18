@@ -80,6 +80,8 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
          cell.carieerLabel.text = contact.carieer
          cell.interestLabel.text = contact.insterest
          cell.avatarImage.setUIImageView(imgUrl: contact.avatar)
+        cell.phoneLabel.text = contact.phone
+        cell.emailLabel.text = contact.email
          
          return cell
      }
