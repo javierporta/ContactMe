@@ -26,7 +26,7 @@ extension UIImageView {
             self.image = UIImage(data: data)!
 
         }else{
-            self.image = UIImage()
+            self.image = UIImage(named: "defaultUser")
         }
     
     }
