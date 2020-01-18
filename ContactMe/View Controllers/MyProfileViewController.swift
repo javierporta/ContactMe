@@ -98,7 +98,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var jobTextField: UITextField! {
+    @IBOutlet weak var jobTextField: CustomSearchTextField! {
         didSet {
             jobTextField.tintColor = UIColor.lightGray
             jobTextField.setIcon(#imageLiteral(resourceName: "icon-job"))
@@ -192,7 +192,16 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             }
         }
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissJobTextField))
+               view.addGestureRecognizer(tap)
+
+        
         // Do any additional setup after loading the view.
+    }
+
+    @objc func dismissJobTextField() {
+        jobTextField.endEditing(true)
+        jobTextField.tableView!.isHidden = true
     }
     
     private func setupTableView(){
@@ -538,6 +547,10 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     @IBAction func tabsSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        
+        jobTextField.endEditing(true)
+        jobTextField.tableView!.isHidden = true
+        
         switch sender.selectedSegmentIndex {
         case MyProfileTabs.personal.rawValue:
             showPersonalTab()
