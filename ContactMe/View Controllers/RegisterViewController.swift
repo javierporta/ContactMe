@@ -131,17 +131,4 @@ class RegisterViewController: ValidatorViewController {
         self.present(viewController, animated: true, completion: nil)
     }
     
-
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:   #selector(UIInputViewController.dismissKeyboard))
-      tap.cancelsTouchesInView = false
-      view.addGestureRecognizer(tap)
-    }
-    
-    //Calls this function when the tap is recognized.
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
-    
 }

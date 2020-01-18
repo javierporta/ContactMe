@@ -30,9 +30,10 @@
 		5D3F17F823AA61AF0094594B /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3F17F723AA61AE0094594B /* QRScannerController.swift */; };
 		5D540904237C40AA0020144D /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D540903237C40AA0020144D /* SpinnerView.swift */; };
 		5D58E58A2386D58600FA7407 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58E5892386D58600FA7407 /* MyProfileViewController.swift */; };
+		5D5DC69E23D3285A001CCE39 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5DC69D23D3285A001CCE39 /* UIViewController.swift */; };
 		5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */; };
 		5D91B9982375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */; };
-		5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FE9D1238A0FC300452272 /* TextField.swift */; };
+		5D9FE9D2238A0FC300452272 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FE9D1238A0FC300452272 /* UITextField.swift */; };
 		5DA3A119239451D200D33C06 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA3A118239451D200D33C06 /* RoundButton.swift */; };
 		5DA6482E237A0DB100FF23DD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5DA6482D237A0DB100FF23DD /* KeychainAccess */; };
 		5DA9464623A15EB200508470 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA9464523A15EB200508470 /* String.swift */; };
@@ -80,9 +81,10 @@
 		5D3F17F723AA61AE0094594B /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 		5D540903237C40AA0020144D /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5D58E5892386D58600FA7407 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		5D5DC69D23D3285A001CCE39 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotYourPasswordViewController.swift; sourceTree = "<group>"; };
-		5D9FE9D1238A0FC300452272 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		5D9FE9D1238A0FC300452272 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		5DA3A118239451D200D33C06 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		5DA9464523A15EB200508470 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5DA9464723A1667000508470 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -251,11 +253,12 @@
 		5DDA9542238AFF6F000D36FE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5D9FE9D1238A0FC300452272 /* TextField.swift */,
+				5D9FE9D1238A0FC300452272 /* UITextField.swift */,
 				5DDA9546238B0A5F000D36FE /* UIImageView.swift */,
 				5DA9464523A15EB200508470 /* String.swift */,
 				5DA9464723A1667000508470 /* UIImage.swift */,
 				5DDCEEA623CF66000079CCC4 /* UITextView.swift */,
+				5D5DC69D23D3285A001CCE39 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				5DAA7CCD237DCEDE00FB7423 /* DashboardViewController.swift in Sources */,
 				2C16BF6723857B34004577C8 /* User.swift in Sources */,
 				2C192C232386F8C90049B43B /* SQLiteDataStore.swift in Sources */,
+				5D5DC69E23D3285A001CCE39 /* UIViewController.swift in Sources */,
 				2CAAF1B82374612F00B108BE /* SceneDelegate.swift in Sources */,
 				5D91B9962375B5C200BCDCA0 /* RegisterViewController.swift in Sources */,
 				5DA9464623A15EB200508470 /* String.swift in Sources */,
@@ -442,7 +446,7 @@
 				2CEC262623D23CCF00341026 /* Job.swift in Sources */,
 				2CEC262223D2148B00341026 /* Imgur.swift in Sources */,
 				5DD9A32E23B0DD5E009B2DEE /* ConnectionDetailViewController.swift in Sources */,
-				5D9FE9D2238A0FC300452272 /* TextField.swift in Sources */,
+				5D9FE9D2238A0FC300452272 /* UITextField.swift in Sources */,
 				2CEC262423D23C4C00341026 /* CustomSearchTextField.swift in Sources */,
 				2C192C31238702050049B43B /* DataHelperProtocol.swift in Sources */,
 				2C192C34238702170049B43B /* DataAccessError.swift in Sources */,
