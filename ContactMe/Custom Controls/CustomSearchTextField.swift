@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import OSLog
 
 class CustomSearchTextField: UITextField{
     
@@ -197,7 +196,7 @@ extension CustomSearchTextField: UITableViewDelegate, UITableViewDataSource {
     func addData(){
                 
         guard let url = URL(string: "https://www.mocky.io/v2/5e2226412f0000eecf77daa0") else {
-            os_log("Invalid URL.", log: OSLog.default, type: .error)
+            print("Invalid URL.")
             return
             
         }
