@@ -1426,8 +1426,6 @@
                                     <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="uJr-e0-6Hw" secondAttribute="bottom" id="Rnx-C6-xYm"/>
-                                        <constraint firstItem="uJr-e0-6Hw" firstAttribute="leading" secondItem="s2m-6Y-fFu" secondAttribute="leading" constant="5" id="UI4-3E-B4x"/>
-                                        <constraint firstAttribute="trailing" secondItem="uJr-e0-6Hw" secondAttribute="trailing" constant="5" id="cTf-co-07K"/>
                                         <constraint firstItem="uJr-e0-6Hw" firstAttribute="top" secondItem="s2m-6Y-fFu" secondAttribute="top" constant="5" id="gGN-ds-UC9"/>
                                         <constraint firstAttribute="trailing" secondItem="uJr-e0-6Hw" secondAttribute="trailing" constant="10" id="neY-bS-YKE"/>
                                         <constraint firstItem="uJr-e0-6Hw" firstAttribute="leading" secondItem="s2m-6Y-fFu" secondAttribute="leading" constant="10" id="oaD-hJ-ADz"/>
