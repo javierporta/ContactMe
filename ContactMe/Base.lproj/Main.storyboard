@@ -494,7 +494,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="jos-W7-ETf"/>
                             </scrollView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="6C9-Xc-McF">
-                                <rect key="frame" x="104" y="166" width="300" height="76"/>
+                                <rect key="frame" x="254" y="166" width="150" height="38"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -579,13 +579,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre Contacto" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2c-Vz-TR8">
-                                        <rect key="frame" x="205" y="20" width="199" height="32"/>
+                                        <rect key="frame" x="190" y="19.999999999999996" width="214" height="33.666666666666657"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ql3-9i-SOS">
-                                        <rect key="frame" x="356" y="153" width="48" height="30"/>
+                                        <rect key="frame" x="356" y="154.66666666666666" width="48" height="30"/>
                                         <state key="normal" title="Logout">
                                             <color key="titleColor" red="0.99960337239999997" green="0.99960337239999997" blue="0.99960337239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -632,7 +632,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Z5C-08-Qer">
-                                                            <rect key="frame" x="71" y="6.3333333333333339" width="15" height="13.333333333333337"/>
+                                                            <rect key="frame" x="71" y="6.3333333333333339" width="15" height="13.000000000000002"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="15" id="STu-YV-kkf"/>
                                                                 <constraint firstAttribute="height" constant="15" id="mc0-wx-Ecm"/>
@@ -1804,20 +1804,21 @@
                             <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9Y-Ym-WsZ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhy-7w-DHu">
-                                        <rect key="frame" x="185" y="38" width="44" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan a Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhy-7w-DHu">
+                                        <rect key="frame" x="154" y="38" width="106" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neM-bI-6vq">
-                                        <rect key="frame" x="25" y="41" width="20" height="20"/>
+                                        <rect key="frame" x="10" y="41" width="70" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="GMR-y5-x72"/>
-                                            <constraint firstAttribute="width" constant="20" id="IVt-2h-B0n"/>
+                                            <constraint firstAttribute="width" constant="70" id="IVt-2h-B0n"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="tintColor" name="Secondary"/>
-                                        <state key="normal" image="xmark.square" catalog="system">
+                                        <state key="normal" title="  Back" image="arrow.left.circle" catalog="system">
                                             <color key="titleColor" name="Primary-Label"/>
                                         </state>
                                         <connections>
@@ -1829,7 +1830,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Rhy-7w-DHu" secondAttribute="bottom" constant="8" id="3Un-37-tHb"/>
                                     <constraint firstAttribute="height" constant="70" id="Kdk-ZZ-Wpu"/>
-                                    <constraint firstItem="neM-bI-6vq" firstAttribute="leading" secondItem="q9Y-Ym-WsZ" secondAttribute="leading" constant="25" id="O0A-J3-dru"/>
+                                    <constraint firstItem="neM-bI-6vq" firstAttribute="leading" secondItem="q9Y-Ym-WsZ" secondAttribute="leading" constant="10" id="O0A-J3-dru"/>
                                     <constraint firstItem="neM-bI-6vq" firstAttribute="top" secondItem="q9Y-Ym-WsZ" secondAttribute="top" constant="41" id="e67-Ph-FFa"/>
                                     <constraint firstItem="Rhy-7w-DHu" firstAttribute="centerX" secondItem="q9Y-Ym-WsZ" secondAttribute="centerX" id="lTf-ky-ji8"/>
                                 </constraints>
@@ -1886,6 +1887,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left.circle" catalog="system" width="64" height="60"/>
         <image name="background3" width="414" height="200"/>
         <image name="camera" width="150" height="38"/>
         <image name="defaultPhoto" width="1080" height="1080"/>
@@ -1909,7 +1911,6 @@
         <image name="person.3" catalog="system" width="72" height="35"/>
         <image name="person.crop.circle.fill" catalog="system" width="64" height="60"/>
         <image name="phone" catalog="system" width="64" height="56"/>
-        <image name="xmark.square" catalog="system" width="64" height="56"/>
         <namedColor name="Error-Label">
             <color red="1" green="0.15299999713897705" blue="0.037000000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              try keychain.removeAll()
              
              deleteDatabase()
-             }*/
+             */
             
             
             
