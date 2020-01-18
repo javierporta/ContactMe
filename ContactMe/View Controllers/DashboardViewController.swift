@@ -83,7 +83,7 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
     
     fileprivate func getIsProfileShareable() -> Bool{
         //Ask if it profile is shareable
-              
+              print("getIsProfileShareable")
         if((self.currentUserProfile.name ?? "").isEmpty || (self.currentUserProfile.lastName ?? "").isEmpty ){
             self.qrButton.backgroundColor = UIColor.darkGray
             return false
@@ -119,6 +119,7 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
         
     }
     override func viewDidAppear(_ animated: Bool) {
+        loadData()
         isProfileShareable=getIsProfileShareable()
         
         collectionView.reloadData()
