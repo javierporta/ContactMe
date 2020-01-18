@@ -103,6 +103,7 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
                 self.usernameLabel.text = self.currentUserProfile.fullName()
                 
                 self.contactList = try! ProfileDataHelper.findConectionsByProfileid(idobj: currentUser.profileId!)
+                self.contactList = self.contactList.filter{ $0.visit > 0 }
                 self.contactList.sort{ $0.visit > $1.visit }
                 self.contactList = Array(self.contactList.prefix(4))
                 
@@ -119,6 +120,8 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     override func viewDidAppear(_ animated: Bool) {
         isProfileShareable=getIsProfileShareable()
+        
+        collectionView.reloadData()
         
         UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseInOut],
                        animations: {[weak self] in
