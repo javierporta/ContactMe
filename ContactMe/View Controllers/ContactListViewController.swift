@@ -18,12 +18,9 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let currentUser = UserService.getCurrentUserSession() {
-            self.contactList = try! ProfileDataHelper.findConectionsByProfileid(idobj: currentUser.profileId!)
-        }
         
         tableView.backgroundView = UIImageView(image: UIImage(named: "background4.png"))
-        
+                     
         resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
@@ -35,8 +32,20 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
             return controller
         })()
         
-        tableView.reloadData()
+        loadData()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       loadData()
+        
+    }
+    
+    private func loadData(){
+         if let currentUser = UserService.getCurrentUserSession() {
+               self.contactList = try! ProfileDataHelper.findConectionsByProfileid(idobj: currentUser.profileId!)
+           }
+        tableView.reloadData()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
