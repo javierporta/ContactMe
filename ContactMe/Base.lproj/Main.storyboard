@@ -1467,7 +1467,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PmL-YU-zRf"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Q7I-jF-rem"/>
+                    <navigationItem key="navigationItem" title="Connection Details" id="Q7I-jF-rem"/>
                     <connections>
                         <outlet property="ageLabel" destination="DsB-rS-sPs" id="52R-YG-3uM"/>
                         <outlet property="avatarImageView" destination="G4O-Ht-b4Z" id="OjL-aI-hf0"/>
@@ -1517,7 +1517,7 @@
             </objects>
             <point key="canvasLocation" x="-5212" y="910"/>
         </scene>
-        <!--Contact List View Controller-->
+        <!--My Connections-->
         <scene sceneID="EcV-gG-KcW">
             <objects>
                 <tableViewController storyboardIdentifier="ContactListViewController" id="fBT-6I-CmU" customClass="ContactListViewController" customModule="ContactMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -1681,7 +1681,7 @@
                             <outlet property="delegate" destination="fBT-6I-CmU" id="R1y-4R-Sba"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ipf-Yn-caw"/>
+                    <navigationItem key="navigationItem" title="My Connections" id="Ipf-Yn-caw"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Isb-at-0EX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1948,11 +1948,11 @@
             </objects>
             <point key="canvasLocation" x="-1765.217391304348" y="1120.9821428571429"/>
         </scene>
-        <!--Contact List-->
+        <!--My Connections-->
         <scene sceneID="cYR-3q-Fnl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7De-jm-Qvi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contact List" image="person.3" catalog="system" id="ERG-PJ-g5w"/>
+                    <tabBarItem key="tabBarItem" title="My Connections" image="person.3" catalog="system" id="ERG-PJ-g5w"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jpy-52-Np9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
