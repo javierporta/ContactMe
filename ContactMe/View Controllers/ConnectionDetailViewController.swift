@@ -18,7 +18,6 @@ class ConnectionDetailViewController: UIViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     
     @IBOutlet weak var emailTextView: UITextView!
-    @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var currentStatusLabel: UILabel!
     
@@ -164,9 +163,7 @@ class ConnectionDetailViewController: UIViewController {
         }else{
             genderUIImage.image = UIImage(named: "icon-gender-male")
         }
-        
-        nameLabel.text = connectionProfile.name
-        
+                
         emailTextView.text = connectionProfile.email
         emailTextView.centerVertically()
         
