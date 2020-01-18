@@ -32,7 +32,6 @@ class ConnectionDetailViewController: UIViewController {
     
     @IBOutlet weak var jobLabel: UILabel!
     
-    @IBOutlet weak var interestsListLabel: UILabel!
     
     @IBOutlet weak var interestsStackView: UIStackView!
     
@@ -283,10 +282,20 @@ class ConnectionDetailViewController: UIViewController {
         let label = UILabel(frame: .zero)
         label.text = labelText
         label.sizeToFit()
+        
+        let uiContainer = UIView()
+        
         if(interestIsMatching){
-            label.textColor=UIColor(named: "Secondary")
+            label.clipsToBounds = true
+            label.layer.cornerRadius = label.font.pointSize * 1.2 / 2
+            label.backgroundColor = UIColor.systemGray
+            label.textColor = UIColor.white
+            label.backgroundColor = UIColor(named: "Secondary")
+            
         }
-        interestsStackView.addArrangedSubview(label)
+
+        uiContainer.addSubview(label)
+        interestsStackView.addArrangedSubview(uiContainer)
     }
     
     private func setMap(){
