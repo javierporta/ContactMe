@@ -72,7 +72,7 @@ class ConnectionDetailViewController: UIViewController {
         if let currentUser = UserService.getCurrentUserSession() {
             if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
                 self.myProfile = currentUserProfile
-               
+                
             }
         }
     }
@@ -167,7 +167,7 @@ class ConnectionDetailViewController: UIViewController {
         }else{
             genderUIImage.image = UIImage(named: "icon-gender-male")
         }
-                
+        
         emailTextView.text = connectionProfile.email
         emailTextView.centerVertically()
         
@@ -195,7 +195,7 @@ class ConnectionDetailViewController: UIViewController {
             currentStatusLabel.textColor = UIColor.systemRed
             
         }
-                
+        
         if(!(connectionProfile.mondayFreeStartTime ?? "").isEmpty && !(connectionProfile.mondayFreeEndTime ?? "").isEmpty ){
             mondayFreeSchedule.text = "From: \(connectionProfile.mondayFreeStartTime ?? "") To: \(connectionProfile.mondayFreeEndTime ?? "")"
             mondayFreeSchedule.textColor = UIColor.systemGreen
@@ -276,28 +276,38 @@ class ConnectionDetailViewController: UIViewController {
     }
     
     private func addInterestLabel(labelText: String){
+        //Get if interest matches
         var interestIsMatching=false
         if (myProfile.insterestArray?.contains(labelText) == true){
             interestIsMatching=true
         }
         
-        
-        let label = UILabel(frame: .zero)
-        label.text = labelText
-        label.sizeToFit()
-        
-        let uiContainer = UIView()
+        //Create label dynamically
+        var label = UILabel(frame: .zero)
         
         if(interestIsMatching){
-            label.clipsToBounds = true
-            label.layer.cornerRadius = label.font.pointSize * 1.2 / 2
-            label.backgroundColor = UIColor.systemGray
-            label.textColor = UIColor.white
-            label.backgroundColor = UIColor(named: "Secondary")
-            
+            label = BadgeLabel(frame: .zero)
         }
-
+        
+        //Add text
+        label.text = labelText
+        
+        //Set dimension accoriding to text length
+        label.sizeToFit()
+        
+        //Add in container
+        let uiContainer = UIView()
         uiContainer.addSubview(label)
+        
+        //Dinamically adding constraints
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.widthAnchor.constraint(equalToConstant: label.intrinsicContentSize.width).isActive = true
+        
+        if(interestIsMatching){
+            uiContainer.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        }
+        
+        //Add UIView with the subview UILabel to the Stack View
         interestsStackView.addArrangedSubview(uiContainer)
     }
     
