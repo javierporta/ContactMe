@@ -182,7 +182,8 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
         
         placesClient = GMSPlacesClient.shared()
         
-         
+        self.hideKeyboardWhenTappedAround()
+
         
         if let currentUser = UserService.getCurrentUserSession() {
             if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
