@@ -154,6 +154,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewWillDisappear(_ animated: Bool) {
         saveMyProfile()
+        self.dismissJobTextField()
     }
     
     override func viewDidLoad() {
@@ -193,7 +194,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             }
         }
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissJobTextField))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissJobTextField))
                view.addGestureRecognizer(tap)
 
         
@@ -549,8 +550,7 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func tabsSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         
-        jobTextField.endEditing(true)
-        jobTextField.tableView!.isHidden = true
+        self.dismissJobTextField()
         
         switch sender.selectedSegmentIndex {
         case MyProfileTabs.personal.rawValue:
