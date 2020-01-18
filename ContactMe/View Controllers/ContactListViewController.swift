@@ -22,6 +22,8 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
             self.contactList = try! ProfileDataHelper.findConectionsByProfileid(idobj: currentUser.profileId!)
         }
         
+        tableView.backgroundView = UIImageView(image: UIImage(named: "background4.png"))
+        
         resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self

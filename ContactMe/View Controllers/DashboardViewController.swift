@@ -9,40 +9,110 @@
 import UIKit
 import KeychainAccess
 
-class DashboardViewController: UIViewController {
+private let reuseIdentifier = "Cell"
+
+class DashboardViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     
     //    MARK: Outlets
     @IBOutlet weak var qrButton: UIButton!
-    
     @IBOutlet weak var cameraQrScannerButton: RoundButton!
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var isProfileShareable=false;
+    var currentUserProfile = Profile()
+    
+    
+    private let reuseIdentifier = "ContactCell"
+    private let itemsPerRow: CGFloat = 2
+    private let sectionInsets = UIEdgeInsets(top: 25.0,
+            left: 20.0,
+            bottom: 25.0,
+            right: 20.0)
+    private var contactList = [Profile]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //getIsProfileShareable
+               
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
+    
+    
+    
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //#warning Incomplete method implementation -- Return the number of items in the section
+        return self.contactList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! ContactCollectionViewCell
+        
+        cell.userImageView.setUIImageView(imgUrl: self.contactList[indexPath.item].avatar)
+        cell.userImageView.makeRounded()
+        cell.nameLabel.text = self.contactList[indexPath.item].name
+        cell.lasnameLabel.text = self.contactList[indexPath.item].lastName
+        cell.phoneLabel.text = self.contactList[indexPath.item].phone
+        cell.emailLabel.text = self.contactList[indexPath.item].email
+        
+        return cell
+    }
+       
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let itemWidth = (view.frame.width - paddingSpace) / itemsPerRow
+        return CGSize(width: itemWidth, height: itemWidth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
+    
     
     fileprivate func getIsProfileShareable() -> Bool{
         //Ask if it profile is shareable
+              
+        if((self.currentUserProfile.name ?? "").isEmpty || (self.currentUserProfile.lastName ?? "").isEmpty ){
+            self.qrButton.backgroundColor = UIColor.darkGray
+            return false
+        }else{
+            self.qrButton.backgroundColor = UIColor(named: "Primary")
+            return true
+        }
+    }
+    
+    private func loadData(){
         if let currentUser = UserService.getCurrentUserSession() {
             if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
-                let myProfile = currentUserProfile
+                self.currentUserProfile = currentUserProfile
                 
-                if((myProfile.name ?? "").isEmpty || (myProfile.lastName ?? "").isEmpty ){
-                    self.qrButton.backgroundColor = UIColor.darkGray
-                    return false
-                }else{
-                    self.qrButton.backgroundColor = UIColor(named: "Primary")
-                    return true
-                }
+                self.userImageView.makeRounded()
+                self.userImageView.setUIImageView(imgUrl: self.currentUserProfile.avatar)
+                self.usernameLabel.text = self.currentUserProfile.fullName()
+                
+                self.contactList = try! ProfileDataHelper.findConectionsByProfileid(idobj: currentUser.profileId!)
+                self.contactList.sort{ $0.visit > $1.visit }
+                self.contactList = Array(self.contactList.prefix(4))
+                
                 
             }
         }
-        return false
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loadData()
         qrButton.transform = CGAffineTransform(translationX: view.bounds.width, y: 0)
         cameraQrScannerButton.transform = CGAffineTransform(translationX: view.bounds.width, y: 0)
         
