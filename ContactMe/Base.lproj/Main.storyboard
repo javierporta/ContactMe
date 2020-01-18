@@ -983,7 +983,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DW-BM-5AA">
-                                <rect key="frame" x="20" y="93" width="374" height="700"/>
+                                <rect key="frame" x="20" y="93" width="374" height="715"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="lQN-4t-oVr">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="920.33333333333337"/>
@@ -994,7 +994,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQH-vm-zbV">
                                                         <rect key="frame" x="0.0" y="0.0" width="187" height="100"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="G4O-Ht-b4Z">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="G4O-Ht-b4Z">
                                                                 <rect key="frame" x="0.0" y="5" width="90" height="90"/>
                                                                 <color key="tintColor" name="Primary"/>
                                                                 <constraints>
@@ -1393,7 +1393,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="PmL-YU-zRf" firstAttribute="bottom" secondItem="7DW-BM-5AA" secondAttribute="bottom" constant="20" id="1DB-s1-iNY"/>
+                            <constraint firstItem="PmL-YU-zRf" firstAttribute="bottom" secondItem="7DW-BM-5AA" secondAttribute="bottom" constant="5" id="1DB-s1-iNY"/>
                             <constraint firstItem="7DW-BM-5AA" firstAttribute="leading" secondItem="PmL-YU-zRf" secondAttribute="leading" constant="20" id="EM7-90-D9o"/>
                             <constraint firstItem="7DW-BM-5AA" firstAttribute="top" secondItem="PmL-YU-zRf" secondAttribute="top" constant="5" id="gFs-q7-nju"/>
                             <constraint firstItem="PmL-YU-zRf" firstAttribute="trailing" secondItem="7DW-BM-5AA" secondAttribute="trailing" constant="20" id="q9U-d3-tKb"/>
