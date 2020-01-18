@@ -221,11 +221,10 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
                 _ = try? ProfileDataHelper.update(item: scannedConnectionProfile)
             }
             //Show  message
-            let alertPrompt = UIAlertController(title: "Contact Updated", message: "Let's check the new info!", preferredStyle: .alert)
+            let alertPrompt = UIAlertController(title: "Contact Updated", message: "You can access updated info of your connection now!", preferredStyle: .alert)
             
             let navigateAction = UIAlertAction(title: "Sure!", style: UIAlertAction.Style.default, handler: { (action) -> Void in
                 
-                self.navigateToConnectionDetail(scannedConnectionProfile.id)
                 self.captureSession.startRunning()
             })
             
