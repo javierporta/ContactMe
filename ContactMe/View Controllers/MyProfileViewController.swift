@@ -194,14 +194,11 @@ class MyProfileViewController: UIViewController, UIImagePickerControllerDelegate
             }
         }
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissJobTextField))
-               view.addGestureRecognizer(tap)
-
         
         // Do any additional setup after loading the view.
     }
 
-    @objc func dismissJobTextField() {
+    func dismissJobTextField() {
         jobTextField.endEditing(true)
         jobTextField.tableView!.isHidden = true
     }
