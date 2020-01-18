@@ -118,7 +118,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="lfG-0V-XfB"/>
                     </view>
                     <navigationItem key="navigationItem" id="jwj-Bb-StB"/>
@@ -1464,54 +1464,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-Cj-s6i">
-                                <rect key="frame" x="10" y="378" width="394" height="150"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-Cj-s6i">
+                                <rect key="frame" x="10" y="353" width="394" height="200"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G8i-66-ZOh">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="emailEditingChanged:" destination="m3I-Ah-E4n" eventType="editingChanged" id="CKW-IZ-wvC"/>
-                                            <action selector="emailValueChanged:" destination="m3I-Ah-E4n" eventType="valueChanged" id="Cfd-sW-FgX"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYr-Ea-ZRL">
-                                        <rect key="frame" x="0.0" y="34" width="394" height="32.333333333333343"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                        <color key="textColor" name="Error-Label"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTx-0Z-LaI">
-                                        <rect key="frame" x="0.0" y="66.333333333333314" width="394" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                        <connections>
-                                            <action selector="passwordEditingChanged:" destination="m3I-Ah-E4n" eventType="editingChanged" id="IxI-9t-g7f"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruf-RD-VZY">
-                                        <rect key="frame" x="0.0" y="100.33333333333331" width="394" height="0.0"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                        <color key="textColor" name="Error-Label"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2uK-HP-vPb">
-                                        <rect key="frame" x="0.0" y="100.33333333333331" width="394" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                        <connections>
-                                            <action selector="repeatPasswordEditingChanged:" destination="m3I-Ah-E4n" eventType="editingChanged" id="GhU-U0-T6h"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8q5-Je-Rq2">
-                                        <rect key="frame" x="0.0" y="134.33333333333337" width="394" height="0.0"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                        <color key="textColor" name="Error-Label"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dAp-KA-t4b">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="179.33333333333334"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G8i-66-ZOh">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="emailEditingChanged:" destination="m3I-Ah-E4n" eventType="editingChanged" id="CKW-IZ-wvC"/>
+                                                    <action selector="emailValueChanged:" destination="m3I-Ah-E4n" eventType="valueChanged" id="Cfd-sW-FgX"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYr-Ea-ZRL">
+                                                <rect key="frame" x="0.0" y="39" width="394" height="50"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                <color key="textColor" name="Error-Label"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTx-0Z-LaI">
+                                                <rect key="frame" x="0.0" y="94" width="394" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <action selector="passwordEditingChanged:" destination="m3I-Ah-E4n" eventType="editingChanged" id="IxI-9t-g7f"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruf-RD-VZY">
+                                                <rect key="frame" x="0.0" y="133" width="394" height="2.3333333333333428"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                <color key="textColor" name="Error-Label"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2uK-HP-vPb">
+                                                <rect key="frame" x="0.0" y="140.33333333333331" width="394" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <action selector="repeatPasswordEditingChanged:" destination="m3I-Ah-E4n" eventType="editingChanged" id="GhU-U0-T6h"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8q5-Je-Rq2">
+                                                <rect key="frame" x="0.0" y="179.33333333333337" width="394" height="0.0"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                <color key="textColor" name="Error-Label"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0uc-jZ-Mpu">
-                                        <rect key="frame" x="0.0" y="134.33333333333337" width="394" height="15.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="184.33333333333337" width="394" height="15.666666666666657"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="info.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Mce-XQ-8dl">
                                                 <rect key="frame" x="0.0" y="0.99999999999999734" width="19.666666666666668" height="14.333333333333334"/>
@@ -1526,7 +1531,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="gPc-RH-f0k"/>
+                                    <constraint firstAttribute="height" constant="200" id="gPc-RH-f0k"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGw-sZ-id4">
@@ -1552,28 +1557,31 @@
                                     <action selector="signUpButton:" destination="m3I-Ah-E4n" eventType="touchUpInside" id="vlP-YM-43Y"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ek-ZQ-zay">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ek-ZQ-zay">
                                 <rect key="frame" x="159.33333333333334" y="64" width="95.666666666666657" height="33.666666666666657"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33.670000000000002" id="1RD-dR-kar"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="451-sm-Ip1">
-                                <rect key="frame" x="107" y="149" width="200" height="198.66666666666669"/>
+                                <rect key="frame" x="99.333333333333329" y="118.66666666666669" width="215.33333333333337" height="214"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="451-sm-Ip1" secondAttribute="height" multiplier="1:1" id="fxE-6E-7ky"/>
-                                    <constraint firstAttribute="width" constant="200" id="gV2-9m-lbE"/>
+                                    <constraint firstAttribute="width" secondItem="451-sm-Ip1" secondAttribute="height" multiplier="1:1" id="0Oe-hX-IHN"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QUQ-Cj-s6i" firstAttribute="leading" secondItem="fMx-O6-wQM" secondAttribute="leading" constant="10" id="0lM-xS-Zab"/>
                             <constraint firstItem="fMx-O6-wQM" firstAttribute="bottom" secondItem="lGw-sZ-id4" secondAttribute="bottom" id="56b-n9-Huo"/>
                             <constraint firstItem="lGw-sZ-id4" firstAttribute="centerX" secondItem="fMx-O6-wQM" secondAttribute="centerX" id="Amd-zX-0zc"/>
+                            <constraint firstItem="451-sm-Ip1" firstAttribute="top" secondItem="4Ek-ZQ-zay" secondAttribute="bottom" constant="20" id="DMH-uq-R59"/>
                             <constraint firstItem="QUQ-Cj-s6i" firstAttribute="centerY" secondItem="fMx-O6-wQM" secondAttribute="centerY" id="DhD-Vn-6Ki"/>
                             <constraint firstItem="lGw-sZ-id4" firstAttribute="firstBaseline" secondItem="2na-94-lIj" secondAttribute="baseline" constant="40" id="Ehx-cV-GLQ"/>
-                            <constraint firstItem="QUQ-Cj-s6i" firstAttribute="top" secondItem="451-sm-Ip1" secondAttribute="bottom" constant="30" id="Gim-UW-7EX"/>
+                            <constraint firstItem="QUQ-Cj-s6i" firstAttribute="top" secondItem="451-sm-Ip1" secondAttribute="bottom" constant="20" id="Gim-UW-7EX"/>
                             <constraint firstItem="4Ek-ZQ-zay" firstAttribute="centerX" secondItem="fMx-O6-wQM" secondAttribute="centerX" id="YBi-gB-D2b"/>
                             <constraint firstItem="fMx-O6-wQM" firstAttribute="trailing" secondItem="QUQ-Cj-s6i" secondAttribute="trailing" constant="10" id="tBc-kx-75M"/>
                             <constraint firstItem="2na-94-lIj" firstAttribute="centerX" secondItem="fMx-O6-wQM" secondAttribute="centerX" id="tN1-UL-oEx"/>
