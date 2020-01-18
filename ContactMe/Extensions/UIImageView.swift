@@ -12,10 +12,17 @@ extension UIImageView {
 
     func makeRounded() {
 
-        self.layer.borderWidth = 1
+        //self.layer.borderWidth = 1
         self.layer.masksToBounds = false
-        self.layer.borderColor = UIColor.black.cgColor
+        //self.layer.borderColor = UIColor.black.cgColor
         self.layer.cornerRadius = self.frame.height / 2
         self.clipsToBounds = true
+    }
+    
+    func setUIImageView(imgUrl: String!){
+        
+        let url = URL(string: imgUrl ?? "https://i.imgur.com/l9NqEqC.jpg")
+        let data = try! Data(contentsOf: url!)
+        self.image = UIImage(data: data)!
     }
 }

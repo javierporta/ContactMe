@@ -155,7 +155,9 @@ class ConnectionDetailViewController: UIViewController {
     }
     
     func setProfileOutlets(){
-        avatarImageView.image = connectionProfile.avatar?.toImage()
+        
+        avatarImageView.makeRounded()
+        avatarImageView.setUIImageView(imgUrl: connectionProfile.avatar)
         
         if (connectionProfile.gender == "F"){
             genderUIImage.image = UIImage(named: "icon-gender-female")
