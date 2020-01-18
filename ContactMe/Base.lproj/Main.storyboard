@@ -175,7 +175,7 @@
                                 <rect key="frame" x="10" y="255" width="394" height="558"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-YN-OqN">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="1353.3333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="1346.3333333333333"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="5E2-MD-IFs">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="172"/>
@@ -225,36 +225,36 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="P4H-Xp-GwZ">
-                                                <rect key="frame" x="0.0" y="184" width="394" height="178.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="184" width="394" height="171.66666666666663"/>
                                                 <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey! People will have more chances to meet you if you enter your University" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYp-cD-jeS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="33.666666666666664"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What uni are you studying at?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="12E-uq-zRD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                                                        <rect key="frame" x="0.0" y="45.666666666666686" width="394" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
                                                             <action selector="universityTapped:" destination="2GJ-KL-fJK" eventType="editingDidBegin" id="E7S-SB-rRO"/>
                                                         </connections>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey! People will have more changes to meet you if you entry your University" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYp-cD-jeS">
-                                                        <rect key="frame" x="0.0" y="46" width="394" height="40.666666666666657"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's your current/last job?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bma-Ub-q7E" customClass="CustomSearchTextField" customModule="ContactMe" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="98.666666666666629" width="394" height="34"/>
+                                                        <rect key="frame" x="0.0" y="91.666666666666629" width="394" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What're you studying?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHS-1h-y1I">
-                                                        <rect key="frame" x="0.0" y="144.66666666666663" width="394" height="34"/>
+                                                        <rect key="frame" x="0.0" y="137.66666666666663" width="394" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Zcs-D0-hlw">
-                                                <rect key="frame" x="0.0" y="374.66666666666663" width="394" height="600"/>
+                                                <rect key="frame" x="0.0" y="367.66666666666663" width="394" height="600"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mbw-nq-6iK">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="600"/>
@@ -286,7 +286,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HIe-hj-r6e" userLabel="Free Time Stack View">
-                                                <rect key="frame" x="0.0" y="986.66666666666663" width="394" height="366.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="979.66666666666663" width="394" height="366.66666666666663"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where are you at in your free time?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RTo-nI-J79">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
