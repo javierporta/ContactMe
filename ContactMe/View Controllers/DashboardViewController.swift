@@ -68,8 +68,7 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
         
         cell.userImageView.setUIImageView(imgUrl: self.contactList[indexPath.item].avatar)
         cell.userImageView.makeRounded()
-        cell.nameLabel.text = self.contactList[indexPath.item].name
-        cell.lasnameLabel.text = self.contactList[indexPath.item].lastName
+        cell.nameLabel.text = self.contactList[indexPath.item].fullName()
         cell.phoneLabel.text = self.contactList[indexPath.item].phone
         cell.emailLabel.text = self.contactList[indexPath.item].email
         
