@@ -19,11 +19,17 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var cameraQrScannerButton: RoundButton!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+   
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var connectionsCountLabel: UILabel!
+    @IBOutlet weak var lastConnectionLabel: UILabel!
     
     var isProfileShareable=false;
     var currentUserProfile = Profile()
     
+    
+    @IBOutlet weak var imgCountContact: UIImageView!
     
     private let reuseIdentifier = "ContactCell"
     private let itemsPerRow: CGFloat = 2
@@ -50,6 +56,12 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
         return self.contactList.count
     }
     
+        //important: code to recalculate width on each rotation
+        override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    //        Code to force resizing on each rotation
+            collectionView.collectionViewLayout.invalidateLayout()
+        }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! ContactCollectionViewCell
@@ -68,7 +80,10 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
         let itemWidth = (view.frame.width - paddingSpace) / itemsPerRow
-        return CGSize(width: itemWidth, height: itemWidth)
+        print(view.frame.width)
+        print(paddingSpace)
+        print(itemWidth)
+        return CGSize(width: itemWidth, height: 120)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -98,6 +113,7 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
             if let currentUserProfile = try? ProfileDataHelper.find(idobj: currentUser.profileId!){
                 self.currentUserProfile = currentUserProfile
                 
+                self.imgCountContact.makeRounded()
                 self.userImageView.makeRounded()
                 self.userImageView.setUIImageView(imgUrl: self.currentUserProfile.avatar)
                 self.usernameLabel.text = self.currentUserProfile.fullName()
@@ -106,6 +122,24 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
                 self.contactList = self.contactList.filter{ $0.visit > 0 }
                 self.contactList.sort{ $0.visit > $1.visit }
                 self.contactList = Array(self.contactList.prefix(4))
+                
+                connectionsCountLabel.text = String(self.contactList.count)
+                if let lastConnetion = self.contactList.min(by: { a, b in a.getConnectionDate() < b.getConnectionDate()}) {
+                    
+                    if #available(iOS 13.0, *), lastConnetion.connectionDateTime != nil {
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                        let connectionDateTime = dateFormatter.date(from: lastConnetion.connectionDateTime ?? "")!
+                        let formatter = RelativeDateTimeFormatter()
+                        formatter.unitsStyle = .full
+                        let relativeDate = formatter.localizedString(for: connectionDateTime, relativeTo: Date())
+                        lastConnectionLabel.text = relativeDate
+                    } else {
+                        // Fallback on earlier versions
+                        lastConnectionLabel.text = lastConnetion.connectionDateTime
+                    }
+                    
+                }
                 
                 
             }
@@ -136,15 +170,26 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+    
+        guard
+            segue.identifier == "contactDetail",
+            let indexPath = self.collectionView.indexPathsForSelectedItems?.first,
+            let detailViewController = segue.destination as? ConnectionDetailViewController
+        else {
+              return
+          }
+          
+        var contact = contactList[indexPath.row]
+       
+        detailViewController.profileId = contact.id
+       
      }
-     */
+     
     
     //    MARK: Actions
     @IBAction func touchUpLogoutButton(_ sender: Any) {

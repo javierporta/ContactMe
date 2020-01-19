@@ -9,12 +9,11 @@
 import UIKit
 
 class ContactCollectionViewCell: UICollectionViewCell {
-    
+
+
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var lasnameLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-    
-    
+    @IBOutlet weak var phoneLabel: UILabel!
 }
