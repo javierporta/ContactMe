@@ -615,46 +615,46 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContactCell" id="Usf-5Y-F8d" customClass="ContactCollectionViewCell" customModule="ContactMe" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="157" height="120"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157" height="140"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UFW-nF-Cjk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="157" height="120"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="157" height="140"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUser" translatesAutoresizingMaskIntoConstraints="NO" id="JfO-uy-ZnM">
-                                                            <rect key="frame" x="51" y="4" width="55" height="55"/>
+                                                            <rect key="frame" x="51" y="12" width="55" height="55"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="55" id="2cD-Cn-iTR"/>
                                                                 <constraint firstAttribute="width" constant="55" id="dqV-B2-TAj"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="56 963256" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="his-oy-iMc">
-                                                            <rect key="frame" x="57" y="90" width="59" height="13.333333333333329"/>
+                                                            <rect key="frame" x="57" y="98" width="59" height="13.333333333333329"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons-phone" translatesAutoresizingMaskIntoConstraints="NO" id="oMd-CW-z3m">
-                                                            <rect key="frame" x="40" y="89" width="15" height="15"/>
+                                                            <rect key="frame" x="40" y="97" width="15" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="15" id="AxJ-Gq-gVT"/>
                                                                 <constraint firstAttribute="height" constant="15" id="vtL-1E-lvd"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsP-HR-dkh">
-                                                            <rect key="frame" x="40.999999999999993" y="106" width="91.333333333333314" height="13.333333333333329"/>
+                                                            <rect key="frame" x="40.999999999999993" y="114" width="91.333333333333314" height="13.333333333333329"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FullName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEZ-Sx-z71">
-                                                            <rect key="frame" x="42.666666666666664" y="64" width="71.666666666666686" height="21"/>
+                                                            <rect key="frame" x="42.666666666666664" y="72" width="71.666666666666686" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-email" translatesAutoresizingMaskIntoConstraints="NO" id="Z5C-08-Qer">
-                                                            <rect key="frame" x="24" y="105" width="15" height="15"/>
+                                                            <rect key="frame" x="24" y="113" width="15" height="15"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="15" id="STu-YV-kkf"/>
                                                                 <constraint firstAttribute="height" constant="15" id="mc0-wx-Ecm"/>
@@ -670,7 +670,7 @@
                                                         <constraint firstItem="JfO-uy-ZnM" firstAttribute="centerX" secondItem="UFW-nF-Cjk" secondAttribute="centerX" id="AZo-Ip-YwS"/>
                                                         <constraint firstItem="CEZ-Sx-z71" firstAttribute="top" secondItem="JfO-uy-ZnM" secondAttribute="bottom" constant="5" id="HxL-xp-iYv"/>
                                                         <constraint firstItem="his-oy-iMc" firstAttribute="leading" secondItem="oMd-CW-z3m" secondAttribute="trailing" constant="2" id="M0c-vb-cGq"/>
-                                                        <constraint firstItem="JfO-uy-ZnM" firstAttribute="top" secondItem="UFW-nF-Cjk" secondAttribute="top" constant="4" id="OPO-tr-Y1P"/>
+                                                        <constraint firstItem="JfO-uy-ZnM" firstAttribute="top" secondItem="UFW-nF-Cjk" secondAttribute="top" constant="12" id="OPO-tr-Y1P"/>
                                                         <constraint firstItem="oMd-CW-z3m" firstAttribute="top" secondItem="CEZ-Sx-z71" secondAttribute="bottom" constant="4" id="lHk-m0-pzY"/>
                                                         <constraint firstItem="FsP-HR-dkh" firstAttribute="centerX" secondItem="UFW-nF-Cjk" secondAttribute="centerX" constant="8" id="nSm-8h-nKK"/>
                                                         <constraint firstItem="FsP-HR-dkh" firstAttribute="leading" secondItem="Z5C-08-Qer" secondAttribute="trailing" constant="2" id="o5W-5u-bCg"/>
@@ -678,7 +678,7 @@
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <color key="backgroundColor" name="Primary-Label"/>
-                                                <size key="customSize" width="157" height="120"/>
+                                                <size key="customSize" width="157" height="140"/>
                                                 <connections>
                                                     <outlet property="emailLabel" destination="FsP-HR-dkh" id="GJN-2y-pfJ"/>
                                                     <outlet property="nameLabel" destination="CEZ-Sx-z71" id="Eax-D1-gMa"/>

@@ -9,8 +9,8 @@
 import UIKit
 
 class ContactListViewController: UITableViewController, UISearchResultsUpdating {
-       
-
+    
+    
     var contactList = [Profile]()
     var filteredContactList = [Profile]()
     var resultSearchController = UISearchController()
@@ -20,7 +20,7 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
         
         
         tableView.backgroundView = UIImageView(image: UIImage(named: "background4.png"))
-                     
+        
         resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
@@ -37,14 +37,14 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       loadData()
+        loadData()
         
     }
     
     private func loadData(){
-         if let currentUser = UserService.getCurrentUserSession() {
-               self.contactList = try! ProfileDataHelper.findConectionsByProfileid(idobj: currentUser.profileId!)
-           }
+        if let currentUser = UserService.getCurrentUserSession() {
+            self.contactList = try! ProfileDataHelper.findConectionsByProfileid(idobj: currentUser.profileId!)
+        }
         tableView.reloadData()
     }
     
@@ -58,8 +58,8 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
         self.tableView.reloadData()
     }
     
-
-     
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -70,48 +70,73 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
         }
         return contactList.count
     }
-     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         
-         // Table view cells are reused and should be dequeued using a cell identifier.
-         let cellIdentifier = "ContactTableViewCell"
-         guard let cell = tableView.dequeueReusableCell(withIdentifier:
-             cellIdentifier, for: indexPath) as? ContactTableViewCell else {
-                 fatalError("The dequeued cell is not an instance of ContactTableViewCell`.")
-         }
-         
-         // Fetches the appropriate contact for the data source layout.
-         var contact = contactList[indexPath.row]
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-         if(resultSearchController.isActive){
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "ContactTableViewCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier:
+            cellIdentifier, for: indexPath) as? ContactTableViewCell else {
+                fatalError("The dequeued cell is not an instance of ContactTableViewCell`.")
+        }
+        
+        // Fetches the appropriate contact for the data source layout.
+        var contact = contactList[indexPath.row]
+        
+        if(resultSearchController.isActive){
             contact = self.filteredContactList[indexPath.row]
-         }
+        }
         
-         cell.contactNameLabel.text = contact.fullName()
-         cell.carieerLabel.text = contact.carieer
-         cell.interestLabel.text = contact.insterest
-         cell.avatarImage.setUIImageView(imgUrl: contact.avatar)
+        cell.contactNameLabel.text = contact.fullName()
+        cell.carieerLabel.text = contact.carieer
+        cell.interestLabel.text = contact.insterest
+        cell.avatarImage.setUIImageView(imgUrl: contact.avatar)
         cell.phoneLabel.text = contact.phone
         cell.emailLabel.text = contact.email
-         
-         return cell
-     }
-     
+        
+        return cell
+    }
     
-  
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            let alert = UIAlertController(title: "Removing connection", message: "Are you sure you want to remove this connection?", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { (action) -> Void in
+                if(self.resultSearchController.isActive){
+                    self.deleteConnection(connection: self.filteredContactList[indexPath.row])
+                }else{
+                    self.deleteConnection(connection: self.contactList[indexPath.row])
+                }
+            }))
+            
+            alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    private func deleteConnection(connection: Profile){
+        try! ProfileDataHelper.delete(item: connection)
+        loadData()
+    }
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         
+        
         guard
             segue.identifier == Constants.Identifiers.SHOW_DETAILS_SEGUE,
             let indexPath = tableView.indexPathForSelectedRow,
             let detailViewController = segue.destination as? ConnectionDetailViewController
             else {
-              return
-          }
-          
+                return
+        }
+        
         var contact = contactList[indexPath.row]
         if(resultSearchController.isActive){
             contact = filteredContactList[indexPath.row]
@@ -120,5 +145,5 @@ class ContactListViewController: UITableViewController, UISearchResultsUpdating 
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-
+    
 }

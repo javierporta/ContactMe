@@ -82,7 +82,7 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
         print(view.frame.width)
         print(paddingSpace)
         print(itemWidth)
-        return CGSize(width: itemWidth, height: 120)
+        return CGSize(width: itemWidth, height: 140)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
