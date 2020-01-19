@@ -158,6 +158,7 @@
 		2C192C2D238701AF0049B43B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5DAA7CCA237DC79600FB7423 /* Constants.swift */,
 				2C192C33238702170049B43B /* DataAccessError.swift */,
 			);
 			path = Common;
@@ -206,11 +207,8 @@
 				2CAAF1B52374612F00B108BE /* AppDelegate.swift */,
 				2CAAF1B72374612F00B108BE /* SceneDelegate.swift */,
 				2CAAF1BB2374612F00B108BE /* Main.storyboard */,
-				2CAAF1BE2374613100B108BE /* Assets.xcassets */,
 				2CAAF1C02374613100B108BE /* LaunchScreen.storyboard */,
 				2CAAF1C32374613100B108BE /* Info.plist */,
-				5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */,
-				5DAA7CCA237DC79600FB7423 /* Constants.swift */,
 			);
 			path = ContactMe;
 			sourceTree = "<group>";
@@ -218,6 +216,7 @@
 		2CAAF1C923746BEB00B108BE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2CAAF1BE2374613100B108BE /* Assets.xcassets */,
 				2CAAF1CA23746C3200B108BE /* ColorsTheme.xcassets */,
 			);
 			path = Assets;
@@ -239,6 +238,7 @@
 		5D58E5882386D36100FA7407 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5DAA7CC8237DC5E300FB7423 /* MainTabBarController.swift */,
 				5DAA7CCC237DCEDE00FB7423 /* DashboardViewController.swift */,
 				5D91B9952375B5C200BCDCA0 /* RegisterViewController.swift */,
 				5D91B9972375B5EE00BCDCA0 /* ForgotYourPasswordViewController.swift */,
