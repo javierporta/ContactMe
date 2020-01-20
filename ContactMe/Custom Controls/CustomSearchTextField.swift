@@ -195,7 +195,7 @@ extension CustomSearchTextField: UITableViewDelegate, UITableViewDataSource {
     // MARK: Early testing methods
     func addData(){
                 
-        guard let url = URL(string: "https://www.mocky.io/v2/5e2226412f0000eecf77daa0") else {
+        guard let url = URL(string: Constants.JOBS_API_URL) else {
             print("Invalid URL.")
             return
             

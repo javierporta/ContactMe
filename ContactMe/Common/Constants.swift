@@ -14,6 +14,7 @@ struct Constants {
     static let USER_PASSWORD_KEY = "userPassword"
     static let USER_DATA_KEY = "userDataJson"
     static let CURRENT_USER_KEY = "currentUserJson"
+    static let JOBS_API_URL = "https://www.mocky.io/v2/5e25e6062f00006300ce2d6e"
     
     struct Identifiers {
         
