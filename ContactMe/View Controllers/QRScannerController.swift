@@ -150,7 +150,7 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             // create a sound ID, in this case its the tweet sound.
             let systemSoundID: SystemSoundID = 1016
             // to play sound
-            //            AudioServicesPlaySystemSound (systemSoundID)
+            AudioServicesPlaySystemSound (systemSoundID)
             
             
             let alertPrompt = UIAlertController(title: "Adding a new connection", message: "You're about to add \(connectionProfile.name ?? "") as a contact", preferredStyle: .actionSheet)
