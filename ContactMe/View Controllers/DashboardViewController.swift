@@ -123,7 +123,7 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
                 self.contactList = Array(self.contactList.prefix(4))
                 
                 connectionsCountLabel.text = String(self.contactList.count)
-                if let lastConnetion = self.contactList.min(by: { a, b in a.getConnectionDate() < b.getConnectionDate()}) {
+                if let lastConnetion = self.contactList.min(by: { a, b in a.connectionDateTime != nil && b.connectionDateTime != nil && a.getConnectionDate() < b.getConnectionDate()}) {
                     
                     if #available(iOS 13.0, *), lastConnetion.connectionDateTime != nil {
                         let dateFormatter = DateFormatter()
@@ -137,10 +137,7 @@ class DashboardViewController: UIViewController, UICollectionViewDataSource, UIC
                         // Fallback on earlier versions
                         lastConnectionLabel.text = lastConnetion.connectionDateTime
                     }
-                    
                 }
-                
-                
             }
         }
     }
