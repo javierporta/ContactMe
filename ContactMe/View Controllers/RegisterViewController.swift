@@ -25,6 +25,8 @@ class RegisterViewController: ValidatorViewController {
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     @IBOutlet weak var repeatPasswordErrorLabel: UILabel!
     
+    @IBOutlet weak var logoImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -131,4 +133,12 @@ class RegisterViewController: ValidatorViewController {
         self.present(viewController, animated: true, completion: nil)
     }
     
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape{
+            self.logoImage.isHidden = true
+        }else{
+            self.logoImage.isHidden = false
+        }
+    }
 }
