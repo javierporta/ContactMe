@@ -146,12 +146,16 @@ class QRScannerController: UIViewController, CLLocationManagerDelegate {
             //            generate success haptics
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
+            AudioServicesPlaySystemSound(SystemSoundID(4095))
+
             
             // create a sound ID, in this case its the tweet sound.
-            let systemSoundID: SystemSoundID = 1016
-            // to play sound
-            AudioServicesPlaySystemSound (systemSoundID)
+            //let systemSoundID: SystemSoundID = 1016
+            // to play sound iOS13
             
+            AudioServicesPlaySystemSound(SystemSoundID(1322))
+
+
             
             let alertPrompt = UIAlertController(title: "Adding a new connection", message: "You're about to add \(connectionProfile.name ?? "") as a contact", preferredStyle: .actionSheet)
             
